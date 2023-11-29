@@ -18,29 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/admin", function(){
-return view('admin/dashboard');
-});
-
-//đường dẫn products
-Route::get("admin/products", function(){
-    return view('admin/products/product');
-});
-
-//đường dẫn users
-Route::get("admin/users", function(){
-    return view('admin/users/users');
-});
-
-//đường dẫn categories
-Route::get("admin/categories", function(){
-    return view('admin/categories/categories');
-});
-
-Route::get("admin/", function(){
-    return view('admin/categories/categories');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
