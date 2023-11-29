@@ -17,10 +17,3 @@
     - npm run dev
     - php artisan serve
 6. Vào URL: 127.0.0.1:8000 -> tạo tài khoản mới, vào link Administrator
-
-\*\*\* List còn lại của admin page
-
-1. Handle Category
-2. Dashboard
-3. Order
-4. Website
