@@ -1,4 +1,8 @@
 @import "./root.css";
-@import "./dashboard.css";
 
-@import "./products/product.css";
+@import "./admin/bootstrap.min.css";
+@import "./admin/animate.css";
+@import "./admin/dataTables.bootstrap4.min.css";
+@import "./admin/admin.css";
+
+
