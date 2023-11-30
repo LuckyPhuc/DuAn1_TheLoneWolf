@@ -54,14 +54,14 @@
                                 <input type="text" value="thomas@mail.com">
                             </div>
                         </div>
-                        {{-- <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Role</label>
                                 <select class="select">
                                     <option>Owner</option>
                                     <option> </option>
                                 </select>
-                            </div> --}}
+                            </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">

@@ -56,13 +56,3 @@ Route::get('/admin/dashboard/couple/index', function () {
 Route::get('/admin/dashboard/user/list', function () {
     return view('admin/users/index');
 });
-
-// User add
-Route::get('/admin/dashboard/user/add', function () {
-    return view('admin/users/users-create');
-});
-
-// User Update
-Route::get('/admin/dashboard/user/update', function() {
-    return view('admin/users/users-update');
-});

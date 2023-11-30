@@ -58,11 +58,4 @@ Route::get('/admin/dashboard/user/list', function () {
 });
 
 // User add
-Route::get('/admin/dashboard/user/add', function () {
-    return view('admin/users/users-create');
-});
-
-// User Update
-Route::get('/admin/dashboard/user/update', function() {
-    return view('admin/users/users-update');
-});
+Route::get('/admin/dashboard/user/add', function () {});
