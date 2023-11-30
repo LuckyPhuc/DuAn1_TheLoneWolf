@@ -37,14 +37,14 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/dashboard/products/list', function () {
     return view('admin/products/index');
 });
-Route::get('/admin/dashboard/products/create', function () {
+Route::get('/admin/dashboard/products/list', function () {
     return view('admin/products/product-create');
 });
 // category
-Route::get('/admin/dashboard/categories/list', function () {
+Route::get('/admin/dashboard/category/list', function () {
     return view('admin/categories/index');
 });
-Route::get('/admin/dashboard/categories/create', function () {
+Route::get('/admin/dashboard/category/create', function () {
     return view('admin/categories/categories-create');
 });
 //couple
