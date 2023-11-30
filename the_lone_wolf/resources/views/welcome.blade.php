@@ -849,7 +849,6 @@
                     @endif
                 @endauth
             </div>
-            <h2 class="hello">hello</h2>
         @endif
     </div>
 </body>

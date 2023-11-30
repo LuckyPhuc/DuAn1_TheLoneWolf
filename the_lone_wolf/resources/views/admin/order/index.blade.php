@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Couple - create')
+@section('title', 'Admin - Orders')
 
 <div class="page-wrapper">
     @section('content')
