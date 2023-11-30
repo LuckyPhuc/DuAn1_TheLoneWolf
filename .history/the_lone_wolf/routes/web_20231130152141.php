@@ -69,6 +69,3 @@ Route::get('/admin/dashboard/People/suppliers/create', function () {
 Route::get('/admin/dashboard/People/users/list', function () {
     return view('admin/People/userList');
 });
-Route::get('/admin/dashboard/People/users/create', function () {
-    return view('admin/People/addUsers');
-});
