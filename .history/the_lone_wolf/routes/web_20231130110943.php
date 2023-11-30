@@ -37,7 +37,7 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/dashboard/products/list', function () {
     return view('admin/products/index');
 });
-Route::get('/admin/dashboard/products/create', function () {
+Route::get('/admin/dashboard/products/list', function () {
     return view('admin/products/product-create');
 });
 // category
