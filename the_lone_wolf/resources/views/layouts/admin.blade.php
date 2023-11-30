@@ -9,14 +9,25 @@
         content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern,  html5, responsive">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/dataTables.bootstrap4.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
     <title>@yield('title')</title>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
-    <div id="global-loader">
-        <div class="whirly-loader"> </div>
-    </div>
     <div class="main-wrapper">
         <div class="header">
             <div class="header-left active">
@@ -39,7 +50,6 @@
             </a>
 
             <ul class="nav user-menu">
-
                 <li class="nav-item">
                     <div class="top-nav-search">
                         <a href="javascript:void(0);" class="responsive-search">
@@ -233,49 +243,17 @@
                                 <li><a href="">Add Product</a></li>
                                 <li><a href="">Category List</a></li>
                                 <li><a href="">Add Category</a></li>
-                                <li><a href="">Brand List</a></li>
-                                <li><a href="">Add Brand</a></li>
-                                <li><a href="">Import Products</a></li>
-                                <li><a href="">Print Barcode</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/sales1.svg') }}"
-                                    alt="img"><span>
-                                    Sales</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul>
-                                <li><a href="saleslist.html">Sales List</a></li>
-                                <li><a href="pos.html">POS</a></li>
-                                <li><a href="pos.html">New Sales</a></li>
-                                <li><a href="salesreturnlists.html">Sales Return List</a></li>
-                                <li><a href="createsalesreturns.html">New Sales Return</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/purchase1.svg') }}"
-                                    alt="img"><span>
-                                    Purchase</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul>
-                                <li><a href="purchaselist.html">Purchase List</a></li>
-                                <li><a href="addpurchase.html">Add Purchase</a></li>
-                                <li><a href="importpurchase.html">Import Purchase</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/return1.svg') }}"
                                     alt="img"><span>
-                                    Return</span>
+                                    Couple</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="salesreturnlist.html">Sales Return List</a></li>
-                                <li><a href="createsalesreturn.html">Add Sales Return </a></li>
-                                <li><a href="purchasereturnlist.html">Purchase Return List</a></li>
-                                <li><a href="createpurchasereturn.html">Add Purchase Return </a></li>
+                                <li><a href="#">Couple List</a></li>
+                                <li><a href="#">Couple Create</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
@@ -291,44 +269,6 @@
                                 <li><a href="addsupplier.html">Add Supplier </a></li>
                                 <li><a href="userlist.html">User List</a></li>
                                 <li><a href="adduser.html">Add User</a></li>
-                                <li><a href="storelist.html">Store List</a></li>
-                                <li><a href="addstore.html">Add Store</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="javascript:void(0);"><i data-feather="bar-chart-2"></i> <span> Charts </span>
-                            </a>
-                            <ul>
-                                <li><a href="chart-apex.html">Apex Charts</a></li>
-                                <li><a href="chart-js.html">Chart Js</a></li>
-                                <li><a href="chart-morris.html">Morris Charts</a></li>
-                                <li><a href="chart-flot.html">Flot Charts</a></li>
-                                <li><a href="chart-peity.html">Peity Charts</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/product.svg') }}"
-                                    alt="img"><span>
-                                    Application</span><span class="menu-arrow"></span> </a>
-                            <ul>
-                                <li><a href="chat.html">Chat</a></li>
-                                <li><a href="calendar.html">Calendar</a></li>
-                                <li><a href="email.html">Email</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/time.svg') }}"
-                                    alt="img"><span>
-                                    Report</span><span class="menu-arrow"></span>
-                            </a>
-                            <ul>
-                                <li><a href="purchaseorderreport.html">Purchase order report</a></li>
-                                <li><a href="inventoryreport.html">Inventory Report</a></li>
-                                <li><a href="salesreport.html">Sales Report</a></li>
-                                <li><a href="invoicereport.html">Invoice Report</a></li>
-                                <li><a href="purchasereport.html">Purchase Report</a></li>
-                                <li><a href="supplierreport.html">Supplier Report</a></li>
-                                <li><a href="customerreport.html">Customer Report</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
@@ -343,19 +283,11 @@
                             </ul>
                         </li>
                         <li class="submenu">
-                            <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/settings.svg') }}"
+                            <a href="#"><img src="{{ asset('assets/img/icons/settings.svg') }}"
                                     alt="img"><span>
-                                    Settings</span>
+                                    Website</span>
                                 <span class="menu-arrow"></span>
                             </a>
-                            <ul>
-                                <li><a href="generalsettings.html">General Settings</a></li>
-                                <li><a href="emailsettings.html">Email Settings</a></li>
-                                <li><a href="paymentsettings.html">Payment Settings</a></li>
-                                <li><a href="currencysettings.html">Currency Settings</a></li>
-                                <li><a href="grouppermissions.html">Group Permissions</a></li>
-                                <li><a href="taxrates.html">Tax Rates</a></li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -365,9 +297,9 @@
         <div class="page-wrapper">
             @yield('content')
         </div>
+
+
     </div>
-
-
 
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
 
