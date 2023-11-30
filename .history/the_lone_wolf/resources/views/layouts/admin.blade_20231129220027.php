@@ -18,6 +18,7 @@
         <div class="whirly-loader"> </div>
     </div>
     <div class="main-wrapper">
+
         <div class="header">
             <div class="header-left active">
                 <a href="index.html" class="logo">
