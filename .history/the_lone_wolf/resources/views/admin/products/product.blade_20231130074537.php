@@ -4,7 +4,7 @@
 
 <div class="page-wrapper">
 @section('content')
-            <div class="content">
+            {{-- <div class="content">
                 <div class="page-header">
                     <div class="page-title">
                         <h4>Product List</h4>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-top">
+                         <div class="table-top">
                             <div class="search-set">
                                 <div class="search-path">
                                     <a class="btn btn-filter" id="filter_search">
@@ -48,7 +48,64 @@
                             </div>
                         </div>
 
-
+                        <div class="card mb-0" id="filter_inputs">
+                            <div class="card-body pb-0">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12">
+                                        <div class="row">
+                                            <div class="col-lg col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <select class="select">
+                                                        <option>Choose Product</option>
+                                                        <option>Macbook pro</option>
+                                                        <option>Orange</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <select class="select">
+                                                        <option>Choose Category</option>
+                                                        <option>Computers</option>
+                                                        <option>Fruits</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <select class="select">
+                                                        <option>Choose Sub Category</option>
+                                                        <option>Computer</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <select class="select">
+                                                        <option>Brand</option>
+                                                        <option>N/D</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg col-sm-6 col-12 ">
+                                                <div class="form-group">
+                                                    <select class="select">
+                                                        <option>Price</option>
+                                                        <option>150.00</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <a class="btn btn-filters ms-auto"><img
+                                                            src="{{asset('assets/img/icons/search-whites.svg')}} " alt="img"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="table-responsive">
                             <table class="table  datanew">
@@ -110,6 +167,6 @@
                     </div>
                 </div>
 
-            </div>
+            </div> --}}
 @endsection
 </div>
