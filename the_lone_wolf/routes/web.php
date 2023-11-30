@@ -34,6 +34,11 @@ Route::get('/admin/dashboard', function () {
     return view('admin/dashboard');
 });
 // trang products
-Route::get('/admin/dashboard/products', function () {
+Route::get('/admin/dashboard/products/list', function () {
     return view('admin/products/product');
+});
+
+//couple
+Route::get('/admin/dashboard/couple/index', function () {
+    return view('admin/sale-return/index');
 });
