@@ -248,16 +248,25 @@
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/return1.svg') }}"
                                     alt="img"><span>
+<<<<<<< Updated upstream
                                     Order</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
                                 <li><a href="#">Order List</a></li>
+=======
+                                    Orders</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="#">Orders List</a></li>
+>>>>>>> Stashed changes
                             </ul>
                         </li>
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/users1.svg') }}"
                                     alt="img"><span>
+<<<<<<< Updated upstream
                                     Users</span>
                                 <span class="menu-arrow"></span>
                             </a>
@@ -265,6 +274,16 @@
                                 <li><a href="userlist.html">User List</a></li>
                                 <li><a href="adduser.html">Add User</a></li>
                                 <li><a href="adduser.html">Delete User</a></li>
+=======
+                                    People</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="customerlist.html">Users List</a></li>
+                                <li><a href="addcustomer.html">Add Users </a></li>
+                                <li><a href="addsupplier.html">Delete Users</a></li>
+                                <li><a href="userlist.html">Update User</a></li>
+>>>>>>> Stashed changes
                             </ul>
                         </li>
                         <li class="submenu">

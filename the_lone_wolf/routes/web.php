@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -47,6 +46,7 @@ Route::get('/admin/dashboard/categories/list', function () {
 Route::get('/admin/dashboard/categories/create', function () {
     return view('admin/categories/categories-create');
 });
+<<<<<<< Updated upstream
 //order
 Route::get('/admin/dashboard/order/index', function () {
     return view('admin/order/index');
@@ -59,4 +59,12 @@ Route::get('/admin/dashboard/People/users/list', function () {
 Route::get('/admin/dashboard/People/users/create', function () {
     return view('admin/People/addUsers');
 
+=======
+//couple
+Route::get('/admin/dashboard/order/index', function () {
+    return view('admin/order/index');
+});
+Route::get('/admin/dashboard/people/user',function(){
+    return view('admin/people/index');
+>>>>>>> Stashed changes
 });
