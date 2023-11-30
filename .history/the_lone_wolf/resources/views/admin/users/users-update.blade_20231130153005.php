@@ -54,14 +54,14 @@
                                 <input type="text" value="thomas@mail.com">
                             </div>
                         </div>
-                        {{-- <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Role</label>
                                 <select class="select">
                                     <option>Owner</option>
                                     <option> </option>
                                 </select>
-                            </div> --}}
+                            </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
@@ -69,7 +69,7 @@
                                 <div class="image-upload">
                                     <input type="file">
                                     <div class="image-uploads">
-                                        <img src="{{asset('assets/img/icons/upload.svg')}}" alt="img">
+                                        <img src="{{asset('assets/img/')}}" alt="img">
                                         <h4>Drag and drop a file to upload</h4>
                                     </div>
                                 </div>

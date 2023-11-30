@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Admin - Update Users')
+@section('title', 'Users')
 
 <div class="page-wrapper">
     @section('content')
@@ -8,7 +8,7 @@
             <div class="page-header">
                 <div class="page-title">
                     <h4>User Management</h4>
-                    <h6>Edit/Update User</h6>
+                    <h6>Add/Update User</h6>
                 </div>
             </div>
 
@@ -18,26 +18,26 @@
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>First Name</label>
-                                <input type="text" value="Thomas">
+                                <input type="text">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Last Name</label>
-                                <input type="text" value="">
+                                <input type="text">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>User Name</label>
-                                <input type="text" value="Thomas12">
+                                <input type="text">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Password</label>
                                 <div class="pass-group">
-                                    <input type="password" class=" pass-input" placeholder="123456">
+                                    <input type="password" class=" pass-input">
                                     <span class="fas toggle-password fa-eye-slash"></span>
                                 </div>
                             </div>
@@ -45,23 +45,23 @@
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Phone</label>
-                                <input type="text" value="+123456789">
+                                <input type="text">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" value="thomas@mail.com">
+                                <input type="text">
                             </div>
                         </div>
-                        {{-- <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Role</label>
                                 <select class="select">
+                                    <option>Select</option>
                                     <option>Owner</option>
-                                    <option> </option>
                                 </select>
-                            </div> --}}
+                            </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
@@ -69,32 +69,15 @@
                                 <div class="image-upload">
                                     <input type="file">
                                     <div class="image-uploads">
-                                        <img src="{{asset('assets/img/icons/upload.svg')}}" alt="img">
+                                        <img src="assets/img/icons/upload.svg" alt="img">
                                         <h4>Drag and drop a file to upload</h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="product-list">
-                                <ul class="row">
-                                    <li class="ps-0">
-                                        <div class="productviewset">
-                                            <div class="productviewsimg">
-                                                <img src="{{asset('assets/img/customer/profile2.jpg')}}" alt="img">
-                                            </div>
-                                            <div class="productviewscontent">
-                                                <a href="javascript:void(0);" class="hideset"><i
-                                                        class="fa fa-trash-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                         <div class="col-lg-12">
-                            <a class="btn btn-submit me-2">Update</a>
-                            <a class="btn btn-cancel">Cancel</a>
+                            <a href="javascript:void(0);" class="btn btn-submit me-2">Submit</a>
+                            <a href="userlist.html" class="btn btn-cancel">Cancel</a>
                         </div>
                     </div>
                 </div>
@@ -103,3 +86,4 @@
         </div>
     @endsection
 </div>
+filter_inputs

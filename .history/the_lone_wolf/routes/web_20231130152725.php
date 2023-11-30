@@ -52,7 +52,6 @@ Route::get('/admin/dashboard/couple/index', function () {
     return view('admin/sale-return/index');
 });
 
-
 // User List
 Route::get('/admin/dashboard/user/list', function () {
     return view('admin/users/index');
@@ -65,26 +64,5 @@ Route::get('/admin/dashboard/user/add', function () {
 
 // User Update
 Route::get('/admin/dashboard/user/update', function() {
-    return view('admin/users/users-update');
-//Customer List
-Route::get('/admin/dashboard/People/customers/list', function () {
-    return view('admin/People/CustomerList');
-});
-Route::get('/admin/dashboard/People/customers/create', function () {
-    return view('admin/People/addCustomer');
-});
-//Supplier List
-Route::get('/admin/dashboard/People/suppliers/list', function () {
-    return view('admin/People/SupplierList');
-});
-Route::get('/admin/dashboard/People/suppliers/create', function () {
-    return view('admin/People/addSupplier');
-});
-// userlist
-Route::get('/admin/dashboard/People/users/list', function () {
-    return view('admin/People/userList');
-});
-Route::get('/admin/dashboard/People/users/create', function () {
-    return view('admin/People/addUsers');
-
+    return view('admin/users/user')
 });
