@@ -52,23 +52,9 @@ Route::get('/admin/dashboard/couple/index', function () {
     return view('admin/sale-return/index');
 });
 //Customer List
-Route::get('/admin/dashboard/People/customers/list', function () {
+Route::get('/admin/dashboard/customers/list', function () {
     return view('admin/People/CustomerList');
 });
-Route::get('/admin/dashboard/People/customers/create', function () {
+Route::get('/admin/dashboard/customers/create', function () {
     return view('admin/People/addCustomer');
-});
-//Supplier List
-Route::get('/admin/dashboard/People/suppliers/list', function () {
-    return view('admin/People/SupplierList');
-});
-Route::get('/admin/dashboard/People/suppliers/create', function () {
-    return view('admin/People/addSupplier');
-});
-// userlist
-Route::get('/admin/dashboard/People/users/list', function () {
-    return view('admin/People/userList');
-});
-Route::get('/admin/dashboard/People/users/create', function () {
-    return view('admin/People/addUsers');
 });
