@@ -1,1 +1,0 @@
-<h2>Đây là trang categories</h2>
