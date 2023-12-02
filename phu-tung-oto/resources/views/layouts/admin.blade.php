@@ -30,6 +30,7 @@
 <body>
     <div class="main-wrapper">
         <div class="header">
+
             <div class="header-left active">
                 <a href="index.html" class="logo">
                     <img src="{{ asset('assets/img/logo.png') }}" alt="">
@@ -50,6 +51,7 @@
             </a>
 
             <ul class="nav user-menu">
+
                 <li class="nav-item">
                     <div class="top-nav-search">
                         <a href="javascript:void(0);" class="responsive-search">
@@ -67,6 +69,29 @@
                         </form>
                     </div>
                 </li>
+
+
+                <li class="nav-item dropdown has-arrow flag-nav">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);"
+                        role="button">
+                        <img src="{{ asset('assets/img/flags/us1.png') }}" alt="" height="20">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="javascript:void(0);" class="dropdown-item">
+                            <img src="{{ asset('assets/img/flags/us.png') }}" alt="" height="16"> English
+                        </a>
+                        <a href="javascript:void(0);" class="dropdown-item">
+                            <img src="{{ asset('assets/img/flags/fr.png') }}" alt="" height="16"> French
+                        </a>
+                        <a href="javascript:void(0);" class="dropdown-item">
+                            <img src="{{ asset('assets/img/flags/es.png') }}" alt="" height="16"> Spanish
+                        </a>
+                        <a href="javascript:void(0);" class="dropdown-item">
+                            <img src="{{ asset('assets/img/flags/de.png') }}" alt="" height="16"> German
+                        </a>
+                    </div>
+                </li>
+
 
                 <li class="nav-item dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
@@ -89,7 +114,8 @@
                                             </span>
                                             <div class="media-body flex-grow-1">
                                                 <p class="noti-details"><span class="noti-title">John Doe</span> added
-                                                    new task <span class="noti-title">Patient appointment booking</span>
+                                                    new task <span class="noti-title">Patient appointment
+                                                        booking</span>
                                                 </p>
                                                 <p class="noti-time"><span class="notification-time">4 mins ago</span>
                                                 </p>
@@ -98,14 +124,15 @@
                                     </a>
                                 </li>
                                 <li class="notification-message">
-                                    <a href="#">
+                                    <a href="activities.html">
                                         <div class="media d-flex">
                                             <span class="avatar flex-shrink-0">
                                                 <img alt=""
                                                     src="{{ asset('assets/img/profiles/avatar-03.jpg') }}">
                                             </span>
                                             <div class="media-body flex-grow-1">
-                                                <p class="noti-details"><span class="noti-title">Tarah Shropshire</span>
+                                                <p class="noti-details"><span class="noti-title">Tarah
+                                                        Shropshire</span>
                                                     changed the task name <span class="noti-title">Appointment booking
                                                         with payment gateway</span></p>
                                                 <p class="noti-time"><span class="notification-time">6 mins ago</span>
@@ -119,7 +146,7 @@
                                         <div class="media d-flex">
                                             <span class="avatar flex-shrink-0">
                                                 <img alt=""
-                                                    src="{{ asset('assets/img/profiles/avatar-03.jpg') }}">
+                                                    src="{{ asset('assets/img/profiles/avatar-06.jpg') }}">
                                             </span>
                                             <div class="media-body flex-grow-1">
                                                 <p class="noti-details"><span class="noti-title">Misty Tison</span>
@@ -137,7 +164,7 @@
                                         <div class="media d-flex">
                                             <span class="avatar flex-shrink-0">
                                                 <img alt=""
-                                                    src="{{ asset('assets/img/profiles/avatar-17.jpg') }}">
+                                                    src="{{ asset('assets/img/profiles/avatar-17.jp') }}g">
                                             </span>
                                             <div class="media-body flex-grow-1">
                                                 <p class="noti-details"><span class="noti-title">Rolland Webber</span>
@@ -213,9 +240,9 @@
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">My Profile</a>
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="generalsettings.html">Settings</a>
+                    <a class="dropdown-item" href="signin.html">Logout</a>
                 </div>
             </div>
 
@@ -263,8 +290,7 @@
                             </a>
                             <ul>
                                 <li><a href="userlist.html">User List</a></li>
-                                <li><a href="adduser.html">Add User</a></li>
-                                <li><a href="adduser.html">Delete User</a></li>
+                                <li><a href="userlist.html">Add User</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
