@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('admin/dashboard');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -37,14 +37,14 @@ Route::get('/admin/dashboard/products/list', function () {
     return view('admin/products/index');
 });
 Route::get('/admin/dashboard/products/create', function () {
-    return view('admin/products/product-create');
+    return view('admin/products/add');
 });
 // category
 Route::get('/admin/dashboard/categories/list', function () {
     return view('admin/categories/index');
 });
 Route::get('/admin/dashboard/categories/create', function () {
-    return view('admin/categories/categories-create');
+    return view('admin/categories/add');
 });
 
 //order
@@ -53,9 +53,9 @@ Route::get('/admin/dashboard/order/index', function () {
 });
 
 // userlist
-Route::get('/admin/dashboard/People/users/list', function () {
-    return view('admin/People/userList');
+Route::get('/admin/dashboard/users/list', function () {
+    return view('admin/users/index');
 });
-Route::get('/admin/dashboard/People/users/create', function () {
-    return view('admin/People/addUsers');
+Route::get('/admin/dashboard/users/create', function () {
+    return view('admin/users/add');
 });
