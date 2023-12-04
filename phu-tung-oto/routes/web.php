@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('admin/dashboard');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -43,7 +43,6 @@ Route::prefix('admin/products')->name('admin.products.')->group(function () {
     Route::put('update/{id}', [ProductController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [ProductController::class, 'destroy'])->name('destroy');
 });
-
 //Routing Categories
 Route::prefix('admin/categories')->name('admin.categories.')->group(function () {
     Route::get('list', [CategoriesController::class, 'index'])->name('list');
@@ -85,4 +84,3 @@ Route::prefix('admin/website')->name('admin.website.')->group(function () {
     Route::get('{id}/edit', [WebsiteController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [WebsiteController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
-});
