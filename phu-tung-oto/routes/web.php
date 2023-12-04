@@ -84,3 +84,4 @@ Route::prefix('admin/website')->name('admin.website.')->group(function () {
     Route::get('{id}/edit', [WebsiteController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [WebsiteController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
+});
