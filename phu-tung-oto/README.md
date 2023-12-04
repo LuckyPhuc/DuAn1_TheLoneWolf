@@ -4,7 +4,7 @@
 
 1. Mở VS Code, phpMyAdmin
 
-2. Tạo một database tên là thelonewolf ở Phpmyadmin
+2. Tạo một database tên là phu-tung-oto ở Phpmyadmin
 
 3. Mở terminal(Bấm chuột phải vào thư mục dự án [ thelonewolf ] -> Open in Integrated Terminal) chạy lệnh theo thứ tự:
     - cp .env.example .env

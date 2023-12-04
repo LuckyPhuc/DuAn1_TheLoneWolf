@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\WebsiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,33 +33,54 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('/admin/dashboard', function () {
-    return view('admin/dashboard');
+// Routing product
+Route::prefix('admin/products')->name('admin.products.')->group(function () {
+    Route::get('list', [ProductController::class, 'index'])->name('list');
+    Route::get('create', [ProductController::class, 'create'])->name('create');
+    Route::post('/', [ProductController::class, 'store'])->name('store');
+    Route::get('{id}', [ProductController::class, 'show'])->name('show');
+    Route::get('{id}/edit', [ProductController::class, 'edit'])->name('edit');
+    Route::put('update/{id}', [ProductController::class, 'update'])->name('update');
+    Route::delete('delete/{id}', [ProductController::class, 'destroy'])->name('destroy');
 });
-// trang products
-Route::get('/admin/dashboard/products/list', function () {
-    return view('admin/products/index');
-});
-Route::get('/admin/dashboard/products/create', function () {
-    return view('admin/products/add');
-});
-// category
-Route::get('/admin/dashboard/categories/list', function () {
-    return view('admin/categories/index');
-});
-Route::get('/admin/dashboard/categories/create', function () {
-    return view('admin/categories/add');
-});
-
-//order
-Route::get('/admin/dashboard/order/index', function () {
-    return view('admin/order/index');
+//Routing Categories
+Route::prefix('admin/categories')->name('admin.categories.')->group(function () {
+    Route::get('list', [CategoriesController::class, 'index'])->name('list');
+    Route::get('create', [CategoriesController::class, 'create'])->name('create');
+    Route::post('/', [CategoriesController::class, 'store'])->name('store');
+    Route::get('{id}', [CategoriesController::class, 'show'])->name('show');
+    Route::get('{id}/edit', [CategoriesController::class, 'edit'])->name('edit');
+    Route::put('update/{id}', [CategoriesController::class, 'update'])->name('update');
+    Route::delete('delete/{id}', [CategoriesController::class, 'destroy'])->name('destroy');
 });
 
-// userlist
-Route::get('/admin/dashboard/users/list', function () {
-    return view('admin/users/index');
+//Routing orders
+Route::prefix('admin/orders')->name('admin.orders.')->group(function () {
+    Route::get('list', [OrderController::class, 'index'])->name('list');
+    Route::get('create', [OrderController::class, 'create'])->name('create');
+    Route::post('/', [OrderController::class, 'store'])->name('store');
+    Route::get('{id}', [OrderController::class, 'show'])->name('show');
+    Route::get('{id}/edit', [OrderController::class, 'edit'])->name('edit');
+    Route::put('update/{id}', [OrderController::class, 'update'])->name('update');
+    Route::delete('delete/{id}', [OrderController::class, 'destroy'])->name('destroy');
 });
-Route::get('/admin/dashboard/users/create', function () {
-    return view('admin/users/add');
+
+//Routing User 
+Route::prefix('admin/users')->name('admin.users.')->group(function () {
+    Route::get('list', [UserController::class, 'index'])->name('list');
+    Route::get('create', [UserController::class, 'create'])->name('create');
+    Route::post('/', [UserController::class, 'store'])->name('store');
+    Route::get('{id}', [UserController::class, 'show'])->name('show');
+    Route::get('{id}/edit', [UserController::class, 'edit'])->name('edit');
+    Route::put('update/{id}', [UserController::class, 'update'])->name('update');
+    Route::delete('delete/{id}', [UserController::class, 'destroy'])->name('destroy');
 });
+//Routing website
+Route::prefix('admin/website')->name('admin.website.')->group(function () {
+    Route::get('list', [WebsiteController::class, 'index'])->name('list');
+    Route::get('create', [WebsiteController::class, 'create'])->name('create');
+    Route::post('/', [WebsiteController::class, 'store'])->name('store');
+    Route::get('{id}', [WebsiteController::class, 'show'])->name('show');
+    Route::get('{id}/edit', [WebsiteController::class, 'edit'])->name('edit');
+    Route::put('update/{id}', [WebsiteController::class, 'update'])->name('update');
+    Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
