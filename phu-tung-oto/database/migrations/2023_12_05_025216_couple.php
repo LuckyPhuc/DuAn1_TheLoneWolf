@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('don_dat_hang', function (Blueprint $table) {
+        Schema::create('couple', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('users_id');
-            $table->dateTime('ngay_dat');
-            $table->decimal('tong_tien', 8, 2);
-            $table->string('trang_thai', 100);
+            $table->string('name_couple');
+            $table->text('description')->nullable();
+            $table->date('date_start');
+            $table->date('date_end');
             $table->timestamps();
-            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('don_dat_hang');
+        Schema::dropIfExists('couple');
     }
 };

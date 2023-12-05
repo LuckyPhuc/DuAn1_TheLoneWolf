@@ -18,33 +18,33 @@
                                 <input type="text">
                             </div>
                         </div>
-                        {{-- <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Type</label>
-                                    <select class="select">
-                                        <option>Choose Category</option>
-                                        <option>Computers</option>
-                                    </select>
-                                </div>
-                            </div> --}}
-                        {{-- <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Sub categories</label>
-                                    <select class="select">
-                                        <option>Choose Sub Category</option>
-                                        <option>Fruits</option>
-                                    </select>
-                                </div>
-                            </div> --}}
-                        {{-- <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Brand</label>
-                                    <select class="select">
-                                        <option>Choose Brand</option>
-                                        <option>Brand</option>
-                                    </select>
-                                </div>
-                            </div> --}}
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label>Type</label>
+                                <select class="form-select">
+                                    <option>Choose Category</option>
+                                    <option>Computers</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label>Sub categories</label>
+                                <select class="form-select">
+                                    <option>Choose Sub Category</option>
+                                    <option>Fruits</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label>Brand</label>
+                                <select class="form-select">
+                                    <option>Choose Brand</option>
+                                    <option>Brand</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>PLU</label>
