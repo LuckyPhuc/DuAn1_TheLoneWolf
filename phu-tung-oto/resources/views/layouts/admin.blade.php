@@ -40,7 +40,7 @@
     <div class="main-wrapper">
         <div class="header">
             <div class="header-left active">
-                <a href="index.html" class="logo">
+                <a href="{{ route('dashboard') }}" class="logo">
                     <img src="{{ asset('assets/img/logo.png') }}" alt="">
                 </a>
                 <a href="index.html" class="logo-small">
