@@ -1814,7 +1814,7 @@ div#global-loader,
 
 .page-wrapper {
     margin: 0 0 0 260px;
-    padding: 60px 0 0;
+    padding: 32px 0 0;
     position: relative;
     left: 0;
     -webkit-transition: all 0.2s ease;
@@ -5281,11 +5281,11 @@ span.select2-container.select2-container--default.select2-container--open {
 }
 
 .table tbody tr td a {
-    color: #212b36;
+    color: #fff;
 }
 
 .table tbody tr td a:hover {
-    color: #ff9f43;
+    color: #fff;
 }
 
 .table tbody tr td .product-imgs {
