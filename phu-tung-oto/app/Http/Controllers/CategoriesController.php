@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
-use App\Models\Danh_muc_san_pham;
 
 class CategoriesController extends Controller
 {
@@ -14,7 +13,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view("admin.categories.index");
+        $categories = Categories::all();
+        return view("admin.categories.index", compact("categories"));
     }
 
     /**
@@ -29,31 +29,31 @@ class CategoriesController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {   
+    {
         $request->validate(
             [
-                'category-name' => "required|min:3|max:255|string",
+                'name' => "required|min:3|max:255|string",
             ],
             [
                 'required' => 'Trường này không được để trống',
                 'min' => ':attribute không ít hơn :min ký tự',
-                'max'=>':attribute không vượt quá :max ký tự'
+                'max' => ':attribute không vượt quá :max ký tự'
 
             ],
             [
-                'category-name'=> 'Tên danh mục',
+                'name' => 'Tên danh mục',
             ]
-            );
-    //Proceed with your logic if validation passes
-    $category_name = $request->input("category-name");
-    $category = new danh_muc_san_pham;
-    $category->ten_danh_muc = $category_name;
-    $category->save();
-
-    // Redirect or further processing
-    return redirect()->route('admin.categories.create')->with('success', 'Danh mục đã được tạo thành công.');
+        );
+        $name = $request->name;
+        $categories = new Categories;
+        $categories->name = $name;
+        if ($categories->save()) {
+            return redirect()->route('admin.categories.create')
+                ->with('success', 'Thêm mới danh mục thành công');
+        } else {
+            return redirect()->route('admin.categories.create', compact('request'));
+        }
     }
-
     /**
      * Display the specified resource.
      */
@@ -85,4 +85,10 @@ class CategoriesController extends Controller
     {
         //
     }
+    // public function search($request)
+    // {
+    //     $searchTerm = $request->input('search');
+    //     $categories = Categories::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
+    //     return view("admin.categories.index", compact("categories"));
+    // }
 }
