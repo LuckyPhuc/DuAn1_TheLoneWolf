@@ -1,66 +1,74 @@
 @extends('layouts.admin')
 @section('title', 'Admin - Users - create')
-<div class="page-wrapper">
-    @section('content')
-        <div class="content">
-            <div class="page-header">
-                <div class="page-title">
-                    <h4>User Management</h4>
-                    <h6>Add/Update User</h6>
-                </div>
+@section('content')
+    <div class="content">
+        <div class="page-header">
+            <div class="page-title">
+                <h4>Thêm người dùng</h4>
             </div>
-            <div class="card">
-                <div class="card-body">
+            <div class="page-btn">
+                <a href="{{ Route('admin.users.list') }}" class="btn btn-added">
+                    <i class="bi bi-card-list"> Danh sách người dùng</i></a>
+            </div>
+        </div>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <div class="card">
+            <div class="card-body">
+                <form action="{{ Route('admin.users.store') }}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>User Name</label>
-                                <input type="text" />
+                                <label>Full Name</label>
+                                <input type="text" placeholder="your Full name" name="fullname">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Password</label>
                                 <div class="pass-group">
-                                    <input type="password" class="pass-input" />
+                                    <input type="password" class="pass-input" placeholder="your password" name="password">
                                     <span class="fas toggle-password fa-eye-slash"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" placeholder="your address name" name="Address">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="form-group">
                                 <label>Phone</label>
-                                <input type="text" />
+                                <input type="text" placeholder="your phone" name="phone">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" />
+                                <input type="text" placeholder="your email" name="email">
                             </div>
                         </div>
-                        {{-- <div class="col-lg-3 col-sm-6 col-12">
-                  <div class="form-group">
-                    <label>Role</label>
-                    <select class="select">
-                      <option>Select</option>
-                      <option>Owner</option>
-                    </select>
-                  </div>
-                </div> --}}
-                        <div class="col-lg-12">
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label>Role</label>
+                                <select class="form-select" name="role">
+                                    <option>users</option>
+                                    <option>admin</option>
+                                </select>
+                            </div>
+                        </div>
+                        {{-- <div class="col-lg-12">
                             <div class="form-group">
                                 <label> User Image</label>
                                 <div class="image-upload">
@@ -71,14 +79,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-lg-12">
-                            <a href="javascript:void(0);" class="btn btn-submit me-2">Submit</a>
-                            <a href="userlist.html" class="btn btn-cancel">Cancel</a>
+                            <button type="submit" class="btn btn-submit btn-primary">Thêm Người dùng</button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-    @endsection
-</div>
+    </div>
+@endsection

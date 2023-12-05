@@ -68,9 +68,9 @@ Route::prefix('admin/orders')->name('admin.orders.')->group(function () {
     Route::delete('delete/{id}', [OrderController::class, 'destroy'])->name('destroy');
 });
 
-//Routing User 
+//Routing User
 Route::prefix('admin/users')->name('admin.users.')->group(function () {
-    Route::get('list', [UserController::class, 'index'])->name('list');
+    Route::get('/list', [UserController::class, 'index'])->name('list');
     Route::get('create', [UserController::class, 'create'])->name('create');
     Route::post('/', [UserController::class, 'store'])->name('store');
     Route::get('{id}', [UserController::class, 'show'])->name('show');
@@ -87,4 +87,8 @@ Route::prefix('admin/website')->name('admin.website.')->group(function () {
     Route::get('{id}/edit', [WebsiteController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [WebsiteController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
+});
+// chay thu layouts
+Route::get('/layouts', function () {
+    return view('layouts.users');
 });

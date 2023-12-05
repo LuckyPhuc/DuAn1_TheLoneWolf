@@ -1,5 +1,6 @@
 @import "./admin/bootstrap.min.css";
 @import "./admin/animate.css";
 @import "./admin/dataTables.bootstrap4.min.css";
+@import "./style.css";
 @import "./admin/admin.css";
-@import"./default.css";
+@import "./default.css";
