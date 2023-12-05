@@ -4,15 +4,18 @@
      <div class="content">
          <div class="page-header">
              <div class="page-title">
-                 <h4>User List</h4>
-                 <h6>Manage your User</h6>
+                 <h4>Danh sách người dùng</h4>
              </div>
              <div class="page-btn">
                  <a href="{{ Route('admin.users.create') }}" class="btn btn-added"><img
-                         src="{{ asset('assets/img/icons/plus.svg') }}" alt="img" class="me-2" />Add User</a>
+                         src="{{ asset('assets/img/icons/plus.svg') }}" alt="img" class="me-2" />Thêm Người Dùng</a>
              </div>
          </div>
-
+         @if (session('success'))
+             <div class="alert alert-success">
+                 {{ session('success') }}
+             </div>
+         @endif
          <div class="card">
              <div class="card-body">
                  <div class="table-top">
@@ -52,16 +55,17 @@
                              <tr>
                                  <th>
                                      <label class="checkboxs">
-                                         <input type="checkbox" />
+                                         <input type="checkbox" id="select-all" />
                                          <span class="checkmarks"></span>
                                      </label>
                                  </th>
-                                 <th>Full name</th>
-                                 <th>Phone</th>
-                                 <th>email</th>
-                                 <th>Address</th>
-                                 <th>Status</th>
-                                 <th>Action</th>
+                                 <th>STT</th>
+                                 <th>Họ Và tên</th>
+                                 <th>Số Điện Thoại</th>
+                                 <th>Email</th>
+                                 <th>Địa Chỉ</th>
+                                 <th>Vai Trò</th>
+                                 <th>Hành Động</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -73,17 +77,26 @@
                                              <span class="checkmarks"></span>
                                          </label>
                                      </td>
+                                     <td>{{ $loop->iteration }}</td>
                                      <td>{{ $user->name }}</td>
                                      <td>{{ $user->phone }} </td>
                                      <td>{{ $user->email }} </td>
                                      <td>{{ $user->address }} </td>
                                      <td>{{ $user->role === 1 ? 'admin' : 'users' }}</td>
                                      <td>
-                                         <a class="me-3" href="">
-                                             <img src="{{ asset('assets/img/icons/edit.svg') }} " alt="img" />
+                                         <a class="btn btn-success"
+                                             href="{{ route('admin.users.edit', ['id' => $user->id]) }}">
+                                             <i class="bi bi-pencil"></i>
                                          </a>
-                                         <a class="me-3 confirm-text" href="javascript:void(0);">
-                                             <img src="{{ asset('assets/img/icons/delete.svg') }} " alt="img" />
+                                         <a class="btn btn-danger">
+                                             <form action="{{ route('admin.users.destroy', ['id' => $user->id]) }}"
+                                                 method="POST">
+                                                 @csrf
+                                                 @method('DELETE')
+                                                 <button type="submit"
+                                                     onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?')">
+                                                     <i class="bi bi-trash3"></i></button>
+                                             </form>
                                          </a>
                                      </td>
                                  </tr>

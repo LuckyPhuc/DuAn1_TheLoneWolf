@@ -88,3 +88,7 @@ Route::prefix('admin/website')->name('admin.website.')->group(function () {
     Route::put('update/{id}', [WebsiteController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
 });
+// chay thu layouts
+Route::get('/layouts', function () {
+    return view('layouts.users');
+});
