@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('phu_tung', function (Blueprint $table) {
+       Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('ten_phu_tung');
-            $table->text('mo_ta')->nullable();
-            $table->decimal('gia', 8, 2);
-            $table->integer('so_luong_ton');
-            $table->unsignedBigInteger('danh_muc_id');
+            $table->unsignedBigInteger('users_id');
+            $table->dateTime('order_date');
+            $table->decimal('tolal', 8, 2);
+            $table->string('status', 100);
             $table->timestamps();
-
-            $table->foreign('danh_muc_id')->references('id')->on('danh_muc_san_pham');
-
+            
+            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('phu_tung');
+        Schema::dropIfExists('order');
     }
 };

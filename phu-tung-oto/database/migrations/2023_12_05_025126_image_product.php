@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hinh_anh_san_pham', function (Blueprint $table) {
+        Schema::create('image_product', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('phu_tung_id');
-            $table->string('duong_dan_hinh_anh');
-            $table->string('mo_ta')->nullable();
-            $table->integer('thu_tu_hien_thi')->default(0);
+            $table->unsignedBigInteger('product_id');
+            $table->string('url_im');
+            $table->string('description')->nullable();
+            $table->integer('number')->default(0);
             $table->timestamps();
 
-            $table->foreign('phu_tung_id')->references('id')->on('phu_tung');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hinh_anh_san_pham');
+        Schema::dropIfExists('image_product');
     }
 };
