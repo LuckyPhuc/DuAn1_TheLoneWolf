@@ -54,20 +54,14 @@ class CategoriesController extends Controller
             return redirect()->route('admin.categories.create', compact('request'));
         }
     }
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $categories = Categories::findOrFail($id);
+        return view('admin.categories.edit', compact('categories'));
     }
 
     /**
@@ -75,15 +69,43 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => "required|min:3|max:255|string",
+        ], [
+            'required' => 'Trường này không được để trống',
+            'min' => ':attribute không ít hơn :min ký tự',
+            'max' => ':attribute không vượt quá :max ký tự'
+        ], [
+            'name' => 'Tên danh mục',
+        ]);
+
+        $category = Categories::findOrFail($id);
+        $category->name = $request->name;
+        // Cập nhật các thuộc tính khác của danh mục tại đây
+
+        if ($category->save()) {
+            return redirect()->route('admin.categories.list')
+                ->with('success', 'Cập nhật thành công thành công');
+        } else {
+            return redirect()->route('admin.categories.edit', $id, compact('request'));
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $category = Categories::find($id);
+
+
+        if ($category->delete($id)) {
+            return redirect()->route('admin.categories.list')
+                ->with('success', 'Xóa thành công thành công');
+        } else {
+            return redirect()->route('admin.categories.list',)->with('error', 'Lỗi');
+        }
     }
     // public function search($request)
     // {

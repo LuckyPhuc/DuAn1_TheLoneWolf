@@ -33,59 +33,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $messenger = [];
-
-        $fullname = $request->fullname;
-        $password = $request->password;
-        $Address = $request->Address;
-        $phone = $request->phone;
-        $email = $request->email;
-        $role = $request->role;
-        $roleValue = ($role === 'admin') ? 1 : 0;
-
-        if (!isset($fullname) || empty($fullname)) {
-            $messenger[] = 'Please enter your full name';
-        }
-
-        if (!isset($password) || empty($password)) {
-            $messenger[] = 'Please enter your password';
-        }
-
-        // Thêm kiểm tra dữ liệu hợp lệ cho email nếu cần
-
-        if (!isset($Address) || empty($Address)) {
-            $messenger[] = 'Please enter your address';
-        }
-
-        if (!isset($phone) || empty($phone)) {
-            $messenger[] = 'Please enter your phone number';
-        }
-
-        if (!isset($email) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $messenger[] = 'Please enter a valid email address';
-        }
-
-        if (!isset($role) || empty($role)) {
-            $messenger[] = 'Please enter your role';
-        }
-
-        if (!empty($messenger)) {
-            // Nếu có lỗi, trả về view với thông báo lỗi
-            return view('admin.users.create', compact('messenger'));
-        }
-
-        // Nếu không có lỗi, tiếp tục tạo user mới
-        $user = new User;
-        $user->name = $fullname;
-        $user->address = $Address;
-        $user->phone = $phone;
-        $user->email = $email;
-        $user->role = $roleValue;
-        $user->password = Hash::make($password);
-        $user->save();
-
-        return redirect()->route('admin.users.create')->with(['messenger' => $messenger, 'success' => 'User created successfully!']);
+        $request->validate([
+            'fullname' => 'required',
+            'password' => 'required',
+            'Address' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'role' => 'required',
+        ]);
+        $userData = $request->only(['fullname', 'Address', 'phone', 'email', 'role', 'password']);
+        $userData['role'] = ($request->role === 'admin') ? 1 : 0;
+        $userData['password'] = Hash::make($request->password);
+        User::create($userData);
+        return redirect()->route('admin.users.create')->with(['success' => 'User created successfully!']);
     }
+
 
 
     /**
@@ -99,9 +61,11 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(request $request, string $id)
     {
-        //
+        $id = $request->route('id');
+        $users = User::find($id);
+        return view('admin.users.edit', compact('users'));
     }
 
     /**
@@ -109,14 +73,38 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'fullname' => 'required',
+            'password' => 'required',
+            'Address' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'role' => 'required',
+        ]);
+        $roleValue = ($request->role === 'admin') ? 1 : 0;
+        $user = User::find($id);
+        $user->name = $request->fullname;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->role = $roleValue;
+        $user->password = Hash::make($request->password);
+        if (!empty($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        // Chuyển hướng về trang index
+        return redirect()->route('admin.users.list')->with(['success' => 'cập nhật thành công']);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $user = User::find($id);
+
+        if ($user) {
+            $user->delete();
+            return redirect()->route('admin.users.list', compact('user'))->with('success', 'User deleted successfully');
+        } else {
+            return redirect()->route('admin.users.list', compact('user'))->with('error', 'User not found');
+        }
     }
 }

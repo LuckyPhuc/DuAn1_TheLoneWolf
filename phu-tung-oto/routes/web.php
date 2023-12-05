@@ -23,8 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('admin/dashboard', function () {
+    return view('admin/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -87,4 +87,8 @@ Route::prefix('admin/website')->name('admin.website.')->group(function () {
     Route::get('{id}/edit', [WebsiteController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [WebsiteController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
+});
+// chay thu layouts
+Route::get('/layouts', function () {
+    return view('layouts.users');
 });

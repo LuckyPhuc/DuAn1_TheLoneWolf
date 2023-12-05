@@ -14,7 +14,21 @@
                     </a>
                 </div>
             </div>
+            @if (isset($messenger) && is_array($messenger) && count($messenger) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($messenger as $message)
+                            <li>{{ $message }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-body">
                     <div class="table-top">
@@ -67,16 +81,25 @@
                                     </td>
                                     <td>{{ $loop->iteration }}</td>
                                     <td class="productimgname">
-                                        <a href="javascript:void(0);"> {{ $category->name }}</a>
+                                        <a href="javascript:void(0);" class="text-dark"> {{ $category->name }}</a>
+
                                     </td>
 
                                     <td>
-                                        <a class="btn btn-success" href="#">
-                                            <i class="bi bi-pencil"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="javascript:void(0);">
-                                            <i class="bi bi-trash3"></i>
-                                        </a>
+                                        <form action="{{ route('admin.categories.destroy', $category->id) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a class="btn btn-success"
+                                                href="{{ route('admin.categories.edit', ['id' => $category->id]) }}">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                            <button type="submit" class="btn btn-danger" style="background: red"
+                                                onclick="return confirm('Bạn có muốn xóa danh mục này không?')">
+                                                <i class="bi bi-trash3"></i>
+                                            </button>
+                                        </form>
+
                                     </td>
                                 </tr>
                             @endforeach
