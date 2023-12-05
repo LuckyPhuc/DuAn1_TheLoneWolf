@@ -147,7 +147,8 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <li>
-                                        <a href="productlist.html" class="dropdown-item">Product List</a>
+                                        <a href="{{ route('admin.products.list') }}" class="dropdown-item">Product
+                                            List</a>
                                     </li>
                                     <li>
                                         <a href="addproduct.html" class="dropdown-item">Product Add</a>

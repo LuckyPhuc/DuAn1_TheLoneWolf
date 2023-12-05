@@ -11,18 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('danh_muc_san_pham', function (Blueprint $table) {
-            $table->id();
-            $table->string('ten_danh_muc');
+        Schema::create('supplier', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('danh_muc_san_pham');
+        Schema::dropIfExists('supplier');
     }
 };
