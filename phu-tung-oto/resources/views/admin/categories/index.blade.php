@@ -5,12 +5,12 @@
         <div class="content">
             <div class="page-header">
                 <div class="page-title">
-                    <h4>Product Category list</h4>
-                    <h6>View/Search product Category</h6>
+                    <h4>Danh sách danh mục</h4>
                 </div>
                 <div class="page-btn">
-                    <a href="addcategory.html" class="btn btn-added">
-                        <img src="{{ asset('assets/img/icons/plus.svg') }} " class="me-1" alt="img" />Add Category
+                    <a href="{{ route('admin.categories.create') }}" class="btn btn-added">
+                        <img src="{{ asset('assets/img/icons/plus.svg') }} " class="me-1" alt="img" />Thêm danh mục sản
+                        phẩm
                     </a>
                 </div>
             </div>
@@ -18,18 +18,12 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-top">
-                        <div class="search-set">
-                            <div class="search-path">
-                                <a class="btn btn-filter" id="filter_search">
-                                    <img src="{{ asset('assets/img/icons/filter.svg') }} " alt="img" />
-                                    <span><img src="{{ asset('assets/img/icons/closes.svg') }} " alt="img" /></span>
-                                </a>
-                            </div>
-                            <div class="search-input">
-                                <a class="btn btn-searchset"><img src="{{ asset('assets/img/icons/search-white.svg') }} "
-                                        alt="img" /></a>
-                            </div>
+
+                        <div class="search-path">
+                            <input type="text" placeholder="Bạn muốn tìm kiếm gì?" name="search">
+                            <button class="btn btn-primary"><i class="bi bi-search"></i></button>
                         </div>
+
                         <div class="wordset">
                             <ul>
                                 <li>
@@ -47,21 +41,23 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table datanew">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <label class="checkboxs">
-                                            <input type="checkbox" id="select-all" />
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </th>
-                                    <th>Category name</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <label class="checkboxs">
+                                        <input type="checkbox" id="select-all" />
+                                        <span class="checkmarks"></span>
+                                    </label>
+                                </th>
+                                <th>Số thứ tự</th>
+                                <th>Tên danh mục</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($categories as $category)
                                 <tr>
                                     <td>
                                         <label class="checkboxs">
@@ -69,22 +65,24 @@
                                             <span class="checkmarks"></span>
                                         </label>
                                     </td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td class="productimgname">
-                                        <a href="javascript:void(0);">Accessories</a>
+                                        <a href="javascript:void(0);"> {{ $category->name }}</a>
                                     </td>
 
                                     <td>
-                                        <a class="me-3" href="#">
-                                            <img src="{{ asset('assets/img/icons/edit.svg') }} " alt="img" />
+                                        <a class="btn btn-success" href="#">
+                                            <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a class="me-3 confirm-text" href="javascript:void(0);">
-                                            <img src="{{ asset('assets/img/icons/delete.svg') }} " alt="img" />
+                                        <a class="btn btn-danger" href="javascript:void(0);">
+                                            <i class="bi bi-trash3"></i>
                                         </a>
                                     </td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            @endforeach
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>

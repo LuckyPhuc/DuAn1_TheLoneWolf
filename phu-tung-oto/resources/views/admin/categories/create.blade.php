@@ -9,11 +9,11 @@
                     <h4>Thêm danh mục </h4>
                 </div>
             </div>
-            @if (isset($messages) && is_array($messages) && count($messages) > 0)
+            @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
-                        @foreach ($messages as $messages)
-                            <li>{{ $messages }}</li>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -24,6 +24,7 @@
                     {{ session('success') }}
                 </div>
             @endif
+
             <div class="card">
                 <form action="{{ route('admin.categories.store') }}" method="post">
                     @csrf
@@ -31,8 +32,8 @@
                         <div class="row">
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label>Category Name</label>
-                                    <input type="text" name="category-name">
+                                    <label>Tên danh mục</label>
+                                    <input type="text" name="name">
                                 </div>
                             </div>
                             <div class="col-lg-12">
