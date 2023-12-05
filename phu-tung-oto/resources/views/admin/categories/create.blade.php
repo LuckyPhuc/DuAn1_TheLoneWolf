@@ -8,6 +8,11 @@
                 <div class="page-title">
                     <h4>Thêm danh mục </h4>
                 </div>
+                <div class="page-btn">
+                    <a href="{{ Route('admin.categories.list') }}" class="btn btn-added">
+                        <i class="bi bi-card-list"> Danh sách danh mục</i>
+                    </a>
+                </div>
             </div>
             @if ($errors->any())
                 <div class="alert alert-danger">
