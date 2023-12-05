@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\WebsiteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,7 @@ use App\Http\Controllers\WebsiteController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -48,10 +50,11 @@ Route::prefix('admin/categories')->name('admin.categories.')->group(function () 
     Route::get('list', [CategoriesController::class, 'index'])->name('list');
     Route::get('create', [CategoriesController::class, 'create'])->name('create');
     Route::post('/', [CategoriesController::class, 'store'])->name('store');
-    Route::get('{id}', [CategoriesController::class, 'show'])->name('show');
+    // Route::get('{id}', [CategoriesController::class, 'show'])->name('show');
     Route::get('{id}/edit', [CategoriesController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [CategoriesController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [CategoriesController::class, 'destroy'])->name('destroy');
+    // Route::get('list', [CategoriesController::class, 'search'])->name('search');
 });
 
 //Routing orders
@@ -65,9 +68,9 @@ Route::prefix('admin/orders')->name('admin.orders.')->group(function () {
     Route::delete('delete/{id}', [OrderController::class, 'destroy'])->name('destroy');
 });
 
-//Routing User 
+//Routing User
 Route::prefix('admin/users')->name('admin.users.')->group(function () {
-    Route::get('list', [UserController::class, 'index'])->name('list');
+    Route::get('/list', [UserController::class, 'index'])->name('list');
     Route::get('create', [UserController::class, 'create'])->name('create');
     Route::post('/', [UserController::class, 'store'])->name('store');
     Route::get('{id}', [UserController::class, 'show'])->name('show');
