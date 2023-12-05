@@ -17,6 +17,7 @@ use App\Http\Controllers\WebsiteController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -65,9 +66,9 @@ Route::prefix('admin/orders')->name('admin.orders.')->group(function () {
     Route::delete('delete/{id}', [OrderController::class, 'destroy'])->name('destroy');
 });
 
-//Routing User 
+//Routing User
 Route::prefix('admin/users')->name('admin.users.')->group(function () {
-    Route::get('list', [UserController::class, 'index'])->name('list');
+    Route::get('/list', [UserController::class, 'index'])->name('list');
     Route::get('create', [UserController::class, 'create'])->name('create');
     Route::post('/', [UserController::class, 'store'])->name('store');
     Route::get('{id}', [UserController::class, 'show'])->name('show');

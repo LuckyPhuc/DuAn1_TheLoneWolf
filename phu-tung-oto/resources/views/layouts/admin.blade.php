@@ -289,8 +289,8 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="userlist.html">User List</a></li>
-                                <li><a href="userlist.html">Add User</a></li>
+                                <li><a href="{{ Route('admin.users.list') }}">User List</a></li>
+                                <li><a href="{{ Route('admin.users.create') }}">Add User</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
