@@ -266,10 +266,10 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="">Product List</a></li>
-                                <li><a href="">Add Product</a></li>
-                                <li><a href="">Category List</a></li>
-                                <li><a href="">Add Category</a></li>
+                                <li><a href="{{ route('admin.products.list') }}">Product List</a></li>
+                                <li><a href="{{ route('admin.products.create') }}">Add Product</a></li>
+                                <li><a href="{{ route('admin.categories.list') }}">Category List</a></li>
+                                <li><a href="{{ route('admin.categories.create') }}">Add Category</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
@@ -279,7 +279,7 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="#">Order List</a></li>
+                                <li><a href="{{ route('admin.orders.list') }}">Order List</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
