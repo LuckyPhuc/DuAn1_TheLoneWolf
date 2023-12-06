@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'phone',
+        'address',
+        'remember_token',
+        'email_verified_at'
     ];
 
     /**
@@ -45,4 +50,14 @@ class User extends Authenticatable
 
     //add user
     protected $timestamp = true;
+
+    function orders()
+    {
+        return $this->hasMany('App\Orders');
+    }
+
+    function posts()
+    {
+        return $this->hasMany(Posts::class);
+    }
 }
