@@ -694,7 +694,7 @@ button,
 .countdown-wrapper.countdown-style-2 .single-countdown .single-countdown_text {
     font-size: 14px;
     line-height: 16px;
-    font-family: "Poppins", sans-serif;
+    font-ft-textamily: "Poppins", sans-serif;
     font-weight: 500;
     color: #ffffff;
 }
@@ -1878,7 +1878,7 @@ button,
 }
 
 .offcanvas-account-container li::before {
-    content: "\2022";
+    content: "\2024";
     color: #777;
     font-weight: bold;
     display: inline-block;
@@ -2086,7 +2086,7 @@ button,
 .footer-area .single-footer-widget .social-links ul li a {
     width: 30px;
     height: 30px;
-
+    line-height: 30px;
     text-align: center;
     margin-right: 5px;
     color: #d8d8d8;
@@ -4563,7 +4563,7 @@ button,
 }
 
 .myaccount-content form .single-item-button {
-    width: 25%;
+    width: 15%;
 }
 
 @media (max-width: 1199px) {
@@ -6022,4 +6022,9 @@ button,
     .breadcrumbs-area {
         padding: 50px 0px;
     }
+}
+.product__card {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10px;
 }
