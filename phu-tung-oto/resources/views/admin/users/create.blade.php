@@ -11,7 +11,6 @@
                     <i class="bi bi-card-list"> Danh sách người dùng</i></a>
             </div>
         </div>
-
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -21,6 +20,23 @@
                 </ul>
             </div>
         @endif
+
+        {{-- @if (isset($messenger) && is_array($messenger) && count($messenger) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($messenger as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif --}}
+
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <div class="card">
             <div class="card-body">
                 <form action="{{ Route('admin.users.store') }}" method="POST">
