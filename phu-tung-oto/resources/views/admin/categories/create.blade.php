@@ -42,7 +42,8 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <button class="btn btn-primary">Thêm mới</button>
+                                <input type="submit" value="Thêm mới" class="btn btn-added"
+                                    style="background: #ff9f43;color:#fff; padding:0.5rem">
                             </div>
                         </div>
                     </div>
