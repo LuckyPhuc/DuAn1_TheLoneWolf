@@ -9,6 +9,8 @@ class Supplier extends Model
 {
     use HasFactory;
 
+    protected $table = 'supplier';
+
     protected $fillable = [
         'id',
         'name',
@@ -23,4 +25,5 @@ class Supplier extends Model
     {
         return $this->hasMany(Products::class);
     }
+    public $timestamps = false;
 }
