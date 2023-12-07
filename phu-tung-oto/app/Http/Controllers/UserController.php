@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -33,20 +34,53 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $messenger = [];
+
+        $rules = [
             'fullname' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
             'Address' => 'required',
-            'phone' => 'required',
-            'email' => 'required|email',
+            'phone' => 'required|numeric|digits:10',
+            'email' => 'required|email|unique:users,email',
             'role' => 'required',
+        ];
+
+        $messages = [
+            'fullname.required' => 'Vui lòng nhập tên đầy đủ của bạn',
+            'password.required' => 'Vui lòng nhập mật khẩu của bạn',
+            'password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự',
+            'password.regex' => 'Mật khẩu phải chứa ít nhất một chữ cái viết hoa, một chữ cái viết thường và một số',
+            'Address.required' => 'Vui lòng nhập địa chỉ của bạn',
+            'phone.required' => 'Xin vui lòng điền số điện thoại của bạn',
+            'phone.numeric' => 'Số điện thoại chỉ được chứa chữ số',
+            'phone.digits' => 'Số điện thoại phải chứa đúng 10 chữ số',
+            'email.required' => 'Vui lòng nhập địa chỉ email hợp lệ',
+            'email.email' => 'Vui lòng nhập địa chỉ email hợp lệ',
+            'email.unique' => 'Email này đã được đăng ký',
+            'role.required' => 'Vui lòng nhập vai trò của bạn',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return view('admin.users.create')->withErrors($validator);
+        }
+
+        // Create new user
+        $user = new User([
+            'name' => $request->fullname,
+            'address' => $request->Address,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'role' => ($request->role === 'admin') ? 1 : 0,
+            'password' => Hash::make($request->password),
         ]);
-        $userData = $request->only(['fullname', 'Address', 'phone', 'email', 'role', 'password']);
-        $userData['role'] = ($request->role === 'admin') ? 1 : 0;
-        $userData['password'] = Hash::make($request->password);
-        User::create($userData);
-        return redirect()->route('admin.users.create')->with(['success' => 'User created successfully!']);
+
+        $user->save();
+
+        return redirect()->route('admin.users.create')->with(['success' => 'Người dùng đã được tạo thành công!']);
     }
+
 
 
 
@@ -102,9 +136,9 @@ class UserController extends Controller
 
         if ($user) {
             $user->delete();
-            return redirect()->route('admin.users.list', compact('user'))->with('success', 'User deleted successfully');
+            return redirect()->route('admin.users.list', compact('user'))->with('success', 'Người dùng đã xóa thành công');
         } else {
-            return redirect()->route('admin.users.list', compact('user'))->with('error', 'User not found');
+            return redirect()->route('admin.users.list', compact('user'))->with('error', 'Không tìm thấy người dùng');
         }
     }
 }

@@ -100,6 +100,6 @@ Route::prefix('admin/website')->name('admin.website.')->group(function () {
     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
 });
 // chay thu layouts
-Route::get('/layouts', function () {
-    return view('layouts.users');
+Route::get('/index', function () {
+    return view('users.index');
 });
