@@ -4,11 +4,24 @@
     <div class="content">
         <div class="page-header">
             <div class="page-title">
-                <h4>User Management</h4>
-                <h6>Add/Update User</h6>
+                <h4>Thêm người dùng</h4>
+            </div>
+            <div class="page-btn">
+                <a href="{{ Route('admin.users.list') }}" class="btn btn-added">
+                    <i class="bi bi-card-list"> Danh sách người dùng</i></a>
             </div>
         </div>
-        @if (isset($messenger) && is_array($messenger) && count($messenger) > 0)
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        {{-- @if (isset($messenger) && is_array($messenger) && count($messenger) > 0)
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($messenger as $message)
@@ -16,13 +29,14 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        @endif --}}
 
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
+
         <div class="card">
             <div class="card-body">
                 <form action="{{ Route('admin.users.store') }}" method="POST">
@@ -83,8 +97,7 @@
                             </div>
                         </div> --}}
                         <div class="col-lg-12">
-                            <input type="submit" class="btn btn-submit btn-primary">
-                            <a href="{{ Route('admin.users.list') }}" class="btn btn-cancel">List users</a>
+                            <button type="submit" class="btn btn-submit btn-primary">Thêm Người dùng</button>
                         </div>
                     </div>
                 </form>
