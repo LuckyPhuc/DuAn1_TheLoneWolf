@@ -5,22 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Supplier extends Model
+class Couple_product extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'id',
-        'name',
-        'address',
-        'phone',
-        'email',
+        'couple_id',
+        'product_id',
+        'discount_price',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
+    function couple()
+    {
+        return $this->belongsTo(Couple::class);
+    }
     function product()
     {
-        return $this->hasMany(Products::class);
+        return $this->belongsTo(Products::class);
     }
 }

@@ -35,7 +35,8 @@
 
                         <div class="search-path">
                             <input type="text" placeholder="Bạn muốn tìm kiếm gì?" name="search">
-                            <button class="btn btn-primary"><i class="bi bi-search"></i></button>
+                            <button class="btn btn-primary" style="background: #ff9f43;color:#fff; padding:0.5rem"><i
+                                    class="bi bi-search"></i></button>
                         </div>
 
                         <div class="wordset">
@@ -90,13 +91,17 @@
                                             method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a class="btn btn-success"
-                                                href="{{ route('admin.categories.edit', ['id' => $category->id]) }}">
+                                            <a class="btn btn-success" style="background: green; padding:0.5rem"
+                                                href="{{ route('admin.categories.edit', ['id' => $category->id]) }}"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Sửa mục này">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
-                                            <button type="submit" class="btn btn-danger" style="background: red"
-                                                onclick="return confirm('Bạn có muốn xóa danh mục này không?')">
-                                                <i class="bi bi-trash3"></i>
+                                            <button type="submit" class="btn btn-danger"
+                                                style="background: red; padding:0.5rem"
+                                                onclick="return confirm('Bạn có muốn xóa danh mục này không?')"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa mục này">
+                                                <i class="bi
+                                                bi-trash3"></i>
                                             </button>
                                         </form>
 
