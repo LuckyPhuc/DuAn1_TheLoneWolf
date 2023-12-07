@@ -6028,3 +6028,8 @@ button,
     flex-wrap: nowrap;
     padding: 10px;
 }
+.obrien-slider {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 10%;
+}
