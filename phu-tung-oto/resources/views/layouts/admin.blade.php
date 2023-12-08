@@ -113,6 +113,12 @@
                                     Website</span>
                                 <span class="menu-arrow"></span>
                             </a>
+                            <ul>
+                                <li><a href="{{ Route('admin.website.list') }}">Danh sách SEO</a></li>
+                                <li><a href="{{ Route('admin.website.create') }}">Thêm SEO</a></li>
+                                <li><a href="#">Danh sách img</a></li>
+                                <li><a href="#">Thêm img</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
