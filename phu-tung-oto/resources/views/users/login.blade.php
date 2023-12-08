@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="breadcrumb-content position-relative section-content">
-                        <h3 class="title-3">Login-Register</h3>
+                        <h3 class="title-3 text-white">Login-Register</h3>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li>Login-Register</li>
+                            <li><a class="text-white" href="{{ route('users.index') }}">Home</a></li>
+                            <li class="text-white">Login-Register</li>
                         </ul>
                     </div>
                 </div>

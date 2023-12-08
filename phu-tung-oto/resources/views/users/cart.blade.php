@@ -1,16 +1,16 @@
 @extends('layouts.app')
 @section('title', 'trang cart')
 @section('content')
-    <div class="banner-fullwidth-area mb-text">
-        <div class="container custom-area">
+    <div class="breadcrumbs-area position-relative">
+        <div class="container">
             <div class="row">
-                <div class=" text-center justify-content-center col-custom">
-                    <div class="banner-flash-content d-flex flex-column align-items-center justify-content-center h-100 ">
-                        <h2 class="deal-head text-uppercase">cart</h2>
-                        <h3 class="deal-title text-uppercase">
-                            cart cua ban
-                        </h3>
-                        <div class="countdown-wrapper d-flex justify-content-center" data-countdown="2022/12/24"></div>
+                <div class="col-12 text-center">
+                    <div class="breadcrumb-content position-relative section-content">
+                        <h3 class="title-3 text-white">cart</h3>
+                        <ul>
+                            <li><a class="text-white" href="{{ route('users.index') }}">Home</a></li>
+                            <li class="text-white">cart</li>
+                        </ul>
                     </div>
                 </div>
             </div>
