@@ -72,8 +72,8 @@
                             <ul>
                                 <li><a href="{{ route('admin.products.list') }}">Danh sách sản phẩm</a></li>
                                 <li><a href="{{ route('admin.products.create') }}">Thêm sản phẩm</a></li>
-                                <li><a href="{{ route('admin.categories.list') }}">Danh sách sản phẩm</a></li>
-                                <li><a href="{{ route('admin.categories.create') }}">Thêm danh mục sản phẩm</a></li>
+                                <li><a href="{{ route('admin.categories.list') }}">Danh sách danh mục</a></li>
+                                <li><a href="{{ route('admin.categories.create') }}">Thêm danh mục</a></li>
                             </ul>
                         </li>
                         <li class="submenu">

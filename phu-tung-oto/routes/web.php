@@ -36,6 +36,13 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+
+
 // Routing product
 Route::prefix('admin/products')->name('admin.products.')->group(function () {
     Route::get('list', [ProductController::class, 'index'])->name('list');
@@ -57,7 +64,7 @@ Route::prefix('admin/categories')->name('admin.categories.')->group(function () 
     Route::delete('delete/{id}', [CategoriesController::class, 'destroy'])->name('destroy');
     // Route::get('list', [CategoriesController::class, 'search'])->name('search');
 });
-Route::prefix('admin/supplierr')->name('admin.supplier.')->group(function () {
+Route::prefix('admin/supplier')->name('admin.supplier.')->group(function () {
     Route::get('list', [SupplierController::class, 'index'])->name('list');
     Route::get('create', [SupplierController::class, 'create'])->name('create');
     Route::post('/', [SupplierController::class, 'store'])->name('store');
