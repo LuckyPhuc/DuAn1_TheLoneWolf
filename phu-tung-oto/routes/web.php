@@ -8,6 +8,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\users\HomeController;
+use App\Http\Controllers\users\ShopController;
+use App\Http\Controllers\users\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,7 +102,12 @@ Route::prefix('admin/website')->name('admin.website.')->group(function () {
     Route::put('update/{id}', [WebsiteController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
 });
-// chay thu layouts
-Route::get('/index', function () {
-    return view('users.index');
+// nguoi dung
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('index', [HomeController::class, 'index'])->name('index');
+    Route::get('shop', [ShopController::class, 'index'])->name('shop');
+    Route::get('show{id}', [ShopController::class, 'show'])->name('detail');
+    Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
+    Route::get('register', [HomeController::class, 'register'])->name('register');
+    Route::get('login', [HomeController::class, 'login'])->name('login');
 });
