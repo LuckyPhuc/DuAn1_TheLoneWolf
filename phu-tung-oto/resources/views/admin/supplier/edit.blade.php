@@ -1,17 +1,12 @@
 @extends('layouts.admin')
-@section('title', 'Admin - categories - create')
+@section('title', 'Admin - supplier - Edit')
 <div class="page-wrapper">
     @section('content')
 
         <div class="content">
             <div class="page-header">
                 <div class="page-title">
-                    <h4>Thêm danh mục </h4>
-                </div>
-                <div class="page-btn">
-                    <a href="{{ Route('admin.categories.list') }}" class="btn btn-added">
-                        <i class="bi bi-card-list"> Danh sách danh mục</i>
-                    </a>
+                    <h4>Cập nhật nhà cung cấp </h4>
                 </div>
             </div>
             @if ($errors->any())
@@ -31,24 +26,24 @@
             @endif
 
             <div class="card">
-                <form action="{{ route('admin.categories.store') }}" method="post">
+                <form action="{{ route('admin.supplier.update', ['id' => $supplier->id]) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label>Tên danh mục</label>
-                                    <input type="text" name="name">
+                                    <label>Tên nhà cung cấp</label>
+                                    <input type="text" name="name" value ='{{ $supplier->name }}'>
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <input type="submit" value="Thêm mới" class="btn btn-added"
-                                    style="background: #ff9f43;color:#fff; padding:0.5rem">
+                                <input type ='submit'class="btn btn-primary" value="Cập nhật">
+                                <a href="{{ route('admin.supplier.list') }}" class="btn btn-danger">Hủy</a>
                             </div>
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     @endsection

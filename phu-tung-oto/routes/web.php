@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,16 @@ Route::prefix('admin/categories')->name('admin.categories.')->group(function () 
     Route::delete('delete/{id}', [CategoriesController::class, 'destroy'])->name('destroy');
     // Route::get('list', [CategoriesController::class, 'search'])->name('search');
 });
+Route::prefix('admin/supplierr')->name('admin.supplier.')->group(function () {
+    Route::get('list', [SupplierController::class, 'index'])->name('list');
+    Route::get('create', [SupplierController::class, 'create'])->name('create');
+    Route::post('/', [SupplierController::class, 'store'])->name('store');
+    // Route::get('{id}', [SupplierController::class, 'show'])->name('show');
+    Route::get('{id}/edit', [SupplierController::class, 'edit'])->name('edit');
+    Route::put('update/{id}', [SupplierController::class, 'update'])->name('update');
+    Route::delete('delete/{id}', [SupplierController::class, 'destroy'])->name('destroy');
+    // Route::get('list', [CategoriesController::class, 'search'])->name('search');
+});
 
 //Routing orders
 Route::prefix('admin/orders')->name('admin.orders.')->group(function () {
@@ -90,8 +101,8 @@ Route::prefix('admin/website')->name('admin.website.')->group(function () {
 });
 
 // chay thu layouts
-Route::get('/layouts', function () {
-    return view('layouts.users');
+Route::get('/index', function () {
+    return view('users.index');
 });
 
 

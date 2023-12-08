@@ -5,22 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Orders extends Model
+class Couple extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'id',
-        'users_id',
-        'order_date',
-        'tolal',
-        'status',
+        'name_couple',
+        'description',
+        'date_start',
+        'date_end',
         'created_at',
         'updated_at'
     ];
 
-    function users()
+    function couple_product()
     {
-        return $this->belongsTo(User::class, 'users_id');
+        return $this->hasMany(Couple_product::class);
     }
 }

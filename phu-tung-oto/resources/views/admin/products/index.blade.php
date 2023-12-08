@@ -83,7 +83,7 @@
                                         <a href="javascript:void(0);" class="product-img">
                                             <img src="{{ asset('assets/img/product/product17.jpg') }}" alt="product">
                                         </a>
-                                        <a href="javascript:void(0);">Limon</a>
+                                        <a href="javascript:void(0);" style="color: #111111">Limon</a>
                                     </td>
                                     <td>PT0011</td>
                                     <td>Health Care </td>
@@ -93,13 +93,18 @@
                                     <td>100.00</td>
                                     <td>Admin</td>
                                     <td>
-                                        <a class="me-3" href="product-details.html">
+                                        <a class="btn btn-success"
+                                            href="product-details.html"style="background: #111111; padding:0.5rem"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Chi tiết sản phẩm">
                                             <i class="bi bi-eye"></i>
                                         </a>
-                                        <a class="me-3" href="editproduct.html">
+                                        <a class="btn btn-success" style="background: green; padding:0.5rem" href="#"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Sửa mục này">
                                             <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a class="confirm-text" href="javascript:void(0);">
+                                        <a class="btn btn-success" href="javascript:void(0);"
+                                            style="background: red; padding:0.5rem" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Xóa mục này">
                                             <i class="bi bi-trash3"></i>
                                         </a>
                                     </td>
