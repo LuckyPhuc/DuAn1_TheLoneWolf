@@ -35,10 +35,10 @@ class SupplierController extends Controller
 
             ],
             [
-                'name.required' => 'Tên nhà cung cấp',
-                'address.required' => 'Địa chỉ nhà cung cấp',
-                'email.required' => 'Email nhà cung cấp',
-                'phone.required' => 'Số điện thoại',
+                'name.required' => 'vui lòng ko để trống Tên nhà cung cấp',
+                'address.required' => 'vui lòng ko để trống Địa chỉ nhà cung cấp',
+                'email.required' => 'vui lòng ko để trống Email nhà cung cấp',
+                'phone.required' => 'vui lòng ko để trống Số điện thoại',
                 'min' => ':attribute không ít hơn :min ký tự',
                 'max' => ':attribute không vượt quá :max ký tự'
 
@@ -83,10 +83,10 @@ class SupplierController extends Controller
 
             ],
             [
-                'name.required' => 'Tên nhà cung cấp',
-                'address.required' => 'Địa chỉ nhà cung cấp',
-                'email.required' => 'Email nhà cung cấp',
-                'phone.required' => 'Số điện thoại',
+                'name.required' => 'vui lòng ko để trống Tên nhà cung cấp',
+                'address.required' => 'vui lòng ko để trống Địa chỉ nhà cung cấp',
+                'email.required' => 'vui lòng ko để trống Email nhà cung cấp',
+                'phone.required' => 'vui lòng ko để trống Số điện thoại',
                 'min' => ':attribute không ít hơn :min ký tự',
                 'max' => ':attribute không vượt quá :max ký tự'
 
