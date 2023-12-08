@@ -9,8 +9,8 @@ class SupplierController extends Controller
 {
     public function index()
     {
-        $supplier = Supplier::all();
-        return view("admin.supplier.index", compact("supplier"));
+        $suppliers = Supplier::all();
+        return view("admin.supplier.index", compact("suppliers"));
     }
 
     /**
@@ -29,6 +29,10 @@ class SupplierController extends Controller
         $request->validate(
             [
                 'name' => "required|min:2|max:255|string",
+                'address' => "required|min:10|max:255|string",
+                'email' => "required|min:2|max:255|string",
+                'phone' => "required|min:2|max:10|string",
+
             ],
             [
                 'required' => 'Trường này không được để trống',
@@ -38,17 +42,19 @@ class SupplierController extends Controller
             ],
             [
                 'name' => 'Tên nhà cung cấp',
+                'address' => 'Địa chỉ nhà cung cấp',
+                'email' => 'Email nhà cung cấp',
+                'phone' => 'Số điện thoại nhà cung cấp',
             ]
         );
-        $name = $request->name;
-        $supplier = new supplier;
-        $supplier->name = $name;
-        if ($supplier->save()) {
-            return redirect()->route('admin.supplier.create')
-                ->with('success', 'Thêm mới nhà cung thành công');
-        } else {
-            return redirect()->route('admin.supplier.create', compact('request'));
-        }
+        Supplier::create([
+            'name' => $request->name,
+            'address' => $request->address,
+            'email' => $request->email,
+            'phone' => $request->phone
+        ]);
+
+        return redirect()->route('admin.supplier.list', compact('request'))->with('success', 'Thêm mới thành công!');
     }
     public function show(string $id)
     {
@@ -56,8 +62,8 @@ class SupplierController extends Controller
     }
     public function edit(string $id)
     {
-        $supplier = Supplier::findOrFail($id);
-        return view('admin.supplier.edit', compact('supplier'));
+        $suppliers = Supplier::findOrFail($id);
+        return view('admin.supplier.edit', compact('suppliers'));
     }
 
     /**
@@ -65,22 +71,36 @@ class SupplierController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'name' => "required|min:2|max:255|string",
-        ], [
-            'required' => 'Trường này không được để trống',
-            'min' => ':attribute không ít hơn :min ký tự',
-            'max' => ':attribute không vượt quá :max ký tự'
-        ], [
-            'name' => 'Tên danh mục',
+        $request->validate(
+            [
+                'name' => "required|min:2|max:255|string",
+                'address' => "required|min:3|max:255|string",
+                'email' => "required|min:2|max:255|string",
+                'phone' => "required|min:2|max:10|string",
+
+            ],
+            [
+                'required' => 'Trường name không được để trống',
+                'min' => ':attribute không ít hơn :min ký tự',
+                'max' => ':attribute không vượt quá :max ký tự'
+
+            ],
+            [
+                'name' => 'Tên nhà cung cấp',
+                'address' => 'Địa chỉ nhà cung cấp',
+                'email' => 'Email nhà cung cấp',
+                'phone' => 'Số điện thoại nhà cung cấp',
+            ]
+        );
+
+        $update = Supplier::where('id', $id)->update([
+            'name' => $request->name,
+            'address' => $request->address,
+            'email' => $request->email,
+            'phone' => $request->phone
         ]);
-
-        $suppliers = Supplier::findOrFail($id);
-        $suppliers->name = $request->name;
-
-        if ($suppliers->save()) {
-            return redirect()->route('admin.supplier.list')
-                ->with('success', 'Cập nhật thành công thành công');
+        if ($update) {
+            return redirect()->route('admin.supplier.list')->with('success', 'Sửa thành công!');
         } else {
             return redirect()->route('admin.supplier.edit', $id, compact('request'));
         }
@@ -92,8 +112,8 @@ class SupplierController extends Controller
      */
     public function destroy(string $id)
     {
-        $category = Supplier::find($id);
-        if ($category->delete($id)) {
+        $suppliers = Supplier::find($id);
+        if ($suppliers->delete($id)) {
             return redirect()->route('admin.supplier.list')
                 ->with('success', 'Xóa thành công thành công');
         } else {

@@ -68,6 +68,8 @@
                                 </th>
                                 <th>Số thứ tự</th>
                                 <th>Tên danh mục</th>
+                                <th>Địa chỉ</th>
+                                <th>Số điện thoại</th>
                                 <th>Hành động</th>
                             </tr>
                         </thead>
@@ -81,17 +83,19 @@
                                         </label>
                                     </td>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td class="productimgname">
-                                        <a href="javascript:void(0);" class="text-dark"> {{ $supplier->name }}</a>
-
+                                    <td> {{ $supplier->name }}</td>
+                                    <td>
+                                        {{ $supplier->address }}
                                     </td>
-
+                                    <td>
+                                        {{ $supplier->phone }}
+                                    </td>
                                     <td>
                                         <form action="{{ route('admin.supplier.destroy', $supplier->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <a class="btn btn-success" style="background: green; padding:0.5rem"
-                                                href="{{ route('admin.supplier.edit', ['id' => $category->id]) }}"
+                                                href="{{ route('admin.supplier.edit', ['id' => $supplier->id]) }}"
                                                 data-bs-toggle="tooltip" data-bs-placement="top" title="Sửa mục này">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
