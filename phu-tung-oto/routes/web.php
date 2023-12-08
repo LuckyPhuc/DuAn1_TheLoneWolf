@@ -81,14 +81,20 @@ Route::prefix('admin/users')->name('admin.users.')->group(function () {
 //Routing website
 Route::prefix('admin/website')->name('admin.website.')->group(function () {
     Route::get('list', [WebsiteController::class, 'index'])->name('list');
-    Route::get('create', [WebsiteController::class, 'create'])->name('create');
+    Route::get('/create', [WebsiteController::class, 'create'])->name('create');
     Route::post('/', [WebsiteController::class, 'store'])->name('store');
     Route::get('{id}', [WebsiteController::class, 'show'])->name('show');
     Route::get('{id}/edit', [WebsiteController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [WebsiteController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
 });
+
 // chay thu layouts
 Route::get('/layouts', function () {
     return view('layouts.users');
+});
+
+
+Route::get('/banner', function () {
+    return view('admin.website.banner.create');
 });

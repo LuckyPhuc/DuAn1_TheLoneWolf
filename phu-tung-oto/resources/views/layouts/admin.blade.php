@@ -103,6 +103,23 @@
                                     Website</span>
                                 <span class="menu-arrow"></span>
                             </a>
+                            <ul>
+                                <li><a href="{{ route('admin.website.list') }}">Tài Nguyên Website</a></li>
+                                <li><a href="{{ route('admin.website.create') }}">Media Website</a></li>
+                                <li><a href="{{ route('admin.website.create') }}">Banner Website</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><img src="{{ asset('assets/img/icons/settings.svg') }}"
+                                    alt="img"><span>
+                                    Website</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="{{ route('admin.website.list') }}">Tài Nguyên Website</a></li>
+                                <li><a href="{{ route('admin.website.create') }}">Media Website</a></li>
+                                <li><a href="{{ route('admin.website.create') }}">Banner Website</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
