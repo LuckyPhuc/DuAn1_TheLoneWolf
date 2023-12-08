@@ -7,12 +7,12 @@
         <div class="content">
             <div class="page-header">
                 <div class="page-title">
-                    <h4>Product List</h4>
-                    <h6>Manage your products</h6>
+                    <h4>Danh sách sản phẩm</h4>
+                    <h6>Quản lý sản phẩm</h6>
                 </div>
                 <div class="page-btn">
                     <a href="addproduct.html" class="btn btn-added"><img src="{{ asset('assets/img/icons/plus.svg') }} "
-                            alt="img" class="me-1">Add New Product</a>
+                            alt="img" class="me-1">Thêm sản phẩm mới</a>
                 </div>
             </div>
             <div class="card">
@@ -60,15 +60,13 @@
                                             <span class="checkmarks"></span>
                                         </label>
                                     </th>
-                                    <th>Product Name</th>
-                                    <th>SKU</th>
-                                    <th>Category </th>
-                                    <th>Brand</th>
-                                    <th>price</th>
-                                    <th>Unit</th>
-                                    <th>Qty</th>
-                                    <th>Created By</th>
-                                    <th>Action</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Tên danh mục</th>
+                                    <th>Tên nhà cung cấp</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Đơn vị tính</th>
+                                    <th>Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -85,13 +83,11 @@
                                         </a>
                                         <a href="javascript:void(0);" style="color: #111111">Limon</a>
                                     </td>
-                                    <td>PT0011</td>
                                     <td>Health Care </td>
                                     <td>N/D</td>
                                     <td>10.00</td>
                                     <td>kg</td>
                                     <td>100.00</td>
-                                    <td>Admin</td>
                                     <td>
                                         <a class="btn btn-success"
                                             href="product-details.html"style="background: #111111; padding:0.5rem"
