@@ -26,7 +26,7 @@
             @endif
 
             <div class="card">
-                <form action="{{ route('admin.supplier.update', ['id' => $supplier->id]) }}" method="POST">
+                <form action="{{ route('admin.supplier.update', ['id' => $suppliers->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="card-body">
@@ -34,12 +34,25 @@
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label>Tên nhà cung cấp</label>
-                                    <input type="text" name="name" value ='{{ $supplier->name }}'>
+                                    <input type="text" name="name" value="{{ $suppliers->name }}">
                                 </div>
+                                <div class="form-group">
+                                    <label>Địa chỉ</label>
+                                    <input type="text" name="address" value ="{{ $suppliers->address }}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" name="email" value= "{{ $suppliers->email }}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Số điện thoại</label>
+                                    <input type="text" name="phone" value="{{ $suppliers->phone }}">
+                                </div>
+
                             </div>
                             <div class="col-lg-12">
-                                <input type ='submit'class="btn btn-primary" value="Cập nhật">
-                                <a href="{{ route('admin.supplier.list') }}" class="btn btn-danger">Hủy</a>
+                                <input type="submit" value="Lưu thay đổi" class="btn btn-added"
+                                    style="background: #ff9f43;color:#fff; padding:0.5rem">
                             </div>
                         </div>
                     </div>

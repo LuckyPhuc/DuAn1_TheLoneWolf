@@ -84,16 +84,20 @@
                                      <td>{{ $user->address }} </td>
                                      <td>{{ $user->role === 1 ? 'admin' : 'users' }}</td>
                                      <td>
-                                         <a class="btn btn-success"
+                                         <a class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top"
+                                             title="Xóa mục này" style="background: green; padding:0.5rem"
                                              href="{{ route('admin.users.edit', ['id' => $user->id]) }}">
                                              <i class="bi bi-pencil"></i>
                                          </a>
+
+
                                          <a class="btn btn-danger">
                                              <form action="{{ route('admin.users.destroy', ['id' => $user->id]) }}"
                                                  method="POST">
                                                  @csrf
                                                  @method('DELETE')
-                                                 <button type="submit"
+                                                 <button type="submit" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                     title="Xóa mục này" style="background: red; padding:0.5rem"
                                                      onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?')">
                                                      <i class="bi bi-trash3"></i></button>
                                              </form>

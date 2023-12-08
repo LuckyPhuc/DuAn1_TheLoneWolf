@@ -41,16 +41,16 @@
                                     <input type="text" name="name">
                                 </div>
                                 <div class="form-group">
-                                    <label>Tên nhà cung cấp</label>
-                                    <input type="text" name="name">
+                                    <label>Địa chỉ</label>
+                                    <input type="text" name="address">
                                 </div>
                                 <div class="form-group">
-                                    <label>Tên nhà cung cấp</label>
-                                    <input type="text" name="name">
+                                    <label>Email</label>
+                                    <input type="text" name="email">
                                 </div>
                                 <div class="form-group">
-                                    <label>Tên nhà cung cấp</label>
-                                    <input type="text" name="name">
+                                    <label>Số điện thoại</label>
+                                    <input type="text" name="phone">
                                 </div>
 
                             </div>

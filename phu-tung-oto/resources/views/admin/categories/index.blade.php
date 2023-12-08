@@ -9,8 +9,7 @@
                 </div>
                 <div class="page-btn">
                     <a href="{{ route('admin.categories.create') }}" class="btn btn-added">
-                        <img src="{{ asset('assets/img/icons/plus.svg') }} " class="me-1" alt="img" />Thêm danh mục sản
-                        phẩm
+                        <img src="{{ asset('assets/img/icons/plus.svg') }} " class="me-1" alt="img" />Thêm danh mục
                     </a>
                 </div>
             </div>
