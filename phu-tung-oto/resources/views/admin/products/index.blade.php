@@ -10,11 +10,27 @@
                     <h4>Danh sách sản phẩm</h4>
                     <h6>Quản lý sản phẩm</h6>
                 </div>
+
                 <div class="page-btn">
                     <a href="addproduct.html" class="btn btn-added"><img src="{{ asset('assets/img/icons/plus.svg') }} "
                             alt="img" class="me-1">Thêm sản phẩm mới</a>
                 </div>
             </div>
+            @if (isset($messenger) && is_array($messenger) && count($messenger) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($messenger as $message)
+                            <li>{{ $message }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-body">
                     <div class="table-top">

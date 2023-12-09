@@ -39,6 +39,9 @@
                                 <div class="form-group">
                                     <label>Tên danh mục</label>
                                     <input type="text" name="name">
+                                    @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-12">
