@@ -33,18 +33,133 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <!-- Slider Area One End Here -->
-    <!-- Product Area Start Here -->
+    <div class="call-to-action-area">
+        <div class="container container-default custom-area">
+            <div class="row" style="margin-top: 5%">
+                <div class="col-md-4 col-lg-4 col-custom">
+                    <div class="call-to-action-item mt-0 d-lg-flex d-md-block align-items-center">
+                        <div class="call-to-action-icon">
+                            <img src="{{ asset('assets/img/icons/icon-1.png') }}" alt="Icon" />
+                        </div>
+                        <div class="call-to-action-info">
+                            <h3 class="action-title">Giao hàng tận nhà miễn phí</h3>
+                            <p class="desc-content">
+                                Cung cấp giao hàng tận nhà miễn phí cho tất cả các sản phẩm trên $100
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-custom">
+                    <div class="call-to-action-item d-lg-flex d-md-block align-items-center">
+                        <div class="call-to-action-icon">
+                            <img src="{{ asset('assets/img/icons/icon-2.png') }}" alt="Icon" />
+                        </div>
+                        <div class="call-to-action-info">
+                            <h3 class="action-title">Chất lượng sản phẩm</h3>
+                            <p class="desc-content">
+                                Chúng tôi luôn đảm bảo chất lượng sản phẩm
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-custom">
+                    <div class="call-to-action-item d-lg-flex d-md-block align-items-center">
+                        <div class="call-to-action-icon">
+                            <img src="{{ asset('assets/img/icons/icon-3.png') }}" alt="Icon" />
+                        </div>
+                        <div class="call-to-action-info">
+                            <h3 class="action-title">Hỗ trợ trực tuyến</h3>
+                            <p class="desc-content">
+                                Để làm hài lòng khách hàng, chúng tôi cố gắng hỗ trợ trực tuyến
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Call to Action Area End Here -->
+    <!-- Banner Area Start Here -->
+    <div class="banner-area">
+        <div class="container container-default custom-area">
+            <div class="row" style="margin-top: 5%">
+                <div class="col-md-4 col-sm-12 col-custom">
+                    <div class="banner-image hover-style">
+                        <a class="d-block" href="{{ route('users.shop') }}">
+                            <img class="w-100" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Banner Image" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-custom">
+                    <div class="banner-image hover-style">
+                        <a class="d-block" href="{{ route('users.shop') }}">
+                            <img class="w-100" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Banner Image" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-custom">
+                    <div class="banner-image hover-style mb-0">
+                        <a class="d-block" href="{{ route('users.shop') }}">
+                            <img class="w-100" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Banner Image" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter-area mt-no-text mb-text-p">
+        <div class="container container-default h-100 custom-area">
+            <div class="row h-100">
+                <div class="col-lg-8 col-xl-5 offset-xl-6 offset-lg-3 col-custom">
+                    <div
+                        class="newsletter-content text-center d-flex flex-column align-items-center justify-content-center h-100">
+                        <div class="section-content">
+                            <h4 class="title-4 text-uppercase">
+                                <span>ƯU ĐÃI</span> ĐẶC BIỆT KHI ĐĂNG KÝ
+                            </h4>
+                            <h2 class="title-3 text-uppercase">
+                                NHẬN GIẢM GIÁ NGAY LẬP TỨC CHO THÀNH VIÊN
+                            </h2>
+                            <p class="desc-content">
+                                Đăng ký bản tin của chúng tôi và tất cả các tin tức mới nhất về
+                                <br />sản phẩm, khuyến mãi và ưu đãi mới nhất của chúng tôi
+                            </p>
+                        </div>
+                        <div class="newsletter-form-wrap ml-auto mr-auto">
+                            <form id="mc-form" class="mc-form d-flex position-relative">
+                                <input type="email" id="mc-email" class="form-control email-box"
+                                    placeholder="email@example.com" name="EMAIL" />
+                                <button id="mc-submit"
+                                    class="btn primary-btn obrien-button newsletter-btn position-absolute" type="submit">
+                                    Đặt Mua
+                                </button>
+                            </form>
+                            <!-- mailchimp-alerts Start -->
+                            <div class="mailchimp-alerts text-centre">
+                                <div class="mailchimp-submitting"></div>
+                                <!-- mailchimp-submitting end -->
+                                <div class="mailchimp-success text-success"></div>
+                                <!-- mailchimp-success end -->
+                                <div class="mailchimp-error text-danger"></div>
+                                <!-- mailchimp-error end -->
+                            </div>
+                            <!-- mailchimp-alerts end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="product-area mt-text">
         <div class="container container-default custom-area">
             <div class="row">
                 <div class="col-lg-5 m-auto text-center col-custom">
                     <div class="section-content">
-                        <h2 class="title-1 text-uppercase">Best Sale</h2>
+                        <h2 class="title-1 text-uppercase">BÁN CHẠY NHẤT</h2>
                         <div class="desc-content">
                             <p>
-                                All best seller product are now available for you and your
-                                can buy this product from here any time any where so sop now
+                                Tất cả các sản phẩm bán chạy nhất hiện đều có sẵn cho bạn và bạn có thể mua sản phẩm này từ
+                                đây bất cứ lúc nào, bất cứ nơi nào, vì vậy hãy mua ngay bây giờ
                             </p>
                         </div>
                     </div>
@@ -52,7 +167,8 @@
             </div>
             <div class="row product__card">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}"
+                        alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Tên</h5>
                         <p class="card-text">Gía</p>
@@ -70,7 +186,8 @@
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}"
+                        alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Tên</h5>
                         <p class="card-text">Gía</p>
@@ -91,382 +208,158 @@
             </div>
         </div>
     </div>
-    <div class="shop-main-area">
-        <div class="container container-default custom-area">
-            <div class="row flex-row-reverse">
-                <div class="col-lg-9 col-12 col-custom widget-mt">
-                    <!--shop toolbar start-->
-                    <div class="shop_toolbar_wrapper">
-                        <div class="shop_toolbar_btn">
-                            <button data-role="grid_3" type="button" class="active btn-grid-3" data-bs-toggle="tooltip"
-                                title="3"><i class="fa fa-th"></i></button>
-                            <!-- <button data-role="grid_4" type="button"  class=" btn-grid-4" data-bs-toggle="tooltip" title="4"></button> -->
-                            <button data-role="grid_list" type="button" class="btn-list" data-bs-toggle="tooltip"
-                                title="List"><i class="fa fa-th-list"></i></button>
-                        </div>
-                        <div class="shop-select">
-                            <form class="d-flex flex-column w-100" action="#">
-                                <div class="form-group">
-                                    <select class="form-control nice-select w-100">
-                                        <option selected value="1">Alphabetically, A-Z</option>
-                                        <option value="2">Sort by popularity</option>
-                                        <option value="3">Sort by newness</option>
-                                        <option value="4">Sort by price: low to high</option>
-                                        <option value="5">Sort by price: high to low</option>
-                                        <option value="6">Product Name: Z</option>
-                                    </select>
-                                </div>
-                            </form>
-                        </div>
+    <div class="banner-fullwidth-area mb-text">
+        <div class="container custom-area">
+            <div class="row">
+                <div class="col-md-5 col-lg-6 text-center col-custom">
+                    <div class="banner-thumb h-100 d-flex justify-content-center align-items-center">
+                        <img src="{{ asset('assets/img/product/product69.jpg') }}" alt="Banner Thumb" />
                     </div>
-                    <!--shop toolbar end-->
-                    <!-- Shop Wrapper Start -->
-                    <div class="row shop_wrapper grid_3">
-                        <div class="col-md-6 col-sm-6 col-lg-4 col-custom product-area">
-                            <div class="single-product position-relative">
-                                <div class="product-image">
-                                    <a class="d-block" href="product-details.html">
-                                        <img src="{{ asset('assets/img/product/product69.jpg') }}" alt=""
-                                            class="product-image-1 w-100">
-                                        <img src="{{ asset('assets/img/product/product69.jpg') }}" alt=""
-                                            class="product-image-2 position-absolute w-100">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <div class="product-title">
-                                        <h4 class="title-2"> <a href="product-details.html">Product dummy name</a></h4>
-                                    </div>
-                                    <div class="price-box">
-                                        <span class="regular-price ">$80.00</span>
-                                        <span class="old-price"><del>$90.00</del></span>
-                                    </div>
-                                </div>
-                                <div class="add-action d-flex position-absolute">
-                                    <a href="cart.html" title="Add To cart">
-                                        <i class="ion-bag"></i>
-                                    </a>
-                                    <a href="compare.html" title="Compare">
-                                        <i class="ion-ios-loop-strong"></i>
-                                    </a>
-                                    <a href="wishlist.html" title="Add To Wishlist">
-                                        <i class="ion-ios-heart-outline"></i>
-                                    </a>
-                                    <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View">
-                                        <i class="ion-eye"></i>
-                                    </a>
-                                </div>
-                                <div class="product-content-listview">
-                                    <div class="product-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <div class="product-title">
-                                        <h4 class="title-2"> <a href="product-details.html">Product dummy name</a></h4>
-                                    </div>
-                                    <div class="price-box">
-                                        <span class="regular-price ">$80.00</span>
-                                        <span class="old-price"><del>$90.00</del></span>
-                                    </div>
-                                    <div class="add-action-listview d-flex">
-                                        <a href="cart.html" title="Add To cart">
-                                            <i class="ion-bag"></i>
-                                        </a>
-                                        <a href="compare.html" title="Compare">
-                                            <i class="ion-ios-loop-strong"></i>
-                                        </a>
-                                        <a href="wishlist.html" title="Add To Wishlist">
-                                            <i class="ion-ios-heart-outline"></i>
-                                        </a>
-                                        <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View">
-                                            <i class="ion-eye"></i>
-                                        </a>
-                                    </div>
-                                    <p class="desc-content">
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                                        piece of classical Latin literature from 45 BC, making it over 2000 years old.
-                                        Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-4 col-custom product-area">
-                            <div class="single-product position-relative">
-                                <div class="product-image">
-                                    <a class="d-block" href="product-details.html">
-                                        <img src="{{ asset('assets/img/product/product69.jpg') }}" alt=""
-                                            class="product-image-1 w-100">
-                                        <img src="{{ asset('assets/img/product/product69.jpg') }}" alt=""
-                                            class="product-image-2 position-absolute w-100">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <div class="product-title">
-                                        <h4 class="title-2"> <a href="product-details.html">Product dummy name</a></h4>
-                                    </div>
-                                    <div class="price-box">
-                                        <span class="regular-price ">$80.00</span>
-                                        <span class="old-price"><del>$90.00</del></span>
-                                    </div>
-                                </div>
-                                <div class="add-action d-flex position-absolute">
-                                    <a href="cart.html" title="Add To cart">
-                                        <i class="ion-bag"></i>
-                                    </a>
-                                    <a href="compare.html" title="Compare">
-                                        <i class="ion-ios-loop-strong"></i>
-                                    </a>
-                                    <a href="wishlist.html" title="Add To Wishlist">
-                                        <i class="ion-ios-heart-outline"></i>
-                                    </a>
-                                    <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View">
-                                        <i class="ion-eye"></i>
-                                    </a>
-                                </div>
-                                <div class="product-content-listview">
-                                    <div class="product-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <div class="product-title">
-                                        <h4 class="title-2"> <a href="product-details.html">Product dummy name</a></h4>
-                                    </div>
-                                    <div class="price-box">
-                                        <span class="regular-price ">$80.00</span>
-                                        <span class="old-price"><del>$90.00</del></span>
-                                    </div>
-                                    <div class="add-action-listview d-flex">
-                                        <a href="cart.html" title="Add To cart">
-                                            <i class="ion-bag"></i>
-                                        </a>
-                                        <a href="compare.html" title="Compare">
-                                            <i class="ion-ios-loop-strong"></i>
-                                        </a>
-                                        <a href="wishlist.html" title="Add To Wishlist">
-                                            <i class="ion-ios-heart-outline"></i>
-                                        </a>
-                                        <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View">
-                                            <i class="ion-eye"></i>
-                                        </a>
-                                    </div>
-                                    <p class="desc-content">
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                                        piece of classical Latin literature from 45 BC, making it over 2000 years old.
-                                        Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Shop Wrapper End -->
-                    <!-- Bottom Toolbar Start -->
-                    <div class="row">
-                        <div class="col-sm-12 col-custom">
-                            <div class="toolbar-bottom mt-30">
-                                <nav class="pagination pagination-wrap mb-10 mb-sm-0">
-                                    {{-- chuyển trang --}}
-                                    {{-- <ul class="pagination">
-                                        <li class="disabled prev">
-                                            <i class="ion-ios-arrow-thin-left"></i>
-                                        </li>
-                                        <li class="active"><a>1</a></li>
-                                        <li>
-                                            <a href="#">2</a>
-                                        </li>
-                                        <li class="next">
-                                            <a href="#" title="Next >>"><i
-                                                    class="ion-ios-arrow-thin-right"></i></a>
-                                        </li>
-                                    </ul> --}}
-                                    <ul class="pagination">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                                <p class="desc-content text-center text-sm-right">Showing 1 - 12 of 34 result</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Bottom Toolbar End -->
                 </div>
-                <div class="col-lg-3 col-12 col-custom">
-                    <!-- Sidebar Widget Start -->
-                    <aside class="sidebar_widget widget-mt">
-                        <div class="widget_inner">
-                            <div class="widget-list widget-mb-1">
-                                <h3 class="widget-title">Search</h3>
-                                <div class="search-box">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search Our Store"
-                                            aria-label="Search Our Store">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="widget-list widget-mb-1">
-                                <h3 class="widget-title">Menu Categories</h3>
-                                <!-- Widget Menu Start -->
-                                <nav>
-                                    <ul class="mobile-menu p-0 m-0">
-                                        <li class="menu-item-has-children"><a href="#">Breads</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Skateboard (02)</a></li>
-                                                <li><a href="#">Surfboard (4)</a></li>
-                                                <li><a href="#">Accessories (3)</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#">Fruits</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Samsome</a></li>
-                                                <li><a href="#">GL Stylus (4)</a></li>
-                                                <li><a href="#">Uawei (3)</a></li>
-                                                <li><a href="#">Avocado (3)</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#">Vagetables</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Power Bank</a></li>
-                                                <li><a href="#">Data Cable (4)</a></li>
-                                                <li><a href="#">Avocado (3)</a></li>
-                                                <li><a href="#">Brocoly (3)</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#">Organic Food</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Vagetables</a></li>
-                                                <li><a href="#">Green Food (4)</a></li>
-                                                <li><a href="#">Coconut (3)</a></li>
-                                                <li><a href="#">Cabage (3)</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
-                                <!-- Widget Menu End -->
-                            </div>
-                            <div class="widget-list widget-mb-1">
-                                <h3 class="widget-title">Categories</h3>
-                                <div class="sidebar-body">
-                                    <ul class="sidebar-list">
-                                        <li><a href="#">All Product</a></li>
-                                        <li><a href="#">Best Seller (5)</a></li>
-                                        <li><a href="#">Featured (4)</a></li>
-                                        <li><a href="#">New Products (6)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="widget-list widget-mb-4">
-                                <h3 class="widget-title">Recent Products</h3>
-                                <div class="sidebar-body">
-                                    <div class="sidebar-product align-items-center">
-                                        <a href="product-details.html" class="image">
-                                            <img src="assets/images/product/small-product/1.jpg" alt="product">
-                                        </a>
-                                        <div class="product-content">
-                                            <div class="product-title">
-                                                <h4 class="title-2"> <a href="product-details.html">Product dummy name</a>
-                                                </h4>
-                                            </div>
-                                            <div class="price-box">
-                                                <span class="regular-price ">$80.00</span>
-                                                <span class="old-price"><del>$90.00</del></span>
-                                            </div>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sidebar-product align-items-center">
-                                        <a href="product-details.html" class="image">
-                                            <img src="assets/images/product/small-product/2.jpg" alt="product">
-                                        </a>
-                                        <div class="product-content">
-                                            <div class="product-title">
-                                                <h4 class="title-2"> <a href="product-details.html">Product dummy
-                                                        title</a></h4>
-                                            </div>
-                                            <div class="price-box">
-                                                <span class="regular-price ">$50.00</span>
-                                                <span class="old-price"><del>$60.00</del></span>
-                                            </div>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sidebar-product align-items-center">
-                                        <a href="product-details.html" class="image">
-                                            <img src="assets/images/product/small-product/3.jpg" alt="product">
-                                        </a>
-                                        <div class="product-content">
-                                            <div class="product-title">
-                                                <h4 class="title-2"> <a href="product-details.html">Product title here</a>
-                                                </h4>
-                                            </div>
-                                            <div class="price-box">
-                                                <span class="regular-price ">$40.00</span>
-                                                <span class="old-price"><del>$50.00</del></span>
-                                            </div>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
-                    <!-- Sidebar Widget End -->
+                <div class="col-md-7 col-lg-6 text-center justify-content-center col-custom">
+                    <div class="banner-flash-content d-flex flex-column align-items-center justify-content-center h-100">
+                        <h2 class="deal-head text-uppercase">ƯU ĐÃI CHỚP NHOÁNG
+                        </h2>
+                        <h3 class="deal-title text-uppercase">
+                            HÃY NHANH TAY ĐỂ ĐƯỢC GIẢM GIÁ 25%
+                        </h3>
+                        <a href="{{ route('users.shop') }}" class="obrien-button primary-btn">Mua Ngay</a>
+                        <div class="countdown-wrapper d-flex justify-content-center" data-countdown="2022/12/24"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Product Area End Here -->
+    <div class="product-area mb-text">
+        <div class="container container-default custom-area">
+            <div class="row">
+                <div class="col-lg-5 m-auto text-center col-custom">
+                    <div class="section-content">
+                        <h2 class="title-1 text-uppercase">BLOG MỚI NHẤT</h2>
+                        <div class="desc-content">
+                            <p>
+                                Tất cả các sản phẩm bán chạy nhất hiện đều có sẵn cho bạn và bạn có thể mua sản phẩm này từ
+                                đây bất cứ lúc nào, bất cứ nơi nào, vì vậy hãy mua ngay bây giờ
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row product__card">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Tên</h5>
+                        <p class="card-text">Gía</p>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
+                        <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
+                        <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Tên</h5>
+                        <p class="card-text">Gía</p>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
+                        <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
+                        <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {{-- blog --}}
+    <div class="latest-blog-area">
+        <div class="container container-default custom-area">
+            <div class="row">
+                <div class="col-lg-5 m-auto text-center col-custom">
+                    <div class="section-content">
+                        <h2 class="title-1 text-uppercase">BLOG MỚI NHẤT</h2>
+                        <div class="desc-content">
+                            <p>
+                                Nếu bạn muốn biết về sản phẩm hữu cơ thì hãy theo dõi blog của chúng tôi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-custom">
+                    <div class="obrien-slider">
+                        <div class="single-blog">
+                            <div class="single-blog-thumb">
+                                <a href="blog.html">
+                                    <img class="w-100" src ="{{ asset('assets/img/product/product69.jpg') }}"
+                                        alt="Blog Image" />
+                                </a>
+                            </div>
+                            <div class="single-blog-content position-relative">
+                                <div class="post-date text-center border rounded d-flex flex-column position-absolute">
+                                    <span>14</span>
+                                    <span>01</span>
+                                </div>
+                                <div class="post-meta">
+                                    <span class="author">Author: Obrien Demo Admin</span>
+                                </div>
+                                <h2 class="post-title">
+                                    <a href="blog.html">There Are Many Variation of Passages of Lorem Ipsum
+                                        Available</a>
+                                </h2>
+                                <p class="desc-content">
+                                    Contrary to popular belief, Lorem Ipsum is not simply
+                                    random text. It has roots in a piece of classical Latin
+                                    literature from 45 BC, making...
+                                </p>
+                            </div>
+                        </div>
+                        <div class="single-blog">
+                            <div class="single-blog-thumb">
+                                <a href="blog.html">
+                                    <img class="w-100" src="{{ asset('assets/img/product/product69.jpg') }}"
+                                        alt="Blog Image" />
+                                </a>
+                            </div>
+                            <div class="single-blog-content position-relative">
+                                <div class="post-date text-center border rounded d-flex flex-column position-absolute">
+                                    <span>14</span>
+                                    <span>01</span>
+                                </div>
+                                <div class="post-meta">
+                                    <span class="author">Author: Obrien Demo Admin</span>
+                                </div>
+                                <h2 class="post-title">
+                                    <a href="blog.html">There Are Many Variation of Passages of Lorem Ipsum
+                                        Available</a>
+                                </h2>
+                                <p class="desc-content">
+                                    Contrary to popular belief, Lorem Ipsum is not simply
+                                    random text. It has roots in a piece of classical Latin
+                                    literature from 45 BC, making...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

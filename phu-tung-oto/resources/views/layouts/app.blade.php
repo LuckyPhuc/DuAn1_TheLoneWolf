@@ -37,7 +37,7 @@
 </head>
 
 <body>
-    <div class="home-wrapper home">
+    <div class="Trang Chủ-wrapper Trang Chủ">
         @yield('header')
         <header class="main-header-area">
             <!-- Header Top Area Start Here -->
@@ -64,8 +64,9 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-2 col-xl-2 col-sm-6 col-6 col-custom">
                                     <div class="header-logo d-flex align-items-center">
-                                        <a href="index.html">
-                                            <img class="img-full" src="assets/images/logo/logo.png" alt="Header Logo">
+                                        <a href="{{ route('users.index') }}">
+                                            <img class="img-full" src="{{ asset('assets/img/1.png') }}"
+                                                alt="Header Logo">
                                         </a>
                                     </div>
                                 </div>
@@ -73,35 +74,27 @@
                                     <nav class="main-nav d-flex justify-content-center">
                                         <ul class="nav">
                                             <li>
-                                                <a class="active" href="index.html">
-                                                    <span class="menu-text"> Home</span>
-                                                    <i class="fa fa-angle-down"></i>
+                                                <a class="active" href="{{ route('users.index') }}">
+                                                    <span class="menu-text">Trang Chủ</span>
                                                 </a>
-                                                <ul class="dropdown-submenu dropdown-hover">
-                                                    <li><a href="index.html">Home Page - 1</a></li>
-                                                    <li><a class="active" href="index-2.html">Home Page - 2</a></li>
-                                                    <li><a href="index-3.html">Home Page - 3</a></li>
-                                                    <li><a href="index-4.html">Home Page - 4</a></li>
-                                                </ul>
                                             </li>
                                             <li>
-                                                <a href="shop.html">
-                                                    <span class="menu-text">Shop</span>
+                                                <a href="{{ route('users.shop') }}">
+                                                    <span class="menu-text">Cửa Hàng</span>
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <div class="mega-menu dropdown-hover">
                                                     <div class="menu-colum">
                                                         <ul>
                                                             <li><span class="mega-menu-text">Shop</span></li>
-                                                            <li><a href="shop.html">Shop Left Sidebar</a></li>
-                                                            <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a>
+                                                            <li><a href="#">Shop Left Sidebar</a></li>
+                                                            <li><a href="#">Shop Right Sidebar</a>
                                                             </li>
-                                                            <li><a href="shop-list-left.html">Shop List Left Sidebar</a>
+                                                            <li><a href="#">Shop List Left Sidebar</a>
                                                             </li>
-                                                            <li><a href="shop-list-right.html">Shop List Right
-                                                                    Sidebar</a>
+                                                            <li><a href="#">Shop List Right Sidebar</a>
                                                             </li>
-                                                            <li><a href="shop-fullwidth.html">Shop Full Width</a></li>
+                                                            <li><a href="#">Shop Full Width</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="menu-colum">
@@ -127,7 +120,8 @@
                                                             <li><a href="error-404.html">Error 404</a></li>
                                                             <li><a href="compare.html">Compare Page</a></li>
                                                             <li><a href="cart.html">Cart Page</a></li>
-                                                            <li><a href="checkout.html">Checkout Page</a></li>
+                                                            <li><a href="{{ route('users.checkout') }}">Checkout
+                                                                    Page</a></li>
                                                             <li><a href="wishlist.html">Wishlist Page</a></li>
                                                         </ul>
                                                     </div>
@@ -164,8 +158,8 @@
                                                 <ul class="dropdown-submenu dropdown-hover">
                                                     <li><a href="frequently-questions.html">FAQ</a></li>
                                                     <li><a href="my-account.html">My Account</a></li>
-                                                    <li><a href="login.html">Login</a></li>
-                                                    <li><a href="register.html">Register</a></li>
+                                                    <li><a href="{{ route('users.login') }}">Login</a></li>
+                                                    <li><a href="{{ route('users.register') }}">Register</a></li>
                                                 </ul>
                                             </li>
                                             <li>
@@ -174,7 +168,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="contact-us.html">
+                                                <a href="#">
                                                     <span class="menu-text">Contact</span>
                                                 </a>
                                             </li>
@@ -185,8 +179,8 @@
                                     <div class="header-right-area main-nav">
                                         <ul class="nav">
                                             <li class="login-register-wrap d-none d-xl-flex">
-                                                <span><a href="login.html">Login</a></span>
-                                                <span><a href="register.html">Register</a></span>
+                                                <span><a href="{{ route('users.login') }}">Login</a></span>
+                                                <span><a href="{{ route('users.register') }}">Register</a></span>
                                             </li>
                                             <li class="minicart-wrap">
                                                 <a href="#" class="minicart-btn toolbar-btn">
@@ -259,7 +253,7 @@
                                                         <a class="obrien-button white-btn" href="cart.html">View
                                                             cart</a>
                                                         <a class="obrien-button white-btn"
-                                                            href="checkout.html">Checkout</a>
+                                                            href="{{ route('users.checkout') }}">Checkout</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -285,8 +279,8 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-2 col-xl-2 col-sm-6 col-6 col-custom">
                                     <div class="header-logo">
-                                        <a href="index.html">
-                                            <img class="img-full" src="assets/images/logo/logo.png"
+                                        <a href="#">
+                                            <img class="img-full" src="{{ asset('assets/img/1.png') }}"
                                                 alt="Header Logo">
                                         </a>
                                     </div>
@@ -295,37 +289,24 @@
                                     <nav class="main-nav d-flex justify-content-center">
                                         <ul class="nav">
                                             <li>
-                                                <a class="active" href="index.html">
-                                                    <span class="menu-text"> Home</span>
-                                                    <i class="fa fa-angle-down"></i>
+                                                <a class="active" href="{{ route('users.index') }}">
+                                                    <span class="menu-text"> Trang Chủ</span>
                                                 </a>
-                                                <ul class="dropdown-submenu dropdown-hover">
-                                                    <li><a href="index.html">Home Page - 1</a></li>
-                                                    <li><a class="active" href="index-2.html">Home Page - 2</a></li>
-                                                    <li><a href="index-3.html">Home Page - 3</a></li>
-                                                    <li><a href="index-4.html">Home Page - 4</a></li>
-                                                </ul>
                                             </li>
                                             <li>
-                                                <a href="shop.html">
-                                                    <span class="menu-text">Shop</span>
+                                                <a href="{{ route('users.shop') }}">
+                                                    <span class="menu-text">Cửa Hàng</span>
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <div class="mega-menu dropdown-hover">
                                                     <div class="menu-colum">
                                                         <ul>
                                                             <li><span class="mega-menu-text">Shop</span></li>
-                                                            <li><a href="shop.html">Shop Left Sidebar</a></li>
-                                                            <li><a href="shop-right-sidebar.html">Shop Right
-                                                                    Sidebar</a>
-                                                            </li>
-                                                            <li><a href="shop-list-left.html">Shop List Left
-                                                                    Sidebar</a>
-                                                            </li>
-                                                            <li><a href="shop-list-right.html">Shop List Right
-                                                                    Sidebar</a>
-                                                            </li>
-                                                            <li><a href="shop-fullwidth.html">Shop Full Width</a></li>
+                                                            <li><a href="#">Shop Left Sidebar</a></li>
+                                                            <li><a href="#">Shop Righ Sidebar</a></li>
+                                                            <li><a href="#">Shop List Left Sidebar</a></li>
+                                                            <li><a href="#">Shop List Right Sidebar</a></li>
+                                                            <li><a href="#">Shop Full Width</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="menu-colum">
@@ -349,7 +330,8 @@
                                                             <li><a href="error-404.html">Error 404</a></li>
                                                             <li><a href="compare.html">Compare Page</a></li>
                                                             <li><a href="cart.html">Cart Page</a></li>
-                                                            <li><a href="checkout.html">Checkout Page</a></li>
+                                                            <li><a href="{{ route('users.checkout') }}">Checkout
+                                                                    Page</a></li>
                                                             <li><a href="wishlist.html">Wishlist Page</a></li>
                                                         </ul>
                                                     </div>
@@ -386,8 +368,8 @@
                                                 <ul class="dropdown-submenu dropdown-hover">
                                                     <li><a href="frequently-questions.html">FAQ</a></li>
                                                     <li><a href="my-account.html">My Account</a></li>
-                                                    <li><a href="login.html">Login</a></li>
-                                                    <li><a href="register.html">Register</a></li>
+                                                    <li><a href="{{ route('users.login') }}">Login</a></li>
+                                                    <li><a href="{{ route('users.register') }}">Register</a></li>
                                                 </ul>
                                             </li>
                                             <li>
@@ -396,7 +378,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="contact-us.html">
+                                                <a href="#">
                                                     <span class="menu-text">Contact</span>
                                                 </a>
                                             </li>
@@ -407,8 +389,8 @@
                                     <div class="header-right-area main-nav">
                                         <ul class="nav">
                                             <li class="login-register-wrap d-none d-xl-flex">
-                                                <span><a href="login.html">Login</a></span>
-                                                <span><a href="register.html">Register</a></span>
+                                                <span><a href="{{ route('users.login') }}">Login</a></span>
+                                                <span><a href="{{ route('users.register') }}">Register</a></span>
                                             </li>
                                             <li class="minicart-wrap">
                                                 <a href="#" class="minicart-btn toolbar-btn">
@@ -481,7 +463,7 @@
                                                         <a class="obrien-button white-btn" href="cart.html">View
                                                             cart</a>
                                                         <a class="obrien-button white-btn"
-                                                            href="checkout.html">Checkout</a>
+                                                            href="{{ route('users.checkout') }}">Checkout</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -520,23 +502,18 @@
                             <!-- mobile menu navigation start -->
                             <nav>
                                 <ul class="mobile-menu">
-                                    <li class="menu-item-has-children"><a href="#">Home</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home Page 1</a></li>
-                                            <li><a href="index-2.html">Home Page 2</a></li>
-                                            <li><a href="index-3.html">Home Page 3</a></li>
-                                            <li><a href="index-4.html">Home Page 4</a></li>
-                                        </ul>
+                                    <li class="menu-item-has-children"><a href="{{ route('users.index') }}">Trang
+                                            Chủ</a>
                                     </li>
-                                    <li class="menu-item-has-children"><a href="#">Shop</a>
+                                    <li class="menu-item-has-children"><a href="#">Cửa Hàng</a>
                                         <ul class="megamenu dropdown">
                                             <li class="mega-title has-children"><a href="#">Shop Layouts</a>
                                                 <ul class="dropdown">
-                                                    <li><a href="shop.html">Shop Left Sidebar</a></li>
-                                                    <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                                    <li><a href="shop-list-left.html">Shop List Left Sidebar</a></li>
-                                                    <li><a href="shop-list-right.html">Shop List Right Sidebar</a></li>
-                                                    <li><a href="shop-fullwidth.html">Shop Full Width</a></li>
+                                                    <li><a href="#">Shop Left Sidebar</a></li>
+                                                    <li><a href="#">Shop Right Sidebar</a></li>
+                                                    <li><a href="#">Shop List Left Sidebar</a></li>
+                                                    <li><a href="#">Shop List Right Sidebar</a></li>
+                                                    <li><a href="#">Shop Full Width</a></li>
                                                 </ul>
                                             </li>
                                             <li class="mega-title has-children"><a href="#">Product Details</a>
@@ -558,7 +535,7 @@
                                                     <li><a href="error404.html">Error 404</a></li>
                                                     <li><a href="compare.html">Compare Page</a></li>
                                                     <li><a href="cart.html">Cart Page</a></li>
-                                                    <li><a href="checkout.html">Checkout Page</a></li>
+                                                    <li><a href="{{ route('users.checkout') }}">Checkout Page</a></li>
                                                     <li><a href="wishlist.html">Wish List Page</a></li>
                                                 </ul>
                                             </li>
@@ -581,11 +558,12 @@
                                         <ul class="dropdown">
                                             <li><a href="frequently-questions.html">FAQ</a></li>
                                             <li><a href="my-account.html">My Account</a></li>
-                                            <li><a href="login-register.html">login &amp; register</a></li>
+                                            <li><a href="login-{{ route('users.register') }}">login &amp; register</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li><a href="about-us.html">About Us</a></li>
-                                    <li><a href="contact-us.html">Contact</a></li>
+                                    <li><a href="#">Contact</a></li>
                                 </ul>
                             </nav>
                             <!-- mobile menu navigation end -->
@@ -597,7 +575,7 @@
                                 <ul class="mobile-menu">
                                     <li class="menu-item-has-children"><a href="#">My Account</a>
                                         <ul class="dropdown">
-                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="{{ route('users.login') }}">Login</a></li>
                                             <li><a href="Register-2.html">Register</a></li>
                                         </ul>
                                     </li>
@@ -641,11 +619,12 @@
                     <div class="col-lg-12 col-custom">
                         <div class="support-wrapper d-flex">
                             <div class="support-content">
-                                <h1 class="title">Need Help ?</h1>
-                                <p class="desc-content">Call our support 24/7 at 01234-567-890</p>
+                                <h1 class="title">Cần giúp đỡ ?</h1>
+                                <p class="desc-content">Hãy gọi cho bộ phận hỗ trợ của chúng tôi 24/7 theo số
+                                    01234-567-890</p>
                             </div>
                             <div class="support-button d-flex align-items-center">
-                                <a class="obrien-button primary-btn" href="contact-us.html">Contact now</a>
+                                <a class="obrien-button primary-btn" href="#">Liên Hệ Ngay</a>
                             </div>
                         </div>
                     </div>
@@ -661,12 +640,13 @@
                         <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-custom">
                             <div class="single-footer-widget m-0">
                                 <div class="footer-logo">
-                                    <a href="index.html">
-                                        <img src="assets/images/logo/footer.png" alt="Logo Image">
+                                    <a href="{{ route('users.index') }}">
+                                        <img width="200px" src="{{ asset('assets/img/a.png') }}" alt="Logo Image">
                                     </a>
                                 </div>
-                                <p class="desc-content">Obrien is the best parts shop of your daily nutritions. What
-                                    kind of nutrition do you need you can get here soluta nobis</p>
+                                <p class="desc-content">The Lone Wolf là cửa hàng cung cấp các sản phẩm điện ô tô hàng
+                                    ngày tốt nhất cho bạn. Bạn cần loại điện ô tô nào bạn có thể lấy ở đây The Lone Wolf
+                                </p>
                                 <div class="social-links">
                                     <ul class="d-flex justify-content-around">
                                         <li>
@@ -700,45 +680,46 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
                             <div class="single-footer-widget">
-                                <h2 class="widget-title">Information</h2>
+                                <h2 class="widget-title">Thông tin</h2>
                                 <ul class="widget-list">
-                                    <li><a href="about-us.html">Our Company</a></li>
-                                    <li><a href="contact-us.html">Contact Us</a></li>
-                                    <li><a href="about-us.html">Our Services</a></li>
-                                    <li><a href="about-us.html">Why We?</a></li>
-                                    <li><a href="about-us.html">Careers</a></li>
+                                    <li><a href="about-us.html">Công ty chúng tôi</a></li>
+                                    <li><a href="#">Liên hệ chúng tôi</a></li>
+                                    <li><a href="about-us.html">Dịch vụ của chúng tôi</a></li>
+                                    <li><a href="about-us.html">Tại sao chúng tôi?</a></li>
+                                    <li><a href="about-us.html">Nghề nghiệp</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
                             <div class="single-footer-widget">
-                                <h2 class="widget-title">Quicklink</h2>
+                                <h2 class="widget-title">Liên kết nhanh</h2>
                                 <ul class="widget-list">
                                     <li><a href="about-us.html">About</a></li>
                                     <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="shop.html">Shop</a></li>
+                                    <li><a href="{{ route('users.shop') }}">Cửa hàng</a></li>
                                     <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="contact-us.html">Contact</a></li>
+                                    <li><a href="#">Liên hệ</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
                             <div class="single-footer-widget">
-                                <h2 class="widget-title">Support</h2>
+                                <h2 class="widget-title">Ủng hộ</h2>
                                 <ul class="widget-list">
-                                    <li><a href="contact-us.html">Online Support</a></li>
-                                    <li><a href="contact-us.html">Shipping Policy</a></li>
-                                    <li><a href="contact-us.html">Return Policy</a></li>
-                                    <li><a href="contact-us.html">Privacy Policy</a></li>
-                                    <li><a href="contact-us.html">Terms of Service</a></li>
+                                    <li><a href="#">Hỗ trợ trực tuyến</a></li>
+                                    <li><a href="#">chính sách vận chuyển</a></li>
+                                    <li><a href="#">Chính sách hoàn trả</a></li>
+                                    <li><a href="#">Chính sách bảo mật</a></li>
+                                    <li><a href="#">Điều khoản dịch vụ</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-custom">
                             <div class="single-footer-widget">
-                                <h2 class="widget-title">See Information</h2>
+                                <h2 class="widget-title">Xem thông tin</h2>
                                 <div class="widget-body">
-                                    <address>123, H2, Road #21, Main City, Your address goes here.<br>Phone: 01254 698
+                                    <address>160 Y Moan Ênuôl, Tân Lợi, Thành phố Buôn Ma Thuột, Đắk Lắk<br>Phone: 01254
+                                        698
                                         785, 36598 254 987<br>Email: https://example.com</address>
                                 </div>
                             </div>
@@ -751,9 +732,9 @@
                     <div class="row">
                         <div class="col-12 text-center col-custom">
                             <div class="copyright-content">
-                                <p>Copyright © 2020 <a href="https://hasthemes.com/"
-                                        title="https://hasthemes.com/">HasThemes</a> | Built
-                                    with&nbsp;<strong>Obrien</strong>&nbsp;by <a href="https://hasthemes.com/"
+                                <p>Bản quyền © 2024 <a href="https://hasthemes.com/" title="https://hasthemes.com/">
+                                        HasThemes</a> |Được xây dựng với
+                                    &nbsp;<strong>The Lone Wolf</strong>&nbsp;by <a href="https://hasthemes.com/"
                                         title="https://hasthemes.com/">HasThemes</a>.</p>
                             </div>
                         </div>
