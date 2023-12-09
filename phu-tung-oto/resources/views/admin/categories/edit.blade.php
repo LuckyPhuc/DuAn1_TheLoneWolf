@@ -9,16 +9,6 @@
                     <h4>Sửa danh mục </h4>
                 </div>
             </div>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
             @if (session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
@@ -35,6 +25,9 @@
                                 <div class="form-group">
                                     <label>Tên danh mục</label>
                                     <input type="text" name="name" value ='{{ $categories->name }}'>
+                                    @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-12">

@@ -59,42 +59,52 @@
                         <li class="active">
                             <a href="{{ route('dashboard') }}"><img src="{{ asset('assets/img/icons/dashboard.svg') }}"
                                     alt="img">
-                                <span>Dashboard</span>
+                                <span>Bảng điều khiển</span>
                                 <span class="menu-arrow"></span>
                             </a>
                         </li>
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/product.svg') }}"
                                     alt="img"><span>
-                                    Product</span>
+                                    Sản phẩm</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="{{ route('admin.products.list') }}">Product List</a></li>
-                                <li><a href="{{ route('admin.products.create') }}">Add Product</a></li>
-                                <li><a href="{{ route('admin.categories.list') }}">Category List</a></li>
-                                <li><a href="{{ route('admin.categories.create') }}">Add Category</a></li>
+                                <li><a href="{{ route('admin.products.list') }}">Danh sách sản phẩm</a></li>
+                                <li><a href="{{ route('admin.products.create') }}">Thêm sản phẩm</a></li>
+                                <li><a href="{{ route('admin.categories.list') }}">Danh sách danh mục</a></li>
+                                <li><a href="{{ route('admin.categories.create') }}">Thêm danh mục</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"><i class="bi bi-arrow-right"></i><span>
+                                    Nhà cung cấp</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="{{ route('admin.supplier.list') }}">Danh sách nhà cung cấp</a></li>
+                                <li><a href="{{ route('admin.supplier.create') }}">Thêm nhà cung cấp</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/return1.svg') }}"
                                     alt="img"><span>
-                                    Order</span>
+                                    Đơn hàng</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="{{ route('admin.orders.list') }}">Order List</a></li>
+                                <li><a href="{{ route('admin.orders.list') }}">Danh sách đơn hàng</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/users1.svg') }}"
                                     alt="img"><span>
-                                    Users</span>
+                                    Người dùng</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="{{ Route('admin.users.list') }}">User List</a></li>
-                                <li><a href="{{ Route('admin.users.create') }}">Add User</a></li>
+                                <li><a href="{{ Route('admin.users.list') }}">Danh sách người dùng</a></li>
+                                <li><a href="{{ Route('admin.users.create') }}">Thêm người dùng</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
@@ -103,6 +113,23 @@
                                     Website</span>
                                 <span class="menu-arrow"></span>
                             </a>
+                            <ul>
+                                <li><a href="{{ route('admin.website.list') }}">Tài Nguyên Website</a></li>
+                                <li><a href="{{ route('admin.website.create') }}">Media Website</a></li>
+                                <li><a href="{{ route('admin.website.create') }}">Banner Website</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><img src="{{ asset('assets/img/icons/settings.svg') }}"
+                                    alt="img"><span>
+                                    Website</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="{{ route('admin.website.list') }}">Tài Nguyên Website</a></li>
+                                <li><a href="{{ route('admin.website.create') }}">Media Website</a></li>
+                                <li><a href="{{ route('admin.website.create') }}">Banner Website</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

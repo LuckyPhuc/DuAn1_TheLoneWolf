@@ -24,19 +24,19 @@
         @endif
         <div class="card">
             <div class="card-body">
-                <form action="{{ Route('admin.users.update', ['id' => $users->id]) }}" method="POST">
+                <form action="{{ route('admin.users.update', ['id' => $supplier->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="row">
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label>Full Name</label>
+                                <label>Họ và tên</label>
                                 <input type="text" value="{{ $users->name }}" name="fullname">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label>Password</label>
+                                <label>Mật khẩu</label>
                                 <div class="pass-group">
                                     <input type="password" class="pass-input"value="{{ $users->password }}" name="password">
                                     <span class="fas toggle-password fa-eye-slash"></span>
@@ -45,13 +45,13 @@
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label>Address</label>
+                                <label>Địa chỉ</label>
                                 <input type="text" value="{{ $users->address }}" name="Address">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label>Phone</label>
+                                <label>Số điện thoại</label>
                                 <input type="text" value="{{ $users->phone }}" name="phone">
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label>Role</label>
+                                <label>Vai trò</label>
                                 <select class="form-select" name="role">
                                     <option value="admin" {{ $users->role === 1 ? 'selected' : '' }}>Admin</option>
                                     <option value="user" {{ $users->role === 1 ? '' : 'selected' }}>User</option>

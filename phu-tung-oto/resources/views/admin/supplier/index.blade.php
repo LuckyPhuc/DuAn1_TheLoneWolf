@@ -1,15 +1,16 @@
 @extends('layouts.admin')
-@section('title', 'Admin - categories - List')
+@section('title', 'Admin - Supplier - List')
 <div class="page-wrapper">
     @section('content')
         <div class="content">
             <div class="page-header">
                 <div class="page-title">
-                    <h4>Danh sách danh mục</h4>
+                    <h4>Danh sách nhà cung cấp</h4>
                 </div>
                 <div class="page-btn">
-                    <a href="{{ route('admin.categories.create') }}" class="btn btn-added">
-                        <img src="{{ asset('assets/img/icons/plus.svg') }} " class="me-1" alt="img" />Thêm danh mục
+                    <a href="{{ route('admin.supplier.create') }}" class="btn btn-added">
+                        <img src="{{ asset('assets/img/icons/plus.svg') }} " class="me-1" alt="img" />Thêm nhà cung cấp
+                        sản phẩm
                     </a>
                 </div>
             </div>
@@ -66,12 +67,14 @@
                                     </label>
                                 </th>
                                 <th>Số thứ tự</th>
-                                <th>Tên danh mục</th>
+                                <th>Tên nhà cung cấp</th>
+                                <th>Địa chỉ</th>
+                                <th>Số điện thoại</th>
                                 <th>Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($suppliers as $supplier)
                                 <tr>
                                     <td>
                                         <label class="checkboxs">
@@ -80,24 +83,25 @@
                                         </label>
                                     </td>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td class="productimgname">
-                                        <a href="javascript:void(0);" class="text-dark"> {{ $category->name }}</a>
-
-                                    </td>
-
+                                    <td> {{ $supplier->name }}</td>
                                     <td>
-                                        <form action="{{ route('admin.categories.destroy', $category->id) }}"
-                                            method="POST">
+                                        {{ $supplier->address }}
+                                    </td>
+                                    <td>
+                                        {{ $supplier->phone }}
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('admin.supplier.destroy', $supplier->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <a class="btn btn-success" style="background: green; padding:0.5rem"
-                                                href="{{ route('admin.categories.edit', ['id' => $category->id]) }}"
+                                                href="{{ route('admin.supplier.edit', ['id' => $supplier->id]) }}"
                                                 data-bs-toggle="tooltip" data-bs-placement="top" title="Sửa mục này">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
                                             <button type="submit" class="btn btn-danger"
                                                 style="background: red; padding:0.5rem"
-                                                onclick="return confirm('Bạn có muốn xóa danh mục này không?')"
+                                                onclick="return confirm('Bạn có muốn xóa nhà cung cấp này không?')"
                                                 data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa mục này">
                                                 <i class="bi
                                                 bi-trash3"></i>

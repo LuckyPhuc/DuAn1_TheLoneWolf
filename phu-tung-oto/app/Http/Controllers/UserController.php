@@ -72,7 +72,7 @@ class UserController extends Controller
             'address' => $request->Address,
             'phone' => $request->phone,
             'email' => $request->email,
-            'role' => ($request->role === 'admin') ? 1 : 0,
+            'role' => ($request->role === 'admin') ? 0 : 1,
             'password' => Hash::make($request->password),
         ]);
 

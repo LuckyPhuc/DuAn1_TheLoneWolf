@@ -7,6 +7,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\users\HomeController;
+use App\Http\Controllers\users\ShopController;
+use App\Http\Controllers\users\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +39,13 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+
+
 // Routing product
 Route::prefix('admin/products')->name('admin.products.')->group(function () {
     Route::get('list', [ProductController::class, 'index'])->name('list');
@@ -54,6 +65,16 @@ Route::prefix('admin/categories')->name('admin.categories.')->group(function () 
     Route::get('{id}/edit', [CategoriesController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [CategoriesController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [CategoriesController::class, 'destroy'])->name('destroy');
+    // Route::get('list', [CategoriesController::class, 'search'])->name('search');
+});
+Route::prefix('admin/supplier')->name('admin.supplier.')->group(function () {
+    Route::get('list', [SupplierController::class, 'index'])->name('list');
+    Route::get('create', [SupplierController::class, 'create'])->name('create');
+    Route::post('/', [SupplierController::class, 'store'])->name('store');
+    // Route::get('{id}', [SupplierController::class, 'show'])->name('show');
+    Route::get('{id}/edit', [SupplierController::class, 'edit'])->name('edit');
+    Route::put('update/{id}', [SupplierController::class, 'update'])->name('update');
+    Route::delete('delete/{id}', [SupplierController::class, 'destroy'])->name('destroy');
     // Route::get('list', [CategoriesController::class, 'search'])->name('search');
 });
 
@@ -81,14 +102,30 @@ Route::prefix('admin/users')->name('admin.users.')->group(function () {
 //Routing website
 Route::prefix('admin/website')->name('admin.website.')->group(function () {
     Route::get('list', [WebsiteController::class, 'index'])->name('list');
-    Route::get('create', [WebsiteController::class, 'create'])->name('create');
+    Route::get('/create', [WebsiteController::class, 'create'])->name('create');
     Route::post('/', [WebsiteController::class, 'store'])->name('store');
     Route::get('{id}', [WebsiteController::class, 'show'])->name('show');
     Route::get('{id}/edit', [WebsiteController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [WebsiteController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
 });
+
+// nguoi dung
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('index', [HomeController::class, 'index'])->name('index');
+    Route::get('shop', [ShopController::class, 'index'])->name('shop');
+    Route::get('show{id}', [ShopController::class, 'show'])->name('detail');
+    Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
+    Route::get('register', [HomeController::class, 'register'])->name('register');
+    Route::get('login', [HomeController::class, 'login'])->name('login');
+=======
+
 // chay thu layouts
 Route::get('/index', function () {
     return view('users.index');
+});
+
+
+Route::get('/banner', function () {
+    return view('admin.website.banner.create');
 });
