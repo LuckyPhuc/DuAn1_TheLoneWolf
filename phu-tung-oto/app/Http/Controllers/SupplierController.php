@@ -35,7 +35,10 @@ class SupplierController extends Controller
 
             ],
             [
-                'required' => 'Trường này không được để trống',
+                'name.required' => 'vui lòng ko để trống Tên nhà cung cấp',
+                'address.required' => 'vui lòng ko để trống Địa chỉ nhà cung cấp',
+                'email.required' => 'vui lòng ko để trống Email nhà cung cấp',
+                'phone.required' => 'vui lòng ko để trống Số điện thoại',
                 'min' => ':attribute không ít hơn :min ký tự',
                 'max' => ':attribute không vượt quá :max ký tự',
                 'email' => 'Định dạng email không hợp lệ',
@@ -82,7 +85,10 @@ class SupplierController extends Controller
 
             ],
             [
-                'required' => 'Trường :attribute không được để trống',
+                'name.required' => 'vui lòng ko để trống Tên nhà cung cấp',
+                'address.required' => 'vui lòng ko để trống Địa chỉ nhà cung cấp',
+                'email.required' => 'vui lòng ko để trống Email nhà cung cấp',
+                'phone.required' => 'vui lòng ko để trống Số điện thoại',
                 'min' => ':attribute không ít hơn :min ký tự',
                 'max' => ':attribute không vượt quá :max ký tự'
 

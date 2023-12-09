@@ -42,9 +42,9 @@
                             <img src="{{ asset('assets/img/icons/icon-1.png') }}" alt="Icon" />
                         </div>
                         <div class="call-to-action-info">
-                            <h3 class="action-title">Free Home Delivery</h3>
+                            <h3 class="action-title">Giao hàng tận nhà miễn phí</h3>
                             <p class="desc-content">
-                                Provide free home delivery for all product over $100
+                                Cung cấp giao hàng tận nhà miễn phí cho tất cả các sản phẩm trên $100
                             </p>
                         </div>
                     </div>
@@ -55,9 +55,9 @@
                             <img src="{{ asset('assets/img/icons/icon-2.png') }}" alt="Icon" />
                         </div>
                         <div class="call-to-action-info">
-                            <h3 class="action-title">Quality Products</h3>
+                            <h3 class="action-title">Chất lượng sản phẩm</h3>
                             <p class="desc-content">
-                                We ensure our product quality all times
+                                Chúng tôi luôn đảm bảo chất lượng sản phẩm
                             </p>
                         </div>
                     </div>
@@ -68,9 +68,9 @@
                             <img src="{{ asset('assets/img/icons/icon-3.png') }}" alt="Icon" />
                         </div>
                         <div class="call-to-action-info">
-                            <h3 class="action-title">Online Support</h3>
+                            <h3 class="action-title">Hỗ trợ trực tuyến</h3>
                             <p class="desc-content">
-                                To satisfy our customer we try to give support online
+                                Để làm hài lòng khách hàng, chúng tôi cố gắng hỗ trợ trực tuyến
                             </p>
                         </div>
                     </div>
@@ -85,21 +85,21 @@
             <div class="row" style="margin-top: 5%">
                 <div class="col-md-4 col-sm-12 col-custom">
                     <div class="banner-image hover-style">
-                        <a class="d-block" href="shop.html">
+                        <a class="d-block" href="{{ route('users.shop') }}">
                             <img class="w-100" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Banner Image" />
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12 col-custom">
                     <div class="banner-image hover-style">
-                        <a class="d-block" href="shop.html">
+                        <a class="d-block" href="{{ route('users.shop') }}">
                             <img class="w-100" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Banner Image" />
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12 col-custom">
                     <div class="banner-image hover-style mb-0">
-                        <a class="d-block" href="shop.html">
+                        <a class="d-block" href="{{ route('users.shop') }}">
                             <img class="w-100" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Banner Image" />
                         </a>
                     </div>
@@ -115,14 +115,14 @@
                         class="newsletter-content text-center d-flex flex-column align-items-center justify-content-center h-100">
                         <div class="section-content">
                             <h4 class="title-4 text-uppercase">
-                                Special <span>Offer</span> for subscription
+                                <span>ƯU ĐÃI</span> ĐẶC BIỆT KHI ĐĂNG KÝ
                             </h4>
                             <h2 class="title-3 text-uppercase">
-                                Get instant discount for membership
+                                NHẬN GIẢM GIÁ NGAY LẬP TỨC CHO THÀNH VIÊN
                             </h2>
                             <p class="desc-content">
-                                Subscribe our newsletter and all latest news of our
-                                <br />latest product, promotion and offers
+                                Đăng ký bản tin của chúng tôi và tất cả các tin tức mới nhất về
+                                <br />sản phẩm, khuyến mãi và ưu đãi mới nhất của chúng tôi
                             </p>
                         </div>
                         <div class="newsletter-form-wrap ml-auto mr-auto">
@@ -131,7 +131,7 @@
                                     placeholder="email@example.com" name="EMAIL" />
                                 <button id="mc-submit"
                                     class="btn primary-btn obrien-button newsletter-btn position-absolute" type="submit">
-                                    Subscribe
+                                    Đặt Mua
                                 </button>
                             </form>
                             <!-- mailchimp-alerts Start -->
@@ -155,11 +155,11 @@
             <div class="row">
                 <div class="col-lg-5 m-auto text-center col-custom">
                     <div class="section-content">
-                        <h2 class="title-1 text-uppercase">Best Sale</h2>
+                        <h2 class="title-1 text-uppercase">BÁN CHẠY NHẤT</h2>
                         <div class="desc-content">
                             <p>
-                                All best seller product are now available for you and your
-                                can buy this product from here any time any where so sop now
+                                Tất cả các sản phẩm bán chạy nhất hiện đều có sẵn cho bạn và bạn có thể mua sản phẩm này từ
+                                đây bất cứ lúc nào, bất cứ nơi nào, vì vậy hãy mua ngay bây giờ
                             </p>
                         </div>
                     </div>
@@ -167,7 +167,8 @@
             </div>
             <div class="row product__card">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}"
+                        alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Tên</h5>
                         <p class="card-text">Gía</p>
@@ -217,11 +218,12 @@
                 </div>
                 <div class="col-md-7 col-lg-6 text-center justify-content-center col-custom">
                     <div class="banner-flash-content d-flex flex-column align-items-center justify-content-center h-100">
-                        <h2 class="deal-head text-uppercase">Flash Deals</h2>
+                        <h2 class="deal-head text-uppercase">ƯU ĐÃI CHỚP NHOÁNG
+                        </h2>
                         <h3 class="deal-title text-uppercase">
-                            Hurry up and Get 25% Discount
+                            HÃY NHANH TAY ĐỂ ĐƯỢC GIẢM GIÁ 25%
                         </h3>
-                        <a href="shop.html" class="obrien-button primary-btn">Shop Now</a>
+                        <a href="{{ route('users.shop') }}" class="obrien-button primary-btn">Mua Ngay</a>
                         <div class="countdown-wrapper d-flex justify-content-center" data-countdown="2022/12/24"></div>
                     </div>
                 </div>
@@ -234,11 +236,11 @@
             <div class="row">
                 <div class="col-lg-5 m-auto text-center col-custom">
                     <div class="section-content">
-                        <h2 class="title-1 text-uppercase">Featured Products</h2>
+                        <h2 class="title-1 text-uppercase">BLOG MỚI NHẤT</h2>
                         <div class="desc-content">
                             <p>
-                                All best seller product are now available for you and your
-                                can buy this product from here any time any where so sop now
+                                Tất cả các sản phẩm bán chạy nhất hiện đều có sẵn cho bạn và bạn có thể mua sản phẩm này từ
+                                đây bất cứ lúc nào, bất cứ nơi nào, vì vậy hãy mua ngay bây giờ
                             </p>
                         </div>
                     </div>
@@ -293,11 +295,10 @@
             <div class="row">
                 <div class="col-lg-5 m-auto text-center col-custom">
                     <div class="section-content">
-                        <h2 class="title-1 text-uppercase">Latest Blog</h2>
+                        <h2 class="title-1 text-uppercase">BLOG MỚI NHẤT</h2>
                         <div class="desc-content">
                             <p>
-                                If you want to know about the organic product then keep an
-                                eye on our blog.
+                                Nếu bạn muốn biết về sản phẩm hữu cơ thì hãy theo dõi blog của chúng tôi.
                             </p>
                         </div>
                     </div>
