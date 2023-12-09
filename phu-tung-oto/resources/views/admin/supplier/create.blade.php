@@ -14,16 +14,6 @@
                     </a>
                 </div>
             </div>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
             @if (session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
@@ -39,18 +29,31 @@
                                 <div class="form-group">
                                     <label>Tên nhà cung cấp</label>
                                     <input type="text" name="name">
+                                    @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ</label>
                                     <input type="text" name="address">
+                                    @error('address')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="text" name="email">
+                                    @error('email')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
+
                                 <div class="form-group">
                                     <label>Số điện thoại</label>
                                     <input type="text" name="phone">
+                                    @error('phone')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                             </div>

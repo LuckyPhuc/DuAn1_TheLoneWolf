@@ -30,14 +30,16 @@ class SupplierController extends Controller
             [
                 'name' => "required|min:2|max:255|string",
                 'address' => "required|min:10|max:255|string",
-                'email' => "required|min:2|max:255|string",
-                'phone' => "required|min:2|max:10|string",
+                'email' => "required|email|min:2|max:255|string",
+                'phone' => "required|min:10|max:10|numeric",
 
             ],
             [
                 'required' => 'Trường này không được để trống',
                 'min' => ':attribute không ít hơn :min ký tự',
-                'max' => ':attribute không vượt quá :max ký tự'
+                'max' => ':attribute không vượt quá :max ký tự',
+                'email' => 'Định dạng email không hợp lệ',
+                'numeric' => ':attribute phải là số '
 
             ],
             [
@@ -80,7 +82,7 @@ class SupplierController extends Controller
 
             ],
             [
-                'required' => 'Trường name không được để trống',
+                'required' => 'Trường :attribute không được để trống',
                 'min' => ':attribute không ít hơn :min ký tự',
                 'max' => ':attribute không vượt quá :max ký tự'
 

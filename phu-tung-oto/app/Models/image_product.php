@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class image_product extends Model
 {
     use HasFactory;
+    protected $table = 'image_product';
     protected $fillable = [
-        'id',
         'product_id',
         'url_im',
         'description',
@@ -24,6 +24,6 @@ class image_product extends Model
     }
     function posts()
     {
-        return $this->belongTo(Post::class);
+        return $this->belongTo(Posts::class);
     }
 }
