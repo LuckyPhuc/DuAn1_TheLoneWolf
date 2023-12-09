@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,13 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+
+
 // Routing product
 Route::prefix('admin/products')->name('admin.products.')->group(function () {
     Route::get('list', [ProductController::class, 'index'])->name('list');
@@ -54,6 +62,16 @@ Route::prefix('admin/categories')->name('admin.categories.')->group(function () 
     Route::get('{id}/edit', [CategoriesController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [CategoriesController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [CategoriesController::class, 'destroy'])->name('destroy');
+    // Route::get('list', [CategoriesController::class, 'search'])->name('search');
+});
+Route::prefix('admin/supplier')->name('admin.supplier.')->group(function () {
+    Route::get('list', [SupplierController::class, 'index'])->name('list');
+    Route::get('create', [SupplierController::class, 'create'])->name('create');
+    Route::post('/', [SupplierController::class, 'store'])->name('store');
+    // Route::get('{id}', [SupplierController::class, 'show'])->name('show');
+    Route::get('{id}/edit', [SupplierController::class, 'edit'])->name('edit');
+    Route::put('update/{id}', [SupplierController::class, 'update'])->name('update');
+    Route::delete('delete/{id}', [SupplierController::class, 'destroy'])->name('destroy');
     // Route::get('list', [CategoriesController::class, 'search'])->name('search');
 });
 

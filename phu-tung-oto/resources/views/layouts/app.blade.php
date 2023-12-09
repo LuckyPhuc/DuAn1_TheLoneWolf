@@ -65,7 +65,8 @@
                                 <div class="col-lg-2 col-xl-2 col-sm-6 col-6 col-custom">
                                     <div class="header-logo d-flex align-items-center">
                                         <a href="index.html">
-                                            <img class="img-full" src="assets/images/logo/logo.png" alt="Header Logo">
+                                            <img class="img-full" src="{{ asset('assets/img/1.png') }}"
+                                                alt="Header Logo">
                                         </a>
                                     </div>
                                 </div>
@@ -285,8 +286,8 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-2 col-xl-2 col-sm-6 col-6 col-custom">
                                     <div class="header-logo">
-                                        <a href="index.html">
-                                            <img class="img-full" src="assets/images/logo/logo.png"
+                                        <a href="#">
+                                            <img class="img-full" src="{{ asset('assets/img/1.png') }}"
                                                 alt="Header Logo">
                                         </a>
                                     </div>
@@ -662,7 +663,7 @@
                             <div class="single-footer-widget m-0">
                                 <div class="footer-logo">
                                     <a href="index.html">
-                                        <img src="assets/images/logo/footer.png" alt="Logo Image">
+                                        <img width="200px" src="{{ asset('assets/img/a.png') }}" alt="Logo Image">
                                     </a>
                                 </div>
                                 <p class="desc-content">Obrien is the best parts shop of your daily nutritions. What
