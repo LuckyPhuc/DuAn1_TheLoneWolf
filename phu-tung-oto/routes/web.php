@@ -118,14 +118,4 @@ Route::prefix('users')->name('users.')->group(function () {
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::get('register', [HomeController::class, 'register'])->name('register');
     Route::get('login', [HomeController::class, 'login'])->name('login');
-=======
-
-// chay thu layouts
-Route::get('/index', function () {
-    return view('users.index');
-});
-
-
-Route::get('/banner', function () {
-    return view('admin.website.banner.create');
 });
