@@ -24,7 +24,7 @@
         @endif
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('admin.supplier.update', ['id' => $supplier->id]) }}" method="POST">
+                <form action="{{ route('admin.users.update', ['id' => $supplier->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="row">
