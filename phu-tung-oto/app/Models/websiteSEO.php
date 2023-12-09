@@ -8,5 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class websiteSEO extends Model
 {
     use HasFactory;
-    protected $table = "website_seo";
 }
