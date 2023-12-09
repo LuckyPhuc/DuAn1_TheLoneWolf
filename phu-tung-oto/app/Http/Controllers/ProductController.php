@@ -70,7 +70,7 @@ class ProductController extends Controller
             'category_id' => $request->input('category_id'),
             'supplier_id' => $request->input('supplier_id'),
             'description' => $request->input('description'),
-            'images[]' => $request->input('images[]')
+            // 'images[]' = 
         ]);
         return $product;
         // foreach ($request->file('images') as $image) {
