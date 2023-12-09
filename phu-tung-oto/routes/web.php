@@ -109,6 +109,7 @@ Route::prefix('admin/website')->name('admin.website.')->group(function () {
     Route::put('update/{id}', [WebsiteController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
 });
+<<<<<<< Updated upstream
 // nguoi dung
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('index', [HomeController::class, 'index'])->name('index');
@@ -118,3 +119,5 @@ Route::prefix('users')->name('users.')->group(function () {
     Route::get('register', [HomeController::class, 'register'])->name('register');
     Route::get('login', [HomeController::class, 'login'])->name('login');
 });
+=======
+>>>>>>> Stashed changes
