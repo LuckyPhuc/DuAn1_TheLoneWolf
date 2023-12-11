@@ -32,7 +32,7 @@ class CategoriesController extends Controller
     {
         $request->validate(
             [
-                'name' => "required|min:3|max:255|string",
+                'name' => "required|min:3|max:100|string",
             ],
             [
                 'required' => 'Trường này không được để trống',

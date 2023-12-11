@@ -12,16 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->text('body');
-            $table->unsignedBigInteger('image_product_id');
+            $table->id(); // Tạo một cột ID tự tăng
+            $table->string('title', 100); // Tạo một cột title kiểu string
+            $table->text('body'); // Tạo một cột body kiểu text
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
-            // Foreign key constraint (optional)
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('image_product_id')->references('id')->on('image_product')->onDelete('cascade');
         });
     }
 
