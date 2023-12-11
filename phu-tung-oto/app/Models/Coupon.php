@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Couple extends Model
+class Coupon extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -20,6 +20,6 @@ class Couple extends Model
 
     function couple_product()
     {
-        return $this->hasMany(Couple_product::class);
+        return $this->hasMany(Coupon_orders::class);
     }
 }

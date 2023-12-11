@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 100);
-            $table->string('avatar', 100);
+            $table->string('avatar', 100)->nullable();
             $table->string('address', 100)->nullable();
             $table->string('phone', 10)->nullable();
-            $table->string('email', 10)->nullable();
+            $table->string('email', 100)->nullable();
         });
     }
     public function down(): void

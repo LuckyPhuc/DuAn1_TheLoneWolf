@@ -10,10 +10,8 @@ class Posts extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'title',
         'body',
-        'image_product_id',
         'user_id',
         'create_at',
         'update_at'
@@ -25,6 +23,6 @@ class Posts extends Model
     }
     function posts()
     {
-        return $this->hasMany(image_product::class);
+        // return $this->hasMany(image_::class);
     }
 }
