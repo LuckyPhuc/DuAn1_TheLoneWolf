@@ -65,7 +65,7 @@
                                 <div class="col-lg-2 col-xl-2 col-sm-6 col-6 col-custom">
                                     <div class="header-logo d-flex align-items-center">
                                         <a href="{{ route('users.index') }}">
-                                            <img class="img-full" src="{{ asset('assets/img/1.png') }}"
+                                            <img class="img-full" src="{{ asset('assets/img/logo-users/1.png') }}"
                                                 alt="Header Logo">
                                         </a>
                                     </div>
@@ -280,7 +280,7 @@
                                 <div class="col-lg-2 col-xl-2 col-sm-6 col-6 col-custom">
                                     <div class="header-logo">
                                         <a href="#">
-                                            <img class="img-full" src="{{ asset('assets/img/1.png') }}"
+                                            <img class="img-full" src="{{ asset('assets/img/logo-users/1.png') }}"
                                                 alt="Header Logo">
                                         </a>
                                     </div>
@@ -641,7 +641,8 @@
                             <div class="single-footer-widget m-0">
                                 <div class="footer-logo">
                                     <a href="{{ route('users.index') }}">
-                                        <img width="200px" src="{{ asset('assets/img/a.png') }}" alt="Logo Image">
+                                        <img width="200px" src="{{ asset('assets/img/logo-users/2.png') }}"
+                                            alt="Logo Image">
                                     </a>
                                 </div>
                                 <p class="desc-content">The Lone Wolf là cửa hàng cung cấp các sản phẩm điện ô tô hàng
