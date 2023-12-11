@@ -63,7 +63,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
-            return view('admin.users.create')->withErrors($validator);
+            return view('admin.users.create')->with(['success' => 'Người dùng đã được tạo thành công!']);
         }
 
         // Create new user

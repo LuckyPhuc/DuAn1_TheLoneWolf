@@ -9,22 +9,6 @@
                     <h4>Cập nhật nhà cung cấp </h4>
                 </div>
             </div>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
-
             <div class="card">
                 <form action="{{ route('admin.supplier.update', ['id' => $suppliers->id]) }}" method="POST">
                     @csrf
@@ -35,18 +19,30 @@
                                 <div class="form-group">
                                     <label>Tên nhà cung cấp</label>
                                     <input type="text" name="name" value="{{ $suppliers->name }}">
+                                    @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ</label>
                                     <input type="text" name="address" value ="{{ $suppliers->address }}">
+                                    @error('address')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="text" name="email" value= "{{ $suppliers->email }}">
+                                    @error('email')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Số điện thoại</label>
                                     <input type="text" name="phone" value="{{ $suppliers->phone }}">
+                                    @error('phone')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                             </div>
