@@ -85,7 +85,7 @@
                                      <td>{{ $user->role === 1 ? 'admin' : 'users' }}</td>
                                      <td>
                                          <a class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top"
-                                             title="Xóa mục này" style="background: green; padding:0.5rem"
+                                             title="Sửa mục này" style="background: green; padding:0.5rem"
                                              href="{{ route('admin.users.edit', ['id' => $user->id]) }}">
                                              <i class="bi bi-pencil"></i>
                                          </a>

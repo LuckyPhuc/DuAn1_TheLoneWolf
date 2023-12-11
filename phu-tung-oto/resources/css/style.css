@@ -5579,8 +5579,9 @@ button,
 }
 
 .newsletter-area {
-    background: #f2f2f2 url(../images/bg/1-1.jpg) no-repeat scroll center
+    background: #f6f6f6 url("../css/img/1-1.jpg") no-repeat scroll center
         center/cover;
+
     height: 430px;
 }
 
@@ -5953,7 +5954,7 @@ button,
 /*----------------------------------------*/
 .breadcrumbs-area {
     padding: 100px 0;
-    background: #f6f6f6 url(../images/bg/1-1.jpg) no-repeat scroll center
+    background: #f6f6f6 url("../css/img/1.jpg") no-repeat scroll center
         center/cover;
 }
 

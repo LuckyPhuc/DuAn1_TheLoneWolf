@@ -97,7 +97,8 @@
                             </div>
                         </div> --}}
                         <div class="col-lg-12">
-                            <button type="submit" class="btn btn-submit btn-primary">Thêm Người dùng</button>
+                            <button style="padding: 0.5rem" type="submit" class="btn btn-submit btn-primary">Thêm Người
+                                dùng</button>
                         </div>
                     </div>
                 </form>

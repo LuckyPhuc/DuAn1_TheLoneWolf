@@ -67,7 +67,7 @@
                                     </label>
                                 </th>
                                 <th>Số thứ tự</th>
-                                <th>Tên danh mục</th>
+                                <th>Tên nhà cung cấp</th>
                                 <th>Địa chỉ</th>
                                 <th>Số điện thoại</th>
                                 <th>Hành động</th>

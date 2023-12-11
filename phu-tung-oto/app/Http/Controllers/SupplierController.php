@@ -28,14 +28,17 @@ class SupplierController extends Controller
     {
         $request->validate(
             [
-                'name' => "required|min:2|max:255|string",
-                'address' => "required|min:10|max:255|string",
-                'email' => "required|email|min:2|max:255|string",
-                'phone' => "required|min:10|max:10|numeric",
+                'name' => "required|min:2|max:100|string",
+                'address' => "required|min:10|max:100|string",
+                'email' => "required|email|min:2|max:100|string",
+                'phone' => "required|min:7|max:11|string",
 
             ],
             [
-                'required' => 'Trường này không được để trống',
+                'required' => 'vui lòng ko để trống Tên nhà cung cấp',
+                'address.required' => 'vui lòng ko để trống Địa chỉ nhà cung cấp',
+                'email.required' => 'vui lòng ko để trống Email nhà cung cấp',
+                'phone.required' => 'vui lòng ko để trống số điện thoại',
                 'min' => ':attribute không ít hơn :min ký tự',
                 'max' => ':attribute không vượt quá :max ký tự',
                 'email' => 'Định dạng email không hợp lệ',
@@ -56,7 +59,7 @@ class SupplierController extends Controller
             'phone' => $request->phone
         ]);
 
-        return redirect()->route('admin.supplier.list', compact('request'))->with('success', 'Thêm mới thành công!');
+        return redirect()->route('admin.supplier.list')->with('success', 'Thêm mới thành công!');
     }
     public function show(string $id)
     {
@@ -75,14 +78,17 @@ class SupplierController extends Controller
     {
         $request->validate(
             [
-                'name' => "required|min:2|max:255|string",
-                'address' => "required|min:3|max:255|string",
-                'email' => "required|min:2|max:255|string",
-                'phone' => "required|min:2|max:10|string",
+                'name' => "required|min:2|max:100|string",
+                'address' => "required|min:3|max:100|string",
+                'email' => "required|min:2|max:100|string",
+                'phone' => "required|min:7|max:10|string",
 
             ],
             [
-                'required' => 'Trường :attribute không được để trống',
+                'name.required' => 'vui lòng ko để trống Tên nhà cung cấp',
+                'address.required' => 'vui lòng ko để trống Địa chỉ nhà cung cấp',
+                'email.required' => 'vui lòng ko để trống Email nhà cung cấp',
+                'phone.required' => 'vui lòng ko để trống Số điện thoại',
                 'min' => ':attribute không ít hơn :min ký tự',
                 'max' => ':attribute không vượt quá :max ký tự'
 
@@ -104,7 +110,7 @@ class SupplierController extends Controller
         if ($update) {
             return redirect()->route('admin.supplier.list')->with('success', 'Sửa thành công!');
         } else {
-            return redirect()->route('admin.supplier.edit', $id, compact('request'));
+            return redirect()->route('admin.supplier.edit', ['id' => $id]);
         }
     }
 

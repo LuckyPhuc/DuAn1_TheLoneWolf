@@ -50,7 +50,7 @@
 
                                 <div class="form-group">
                                     <label>Số điện thoại</label>
-                                    <input type="text" name="phone">
+                                    <input type="number" name="phone">
                                     @error('phone')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
