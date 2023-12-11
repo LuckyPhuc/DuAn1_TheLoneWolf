@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Couple_product extends Model
+class Coupon_orders extends Model
 {
     use HasFactory;
 
@@ -20,10 +20,10 @@ class Couple_product extends Model
 
     function couple()
     {
-        return $this->belongsTo(Couple::class);
+        return $this->belongsTo(Coupon::class);
     }
     function product()
     {
-        return $this->belongsTo(Products::class);
+        return $this->belongsTo(Orders::class);
     }
 }
