@@ -38,10 +38,10 @@
         <div class="header">
             <div class="header-left active">
                 <a href="{{ route('dashboard') }}" class="logo">
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                    <img src="{{ asset('assets/img/logo/logo.png') }}" alt="">
                 </a>
                 <a href="index.html" class="logo-small">
-                    <img src="{{ asset('assets/img/logo-small.png') }}" alt="">
+                    <img src="{{ asset('assets/img/logo/logo-small.png') }}" alt="">
                 </a>
 
                 <a id="toggle_btn" href="javascript:void(0);">
