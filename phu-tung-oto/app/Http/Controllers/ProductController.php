@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Supplier;
+use App\Models\Suppliers;
 use App\Models\Categories;
-use App\Models\image_product;
+use App\Models\image_features;
 use App\Models\Products;
 
 class ProductController extends Controller
@@ -23,7 +23,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $suppliers = Supplier::all();
+        $suppliers = Suppliers::all();
         $categories = Categories::all();
         return view("admin.products.create", compact('suppliers', 'categories'));
     }
@@ -32,7 +32,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $suppliers = Supplier::all();
+        $suppliers = Suppliers::all();
         $categories = Categories::all();
         // $request->validate([
         //     'name' => ['required', 'string', 'max:100'],

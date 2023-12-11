@@ -29,6 +29,7 @@
                     {{ session('success') }}
                 </div>
             @endif
+
             <div class="card">
                 <div class="card-body">
                     <div class="table-top">
@@ -68,6 +69,7 @@
                                 </th>
                                 <th>Số thứ tự</th>
                                 <th>Tên nhà cung cấp</th>
+                                <th>Hình ảnh</th>
                                 <th>Địa chỉ</th>
                                 <th>Số điện thoại</th>
                                 <th>Hành động</th>
@@ -84,6 +86,11 @@
                                     </td>
                                     <td>{{ $loop->iteration }}</td>
                                     <td> {{ $supplier->name }}</td>
+                                    <td>
+                                        <img src="{{ asset($supplier->avatar) }}" alt="lỗi" height="50"
+                                            width="50">
+                                    </td>
+
                                     <td>
                                         {{ $supplier->address }}
                                     </td>

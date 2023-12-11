@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Supplier;
+use App\Models\Suppliers;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
     public function index()
     {
-        $suppliers = Supplier::all();
+        $suppliers = Suppliers::all();
         return view("admin.supplier.index", compact("suppliers"));
     }
 
@@ -32,13 +32,14 @@ class SupplierController extends Controller
                 'address' => "required|min:10|max:100|string",
                 'email' => "required|email|min:2|max:100|string",
                 'phone' => "required|min:7|max:11|string",
-
+                'avatar' => "required"
             ],
             [
                 'required' => 'vui lòng ko để trống Tên nhà cung cấp',
                 'address.required' => 'vui lòng ko để trống Địa chỉ nhà cung cấp',
                 'email.required' => 'vui lòng ko để trống Email nhà cung cấp',
                 'phone.required' => 'vui lòng ko để trống số điện thoại',
+                'avatar.required' => 'vui lòng upload file',
                 'min' => ':attribute không ít hơn :min ký tự',
                 'max' => ':attribute không vượt quá :max ký tự',
                 'email' => 'Định dạng email không hợp lệ',
@@ -52,12 +53,20 @@ class SupplierController extends Controller
                 'phone' => 'Số điện thoại nhà cung cấp',
             ]
         );
-        Supplier::create([
-            'name' => $request->name,
-            'address' => $request->address,
-            'email' => $request->email,
-            'phone' => $request->phone
-        ]);
+        $input = $request->all();
+        if ($request->hasFile('avatar')) {
+            $file = $request->avatar;
+
+            $filename = $file->getClientOriginalName();
+
+            $path = $file->move('uploads/suppliers', $file->getClientOriginalName());
+            $thumbnail = 'uploads/suppliers/' . $filename;
+            $input['avatar'] = $thumbnail;
+        } else {
+            return redirect()->route('admin.supplier.list');
+        }
+
+        Suppliers::create($input);
 
         return redirect()->route('admin.supplier.list')->with('success', 'Thêm mới thành công!');
     }
@@ -67,7 +76,7 @@ class SupplierController extends Controller
     }
     public function edit(string $id)
     {
-        $suppliers = Supplier::findOrFail($id);
+        $suppliers = Suppliers::findOrFail($id);
         return view('admin.supplier.edit', compact('suppliers'));
     }
 
@@ -101,7 +110,7 @@ class SupplierController extends Controller
             ]
         );
 
-        $update = Supplier::where('id', $id)->update([
+        $update = Suppliers::where('id', $id)->update([
             'name' => $request->name,
             'address' => $request->address,
             'email' => $request->email,
@@ -120,7 +129,7 @@ class SupplierController extends Controller
      */
     public function destroy(string $id)
     {
-        $suppliers = Supplier::find($id);
+        $suppliers = Suppliers::find($id);
         if ($suppliers->delete($id)) {
             return redirect()->route('admin.supplier.list')
                 ->with('success', 'Xóa thành công thành công');
