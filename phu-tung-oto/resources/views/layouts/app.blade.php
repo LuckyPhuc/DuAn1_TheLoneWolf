@@ -694,10 +694,10 @@
                             <div class="single-footer-widget">
                                 <h2 class="widget-title">Liên kết nhanh</h2>
                                 <ul class="widget-list">
-                                    <li><a href="about-us.html">About</a></li>
+                                    <li><a href="about-us.html">Về chúng tôi</a></li>
                                     <li><a href="blog.html">Blog</a></li>
                                     <li><a href="{{ route('users.shop') }}">Cửa hàng</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="cart.html">Giỏ hàng</a></li>
                                     <li><a href="#">Liên hệ</a></li>
                                 </ul>
                             </div>
