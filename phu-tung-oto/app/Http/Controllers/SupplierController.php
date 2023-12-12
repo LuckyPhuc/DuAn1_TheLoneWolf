@@ -60,7 +60,7 @@ class SupplierController extends Controller
 
             $filename = $file->getClientOriginalName();
 
-            $path = $file->move('uploads/suppliers', $file->getClientOriginalName());
+            $path = $file->move('uploads/suppliers', $filename);
             $thumbnail = 'uploads/suppliers/' . $filename;
             $input['avatar'] = $thumbnail;
         } else {
