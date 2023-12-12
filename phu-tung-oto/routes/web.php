@@ -109,7 +109,6 @@ Route::prefix('admin/website')->name('admin.website.')->group(function () {
     Route::put('update/{id}', [WebsiteController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
 });
-
 // nguoi dung
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('index', [HomeController::class, 'index'])->name('index');
