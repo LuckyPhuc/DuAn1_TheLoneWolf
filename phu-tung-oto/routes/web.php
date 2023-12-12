@@ -113,7 +113,7 @@ Route::prefix('admin/website')->name('admin.website.')->group(function () {
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('index', [HomeController::class, 'index'])->name('index');
     Route::get('shop', [ShopController::class, 'index'])->name('shop');
-    Route::get('show{id}', [ShopController::class, 'show'])->name('detail');
+    Route::get('show\{id}', [ShopController::class, 'show'])->name('detail');
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::get('register', [HomeController::class, 'register'])->name('register');
     Route::get('login', [HomeController::class, 'login'])->name('login');
