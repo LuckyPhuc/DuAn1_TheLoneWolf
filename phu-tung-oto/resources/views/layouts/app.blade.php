@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -23,15 +24,13 @@
     <script type="text/javascript" src="path/to/slick/slick.min.js"></script>
 
 
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/img-01.jpg') }}">
     <!-- Link thư viện Slick Slider -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -65,7 +64,7 @@
                                 <div class="col-lg-2 col-xl-2 col-sm-6 col-6 col-custom">
                                     <div class="header-logo d-flex align-items-center">
                                         <a href="{{ route('users.index') }}">
-                                            <img class="img-full" src="{{ asset('assets/img/1.png') }}"
+                                            <img class="img-full" src="{{ asset('assets/img/logo-users/1.png') }}"
                                                 alt="Header Logo">
                                         </a>
                                     </div>
@@ -280,7 +279,7 @@
                                 <div class="col-lg-2 col-xl-2 col-sm-6 col-6 col-custom">
                                     <div class="header-logo">
                                         <a href="#">
-                                            <img class="img-full" src="{{ asset('assets/img/1.png') }}"
+                                            <img class="img-full" src="{{ asset('assets/img/logo-users/1.png') }}"
                                                 alt="Header Logo">
                                         </a>
                                     </div>
@@ -641,7 +640,8 @@
                             <div class="single-footer-widget m-0">
                                 <div class="footer-logo">
                                     <a href="{{ route('users.index') }}">
-                                        <img width="200px" src="{{ asset('assets/img/a.png') }}" alt="Logo Image">
+                                        <img width="200px" src="{{ asset('assets/img/logo-users/2.png') }}"
+                                            alt="Logo Image">
                                     </a>
                                 </div>
                                 <p class="desc-content">The Lone Wolf là cửa hàng cung cấp các sản phẩm điện ô tô hàng

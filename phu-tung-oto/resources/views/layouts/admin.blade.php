@@ -8,7 +8,12 @@
     <meta name="keywords"
         content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern,  html5, responsive">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="index, follow">
+
+    {{-- <link rel="shortcut icon" href="{{ asset('assets/img/logo/logo-small.png') }}" type="image/x-icon"> --}}
+    <link rel="shortcut icon" href="{{ asset('assets/img/flags/de.png') }}" type="image/x-icon">
+    {{-- <link rel="shortcut icon" href="{{ asset('assets/img/logo/logo-small.png') }}" type="image/png"> --}}
+
 
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 
@@ -38,10 +43,10 @@
         <div class="header">
             <div class="header-left active">
                 <a href="{{ route('dashboard') }}" class="logo">
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                    <img src="{{ asset('assets/img/logo/logo.png') }}" alt="">
                 </a>
                 <a href="index.html" class="logo-small">
-                    <img src="{{ asset('assets/img/logo-small.png') }}" alt="">
+                    <img src="{{ asset('assets/img/logo/logo-small.png') }}" alt="">
                 </a>
 
                 <a id="toggle_btn" href="javascript:void(0);">
@@ -57,8 +62,8 @@
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
                         <li class="active">
-                            <a href="{{ route('dashboard') }}"><img src="{{ asset('assets/img/icons/dashboard.svg') }}"
-                                    alt="img">
+                            <a href="{{ route('dashboard') }}"><img
+                                    src="{{ asset('assets/img/icons/dashboard.svg') }}" alt="img">
                                 <span>Bảng điều khiển</span>
                                 <span class="menu-arrow"></span>
                             </a>
