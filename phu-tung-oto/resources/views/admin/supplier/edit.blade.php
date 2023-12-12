@@ -10,7 +10,8 @@
                 </div>
             </div>
             <div class="card">
-                <form action="{{ route('admin.supplier.update', ['id' => $suppliers->id]) }}" method="POST">
+                <form action="{{ route('admin.supplier.update', ['id' => $suppliers->id]) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="card-body">
@@ -22,6 +23,14 @@
                                     @error('name')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label>Hình ảnh</label>
+                                    <input type="file" name="avatar">
+                                    @error('avatar')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ</label>
