@@ -15,7 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view("admin.products.index");
+        $products = Products::with(['category', 'supplier', 'image_features' => function ($query) {
+            $query->where('number', 0);
+        }])->get();
+        return view("admin.products.index", compact('products'));
     }
 
     /**
@@ -34,58 +37,51 @@ class ProductController extends Controller
     {
         $suppliers = Suppliers::all();
         $categories = Categories::all();
-        // $request->validate([
-        //     'name' => ['required', 'string', 'max:100'],
-        //     'quantity' => ['required', 'numeric', 'min:1', 'max:99999999.99'],
-        //     'price' => ['required', 'numeric', 'min:1', 'max:99999999.99'],
-        //     'category_id' => ['required', 'string', 'max:100'],
-        //     'supplier_id' => ['required', 'string', 'max:100'],
-        //     'description' => ['required', 'string', 'min:10', 'max:512'],
-        //     // 'images' => ['required', 'array', 'max:60000'],
-        //     // 'images.*' => ['image', 'mimes:jpeg,png,jpg,gif'],
-        // ], [
-        //     'required' => ':attribute không được để trống',
-        //     'min' => ':attribute không ít hơn :min',
-        //     'max' => ':attribute không vượt quá :max',
-        //     'mimes' => ':attribute phải có đuôi .jpeg, .png, .jpg, .gif',
-        //     'image' => ':attribute phải là hình ảnh.',
-        //     'numeric' => ':attribute phải là một số',
-        // ], [
-        //     'name' => 'Tên sản phẩm',
-        //     'quantity' => 'Số lượng sản phẩm',
-        //     'price' => 'Giá sản phẩm',
-        //     'category_id' => 'Mã danh mục',
-        //     'supplier_id' => 'Mã nhà cung cấp',
-        //     'description' => 'Mô tả sản phẩm',
-        //     // 'images' => 'Hình ảnh sản phẩm',
-        // ]);
+        $request->validate(
+            [
+                'name' => "required|string|max:100",
+                'quantity' => "required|numeric|min:1|max:99999999.99",
+                'unit' => "required|string|min:1|max:20",
+                'price' => "required|numeric|min:1|max:99999999.99",
+                'description' => "required|string|min:1|max:1000",
+                'images' => "required|array|max:20000",
+                'images.*' => "image|mimes:jpeg,png,jpg,gif",
+            ],
+            [
+                'required' => ':attribute không được để trống',
+                'min' => ':attribute không ít hơn :min',
+                'max' => ':attribute không vượt quá :max',
+                'mimes' => ':attribute phải có đuôi .jpeg, .png, .jpg, .gif',
+                'numeric' => ':attribute phải là một số',
+            ],
+            [
+                'name' => 'Tên sản phẩm',
+                'quantity' => 'Số lượng sản phẩm',
+                'unit' => 'Đơn vị tính',
+                'price' => 'Giá sản phẩm',
+                'description' => 'Mô tả sản phẩm',
+                'images' => 'Hình ảnh sản phẩm',
+            ]
+        );
 
-        // $images = $request->file('images');
+        $input = $request->all();
+        $product = Products::create($input);
+        $number = 0;
+        foreach ($input['images'] as $image) {
+            $imageName = $image->getClientOriginalName();
 
-        // $avatarName = time() . '_' . $images[0]->getClientOriginalName();
-        $product = Products::create([
-            'name' => $request->input('name'),
-            'quantity' => $request->input('quantity'),
-            'price' => $request->input('price'),
-            'category_id' => $request->input('category_id'),
-            'supplier_id' => $request->input('supplier_id'),
-            'description' => $request->input('description'),
-            // 'images[]' = 
-        ]);
-        return $product;
-        // foreach ($request->file('images') as $image) {
-        //     $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move('uploads/products', $imageName);
+            $thumbnail = 'uploads/products/' . $imageName;
 
-        //     $image->move(public_path('uploads/products'), $imageName);
-
-        //     image_product::create([
-        //         'url_im' => 'uploads/products/' . $imageName,
-        //         'product_id' => $product->id
-        //     ]);
-        // }
-        session()->flash('status', 'Thêm mới thành công!');
-        return view('admin.products.create', compact('categories', 'suppliers'))
-            ->with('status', 'Thêm mới thành công!');
+            image_features::create([
+                'product_id' => $product->id,
+                'url_img' => $thumbnail,
+                'alt_img' => $imageName,
+                'number' => $number
+            ]);
+            $number++;
+        }
+        return redirect()->route("admin.products.list")->with('success', 'Thêm mới thành công!');
     }
 
 
