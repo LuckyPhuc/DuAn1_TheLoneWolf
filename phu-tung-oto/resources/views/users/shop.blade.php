@@ -165,7 +165,7 @@
                             <div class="widget-list widget-mb-1">
                                 <h3 class="widget-title">Menu Categories</h3>
                                 <!-- Widget Menu Start -->
-                                <nav>
+                                {{-- <nav>
                                     <ul class="mobile-menu p-0 m-0">
                                         <li class="menu-item-has-children"><a href="#">Breads</a>
                                             <ul class="dropdown">
@@ -199,18 +199,21 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                </nav>
+                                </nav> --}}
                                 <!-- Widget Menu End -->
                             </div>
                             <div class="widget-list widget-mb-1">
                                 <h3 class="widget-title">Categories</h3>
                                 <div class="sidebar-body">
-                                    <ul class="sidebar-list">
-                                        <li><a href="#">All Product</a></li>
+                                    @foreach ($categories as $category)
+                                        <ul class="sidebar-list">
+                                            <li><a href="#">{{ $category->name }}</a></li>
+                                            {{-- <li><a href="#">All Product</a></li>
                                         <li><a href="#">Best Seller (5)</a></li>
                                         <li><a href="#">Featured (4)</a></li>
-                                        <li><a href="#">New Products (6)</a></li>
-                                    </ul>
+                                        <li><a href="#">New Products (6)</a></li> --}}
+                                        </ul>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="widget-list widget-mb-4">

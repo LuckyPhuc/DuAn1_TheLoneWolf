@@ -14,6 +14,7 @@ class Products extends Model
         'description',
         'price',
         'quantity',
+        'unit',
         'supplier_id',
         'category_id',
         'created_at',
@@ -22,15 +23,15 @@ class Products extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Categories::class, 'category_id');
     }
     function supplier()
     {
-        return $this->belongsTo(Supplier::class, 'supplier_id');
+        return $this->belongsTo(Suppliers::class, 'supplier_id');
     }
 
-    function image_product()
+    function image_features()
     {
-        return $this->hasMany(image_product::class);
+        return $this->hasMany(image_features::class, 'product_id');
     }
 }

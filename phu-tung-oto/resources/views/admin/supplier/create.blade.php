@@ -21,7 +21,7 @@
             @endif
 
             <div class="card">
-                <form action="{{ route('admin.supplier.store') }}" method="post">
+                <form action="{{ route('admin.supplier.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row">
@@ -32,6 +32,14 @@
                                     @error('name')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label>Hình ảnh</label>
+                                    <input type="file" name="avatar">
+                                    @error('avatar')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ</label>
