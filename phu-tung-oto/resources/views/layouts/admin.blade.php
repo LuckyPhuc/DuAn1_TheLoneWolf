@@ -115,8 +115,8 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="{{ Route('admin.Posts.list') }}">Danh sách bài đăng </a></li>
-                                <li><a href="{{ Route('admin.Posts.create') }}">Thêm bài đăng</a></li>
+                                <li><a href="{{ Route('admin.posts.list') }}">Danh sách bài đăng </a></li>
+                                <li><a href="{{ Route('admin.posts.create') }}">Thêm bài đăng</a></li>
                             </ul>
                         </li>
                         <li class="submenu">

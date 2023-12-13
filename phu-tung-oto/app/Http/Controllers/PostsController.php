@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Models\Posts;
 use Illuminate\Http\Request;
 
-
 class PostsController extends Controller
 {
     /**
@@ -15,7 +14,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Posts::with('users')->get();
-        return view("admin.Posts.index", compact('posts'));
+        return view("admin.posts.index", compact('posts'));
     }
 
     /**
@@ -23,7 +22,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view("admin.Posts.create");
+        return view("admin.posts.create");
     }
 
     /**
@@ -35,7 +34,7 @@ class PostsController extends Controller
             [
                 'title' => "required|min:5",
                 'description' => "required|min:10",
-                'body' => "required"
+                'body' => "required|min:10"
             ],
             [
                 'required' => ':attribute không được để trống',
@@ -51,9 +50,8 @@ class PostsController extends Controller
         $user = auth()->user();
         $input['user_id'] = $user->id;
         $posts = Posts::create($input);
-        return redirect()->route("admin.Posts.create")->with('success', 'Thêm mới thành công!');
+        return redirect()->route("admin.posts.create")->with('success', 'Thêm mới thành công!', compact('posts'));
     }
-
     /**
      * Display the specified resource.
      */
@@ -67,7 +65,8 @@ class PostsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $posts = Posts::findOrFail($id);
+        return view('admin.posts.edit', compact('posts'));
     }
 
     /**
@@ -75,7 +74,30 @@ class PostsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate(
+            [
+                'title' => "required|min:5",
+                'description' => "required|min:10",
+                'body' => "required|min:10"
+            ],
+            [
+                'required' => ':attribute không được để trống',
+                'min' => ':attribute không ít hơn :min'
+            ],
+            [
+                'title' => 'Tiêu đề bài viết',
+                'description' => 'Mô tả ngắn',
+                'body' => 'Nội dung bài viết'
+            ]
+        );
+
+        $user = auth()->user();
+        $input = $request->all();
+        $post = Posts::findOrFail($id);
+        $post->update($input);
+        $post->user_id = $user->id;
+        $post->save();
+        return redirect()->route('admin.posts.list')->with('success', 'cập nhật thàng cồn thành công!');
     }
 
     /**
@@ -83,6 +105,14 @@ class PostsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $posts = Posts::find($id);
+
+
+        if ($posts->delete($id)) {
+            return redirect()->route('admin.posts.list')
+                ->with('success', 'Xóa thành công thành công');
+        } else {
+            return redirect()->route('admin.posts.list',)->with('error', 'Lỗi');
+        }
     }
 }
