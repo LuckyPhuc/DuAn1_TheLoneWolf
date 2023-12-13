@@ -109,12 +109,12 @@
                                     <td>{{ $product->quantity }}</td>
                                     <td>{{ $product->unit }}</td>
                                     <td>
-                                        <a class="btn btn-success"
-                                            href="product-details.html"style="background: #111111; padding:0.5rem"
+                                        <a class="btn btn-success" href="#"style="background: #111111; padding:0.5rem"
                                             data-bs-toggle="tooltip" data-bs-placement="top" title="Chi tiết sản phẩm">
                                             <i class="bi bi-eye"></i>
                                         </a>
-                                        <a class="btn btn-success" style="background: green; padding:0.5rem" href="#"
+                                        <a class="btn btn-success" style="background: green; padding:0.5rem"
+                                            href="{{ route('admin.products.edit', ['id' => $product->id]) }}"
                                             data-bs-toggle="tooltip" data-bs-placement="top" title="Sửa mục này">
                                             <i class="bi bi-pencil"></i>
                                         </a>

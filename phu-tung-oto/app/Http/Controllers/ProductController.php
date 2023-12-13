@@ -93,7 +93,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $suppliers = Suppliers::all();
+        $categories = Categories::all();
+        $products = Products::find($id);
+        return view('admin.products.edit', compact('products', 'suppliers', 'categories'));
     }
 
     /**
@@ -101,7 +104,68 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // $request->validate(
+        //     [
+        //         'name' => "required|string|max:100",
+        //         'quantity' => "required|numeric|min:1|max:99999999.99",
+        //         'unit' => "required|string|min:1|max:20",
+        //         'price' => "required|numeric|min:1|max:99999999.99",
+        //         'description' => "required|string|min:1|max:1000",
+        //         'images' => "required|array|max:20000",
+        //         'images.*' => "image|mimes:jpeg,png,jpg,gif",
+        //     ],
+        //     [
+        //         'required' => ':attribute không được để trống',
+        //         'min' => ':attribute không ít hơn :min',
+        //         'max' => ':attribute không vượt quá :max',
+        //         'mimes' => ':attribute phải có đuôi .jpeg, .png, .jpg, .gif',
+        //         'numeric' => ':attribute phải là một số',
+        //     ],
+        //     [
+        //         'name' => 'Tên sản phẩm',
+        //         'quantity' => 'Số lượng sản phẩm',
+        //         'unit' => 'Đơn vị tính',
+        //         'price' => 'Giá sản phẩm',
+        //         'description' => 'Mô tả sản phẩm',
+        //         'images' => 'Hình ảnh sản phẩm',
+        //     ]
+        // );
+        $input = $request->except('_token', '_method');
+
+        $imgOld = Products::with('image_features')->where('id', $id)->first();
+        dd($imgOld);
+        // if ($imgOld) {
+        //     $imgOld->image_features()->delete();
+        // }
+        // $update = Products::where('id', $id)->update($input);
+        // if ($update) {
+        //     return redirect()->route('admin.supplier.list')->with('success', 'Sửa thành công!');
+        // } else {
+        //     return redirect()->route('admin.supplier.edit', ['id' => $id]);
+        // }
+
+
+
+
+        // $number = 0;
+        // if ($request->hasFile('images')) {
+        //     foreach ($request->file('images') as $image) {
+
+        //         $imageName = $image->getClientOriginalName();
+        //         $image->move(public_path('uploads/products'), $imageName);
+        //         $thumbnail = 'uploads/products/' . $imageName;
+
+        //         $newImage = image_features::create([
+        //             'product_id' => $product->id,
+        //             'url_img' => $thumbnail,
+        //             'alt_img' => $imageName,
+        //             'number' => $number
+        //         ]);
+        //         $number++;
+        //         $existingImages[] = $newImage->id;
+        //     }
+        // }
+        // return redirect()->route('admin.products.list')->with('success', 'Sửa thành công!');
     }
 
     /**

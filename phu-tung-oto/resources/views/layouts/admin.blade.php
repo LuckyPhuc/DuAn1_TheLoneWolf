@@ -109,7 +109,7 @@
                         </li>
 
                         <li class="submenu">
-                            <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/users1.svg') }}"
+                            <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/printer.svg') }}"
                                     alt="img"><span>
                                     Bài đăng</span>
                                 <span class="menu-arrow"></span>

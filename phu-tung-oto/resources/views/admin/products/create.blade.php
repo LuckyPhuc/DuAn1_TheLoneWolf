@@ -93,7 +93,7 @@
                             </div>
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label>Ảnh 1</label>
+                                    <label>Upload file tại đây</label>
                                     <input type="file" name="images[]" multiple>
                                     @error('images')
                                         <small class="text-danger">{{ $message }}</small>
