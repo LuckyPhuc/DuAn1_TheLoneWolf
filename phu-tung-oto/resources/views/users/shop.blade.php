@@ -95,14 +95,36 @@
                             <div class="toolbar-bottom mt-30">
                                 <nav class="pagination pagination-wrap mb-10 mb-sm-0">
                                     <ul class="pagination">
-                                        <li> {{ $products->links() }}</li>
+                                        @if ($products->onFirstPage())
+                                            <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                                        @else
+                                            <li class="page-item"><a class="page-link"
+                                                    href="{{ $products->previousPageUrl() }}">Previous</a></li>
+                                        @endif
+                                        @foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
+                                            <li class="page-item {{ $page == $products->currentPage() ? 'active' : '' }}">
+                                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                            </li>
+                                        @endforeach
+                                        @if ($products->hasMorePages())
+                                            <li class="page-item"><a class="page-link"
+                                                    href="{{ $products->nextPageUrl() }}">Next</a></li>
+                                        @else
+                                            <li class="page-item disabled"><span class="page-link">Next</span></li>
+                                        @endif
                                     </ul>
-
-
-
                                 </nav>
-                                aaa
+                                <div class="result-count">
+                                    <span>{{ __('Showing') }}</span>
+                                    <span class="font-medium">{{ $products->firstItem() }}</span>
+                                    <span>{{ __('to') }}</span>
+                                    <span class="font-medium">{{ $products->lastItem() }}</span>
+                                    <span>{{ __('of') }}</span>
+                                    <span class="font-medium">{{ $products->total() }}</span>
+                                    <span>{{ __('results') }}</span>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                     <!-- Bottom Toolbar End -->
