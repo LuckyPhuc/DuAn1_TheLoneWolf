@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('description', 200)->nullable()->after('title'); // Thêm cột mới
+            $table->string('description', 200)->nullable()->after('title');
         });
     }
     public function down(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('description'); // Loại bỏ cột trong trường hợp rollback
+            $table->dropColumn('description');
         });
     }
 };
