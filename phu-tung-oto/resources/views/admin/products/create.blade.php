@@ -14,7 +14,7 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">>
+            <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
                 <div class="card">
                     @csrf
                     @method('POST')
@@ -34,6 +34,15 @@
                                     <label>Số lượng</label>
                                     <input type="text" name="quantity" placeholder="Nhập tên sản phẩm">
                                     @error('quantity')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Đơn vị tính</label>
+                                    <input type="text" name="unit" placeholder="Nhập đơn vị tính">
+                                    @error('unit')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
@@ -82,107 +91,27 @@
                                     <textarea class="form-control" name="description"></textarea>
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Ảnh</label>
-                                    <div class="image-upload">
-                                        <input type="file" name="images[]">
-                                        <div class="image-uploads">
-                                            <img src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
-                                            <h4>Upload ảnh tại đây</h4>
-                                            @error('images')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label>Ảnh</label>
-                                    <div class="image-upload">
-                                        <input type="file" name="images[]">
-                                        <div class="image-uploads">
-                                            <img src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
-                                            <h4>Upload ảnh tại đây</h4>
-                                            @error('images')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                    </div>
+                                    <label>Ảnh 1</label>
+                                    <input type="file" name="images[]" multiple>
+                                    @error('images')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Ảnh</label>
-                                    <div class="image-upload">
-                                        <input type="file" name="images[]">
-                                        <div class="image-uploads">
-                                            <img src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
-                                            <h4>Upload ảnh tại đây</h4>
-                                            @error('images')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Ảnh</label>
-                                    <div class="image-upload">
-                                        <input type="file" name="images[]">
-                                        <div class="image-uploads">
-                                            <img src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
-                                            <h4>Upload ảnh tại đây</h4>
-                                            @error('images')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Ảnh</label>
-                                    <div class="image-upload">
-                                        <input type="file" name="images[]">
-                                        <div class="image-uploads">
-                                            <img src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
-                                            <h4>Upload ảnh tại đây</h4>
-                                            @error('images')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Ảnh</label>
-                                    <div class="image-upload">
-                                        <input type="file" name="images[]">
-                                        <div class="image-uploads">
-                                            <img src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
-                                            <h4>Upload ảnh tại đây</h4>
-                                            @error('images')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                        </div>
-                        <div class="col-lg-12">
-                            <input type="submit" value="Thêm mới sản phẩm" class="btn btn-added"
-                                style="background: #ff9f43;color:#fff; padding:0.5rem">
-                            <a href="#" class="btn btn-added"
-                                style="background: #ff9f43;color:#fff; padding:0.5rem">Hủy</a>
                         </div>
                     </div>
+                    <div class="col-lg-12">
+                        <input type="submit" value="Thêm mới sản phẩm" class="btn btn-added"
+                            style="background: #ff9f43;color:#fff; padding:0.5rem">
+                        <a href="{{ route('admin.products.list') }}" class="btn btn-added"
+                            style="background: #ff9f43;color:#fff; padding:0.5rem">Hủy</a>
+                    </div>
                 </div>
-            </form>
         </div>
+        </form>
+    </div>
     </div>
 @endsection
 </div>

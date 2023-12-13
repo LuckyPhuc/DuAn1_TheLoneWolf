@@ -12,8 +12,8 @@
                 </div>
 
                 <div class="page-btn">
-                    <a href="addproduct.html" class="btn btn-added"><img src="{{ asset('assets/img/icons/plus.svg') }} "
-                            alt="img" class="me-1">Thêm sản phẩm mới</a>
+                    <a href="{{ route('admin.products.create') }}" class="btn btn-added"><img
+                            src="{{ asset('assets/img/icons/plus.svg') }} " alt="img" class="me-1">Thêm sản phẩm mới</a>
                 </div>
             </div>
             @if (isset($messenger) && is_array($messenger) && count($messenger) > 0)
@@ -64,8 +64,6 @@
                         </div>
                     </div>
 
-
-
                     <div class="table-responsive">
                         <table class="table  datanew">
                             <thead>
@@ -76,6 +74,7 @@
                                             <span class="checkmarks"></span>
                                         </label>
                                     </th>
+                                    <th>Số thứ tự</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Tên danh mục</th>
                                     <th>Tên nhà cung cấp</th>
@@ -84,6 +83,7 @@
                                     <th>Đơn vị tính</th>
                                     <th>Hành động</th>
                                 </tr>
+                                @foreach ($products as $product)
                             </thead>
                             <tbody>
                                 <tr>
@@ -93,17 +93,21 @@
                                             <span class="checkmarks"></span>
                                         </label>
                                     </td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td class="productimgname">
                                         <a href="javascript:void(0);" class="product-img">
-                                            <img src="{{ asset('assets/img/product/product17.jpg') }}" alt="product">
+                                            @if ($product->image_features && count($product->image_features) > 0)
+                                                <img src="{{ asset($product->image_features[0]->url_img) }}"
+                                                    alt="{{ $product->image_features[0]->alt_img }}">
+                                            @endif
                                         </a>
-                                        <a href="javascript:void(0);" style="color: #111111">Limon</a>
+                                        <a href="javascript:void(0);" style="color: #111111">{{ $product->name }}</a>
                                     </td>
-                                    <td>Health Care </td>
-                                    <td>N/D</td>
-                                    <td>10.00</td>
-                                    <td>kg</td>
-                                    <td>100.00</td>
+                                    <td>{{ $product->category->name }}</td>
+                                    <td>{{ $product->supplier->name }}</td>
+                                    <td>{{ $product->price }}</td>
+                                    <td>{{ $product->quantity }}</td>
+                                    <td>{{ $product->unit }}</td>
                                     <td>
                                         <a class="btn btn-success"
                                             href="product-details.html"style="background: #111111; padding:0.5rem"
@@ -122,8 +126,10 @@
                                     </td>
                                 </tr>
                             </tbody>
+                            @endforeach
                         </table>
                     </div>
+
                 </div>
             </div>
 

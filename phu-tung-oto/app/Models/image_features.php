@@ -20,10 +20,10 @@ class image_features extends Model
 
     function products()
     {
-        return $this->belongsTo(Products::class);
+        return $this->belongsTo(Products::class, 'product_id');
     }
     function posts()
     {
-        return $this->belongTo(Posts::class);
+        return $this->belongTo(Posts::class, 'post_id');
     }
 }
