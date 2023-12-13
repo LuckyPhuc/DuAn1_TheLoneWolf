@@ -31,11 +31,22 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => "required",
-            'description' => "required",
-            'body' => "required"
-        ]);
+        $request->validate(
+            [
+                'title' => "required|min:5",
+                'description' => "required|min:10",
+                'body' => "required"
+            ],
+            [
+                'required' => ':attribute không được để trống',
+                'min' => ':attribute không ít hơn :min'
+            ],
+            [
+                'title' => 'Tiêu đề bài viết',
+                'description' => 'Mô tả ngắn',
+                'body' => 'Nội dung bài viết'
+            ]
+        );
         $input = $request->all();
         $user = auth()->user();
         $input['user_id'] = $user->id;
