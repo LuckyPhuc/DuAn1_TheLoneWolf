@@ -35,8 +35,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $suppliers = Suppliers::all();
-        $categories = Categories::all();
         $request->validate(
             [
                 'name' => "required|string|max:100",
