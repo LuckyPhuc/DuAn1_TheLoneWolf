@@ -170,10 +170,11 @@
                 @foreach ($products as $product)
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="{{ asset($product->image_features->first()->url_img) }}"
-                            alt="Card image cap">
+                            alt="{{ asset($product->image_features->first()->alt_img) }}">
+
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text">Gía</p>
+                            <p class="card-text">{{ $product->price }}</p>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
@@ -220,7 +221,7 @@
             <div class="row">
                 <div class="col-lg-5 m-auto text-center col-custom">
                     <div class="section-content">
-                        <h2 class="title-1 text-uppercase">BLOG MỚI NHẤT</h2>
+                        <h2 class="title-1 text-uppercase"> MỚI NHẤT</h2>
                         <div class="desc-content">
                             <p>
                                 Tất cả các sản phẩm bán chạy nhất hiện đều có sẵn cho bạn và bạn có thể mua sản phẩm này từ
@@ -231,45 +232,28 @@
                 </div>
             </div>
             <div class="row product__card">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Tên</h5>
-                        <p class="card-text">Gía</p>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </div>
-                    <div class="card-body">
-                        <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Tên</h5>
-                        <p class="card-text">Gía</p>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </div>
-                    <div class="card-body">
-                        <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
-                    </div>
-                </div>
+                @foreach ($products as $product)
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ asset($product->image_features->first()->url_img) }}"
+                            alt="{{ asset($product->image_features->first()->alt_img) }}">
 
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $product->name }}</h5>
+                            <p class="card-text">{{ $product->price }}</p>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="card-body">
+                            <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
+                            <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
+                            <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -287,61 +271,45 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12 col-custom">
-                    <div class="obrien-slider">
-                        <div class="single-blog">
-                            <div class="single-blog-thumb">
-                                <a href="blog.html">
-                                    <img class="w-100" src ="{{ asset('assets/img/product/product69.jpg') }}"
-                                        alt="Blog Image" />
-                                </a>
-                            </div>
-                            <div class="single-blog-content position-relative">
-                                <div class="post-date text-center border rounded d-flex flex-column position-absolute">
-                                    <span>14</span>
-                                    <span>01</span>
+                <div class="col-lg-12 col-custom d-flex">
+                    <div class="obrien-slider d-flex">
+                        @foreach ($posts as $post)
+                            @php
+                                $doc = new DOMDocument();
+                                @$doc->loadHTML($post->body); // Sử dụng @ để tránh báo lỗi HTML parsing
+
+                                $imgTags = $doc->getElementsByTagName('img');
+                                $imgSrc = null;
+                                if ($imgTags->length > 0) {
+                                    $imgSrc = $imgTags->item(0)->getAttribute('src');
+                                }
+                            @endphp
+                            <div class="single-blog">
+                                <div class="single-blog-thumb">
+                                    <a href="blog.html">
+                                        @if ($imgSrc)
+                                            <img class="w-100" src="{{ $imgSrc }}" alt="{{ $post->title }}">
+                                        @endif
+                                    </a>
                                 </div>
-                                <div class="post-meta">
-                                    <span class="author">Author: Obrien Demo Admin</span>
+                                <div class="single-blog-content position-relative">
+                                    <div class="post-date text-center border rounded d-flex flex-column position-absolute">
+                                        <span>{{ $post->created_at->format('d') }}</span>
+                                        <span>{{ $post->created_at->format('m') }}</span>
+                                    </div>
+                                    <div class="post-meta">
+                                        <span class="author">Người Viết: {{ $post->users->name }}</span>
+                                    </div>
+                                    <h2 class="post-title">
+                                        <a href="blog.html">{{ $post->title }}</a>
+                                    </h2>
+                                    <p class="desc-content">
+                                        {!! nl2br(e($post->description)) !!}
+                                    </p>
                                 </div>
-                                <h2 class="post-title">
-                                    <a href="blog.html">There Are Many Variation of Passages of Lorem Ipsum
-                                        Available</a>
-                                </h2>
-                                <p class="desc-content">
-                                    Contrary to popular belief, Lorem Ipsum is not simply
-                                    random text. It has roots in a piece of classical Latin
-                                    literature from 45 BC, making...
-                                </p>
                             </div>
-                        </div>
-                        <div class="single-blog">
-                            <div class="single-blog-thumb">
-                                <a href="blog.html">
-                                    <img class="w-100" src="{{ asset('assets/img/product/product69.jpg') }}"
-                                        alt="Blog Image" />
-                                </a>
-                            </div>
-                            <div class="single-blog-content position-relative">
-                                <div class="post-date text-center border rounded d-flex flex-column position-absolute">
-                                    <span>14</span>
-                                    <span>01</span>
-                                </div>
-                                <div class="post-meta">
-                                    <span class="author">Author: Obrien Demo Admin</span>
-                                </div>
-                                <h2 class="post-title">
-                                    <a href="blog.html">There Are Many Variation of Passages of Lorem Ipsum
-                                        Available</a>
-                                </h2>
-                                <p class="desc-content">
-                                    Contrary to popular belief, Lorem Ipsum is not simply
-                                    random text. It has roots in a piece of classical Latin
-                                    literature from 45 BC, making...
-                                </p>
-                            </div>
-                        </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
