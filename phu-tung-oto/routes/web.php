@@ -101,7 +101,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('delete/{id}', [PostsController::class, 'destroy'])->name('destroy');
     });
 
-
     //Routing User
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/list', [UserController::class, 'index'])->name('list');
@@ -126,6 +125,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 
+/*
+|--------------------------------------------------------------------------
+| user Routes
+|--------------------------------------------------------------------------
+*/
 // nguoi dung (user)
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('index', [HomeController::class, 'index'])->name('index');

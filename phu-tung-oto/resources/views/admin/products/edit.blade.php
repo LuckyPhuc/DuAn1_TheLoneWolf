@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Admin - Products - add')
+@section('title', 'Admin - Products - Edit')
 <div class="page-wrapper">
     @section('content')
         <div class="content">
@@ -14,7 +14,7 @@
                 </div>
             @endif
             <div class="card">
-                <form action="route('admin.products.update', ['id' => $products->id])" method="POST"
+                <form action="{{ route('admin.products.update', ['id' => $products->id]) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <div class="col-lg-12">
-                        <input type="submit" value="Thêm mới sản phẩm" class="btn btn-added"
+                        <input type="submit" value="Lưu sản phẩm" class="btn btn-added"
                             style="background: #ff9f43;color:#fff; padding:0.5rem">
                         <a href="{{ route('admin.products.list') }}" class="btn btn-added"
                             style="background: #ff9f43;color:#fff; padding:0.5rem">Hủy</a>
