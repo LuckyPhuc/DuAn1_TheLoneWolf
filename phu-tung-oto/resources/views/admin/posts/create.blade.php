@@ -45,16 +45,17 @@
                         @csrf
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label>Tiêu Đề Bài Viết</label>
-                                        <input type="text" name="title">
-                                        @error('name')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
+
                                 <div class="form-group">
+                                    <label>Tiêu Đề Bài Viết</label>
+                                    <input type="text" name="title">
+                                    @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label>MÔ tả bài viết</label>
                                     <input type="text" name="description">
                                     @error('description')
                                         <small class="text-danger">{{ $message }}</small>
