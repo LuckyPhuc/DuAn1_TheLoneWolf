@@ -64,12 +64,13 @@
                                 <div class="form-group">
                                     <label>Nội Dung</label>
                                     <textarea name="body">
-                                Welcome to TinyMCE!
+
                                     </textarea>
                                     @error('body')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
+
                                 <div class="col-lg-12">
                                     <input type="submit" value="Thêm mới" class="btn btn-added"
                                         style="background: #ff9f43;color:#fff; padding:0.5rem">
