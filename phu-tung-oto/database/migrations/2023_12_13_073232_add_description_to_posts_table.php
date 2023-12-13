@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->text('description')->nullable()->after('title'); // Thêm cột mới
+            $table->string('description', 200)->nullable()->after('title'); // Thêm cột mới
         });
     }
     public function down(): void
