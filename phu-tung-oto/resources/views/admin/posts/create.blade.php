@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <label>Tiêu Đề Bài Viết</label>
                                     <input type="text" name="title">
-                                    @error('name')
+                                    @error('title')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
