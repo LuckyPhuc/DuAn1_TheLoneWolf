@@ -165,47 +165,31 @@
                     </div>
                 </div>
             </div>
-            <div class="row product__card">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Tên</h5>
-                        <p class="card-text">Gía</p>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </div>
-                    <div class="card-body">
-                        <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Tên</h5>
-                        <p class="card-text">Gía</p>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </div>
-                    <div class="card-body">
-                        <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
-                    </div>
-                </div>
 
+            <div class="row product__card">
+                @foreach ($products as $product)
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ asset($product->image_features->first()->url_img) }}"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $product->name }}</h5>
+                            <p class="card-text">Gía</p>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="card-body">
+                            <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
+                            <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
+                            <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
+                        </div>
+                    </div>
+                @endforeach
             </div>
+
         </div>
     </div>
     <div class="banner-fullwidth-area mb-text">

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @section('title', 'Admin - Posts - create')
+    @section('title', 'Admin - posts - create')
     <script src="https://cdn.tiny.cloud/1/rw1556z5vgoik9fmr5u44kck2kqrsou9fmbylvglsyjovwur/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
     <script type="text/javascript">
@@ -29,7 +29,7 @@
                         <h4>Thêm Bài Viết </h4>
                     </div>
                     <div class="page-btn">
-                        <a href="{{ Route('admin.Posts.list') }}" class="btn btn-added">
+                        <a href="{{ Route('admin.posts.list') }}" class="btn btn-added">
                             <i class="bi bi-card-list"> Danh sách Bài Viết</i>
                         </a>
                     </div>
@@ -41,7 +41,7 @@
                 @endif
 
                 <div class="card">
-                    <form action="{{ route('admin.Posts.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('admin.posts.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="row">
