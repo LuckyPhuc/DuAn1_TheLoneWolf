@@ -90,6 +90,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('delete/{id}', [OrderController::class, 'destroy'])->name('destroy');
     });
     //Routing Posts
+
     Route::prefix('posts')->name('posts.')->group(function () {
         Route::get('list', [PostsController::class, 'index'])->name('list');
         Route::get('create', [PostsController::class, 'create'])->name('create');
@@ -99,7 +100,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::put('update/{id}', [PostsController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [PostsController::class, 'destroy'])->name('destroy');
     });
-
 
     //Routing User
     Route::prefix('users')->name('users.')->group(function () {
@@ -122,16 +122,19 @@ Route::prefix('admin')->name('admin.')->group(function () {
     //     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
     // });
 
-
 });
 
 
-
+/*
+|--------------------------------------------------------------------------
+| user Routes
+|--------------------------------------------------------------------------
+*/
 // nguoi dung (user)
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('index', [HomeController::class, 'index'])->name('index');
     Route::get('shop', [ShopController::class, 'index'])->name('shop');
-    Route::get('show\{id}', [ShopController::class, 'show'])->name('detail');
+    Route::get('show{id}', [ShopController::class, 'show'])->name('detail');
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::get('register', [HomeController::class, 'register'])->name('register');
     Route::get('login', [HomeController::class, 'login'])->name('login');
