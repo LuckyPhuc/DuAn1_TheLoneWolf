@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -23,15 +24,13 @@
     <script type="text/javascript" src="path/to/slick/slick.min.js"></script>
 
 
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/img-01.jpg') }}">
     <!-- Link thư viện Slick Slider -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -46,9 +45,10 @@
                     <div class="row">
                         <div class="col-12 col-custom header-top-wrapper text-center">
                             <div class="short-desc">
-                                <p>Support Center: <strong><a href="#" title="tel:0123456789">012 345 6789 </a>,
+                                <p>Support Center: <strong><a href="#" title="tel:0123456789">0706252156</a>,
                                     </strong></p>
-                                <p> Email: <a href="#" title="mailto:example@email.com">example@email.com</a></p>
+                                <p> Email: <a href="#" title="mailto:example@email.com">phutungoto@gmail.com</a>
+                                </p>
                             </div>
                             <span class="top-close-button">X</span>
                         </div>
@@ -86,43 +86,19 @@
                                                 <div class="mega-menu dropdown-hover">
                                                     <div class="menu-colum">
                                                         <ul>
-                                                            <li><span class="mega-menu-text">Shop</span></li>
-                                                            <li><a href="#">Shop Left Sidebar</a></li>
-                                                            <li><a href="#">Shop Right Sidebar</a>
+                                                            <li><span class="mega-menu-text">Danh Mục Sản Phẩm</span>
                                                             </li>
-                                                            <li><a href="#">Shop List Left Sidebar</a>
-                                                            </li>
-                                                            <li><a href="#">Shop List Right Sidebar</a>
-                                                            </li>
-                                                            <li><a href="#">Shop Full Width</a></li>
+                                                            @foreach ($categories as $category)
+                                                                <li><a href="#">{{ $category->name }}</a></li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                     <div class="menu-colum">
                                                         <ul>
-                                                            <li><span class="mega-menu-text">Product</span></li>
-                                                            <li><a href="product-details.html">Single Product</a></li>
-                                                            <li><a href="variable-product-details.html">Variable
-                                                                    Product</a>
-                                                            </li>
-                                                            <li><a href="external-product-details.html">External
-                                                                    Product</a>
-                                                            </li>
-                                                            <li><a href="gallery-product-details.html">Gallery
-                                                                    Product</a>
-                                                            </li>
-                                                            <li><a href="countdown-product-details.html">Countdown
-                                                                    Product</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="menu-colum">
-                                                        <ul>
-                                                            <li><span class="mega-menu-text">Others</span></li>
-                                                            <li><a href="error-404.html">Error 404</a></li>
-                                                            <li><a href="compare.html">Compare Page</a></li>
-                                                            <li><a href="cart.html">Cart Page</a></li>
-                                                            <li><a href="{{ route('users.checkout') }}">Checkout
-                                                                    Page</a></li>
-                                                            <li><a href="wishlist.html">Wishlist Page</a></li>
+                                                            <li><span class="mega-menu-text">Hãng</span></li>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <li><a href="#">{{ $supplier->name }}</a></li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -151,25 +127,13 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <span class="menu-text"> Pages</span>
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <ul class="dropdown-submenu dropdown-hover">
-                                                    <li><a href="frequently-questions.html">FAQ</a></li>
-                                                    <li><a href="my-account.html">My Account</a></li>
-                                                    <li><a href="{{ route('users.login') }}">Login</a></li>
-                                                    <li><a href="{{ route('users.register') }}">Register</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
                                                 <a href="about-us.html">
-                                                    <span class="menu-text"> About</span>
+                                                    <span class="menu-text">Về Chúng Tôi</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <span class="menu-text">Contact</span>
+                                                    <span class="menu-text">Liên Hệ</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -719,9 +683,10 @@
                             <div class="single-footer-widget">
                                 <h2 class="widget-title">Xem thông tin</h2>
                                 <div class="widget-body">
-                                    <address>160 Y Moan Ênuôl, Tân Lợi, Thành phố Buôn Ma Thuột, Đắk Lắk<br>Phone: 01254
-                                        698
-                                        785, 36598 254 987<br>Email: https://example.com</address>
+                                    <address>160 Y Moan Ênuôl, Tân Lợi, Thành phố Buôn Ma Thuột, Đắk Lắk<br>Phone:
+                                        0706252156
+                                        <br>Email: phutungoto@gmail.com
+                                    </address>
                                 </div>
                             </div>
                         </div>

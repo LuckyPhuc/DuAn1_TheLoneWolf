@@ -11,6 +11,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\users\HomeController;
 use App\Http\Controllers\users\ShopController;
 use App\Http\Controllers\users\CheckoutController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +90,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('delete/{id}', [OrderController::class, 'destroy'])->name('destroy');
     });
 
+
     //Routing User
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/list', [UserController::class, 'index'])->name('list');
@@ -110,6 +112,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     //     Route::delete('delete/{id}', [WebsiteController::class, 'destroy'])->name('destroy');
     // });
 
+
 });
 
 
@@ -118,8 +121,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('index', [HomeController::class, 'index'])->name('index');
     Route::get('shop', [ShopController::class, 'index'])->name('shop');
-    Route::get('show{id}', [ShopController::class, 'show'])->name('detail');
+    Route::get('show\{id}', [ShopController::class, 'show'])->name('detail');
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::get('register', [HomeController::class, 'register'])->name('register');
     Route::get('login', [HomeController::class, 'login'])->name('login');
+
 });
+// file manager
+Route::group(['prefix' => 'laravel-filemanager'], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
