@@ -48,17 +48,26 @@
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Tiêu Đề Bài Viết</label>
-                                        <input type="text" name="name">
+                                        <input type="text" name="title">
                                         @error('name')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <input type="text" name="description">
+                                    @error('description')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <label>Nội Dung</label>
-                                    <textarea>
+                                    <textarea name="body">
                                 Welcome to TinyMCE!
-                                </textarea>
+                                    </textarea>
+                                    @error('body')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-12">
                                     <input type="submit" value="Thêm mới" class="btn btn-added"
