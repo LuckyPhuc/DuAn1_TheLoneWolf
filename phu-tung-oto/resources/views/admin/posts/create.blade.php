@@ -45,21 +45,32 @@
                         @csrf
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label>Tiêu Đề Bài Viết</label>
-                                        <input type="text" name="name">
-                                        @error('name')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
+
+                                <div class="form-group">
+                                    <label>Tiêu Đề Bài Viết</label>
+                                    <input type="text" name="title">
+                                    @error('title')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label>MÔ tả bài viết</label>
+                                    <input type="text" name="description">
+                                    @error('description')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Nội Dung</label>
-                                    <textarea>
-                                Welcome to TinyMCE!
-                                </textarea>
+                                    <textarea name="body">
+
+                                    </textarea>
+                                    @error('body')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
+
                                 <div class="col-lg-12">
                                     <input type="submit" value="Thêm mới" class="btn btn-added"
                                         style="background: #ff9f43;color:#fff; padding:0.5rem">

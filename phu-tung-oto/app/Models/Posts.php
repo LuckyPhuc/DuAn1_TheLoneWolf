@@ -11,6 +11,7 @@ class Posts extends Model
 
     protected $fillable = [
         'title',
+        'description',
         'body',
         'user_id',
         'create_at',
@@ -19,7 +20,7 @@ class Posts extends Model
 
     function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
     function posts()
     {

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Posts;
 use Illuminate\Http\Request;
+
 
 class PostsController extends Controller
 {
@@ -11,7 +14,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view("admin.Posts.index");
+        $posts = Posts::with('users')->get();
+        return view("admin.Posts.index", compact('posts'));
     }
 
     /**
@@ -27,7 +31,27 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'title' => "required|min:5",
+                'description' => "required|min:10",
+                'body' => "required"
+            ],
+            [
+                'required' => ':attribute không được để trống',
+                'min' => ':attribute không ít hơn :min'
+            ],
+            [
+                'title' => 'Tiêu đề bài viết',
+                'description' => 'Mô tả ngắn',
+                'body' => 'Nội dung bài viết'
+            ]
+        );
+        $input = $request->all();
+        $user = auth()->user();
+        $input['user_id'] = $user->id;
+        $posts = Posts::create($input);
+        return redirect()->route("admin.Posts.create")->with('success', 'Thêm mới thành công!');
     }
 
     /**

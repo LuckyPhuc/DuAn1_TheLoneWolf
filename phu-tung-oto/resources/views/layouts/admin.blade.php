@@ -107,6 +107,18 @@
                                 <li><a href="{{ Route('admin.users.create') }}">Thêm người dùng</a></li>
                             </ul>
                         </li>
+
+                        <li class="submenu">
+                            <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/users1.svg') }}"
+                                    alt="img"><span>
+                                    Bài đăng</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="{{ Route('admin.Posts.list') }}">Danh sách bài đăng </a></li>
+                                <li><a href="{{ Route('admin.Posts.create') }}">Thêm bài đăng</a></li>
+                            </ul>
+                        </li>
                         <li class="submenu">
                             <a href="#"><img src="{{ asset('assets/img/icons/settings.svg') }}"
                                     alt="img"><span>
