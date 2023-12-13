@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Posts;
 use Illuminate\Http\Request;
+
 
 class PostsController extends Controller
 {
@@ -11,7 +14,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view("admin.Posts.index");
+        $posts = Posts::with('users')->get();
+        return view("admin.Posts.index", compact('posts'));
     }
 
     /**
@@ -27,7 +31,11 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $user = auth()->user();
+        $input['user_id'] = $user->id;
+        $posts = Posts::create($input);
+        return view("admin.Posts.create", compact('posts'));
     }
 
     /**

@@ -19,7 +19,7 @@ class Posts extends Model
 
     function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
     function posts()
     {
