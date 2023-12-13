@@ -47,98 +47,61 @@
                     </div>
                     <!--shop toolbar end-->
                     <!-- Shop Wrapper Start -->
-                    <div class="row shop_wrapper grid_3">
-                        <div class="col-md-6 col-sm-6 col-lg-4 col-custom product-area">
-                            <div class="single-product position-relative">
-                                <div class="product-image">
-                                    <a class="d-block" href="product-details.html">
-                                        <img src="{{ asset('assets/img/product/product69.jpg') }}" alt=""
-                                            class="product-image-1 w-100">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <div class="product-title">
-                                        <h4 class="title-2"> <a href="product-details.html">Product dummy title</a></h4>
-                                    </div>
-                                    <div class="price-box">
-                                        <span class="regular-price ">$40.00</span>
-                                        <span class="old-price"><del>$45.00</del></span>
-                                    </div>
-                                </div>
-                                <div class="add-action d-flex position-absolute">
-                                    <a href="cart.html" title="Add To cart">
-                                        <i class="ion-bag"></i>
-                                    </a>
-                                    <a href="compare.html" title="Compare">
-                                        <i class="ion-ios-loop-strong"></i>
-                                    </a>
-                                    <a href="wishlist.html" title="Add To Wishlist">
-                                        <i class="ion-ios-heart-outline"></i>
-                                    </a>
-                                    <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View">
-                                        <i class="ion-eye"></i>
-                                    </a>
-                                </div>
-                                <div class="product-content-listview">
-                                    <div class="product-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <div class="product-title">
-                                        <h4 class="title-2"> <a href="product-details.html">Product dummy title</a></h4>
-                                    </div>
-                                    <div class="price-box">
-                                        <span class="regular-price ">$40.00</span>
-                                        <span class="old-price"><del>$44.00</del></span>
-                                    </div>
-                                    <div class="add-action-listview d-flex">
-                                        <a href="cart.html" title="Add To cart">
-                                            <i class="ion-bag"></i>
-                                        </a>
-                                        <a href="compare.html" title="Compare">
-                                            <i class="ion-ios-loop-strong"></i>
-                                        </a>
-                                        <a href="wishlist.html" title="Add To Wishlist">
-                                            <i class="ion-ios-heart-outline"></i>
-                                        </a>
-                                        <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View">
-                                            <i class="ion-eye"></i>
+                    <div class="row">
+                        @foreach ($products as $product)
+                            <div class="col-md-4 col-sm-6 col-lg-4 col-custom product-area p-3">
+                                <div class="single-product position-relative">
+                                    <div class="product-image">
+                                        <a class="d-block" href="product-details.html">
+                                            <img src="{{ asset($product->image_features->first()->url_img) }}"
+                                                alt="" class="product-image-1 w-100">
                                         </a>
                                     </div>
-                                    <p class="desc-content">
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                                        piece of classical Latin literature from 45 BC, making it over 2000 years old.
-                                        Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-                                    </p>
+                                    <div class="product-content" style="height: 160px">
+                                        <div class="product-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <div class="product-title">
+                                            <h4 class="title-2"> <a href="#">{{ $product->name }}</a>
+                                            </h4>
+                                        </div>
+                                        <div class="price-box">
+                                            <span class="regular-price ">{{ number_format($product->price, 2, '.', ',') }}
+                                                VND</span>
+                                            {{-- <span class="old-price"><del>$45.00</del></span> --}}
+                                        </div>
+                                    </div>
+                                    <div class="add-action d-flex position-absolute">
+                                        <a href="cart.html" title="Add To cart"><i class="ion-bag"></i></a>
+                                        <a href="compare.html" title="Compare"><i class="ion-ios-loop-strong"></i></a>
+                                        <a href="wishlist.html" title="Add To Wishlist"><i
+                                                class="ion-ios-heart-outline"></i></a>
+                                        <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View"><i
+                                                class="ion-eye"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
+
                     <!-- Shop Wrapper End -->
                     <!-- Bottom Toolbar Start -->
                     <div class="row">
                         <div class="col-sm-12 col-custom">
                             <div class="toolbar-bottom mt-30">
                                 <nav class="pagination pagination-wrap mb-10 mb-sm-0">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                    </ul>
+                                    {{-- <ul class="pagination">
+                                        <li>{{ $products->render() }}</li>
+                                    </ul> --}}
+                                    <div class="d-flex justify-content-center">
+                                        {{ $products->links() }}
+                                    </div>
                                 </nav>
-                                <p class="desc-content text-center text-sm-right">Showing 1 - 12 of 34 result</p>
+                                aaa
                             </div>
                         </div>
                     </div>
@@ -216,6 +179,7 @@
                                     @endforeach
                                 </div>
                             </div>
+
                             <div class="widget-list widget-mb-4">
                                 <h3 class="widget-title">Recent Products</h3>
                                 <div class="sidebar-body">
@@ -247,8 +211,7 @@
                                         </a>
                                         <div class="product-content">
                                             <div class="product-title">
-                                                <h4 class="title-2"> <a href="product-details.html">Product dummy
-                                                        title</a></h4>
+                                                <h4 class="title-2"> <a href="product-details.html">Product dummy</a></h4>
                                             </div>
                                             <div class="price-box">
                                                 <span class="regular-price ">$50.00</span>
