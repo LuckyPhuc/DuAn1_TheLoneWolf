@@ -94,12 +94,12 @@
                         <div class="col-sm-12 col-custom">
                             <div class="toolbar-bottom mt-30">
                                 <nav class="pagination pagination-wrap mb-10 mb-sm-0">
-                                    {{-- <ul class="pagination">
-                                        <li>{{ $products->render() }}</li>
-                                    </ul> --}}
-                                    <div class="d-flex justify-content-center">
-                                        {{ $products->links() }}
-                                    </div>
+                                    <ul class="pagination">
+                                        <li> {{ $products->links() }}</li>
+                                    </ul>
+
+
+
                                 </nav>
                                 aaa
                             </div>
