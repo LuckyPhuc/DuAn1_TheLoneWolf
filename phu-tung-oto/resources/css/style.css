@@ -1457,8 +1457,9 @@ button,
     font-size: 18px;
     font-family: "Oswald", sans-serif;
     display: table-caption;
-    padding: 0px 20px 0px 0px;
+    /* padding: 0px 20px 0px 0px; */
     margin: 0px 0px 10px 20px;
+    display: inline;
 }
 
 .mega-menu .menu-colum ul li .mega-menu-text:after {
