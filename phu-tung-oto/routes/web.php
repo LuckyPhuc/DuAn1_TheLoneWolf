@@ -90,7 +90,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('delete/{id}', [OrderController::class, 'destroy'])->name('destroy');
     });
     //Routing Posts
-    Route::prefix('Posts')->name('Posts.')->group(function () {
+    Route::prefix('posts')->name('posts.')->group(function () {
         Route::get('list', [PostsController::class, 'index'])->name('list');
         Route::get('create', [PostsController::class, 'create'])->name('create');
         Route::post('/', [PostsController::class, 'store'])->name('store');
