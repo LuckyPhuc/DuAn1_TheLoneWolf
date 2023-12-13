@@ -40,7 +40,7 @@ class PostsController extends Controller
         $user = auth()->user();
         $input['user_id'] = $user->id;
         $posts = Posts::create($input);
-        return view("admin.Posts.create", compact('posts'));
+        return redirect()->route("admin.Posts.create")->with('success', 'Thêm mới thành công!');
     }
 
     /**
