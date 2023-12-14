@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController as ControllersCartController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -8,10 +9,11 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\users\HomeController;
 use App\Http\Controllers\users\ShopController;
 use App\Http\Controllers\users\CheckoutController;
-use App\Http\Controllers\PostsController;
+use App\Http\Controllers\users\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -138,8 +140,9 @@ Route::prefix('users')->name('users.')->group(function () {
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::get('register', [HomeController::class, 'register'])->name('register');
     Route::get('login', [HomeController::class, 'login'])->name('login');
+    // Route::get('cart', [CartController::class, 'addToCart'])->name('cart');
 });
 // file manager
-Route::group(['prefix' => 'laravel-filemanager'], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
-});
+// Route::group(['prefix' => 'laravel-filemanager'], function () {
+//     \UniSharp\LaravelFilemanager\Lfm::routes();
+// });
