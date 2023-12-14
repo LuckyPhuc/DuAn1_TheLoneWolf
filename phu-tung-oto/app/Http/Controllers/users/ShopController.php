@@ -22,6 +22,14 @@ class ShopController extends Controller
     }
     function show($id)
     {
-        return view('users.detail');
+        $categories = Categories::all();
+        $suppliers = Suppliers::all();
+        $products = Products::with(
+            ['category', 'image_features']
+        )->find($id);
+        return view('users.detail', compact('categories', 'suppliers', 'products'));
+    }
+    function addToCart(Request $request)
+    {
     }
 }

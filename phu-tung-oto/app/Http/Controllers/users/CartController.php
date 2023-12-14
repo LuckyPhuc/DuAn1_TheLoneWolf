@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Suppliers;
 
-class CheckoutController extends Controller
+class CartController extends Controller
 {
     function index()
     {
         $categories = Categories::all();
         $suppliers = Suppliers::all();
-        return view('users.checkout', compact('categories', 'suppliers'));
+        return view('users/cart', compact('categories', 'suppliers'));
     }
+    // function addToCart()
+    // {
+    //     return 'hihi';
+    // }
 }
