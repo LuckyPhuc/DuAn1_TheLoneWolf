@@ -104,7 +104,7 @@
                                                 </div>
                                             </li>
                                             <li>
-                                                <a href="blog-details-fullwidth.html">
+                                                <a href="{{ route('users.posts') }}">
                                                     <span class="menu-text"> Blog</span>
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
@@ -121,7 +121,7 @@
                                                     <li><a href="blog-grid-fullwidth.html">Blog Grid Fullwidth</a></li>
                                                     <li><a href="blog-details-sidebar.html">Blog Details Sidebar</a>
                                                     </li>
-                                                    <li><a href="blog-details-fullwidth.html">Blog Details
+                                                    <li><a href="{{ route('users.posts') }}">Blog Details
                                                             Fullwidth</a>
                                                     </li>
                                                 </ul>
@@ -305,7 +305,7 @@
                                                 </div>
                                             </li>
                                             <li>
-                                                <a href="blog-details-fullwidth.html">
+                                                <a href="{{ Route('users.posts') }}">
                                                     <span class="menu-text"> Bài viết</span>
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
@@ -322,7 +322,7 @@
                                                     <li><a href="blog-grid-fullwidth.html">Blog Grid Fullwidth</a></li>
                                                     <li><a href="blog-details-sidebar.html">Blog Details Sidebar</a>
                                                     </li>
-                                                    <li><a href="blog-details-fullwidth.html">Blog Details
+                                                    <li><a href="{{ route('users.posts') }}">Blog Details
                                                             Fullwidth</a>
                                                     </li>
                                                 </ul>
@@ -511,8 +511,9 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children "><a href="#">Bài viết</a>
-                                        <ul class="dropdown">
+                                    <li class="menu-item-has-children "><a href="{{ Route('users.posts') }}">Bài
+                                            viết</a>
+                                        {{-- <ul class="dropdown">
                                             <li><a href="blog.html">Blog Left Sidebar</a></li>
                                             <li><a href="blog-list-right-sidebar.html">Blog List Right Sidebar</a></li>
                                             <li><a href="blog-list-fullwidth.html">Blog List Fullwidth</a></li>
@@ -520,9 +521,9 @@
                                             <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
                                             <li><a href="blog-grid-fullwidth.html">Blog Grid Fullwidth</a></li>
                                             <li><a href="blog-details-sidebar.html">Blog Details Sidebar Page</a></li>
-                                            <li><a href="blog-details-fullwidth.html">Blog Details Fullwidth Page</a>
+                                            <li><a href="{{ route('users.posts') }}">Blog Details Fullwidth Page</a>
                                             </li>
-                                        </ul>
+                                        </ul> --}}
                                     </li>
                                     <li class="menu-item-has-children "><a href="#">Pages</a>
                                         <ul class="dropdown">
@@ -666,7 +667,7 @@
                                 <h2 class="widget-title">Liên kết nhanh</h2>
                                 <ul class="widget-list">
                                     <li><a href="about-us.html">Về chúng tôi</a></li>
-                                    <li><a href="blog.html">bài viết</a></li>
+                                    <li><a href="{{ Route('users.posts') }}">bài viết</a></li>
                                     <li><a href="{{ route('users.shop') }}">Cửa hàng</a></li>
                                     <li><a href="{{ route('users.cart') }}">Giỏ hàng</a></li>
                                     <li><a href="#">Liên hệ</a></li>
