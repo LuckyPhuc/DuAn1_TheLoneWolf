@@ -23,26 +23,16 @@
                     <div class="product-details-img horizontal-tab">
                         <div class="pd-slider-nav product-slider">
                             <div class="single-thumb border">
-                                <img src="{{ asset('assets/img/product/product69.jpg') }}" alt="Product Thumbnail">
+                                <img src="{{ asset($products->image_features->first()->url_img) }}" alt="Product Thumbnail">
                             </div>
                         </div>
                         <div class="img__slider" style="display: flex; height: 100px;">
-                            <div class="img__item border-black" style="width:150px">
-                                <img src="{{ asset('assets/img/product/product34.jpg') }}" alt=""
-                                    onclick="changeImage(this)">
-                            </div>
-                            <div class="img__item border-black" style="width:150px">
-                                <img src="{{ asset('assets/img/product/product69.jpg') }}" alt=""
-                                    onclick="changeImage(this)">
-                            </div>
-                            <div class="img__item border-black" style="width:150px">
-                                <img src="{{ asset('assets/img/product/product34.jpg') }}" alt=""
-                                    onclick="changeImage(this)">
-                            </div>
-                            <div class="img__item border-black" style="width:150px">
-                                <img src="{{ asset('assets/img/product/product69.jpg') }}" alt=""
-                                    onclick="changeImage(this)">
-                            </div>
+                            @for ($i = 0; $i < $products->image_features->count(); $i++)
+                                <div class="img__item border-black" style="width:150px">
+                                    <img src="{{ asset($products->image_features[$i]->url_img) }}" alt=""
+                                        onclick="changeImage(this)">
+                                </div>
+                            @endfor
                         </div>
                     </div>
                     <script>
@@ -56,11 +46,12 @@
                 <div class="col-lg-7 col-custom">
                     <div class="product-summery position-relative">
                         <div class="product-head mb-3">
-                            <h2 class="product-title">Sample product Countdown</h2>
+                            <h2 class="product-title">{{ $products->name }}</h2>
                         </div>
                         <div class="price-box mb-2">
-                            <span class="regular-price">$80.00</span>
-                            <span class="old-price"><del>$90.00</del></span>
+                            <span class="regular-price">{{ number_format($products->price, 2, '.', ',') }}
+                                VND</span>
+
                         </div>
                         <div class="product-rating mb-3">
                             <i class="fa fa-star"></i>
@@ -72,22 +63,40 @@
                         <div class="sku mb-3">
                             <span>SKU: 12345</span>
                         </div>
-                        <p class="desc-content mb-5">I must explain to you how all this mistaken idea of denouncing pleasure
-                            and praising pain was born and I will give you a complete account of the system, and expound the
-                            actual teachings of the great explorer of the truth, the master-builder of human happiness.</p>
+                        <p class="desc-content mb-5">{{ $products->description }}</p>
                         <div class="quantity-with_btn mb-4">
                             <div class="quantity">
                                 <div class="cart-plus-minus">
-                                    <input class="cart-plus-minus-box" value="0" type="text">
-                                    <div class="dec qtybutton">-</div>
-                                    <div class="inc qtybutton">+</div>
+                                    <input class="cart-plus-minus-box" value="0" type="text" id="quantityInput">
+                                    <div class="dec qtybutton" onclick="decrementQuantity()">-</div>
+                                    <div class="inc qtybutton" onclick="incrementQuantity()">+</div>
                                 </div>
                             </div>
-                            <div class="add-to_cart">
-                                <a class="btn obrien-button primary-btn" href="cart.html">Add to cart</a>
-                                <a class="btn obrien-button-2 treansparent-color pt-0 pb-0" href="wishlist.html">Add to
-                                    wishlist</a>
-                            </div>
+
+                            <script>
+                                function incrementQuantity() {
+                                    var input = document.getElementById('quantityInput');
+                                    var currentValue = parseInt(input.value);
+                                    input.value = currentValue + 1;
+                                }
+
+                                function decrementQuantity() {
+                                    var input = document.getElementById('quantityInput');
+                                    var currentValue = parseInt(input.value);
+
+                                    if (currentValue > 0) {
+                                        input.value = currentValue - 1;
+                                    }
+                                }
+                            </script>
+                            {{-- <form action="{{ Route('users.cart') }}" method="POST">
+                                @csrf
+                                <div class="add-to_cart">
+                                    <input class="btn obrien-button primary-btn" type="button" value="Add to cart">
+                                    <a class="btn obrien-button-2 treansparent-color pt-0 pb-0" href="wishlist.html">Add to
+                                        wishlist</a>
+                                </div>
+                            </form> --}}
                         </div>
                         <div class="buy-button mb-5">
                             <a href="#" class="btn obrien-button-3 black-button">Buy it now</a>
@@ -123,8 +132,7 @@
                         </li>
                     </ul>
                     <div class="tab-content mb-text" id="myTabContent">
-                        <div class="tab-pane fade show active" id="connect-1" role="tabpanel"
-                            aria-labelledby="home-tab">
+                        <div class="tab-pane fade show active" id="connect-1" role="tabpanel" aria-labelledby="home-tab">
                             <div class="desc-content">
                                 <p class="mb-3">On the other hand, we denounce with righteous indignation and dislike men
                                     who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded
