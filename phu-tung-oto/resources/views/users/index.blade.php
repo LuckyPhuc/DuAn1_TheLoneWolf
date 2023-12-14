@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'trang chủ')
+@section('title', 'Trang chủ ')
 @section('content')
     <!--  Slider  -->
     <div id="carouselExampleIndicators" class="carousel slide">

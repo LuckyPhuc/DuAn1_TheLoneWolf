@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'trang cart')
+@section('title', 'Trang giỏ hàng')
 @section('content')
     <div class="breadcrumbs-area position-relative">
         <div class="container">
@@ -26,12 +26,12 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th class="pro-thumbnail">Image</th>
-                                    <th class="pro-title">Product</th>
-                                    <th class="pro-price">Price</th>
-                                    <th class="pro-quantity">Quantity</th>
-                                    <th class="pro-subtotal">Total</th>
-                                    <th class="pro-remove">Remove</th>
+                                    <th class="pro-thumbnail">Hình ảnh</th>
+                                    <th class="pro-title">Tên sản phẩm</th>
+                                    <th class="pro-price">Giá</th>
+                                    <th class="pro-quantity">Số lượng</th>
+                                    <th class="pro-subtotal">Tổng cộng</th>
+                                    <th class="pro-remove">Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,12 +61,12 @@
                     <div class="cart-update-option d-block d-md-flex justify-content-between">
                         <div class="apply-coupon-wrapper">
                             <form action="#" method="post" class=" d-block d-md-flex">
-                                <input type="text" placeholder="Enter Your Coupon Code" required />
-                                <button class="btn obrien-button primary-btn">Apply Coupon</button>
+                                <input type="text" placeholder="Nhập mã giảm giá" required />
+                                <button class="btn obrien-button primary-btn">Áp mã giảm giá</button>
                             </form>
                         </div>
                         <div class="cart-update mt-sm-16">
-                            <a href="#" class="btn obrien-button primary-btn">Update Cart</a>
+                            <a href="#" class="btn obrien-button primary-btn">Cập nhật giỏ hàng</a>
                         </div>
                     </div>
                 </div>
@@ -76,25 +76,25 @@
                     <!-- Cart Calculation Area -->
                     <div class="cart-calculator-wrapper">
                         <div class="cart-calculate-items">
-                            <h3>Cart Totals</h3>
+                            <h3>Hóa đơn</h3>
                             <div class="table-responsive">
                                 <table class="table">
                                     <tr>
-                                        <td>Sub Total</td>
+                                        <td>Tổng cộng</td>
                                         <td>$230</td>
                                     </tr>
                                     <tr>
-                                        <td>Shipping</td>
+                                        <td>Tiền ship</td>
                                         <td>$70</td>
                                     </tr>
                                     <tr class="total">
-                                        <td>Total</td>
+                                        <td></td>
                                         <td class="total-amount">$300</td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
-                        <a href="checkout.html" class="btn obrien-button primary-btn d-block">Proceed To Checkout</a>
+                        <a href="checkout.html" class="btn obrien-button primary-btn d-block">Thanh toán</a>
                     </div>
                 </div>
             </div>
