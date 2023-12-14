@@ -65,7 +65,7 @@
                             </p>
                             <p class="form-row">
                                 <input type="checkbox" id="remember_online">
-                                <label for="remember_online">Thanh toán trực tiếp</label>
+                                <label for="remember_online">Thanh toán online</label>
                             </p>
                         </div>
                     </form>

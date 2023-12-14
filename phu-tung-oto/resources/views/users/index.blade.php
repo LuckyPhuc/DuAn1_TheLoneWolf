@@ -166,28 +166,48 @@
                 </div>
             </div>
 
-            <div class="row product__card">
-                @foreach ($products as $product)
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ asset($product->image_features->first()->url_img) }}"
-                            alt="{{ asset($product->image_features->first()->alt_img) }}">
+            <div class="row">
+                @foreach ($products->take(4) as $product)
+                    <div class="col-md-3 col-sm-8 col-lg-3 col-custom product-area p-3">
+                        <div class="single-product position-relative">
+                            <div class="product-image">
+                                <a class="d-block" href="{{ route('users.detail', ['id' => $product->id]) }}">
 
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text">{{ $product->price }}</p>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                        </div>
-                        <div class="card-body">
-                            <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
-                            <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
-                            <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
+
+                                    <img src="{{ asset($product->image_features->first()->url_img) }}" alt=""
+                                        class="product-image-1 w-100">
+                                </a>
+                            </div>
+                            <div class="product-content" style="height: 160px">
+                                <div class="product-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                                <div class="product-title">
+                                    <h4 class="title-2"> <a href="#">{{ $product->name }}</a> </h4>
+                                </div>
+                                <div class="price-box">
+                                    <span class="regular-price ">{{ number_format($product->price, 2, '.', ',') }}
+                                        VND</span>
+                                </div>
+                            </div>
+                            <div class="add-action d-flex position-absolute">
+                                <a href="cart.html" title="Add To cart"><i class="ion-bag"></i></a>
+                                <a href="compare.html" title="Compare"><i class="ion-ios-loop-strong"></i></a>
+                                <a href="wishlist.html" title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View"><i
+                                        class="ion-eye"></i></a>
+                            </div>
                         </div>
                     </div>
+
+                    @if ($loop->iteration % 3 == 0)
+                        {{-- Add an empty column after every 3rd product --}}
+                        <div class="w-100 d-none d-md-block d-lg-none"></div>
+                    @endif
                 @endforeach
             </div>
 
@@ -231,30 +251,52 @@
                     </div>
                 </div>
             </div>
-            <div class="row product__card">
-                @foreach ($products as $product)
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ asset($product->image_features->first()->url_img) }}"
-                            alt="{{ asset($product->image_features->first()->alt_img) }}">
+            <div class="row">
+                @foreach ($products->take(4) as $product)
+                    <div class="col-md-3 col-sm-8 col-lg-3 col-custom product-area p-3">
+                        <div class="single-product position-relative">
+                            <div class="product-image">
+                                <a class="d-block" href="{{ route('users.detail', ['id' => $product->id]) }}">
 
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text">{{ $product->price }}</p>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                        </div>
-                        <div class="card-body">
-                            <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
-                            <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
-                            <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
+
+                                    <img src="{{ asset($product->image_features->first()->url_img) }}" alt=""
+                                        class="product-image-1 w-100">
+                                </a>
+                            </div>
+                            <div class="product-content" style="height: 160px">
+                                <div class="product-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                                <div class="product-title">
+                                    <h4 class="title-2"> <a href="#">{{ $product->name }}</a> </h4>
+                                </div>
+                                <div class="price-box">
+                                    <span class="regular-price ">{{ number_format($product->price, 2, '.', ',') }}
+                                        VND</span>
+                                </div>
+                            </div>
+                            <div class="add-action d-flex position-absolute">
+                                <a href="cart.html" title="Add To cart"><i class="ion-bag"></i></a>
+                                <a href="compare.html" title="Compare"><i class="ion-ios-loop-strong"></i></a>
+                                <a href="wishlist.html" title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View"><i
+                                        class="ion-eye"></i></a>
+                            </div>
                         </div>
                     </div>
+
+                    @if ($loop->iteration % 3 == 0)
+                        {{-- Add an empty column after every 3rd product --}}
+                        <div class="w-100 d-none d-md-block d-lg-none"></div>
+                    @endif
                 @endforeach
             </div>
+
+
         </div>
     </div>
     {{-- blog --}}
