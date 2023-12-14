@@ -55,7 +55,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>MÔ tả bài viết</label>
+                                    <label>Mô tả bài viết</label>
                                     <input type="text" name="description">
                                     @error('description')
                                         <small class="text-danger">{{ $message }}</small>
