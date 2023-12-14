@@ -115,7 +115,7 @@
                                             @method('DELETE')
                                             <td>
                                                 <a class="btn btn-success"
-                                                    href="#"style="background: #111111; padding:0.5rem"
+                                                    href="{{ route('admin.products.show', ['id' => $product->id]) }}"style="background: #111111; padding:0.5rem"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Chi tiết sản phẩm">
                                                     <i class="bi bi-eye"></i>

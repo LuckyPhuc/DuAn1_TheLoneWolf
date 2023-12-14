@@ -86,7 +86,8 @@ class ProductController extends Controller
 
     public function show(string $id)
     {
-        //
+        $products = Products::with(['supplier', 'category', 'image_features'])->where('id', $id)->first();
+        return view('admin.products.detail', compact('products'));
     }
 
     /**
