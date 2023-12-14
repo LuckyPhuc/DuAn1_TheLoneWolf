@@ -83,49 +83,58 @@
                                     <th>Đơn vị tính</th>
                                     <th>Hành động</th>
                                 </tr>
-                                @foreach ($products as $product)
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td class="productimgname">
-                                        <a href="javascript:void(0);" class="product-img">
-                                            @if ($product->image_features && count($product->image_features) > 0)
-                                                <img src="{{ asset($product->image_features[0]->url_img) }}"
-                                                    alt="{{ $product->image_features[0]->alt_img }}">
-                                            @endif
-                                        </a>
-                                        <a href="javascript:void(0);" style="color: #111111">{{ $product->name }}</a>
-                                    </td>
-                                    <td>{{ $product->category->name }}</td>
-                                    <td>{{ $product->supplier->name }}</td>
-                                    <td>{{ $product->price }}</td>
-                                    <td>{{ $product->quantity }}</td>
-                                    <td>{{ $product->unit }}</td>
-                                    <td>
-                                        <a class="btn btn-success"
-                                            href="product-details.html"style="background: #111111; padding:0.5rem"
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Chi tiết sản phẩm">
-                                            <i class="bi bi-eye"></i>
-                                        </a>
-                                        <a class="btn btn-success" style="background: green; padding:0.5rem" href="#"
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Sửa mục này">
-                                            <i class="bi bi-pencil"></i>
-                                        </a>
-                                        <a class="btn btn-success" href="javascript:void(0);"
-                                            style="background: red; padding:0.5rem" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" title="Xóa mục này">
-                                            <i class="bi bi-trash3"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            @foreach ($products as $product)
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label class="checkboxs">
+                                                <input type="checkbox">
+                                                <span class="checkmarks"></span>
+                                            </label>
+                                        </td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td class="productimgname">
+                                            <a href="javascript:void(0);" class="product-img">
+                                                @if ($product->image_features && count($product->image_features) > 0)
+                                                    <img src="{{ asset($product->image_features[0]->url_img) }}"
+                                                        alt="{{ $product->image_features[0]->alt_img }}">
+                                                @endif
+                                            </a>
+                                            <a href="javascript:void(0);" style="color: #111111">{{ $product->name }}</a>
+                                        </td>
+                                        <td>{{ $product->category->name }}</td>
+                                        <td>{{ $product->supplier->name }}</td>
+                                        <td>{{ $product->price }}</td>
+                                        <td>{{ $product->quantity }}</td>
+                                        <td>{{ $product->unit }}</td>
+
+                                        <form action="{{ route('admin.products.destroy', ['id' => $product->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <td>
+                                                <a class="btn btn-success"
+                                                    href="#"style="background: #111111; padding:0.5rem"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Chi tiết sản phẩm">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+                                                <a class="btn btn-success" style="background: green; padding:0.5rem"
+                                                    href="{{ route('admin.products.edit', ['id' => $product->id]) }}"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Sửa mục này">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
+                                                <button class="btn btn-success" type="submit"
+                                                    style="background: red; padding:0.5rem" data-bs-toggle="tooltip"
+                                                    onclick="return confirm('Bạn có muốn xóa sản phẩm này không?')"
+                                                    data-bs-placement="top" title="Xóa mục này">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                </tbody>
                             @endforeach
                         </table>
                     </div>

@@ -109,14 +109,14 @@
                         </li>
 
                         <li class="submenu">
-                            <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/users1.svg') }}"
+                            <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/printer.svg') }}"
                                     alt="img"><span>
                                     Bài đăng</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="{{ Route('admin.Posts.list') }}">Danh sách bài đăng </a></li>
-                                <li><a href="{{ Route('admin.Posts.create') }}">Thêm bài đăng</a></li>
+                                <li><a href="{{ Route('admin.posts.list') }}">Danh sách bài đăng </a></li>
+                                <li><a href="{{ Route('admin.posts.create') }}">Thêm bài đăng</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
