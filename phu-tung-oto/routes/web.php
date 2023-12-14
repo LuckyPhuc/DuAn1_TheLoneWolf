@@ -136,11 +136,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('index', [HomeController::class, 'index'])->name('index');
     Route::get('shop', [ShopController::class, 'index'])->name('shop');
-    Route::get('show{id}', [ShopController::class, 'show'])->name('detail');
+    Route::get('show/{id}', [ShopController::class, 'show'])->name('detail');
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::get('register', [HomeController::class, 'register'])->name('register');
     Route::get('login', [HomeController::class, 'login'])->name('login');
-    // Route::get('cart', [CartController::class, 'addToCart'])->name('cart');
+    Route::get('cart', [CartController::class, 'addToCart'])->name('cart');
+    Route::get('posts', [CartController::class, 'Posts'])->name('posts');
+    Route::get('show/posts/{id}', [CartController::class, 'ShowPosts'])->name('posts.show');
 });
 // file manager
 // Route::group(['prefix' => 'laravel-filemanager'], function () {

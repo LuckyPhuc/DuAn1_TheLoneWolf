@@ -172,6 +172,8 @@
                         <div class="single-product position-relative">
                             <div class="product-image">
                                 <a class="d-block" href="{{ route('users.detail', ['id' => $product->id]) }}">
+
+
                                     <img src="{{ asset($product->image_features->first()->url_img) }}" alt=""
                                         class="product-image-1 w-100">
                                 </a>
@@ -255,6 +257,8 @@
                         <div class="single-product position-relative">
                             <div class="product-image">
                                 <a class="d-block" href="{{ route('users.detail', ['id' => $product->id]) }}">
+
+
                                     <img src="{{ asset($product->image_features->first()->url_img) }}" alt=""
                                         class="product-image-1 w-100">
                                 </a>
@@ -291,6 +295,7 @@
                     @endif
                 @endforeach
             </div>
+
 
         </div>
     </div>
