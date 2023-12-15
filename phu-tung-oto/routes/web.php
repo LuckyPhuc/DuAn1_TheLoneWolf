@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\PostsController;
@@ -113,6 +114,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::put('update/{id}', [UserController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [UserController::class, 'destroy'])->name('destroy');
     });
+
+    Route::get('demo/sendmail', [MailController::class, 'sendmail']);
     //Routing website
     // Route::prefix('admin/website')->name('admin.website.')->group(function () {
     //     Route::get('list', [WebsiteController::class, 'index'])->name('list');
