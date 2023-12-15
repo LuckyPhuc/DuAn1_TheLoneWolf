@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Suppliers;
-use App\Models\Posts;
+use App\Models\Products;
+use App\Models\image_features;
+use App\Models\Orders;
+use App\Models\Order_details;
+
 
 class CartController extends Controller
 {
@@ -16,23 +20,18 @@ class CartController extends Controller
         $suppliers = Suppliers::all();
         return view('users/cart', compact('categories', 'suppliers'));
     }
-    // function addToCart()
-    // {
-    //     return 'hihi';
-    // }
-    function Posts()
+    function cart()
     {
-        $categories = Categories::all();
-        $suppliers = Suppliers::all();
-        $posts = Posts::all();
-        $posts = Posts::paginate(3);
-        return view('users/blog', compact('categories', 'suppliers', 'posts'));
+        return view("users.cart");
     }
-    function ShowPosts($id)
+    function addToCart($id, $quantity)
     {
         $categories = Categories::all();
         $suppliers = Suppliers::all();
-        $posts = Posts::find($id);
-        return view('users.detaiposts', compact('categories', 'suppliers', 'posts'));
+        $products = Products::with(
+            ['category', 'image_features']
+        )->findOrFail($id);
+        // $cartItem = Order_details::where('product_id', $id)->first();
+        return view('users.cart', compact('categories', 'suppliers', 'products', 'subtotal'));
     }
 }

@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('title', 'trang chủ')
 @section('content')
+    {{-- {{ $user->name }} --}}
+
     <!--  Slider  -->
     <div id="carouselExampleIndicators" class="carousel slide">
-        <div class="carousel-indicators">
+        <div class="carousel-indicators h-300">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
@@ -13,13 +15,13 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('assets/img/img-01.jpg') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('assets/img/slider/1.jpg') }}" class="d-block w-100 h-300" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('assets/img/img-05.jpg') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('assets/img/slider/2.jpg') }}" class="d-block w-100 h-300" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('assets/img/img-02.jpg') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('assets/img/slider/3.jpg') }}" class="d-block w-100 h-300" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -85,22 +87,22 @@
             <div class="row" style="margin-top: 5%">
                 <div class="col-md-4 col-sm-12 col-custom">
                     <div class="banner-image hover-style">
-                        <a class="d-block" href="{{ route('users.shop') }}">
-                            <img class="w-100" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Banner Image" />
+                        <a class="d-block" href="{{ route('user.shop') }}">
+                            <img class="w-100" src="{{ asset('assets/img/banner/1.jpg') }}" alt="Banner Image" />
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12 col-custom">
                     <div class="banner-image hover-style">
-                        <a class="d-block" href="{{ route('users.shop') }}">
-                            <img class="w-100" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Banner Image" />
+                        <a class="d-block" href="{{ route('user.shop') }}">
+                            <img class="w-100" src="{{ asset('assets/img/banner/2.jpg') }}" alt="Banner Image" />
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12 col-custom">
                     <div class="banner-image hover-style mb-0">
-                        <a class="d-block" href="{{ route('users.shop') }}">
-                            <img class="w-100" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Banner Image" />
+                        <a class="d-block" href="{{ route('user.shop') }}">
+                            <img class="w-100" src="{{ asset('assets/img/banner/4.jpg') }}" alt="Banner Image" />
                         </a>
                     </div>
                 </div>
@@ -171,14 +173,12 @@
                     <div class="col-md-3 col-sm-8 col-lg-3 col-custom product-area p-3">
                         <div class="single-product position-relative">
                             <div class="product-image">
-                                <a class="d-block" href="{{ route('users.detail', ['id' => $product->id]) }}">
-
-
+                                <a class="d-block" href="{{ route('user.detail', ['id' => $product->id]) }}">
                                     <img src="{{ asset($product->image_features->first()->url_img) }}" alt=""
                                         class="product-image-1 w-100">
                                 </a>
                             </div>
-                            <div class="product-content" style="height: 160px">
+                            <div class="product-content">
                                 <div class="product-rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -187,7 +187,11 @@
                                     <i class="fa fa-star-o"></i>
                                 </div>
                                 <div class="product-title">
-                                    <h4 class="title-2"> <a href="#">{{ $product->name }}</a> </h4>
+                                    <h4 class="title-2">
+                                        <a class="name__products"
+                                            href="{{ route('user.detail', ['id' => $product->id]) }}">{{ $product->name }}
+                                        </a>
+                                    </h4>
                                 </div>
                                 <div class="price-box">
                                     <span class="regular-price ">{{ number_format($product->price, 2, '.', ',') }}
@@ -195,7 +199,8 @@
                                 </div>
                             </div>
                             <div class="add-action d-flex position-absolute">
-                                <a href="cart.html" title="Add To cart"><i class="ion-bag"></i></a>
+                                <a href="{{ route('user.cart.add', ['id' => $product->id]) }}" title="Add To cart"><i
+                                        class="ion-bag"></i></a>
                                 <a href="compare.html" title="Compare"><i class="ion-ios-loop-strong"></i></a>
                                 <a href="wishlist.html" title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
                                 <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View"><i
@@ -217,8 +222,8 @@
         <div class="container custom-area">
             <div class="row">
                 <div class="col-md-5 col-lg-6 text-center col-custom">
-                    <div class="banner-thumb h-100 d-flex justify-content-center align-items-center">
-                        <img src="{{ asset('assets/img/product/product69.jpg') }}" alt="Banner Thumb" />
+                    <div class="banner-thumb h-100 d-flex justify-content-center align-items-center w-90">
+                        <img src="{{ asset('assets/img/banner/3.jpg') }}" alt="Banner Thumb" />
                     </div>
                 </div>
                 <div class="col-md-7 col-lg-6 text-center justify-content-center col-custom">
@@ -228,7 +233,7 @@
                         <h3 class="deal-title text-uppercase">
                             HÃY NHANH TAY ĐỂ ĐƯỢC GIẢM GIÁ 25%
                         </h3>
-                        <a href="{{ route('users.shop') }}" class="obrien-button primary-btn">Mua Ngay</a>
+                        <a href="{{ route('user.shop') }}" class="obrien-button primary-btn">Mua Ngay</a>
                         <div class="countdown-wrapper d-flex justify-content-center" data-countdown="2022/12/24"></div>
                     </div>
                 </div>
@@ -256,14 +261,14 @@
                     <div class="col-md-3 col-sm-8 col-lg-3 col-custom product-area p-3">
                         <div class="single-product position-relative">
                             <div class="product-image">
-                                <a class="d-block" href="{{ route('users.detail', ['id' => $product->id]) }}">
+                                <a class="d-block" href="{{ route('user.detail', ['id' => $product->id]) }}">
 
 
                                     <img src="{{ asset($product->image_features->first()->url_img) }}" alt=""
                                         class="product-image-1 w-100">
                                 </a>
                             </div>
-                            <div class="product-content" style="height: 160px">
+                            <div class="product-content">
                                 <div class="product-rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -272,7 +277,10 @@
                                     <i class="fa fa-star-o"></i>
                                 </div>
                                 <div class="product-title">
-                                    <h4 class="title-2"> <a href="#">{{ $product->name }}</a> </h4>
+                                    <h4 class="title-2">
+                                        <a class="name__product"
+                                            href="{{ route('user.detail', ['id' => $product->id]) }}">{{ $product->name }}</a>
+                                    </h4>
                                 </div>
                                 <div class="price-box">
                                     <span class="regular-price ">{{ number_format($product->price, 2, '.', ',') }}
@@ -295,8 +303,6 @@
                     @endif
                 @endforeach
             </div>
-
-
         </div>
     </div>
     {{-- blog --}}
@@ -315,7 +321,7 @@
                 </div>
                 <div class="col-lg-12 col-custom d-flex">
                     <div class="obrien-slider d-flex">
-                        @foreach ($posts as $post)
+                        @foreach ($posts->take(2) as $post)
                             @php
                                 $doc = new DOMDocument();
                                 @$doc->loadHTML($post->body); // Sử dụng @ để tránh báo lỗi HTML parsing
@@ -328,7 +334,7 @@
                             @endphp
                             <div class="single-blog">
                                 <div class="single-blog-thumb">
-                                    <a href="blog.html">
+                                    <a href="{{ route('user.posts.show', ['id' => $post->id]) }}">
                                         @if ($imgSrc)
                                             <img class="w-100" src="{{ $imgSrc }}" alt="{{ $post->title }}">
                                         @endif
@@ -343,9 +349,10 @@
                                         <span class="author">Người Viết: {{ $post->users->name }}</span>
                                     </div>
                                     <h2 class="post-title">
-                                        <a href="blog.html">{{ $post->title }}</a>
+                                        <a
+                                            href="{{ route('user.posts.show', ['id' => $post->id]) }}">{{ $post->title }}</a>
                                     </h2>
-                                    <p class="desc-content">
+                                    <p class="desc-content name__products">
                                         {!! nl2br(e($post->description)) !!}
                                     </p>
                                 </div>

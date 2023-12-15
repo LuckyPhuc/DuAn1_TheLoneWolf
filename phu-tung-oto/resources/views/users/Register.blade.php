@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="breadcrumb-content position-relative section-content">
-                        <h3 class="title-3 text-white">Login-Register</h3>
+                        <h3 class="title-3 text-white">Đăng ký</h3>
                         <ul>
-                            <li><a class="text-white" href="{{ route('users.index') }}">Home</a></li>
-                            <li class="text-white">Login-Register</li>
+                            <li><a class="text-white" href="{{ route('user.index') }}">trang chủ</a></li>
+                            <li class="text-white">Đăng ký</li>
                         </ul>
                     </div>
                 </div>
@@ -26,32 +26,46 @@
                             <h2 class="title-4 mb-2">Tạo tài khoản</h2>
                             <p class="desc-content">Vui lòng đăng ký bằng cách sử dụng chi tiết tài khoản dưới đây.</p>
                         </div>
-                        <form action="#" method="post">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        <form action="{{ route('user.register.store') }}" method="POST">
+                            @csrf
                             <div class="single-input-item mb-3">
-                                <input type="text" placeholder="Nhập họ tên của bạn">
+                                @error('name')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                <input type="text" placeholder="Nhập họ tên của bạn" name="name">
+                            </div>
+
+                            <div class="single-input-item mb-3">
+                                @error('address')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                <input type="text" placeholder="Nhập địa chỉ của bạn" name="address">
                             </div>
                             <div class="single-input-item mb-3">
-                                <input type="text" placeholder="Nhập địa chỉ của bạn">
+                                @error('email')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                <input type="email" placeholder="Nhập địa chỉ email" name="email">
                             </div>
                             <div class="single-input-item mb-3">
-                                <input type="email" placeholder="Nhập địa chỉ email">
+                                @error('password')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                <input type="password" placeholder="Nhập mật khẩu của bạn" name="password">
                             </div>
                             <div class="single-input-item mb-3">
-                                <input type="password" placeholder="Nhập mật khẩu của bạn">
+                                @error('phone')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                <input type="text" placeholder="Nhập mật khẩu của bạn" name="phone">
                             </div>
                             <div class="single-input-item mb-3">
-                                <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
-                                    <div class="remember-meta mb-3">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="rememberMe">
-                                            <label class="custom-control-label" for="rememberMe">Đăng ký nhận bản tin của
-                                                chúng tôi</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-input-item mb-3">
-                                <button class="btn obrien-button-2 primary-color">Đăng ký</button>
+                                <input type="submit" class="btn obrien-button-2 primary-color" value="Đăng ký">
                             </div>
                         </form>
                     </div>
