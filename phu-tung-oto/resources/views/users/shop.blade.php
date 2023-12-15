@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="breadcrumb-content position-relative section-content">
-                        <h3 class="title-3 text-white">shop</h3>
+                        <h3 class="title-3 text-white">Sản phẩm</h3>
                         <ul>
-                            <li><a href="{{ route('users.index') }}" class="text-white">Home</a></li>
-                            <li class="text-white">products shop</li>
+                            <li><a href="{{ route('user.index') }}" class="text-white">Trang chủ</a></li>
+                            <li class="text-white">Sản phẩm</li>
                         </ul>
                     </div>
                 </div>
@@ -52,7 +52,9 @@
                             <div class="col-md-4 col-sm-6 col-lg-4 col-custom product-area p-3">
                                 <div class="single-product position-relative">
                                     <div class="product-image">
-                                        <a class="d-block" href="product-details.html">
+                                        <a class="d-block" href="{{ route('user.detail', ['id' => $product->id]) }}">
+
+
                                             <img src="{{ asset($product->image_features->first()->url_img) }}"
                                                 alt="" class="product-image-1 w-100">
                                         </a>
@@ -66,13 +68,13 @@
                                             <i class="fa fa-star-o"></i>
                                         </div>
                                         <div class="product-title">
-                                            <h4 class="title-2"> <a href="#">{{ $product->name }}</a>
+                                            <h4 class="title-2"> <a class="name__products"
+                                                    href="{{ route('user.detail', ['id' => $product->id]) }}">{{ $product->name }}</a>
                                             </h4>
                                         </div>
                                         <div class="price-box">
                                             <span class="regular-price ">{{ number_format($product->price, 2, '.', ',') }}
                                                 VND</span>
-                                            {{-- <span class="old-price"><del>$45.00</del></span> --}}
                                         </div>
                                     </div>
                                     <div class="add-action d-flex position-absolute">
@@ -149,59 +151,18 @@
                             </div>
                             <div class="widget-list widget-mb-1">
                                 <h3 class="widget-title">Menu Categories</h3>
-                                <!-- Widget Menu Start -->
-                                {{-- <nav>
-                                    <ul class="mobile-menu p-0 m-0">
-                                        <li class="menu-item-has-children"><a href="#">Breads</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Skateboard (02)</a></li>
-                                                <li><a href="#">Surfboard (4)</a></li>
-                                                <li><a href="#">Accessories (3)</a></li>
-                                            </ul>
+
+                                @foreach ($categories as $category)
+                                    <ul class="sidebar-list">
+                                        <li>
+                                        <li>
+                                            <a
+                                                href="{{ route('user.showProducts', ['category' => $category]) }}">{{ $category->name }}</a>
                                         </li>
-                                        <li class="menu-item-has-children"><a href="#">Fruits</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Samsome</a></li>
-                                                <li><a href="#">GL Stylus (4)</a></li>
-                                                <li><a href="#">Uawei (3)</a></li>
-                                                <li><a href="#">Avocado (3)</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#">Vagetables</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Power Bank</a></li>
-                                                <li><a href="#">Data Cable (4)</a></li>
-                                                <li><a href="#">Avocado (3)</a></li>
-                                                <li><a href="#">Brocoly (3)</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#">Organic Food</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Vagetables</a></li>
-                                                <li><a href="#">Green Food (4)</a></li>
-                                                <li><a href="#">Coconut (3)</a></li>
-                                                <li><a href="#">Cabage (3)</a></li>
-                                            </ul>
                                         </li>
                                     </ul>
-                                </nav> --}}
-                                <!-- Widget Menu End -->
+                                @endforeach
                             </div>
-                            <div class="widget-list widget-mb-1">
-                                <h3 class="widget-title">Categories</h3>
-                                <div class="sidebar-body">
-                                    @foreach ($categories as $category)
-                                        <ul class="sidebar-list">
-                                            <li><a href="#">{{ $category->name }}</a></li>
-                                            {{-- <li><a href="#">All Product</a></li>
-                                        <li><a href="#">Best Seller (5)</a></li>
-                                        <li><a href="#">Featured (4)</a></li>
-                                        <li><a href="#">New Products (6)</a></li> --}}
-                                        </ul>
-                                    @endforeach
-                                </div>
-                            </div>
-
                             <div class="widget-list widget-mb-4">
                                 <h3 class="widget-title">Recent Products</h3>
                                 <div class="sidebar-body">
