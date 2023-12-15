@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="breadcrumb-content position-relative section-content">
-                        <h3 class="title-3 text-white">cart</h3>
+                        <h3 class="title-3 text-white">Giỏ hàng</h3>
                         <ul>
-                            <li><a class="text-white" href="{{ route('users.index') }}">Home</a></li>
-                            <li class="text-white">cart</li>
+                            <li><a class="text-white" href="{{ route('users.index') }}">Trang chủ</a></li>
+                            <li class="text-white">Giỏ hàng</li>
                         </ul>
                     </div>
                 </div>
@@ -37,21 +37,61 @@
                             <tbody>
                                 <tr>
                                     <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                                src="assets/images/product/small-size/4.png" alt="Product" /></a></td>
-                                    <td class="pro-title"><a href="#">Dummy Title</a></td>
-                                    <td class="pro-price"><span>$110.00</span></td>
+                                                src="{{ asset($products->image_features->first()->url_img) }}"
+                                                alt="Product" /></a></td>
+                                    <td class="pro-title"><a href="#">{{ $products->name }}</a></td>
+                                    <td class="pro-price"><span>{{ number_format($products->price, 2, '.', ',') }}</span>
+                                    </td>
                                     <td class="pro-quantity">
                                         <div class="quantity">
                                             <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" value="2" type="text">
-                                                <div class="dec qtybutton">-</div>
-                                                <div class="inc qtybutton">+</div>
-                                                <div class="dec qtybutton"><i class="fa fa-minus"></i></div>
-                                                <div class="inc qtybutton"><i class="fa fa-plus"></i></div>
+                                                <input class="cart-plus-minus-box" value="1" type="text"
+                                                    id="quantityInput">
+                                                <div class="dec qtybutton" onclick="decrementQuantity()">-</div>
+                                                <div class="inc qtybutton" onclick="incrementQuantity()">+</div>
                                             </div>
+                                            <script>
+                                                function incrementQuantity() {
+                                                    var input = document.getElementById('quantityInput');
+                                                    var currentValue = parseInt(input.value);
+                                                    input.value = currentValue + 1;
+                                                    // updateSubtotal();
+                                                }
+
+                                                function decrementQuantity() {
+                                                    var input = document.getElementById('quantityInput');
+                                                    var currentValue = parseInt(input.value);
+                                                    if (currentValue > 0) {
+                                                        input.value = currentValue - 1;
+                                                        // updateSubtotal();
+                                                    }
+                                                }
+
+                                                function updateSubtotal() {
+                                                    var quantity = parseInt(document.getElementById('quantityInput').value);
+                                                    var price = parseFloat('{{ $products->price }}'); // Replace $price with your actual variable
+                                                    var subtotal = quantity * price;
+                                                    var formattedSubtotal = formatNumber(subtotal, 2, '.', ',');
+
+                                                    document.getElementById('subtotalSpan').innerText = formattedSubtotal;
+                                                }
+
+                                                function formatNumber(number, decimals, decimalSeparator, thousandsSeparator) {
+                                                    decimals = decimals || 0;
+                                                    number = parseFloat(number);
+
+                                                    var fixedNumber = number.toFixed(decimals);
+                                                    var parts = fixedNumber.split('.');
+                                                    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousandsSeparator);
+
+                                                    return parts.join(decimalSeparator);
+                                                }
+                                            </script>
                                         </div>
                                     </td>
-                                    <td class="pro-subtotal"><span>$110.00</span></td>
+                                    <td class="pro-subtotal">
+                                        <span id="subtotalSpan">{{ number_format($subtotal, 2, '.', ',') }}</span>
+                                    </td>
                                     <td class="pro-remove"><a href="#"><i class="ion-trash-b"></i></a></td>
                                 </tr>
                             </tbody>

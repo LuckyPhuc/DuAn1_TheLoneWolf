@@ -1,15 +1,15 @@
 @extends('layouts.app')
-@section('title', 'trang cart')
+@section('title', 'trang Login')
 @section('content')
     <div class="breadcrumbs-area position-relative">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="breadcrumb-content position-relative section-content">
-                        <h3 class="title-3 text-white">Login-Register</h3>
+                        <h3 class="title-3 text-white">Đăng nhập</h3>
                         <ul>
-                            <li><a class="text-white" href="{{ route('users.index') }}">Home</a></li>
-                            <li class="text-white">Login-Register</li>
+                            <li><a class="text-white" href="{{ route('user.index') }}">Trang chủ</a></li>
+                            <li class="text-white">Đăng nhập</li>
                         </ul>
                     </div>
                 </div>
@@ -25,12 +25,19 @@
                             <h2 class="title-4 mb-2">Đăng nhập</h2>
                             <p class="desc-content">Vui lòng đăng nhập bằng cách sử dụng chi tiết tài khoản dưới đây.</p>
                         </div>
-                        <form action="#" method="post">
+                        <form action="{{ route('user.login.store') }}" method="post">
+                            @csrf
                             <div class="single-input-item mb-3">
-                                <input type="email" placeholder="Nhập địa chỉ email của bạn">
+                                @error('email')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                <input type="email" placeholder="Nhập địa chỉ email của bạn" name="email">
                             </div>
                             <div class="single-input-item mb-3">
-                                <input type="password" placeholder="Nhập mật khẩu của bạn">
+                                @error('password')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                <input type="password" placeholder="Nhập mật khẩu của bạn" name="password">
                             </div>
                             <div class="single-input-item mb-3">
                                 <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
@@ -44,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="single-input-item mb-3">
-                                <button class="btn obrien-button-2 primary-color">Đăng Nhập</button>
+                                <button type="submit" class="btn obrien-button-2 primary-color">Đăng Nhập</button>
                             </div>
                             <div class="single-input-item">
                                 <a href="register.html">Tạo tài khoản</a>
