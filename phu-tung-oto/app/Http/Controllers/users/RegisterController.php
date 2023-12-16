@@ -41,7 +41,7 @@ class RegisterController extends Controller
             ]
         );
         $input = $request->all();
-        $input['role'] = 1;
+        $input['role'] = 0;
         $users = User::create($input);
         $categories = Categories::all();
         $suppliers = Suppliers::all();

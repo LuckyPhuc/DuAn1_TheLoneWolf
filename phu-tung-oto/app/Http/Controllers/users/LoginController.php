@@ -17,7 +17,8 @@ class LoginController extends Controller
     {
         $categories = Categories::all();
         $suppliers = Suppliers::all();
-        return view('users.login', compact('categories', 'suppliers'));
+        $posts = Posts::all();
+        return view('users.login', compact('categories', 'suppliers', 'posts'));
     }
     public function login(Request $request)
     {

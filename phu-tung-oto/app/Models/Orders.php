@@ -18,9 +18,14 @@ class Orders extends Model
         'created_at',
         'updated_at'
     ];
-
+    // public $timestamps = false;
     function users()
     {
         return $this->belongsTo(User::class, 'users_id');
+    }
+    // In the Orders model (app/Models/Orders.php)
+    public function order_details()
+    {
+        return $this->hasMany(Order_details::class, 'order_id');
     }
 }

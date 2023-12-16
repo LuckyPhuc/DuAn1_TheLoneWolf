@@ -148,14 +148,18 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::get('show/{id}', [ShopController::class, 'show'])->name('detail');
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::get('register', [RegisterController::class, 'index'])->name('register');
-    Route::post('/', [RegisterController::class, 'register'])->name('register.store');
+    Route::post('/', [RegisterController::class, 'register'])->name('store');
     Route::get('login', [LoginController::class, 'index'])->name('login');
-    Route::post('/', [LoginController::class, 'login'])->name('login.store');
+    // Route::post('/', [LoginController::class, 'login'])->name('login.store');
     Route::get('posts', [postController::class, 'Posts'])->name('posts');
     Route::get('show/posts/{id}', [postController::class, 'ShowPosts'])->name('posts.show');
     Route::get('cart', [CartController::class, 'cart'])->name('cart');
-    // Route::get('cart/add', [CartController::class, 'addToCart'])->name('cart.add');
-    Route::post('cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::delete('/delete-cart-item/{orderDetail}', [CartController::class, 'deleteCartItem'])->name('delete.cart.item');
+    Route::post('cart/add/{productId}/{quantity}', [CartController::class, 'addCart'])
+        ->name('cart.add');
+    // Add a route for updating the cart item
+    Route::post('update-cart-item', [CartController::class, 'updateCartItem'])->name('update');
+    // Route::post('cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 });
 // file manager
 // Route::group(['prefix' => 'laravel-filemanager'], function () {

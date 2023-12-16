@@ -31,7 +31,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form action="{{ route('user.register.store') }}" method="POST">
+                        <form action="{{ route('user.store') }}" method="POST">
                             @csrf
                             <div class="single-input-item mb-3">
                                 @error('name')
