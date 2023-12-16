@@ -199,8 +199,15 @@
                                 </div>
                             </div>
                             <div class="add-action d-flex position-absolute">
-                                <a href="{{ route('user.cart.add', ['id' => $product->id]) }}" title="Add To cart"><i
-                                        class="ion-bag"></i></a>
+                                <form id="addToCartForm"
+                                    action="{{ route('user.cart.add', ['productId' => $product->id, 'quantity' => 1]) }}"
+                                    method="post">
+                                    @csrf
+                                    <a style="margin-right: 15px">
+                                        <button type="submit" value="app to cart"><i class="ion-bag"></i></button>
+                                    </a>
+                                </form>
+
                                 <a href="compare.html" title="Compare"><i class="ion-ios-loop-strong"></i></a>
                                 <a href="wishlist.html" title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
                                 <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View"><i
@@ -262,8 +269,6 @@
                         <div class="single-product position-relative">
                             <div class="product-image">
                                 <a class="d-block" href="{{ route('user.detail', ['id' => $product->id]) }}">
-
-
                                     <img src="{{ asset($product->image_features->first()->url_img) }}" alt=""
                                         class="product-image-1 w-100">
                                 </a>
@@ -278,8 +283,9 @@
                                 </div>
                                 <div class="product-title">
                                     <h4 class="title-2">
-                                        <a class="name__product"
-                                            href="{{ route('user.detail', ['id' => $product->id]) }}">{{ $product->name }}</a>
+                                        <a class="name__products"
+                                            href="{{ route('user.detail', ['id' => $product->id]) }}">{{ $product->name }}
+                                        </a>
                                     </h4>
                                 </div>
                                 <div class="price-box">
@@ -288,7 +294,15 @@
                                 </div>
                             </div>
                             <div class="add-action d-flex position-absolute">
-                                <a href="cart.html" title="Add To cart"><i class="ion-bag"></i></a>
+                                <form id="addToCartForm"
+                                    action="{{ route('user.cart.add', ['productId' => $product->id, 'quantity' => 1]) }}"
+                                    method="post">
+                                    @csrf
+                                    <a style="margin-right: 15px">
+                                        <button type="submit" value="app to cart"><i class="ion-bag"></i></button>
+                                    </a>
+                                </form>
+
                                 <a href="compare.html" title="Compare"><i class="ion-ios-loop-strong"></i></a>
                                 <a href="wishlist.html" title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
                                 <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View"><i

@@ -25,7 +25,7 @@
                             <h2 class="title-4 mb-2">Đăng nhập</h2>
                             <p class="desc-content">Vui lòng đăng nhập bằng cách sử dụng chi tiết tài khoản dưới đây.</p>
                         </div>
-                        <form action="{{ route('user.login.store') }}" method="post">
+                        {{-- <form action="{{ route('user.login.store') }}" method="post">
                             @csrf
                             <div class="single-input-item mb-3">
                                 @error('email')
@@ -56,7 +56,42 @@
                             <div class="single-input-item">
                                 <a href="register.html">Tạo tài khoản</a>
                             </div>
+                        </form> --}}
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="single-input-item mb-3">
+                                <x-input-label for="email" :value="__('Email')" />
+                                <x-text-input id="email" type="email" name="email" :value="old('email')"
+                                    placeholder="Nhập địa chỉ email của bạn" required autofocus />
+                                <x-input-error :messages="$errors->get('email')" class="text-danger" />
+                            </div>
+                            <div class="single-input-item mb-3">
+                                <x-input-label for="password" :value="__('Password')" />
+                                <x-text-input id="password" type="password" name="password"
+                                    placeholder="Nhập mật khẩu của bạn" required />
+                                <x-input-error :messages="$errors->get('password')" class="text-danger" />
+                            </div>
+                            <div class="single-input-item mb-3">
+                                <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
+                                    <div class="remember-meta mb-3">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="rememberMe"
+                                                name="remember">
+                                            <label class="custom-control-label" for="rememberMe">{{ __('Nhớ tôi') }}</label>
+                                        </div>
+                                    </div>
+                                    <a href="{{ route('password.request') }}"
+                                        class="forget-pwd mb-3">{{ __('Quên mật khẩu?') }}</a>
+                                </div>
+                            </div>
+                            <div class="single-input-item mb-3">
+                                <x-primary-button type="submit">{{ __('Đăng Nhập') }}</x-primary-button>
+                            </div>
+                            <div class="single-input-item">
+                                <a href="{{ route('register') }}">{{ __('Tạo tài khoản') }}</a>
+                            </div>
                         </form>
+
                     </div>
                 </div>
             </div>

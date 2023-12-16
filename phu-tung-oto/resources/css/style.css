@@ -1433,7 +1433,7 @@ button,
 /*--- Mega-Menu ---*/
 .mega-menu {
     background: #ffffff;
-    width: 750px;
+    width: 400px;
     left: 0;
     padding: 20px 0;
     -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
@@ -1447,7 +1447,7 @@ button,
 }
 
 .mega-menu .menu-colum {
-    width: 33.333333%;
+    width: 50%;
     padding: 10px;
     float: left;
 }
@@ -6039,7 +6039,13 @@ button,
 }
 .name__products {
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+td > .name__product {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

@@ -67,14 +67,14 @@
                         <div class="quantity-with_btn mb-4">
                             <div class="quantity">
                                 <div class="cart-plus-minus">
-                                    <form method="POST" action="{{ route('uesr.cart.add') }}">
+                                    {{-- <form method="POST" action="{{ route('uesr.cart.add') }}">
                                         @csrf
                                         <input class="cart-plus-minus-box" value="0" type="text" id="quantityInput"
                                             name="quantity">
 
                                         <div class="dec qtybutton" onclick="decrementQuantity()">-</div>
                                         <div class="inc qtybutton" onclick="incrementQuantity()">+</div>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </div>
 
@@ -137,8 +137,7 @@
                         </li>
                     </ul>
                     <div class="tab-content mb-text" id="myTabContent">
-                        <div class="tab-pane fade show active" id="connect-1" role="tabpanel"
-                            aria-labelledby="home-tab">
+                        <div class="tab-pane fade show active" id="connect-1" role="tabpanel" aria-labelledby="home-tab">
                             <div class="desc-content">
                                 <p class="mb-3">On the other hand, we denounce with righteous indignation and dislike men
                                     who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded

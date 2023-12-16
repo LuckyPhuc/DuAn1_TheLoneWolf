@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
@@ -114,21 +115,11 @@
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="dropdown-submenu dropdown-hover">
-                                                    <li><a href="blog.html">Blog Left Sidebar</a></li>
-                                                    <li><a href="blog-list-right-sidebar.html">Blog List Right
-                                                            Sidebar</a>
-                                                    </li>
-                                                    <li><a href="blog-list-fullwidth.html">Blog List Fullwidth</a></li>
-                                                    <li><a href="blog-grid.html">Blog Grid Page</a></li>
-                                                    <li><a href="blog-grid-right-sidebar.html">Blog Grid Right
-                                                            Sidebar</a>
-                                                    </li>
-                                                    <li><a href="blog-grid-fullwidth.html">Blog Grid Fullwidth</a></li>
-                                                    <li><a href="blog-details-sidebar.html">Blog Details Sidebar</a>
-                                                    </li>
-                                                    <li><a href="{{ route('user.posts') }}">Blog Details
-                                                            Fullwidth</a>
-                                                    </li>
+                                                    @foreach ($posts as $post)
+                                                        <li><a href="#">{{ $post->title }}
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
                                                 </ul>
                                             </li>
                                             <li>
@@ -273,38 +264,22 @@
                                                 <div class="mega-menu dropdown-hover">
                                                     <div class="menu-colum">
                                                         <ul>
-                                                            <li><span class="mega-menu-text">Shop</span></li>
-                                                            <li><a href="#">Shop Left Sidebar</a></li>
-                                                            <li><a href="#">Shop Righ Sidebar</a></li>
-                                                            <li><a href="#">Shop List Left Sidebar</a></li>
-                                                            <li><a href="#">Shop List Right Sidebar</a></li>
-                                                            <li><a href="#">Shop Full Width</a></li>
+                                                            <li><span class="mega-menu-text">Cửa hàng</span></li>
+                                                            @foreach ($categories as $category)
+                                                                <li><a
+                                                                        href="{{ route('user.shop', ['category' => $category->name]) }}">{{ $category->name }}</a>
+                                                                </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                     <div class="menu-colum">
                                                         <ul>
-                                                            <li><span class="mega-menu-text">Product</span></li>
-                                                            <li><a href="product-details.html">Single Product</a></li>
-                                                            <li><a href="variable-product-details.html">Variable
-                                                                    Product</a></li>
-                                                            <li><a href="external-product-details.html">External
-                                                                    Product</a></li>
-                                                            <li><a href="gallery-product-details.html">Gallery
-                                                                    Product</a>
-                                                            </li>
-                                                            <li><a href="countdown-product-details.html">Countdown
-                                                                    Product</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="menu-colum">
-                                                        <ul>
-                                                            <li><span class="mega-menu-text">Others</span></li>
-                                                            <li><a href="error-404.html">Error 404</a></li>
-                                                            <li><a href="compare.html">Compare Page</a></li>
-                                                            <li><a href="{{ route('user.cart') }}">Cart Page</a></li>
-                                                            <li><a href="{{ route('user.checkout') }}">Checkout
-                                                                    Page</a></li>
-                                                            <li><a href="wishlist.html">Wishlist Page</a></li>
+                                                            <li><span class="mega-menu-text">Hãng</span></li>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <li><a
+                                                                        href="{{ route('user.shop.supplier', ['supplier' => $supplier->name]) }}">{{ $supplier->name }}</a>
+                                                                </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -315,21 +290,10 @@
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="dropdown-submenu dropdown-hover">
-                                                    <li><a href="blog.html">Blog Left Sidebar</a></li>
-                                                    <li><a href="blog-list-right-sidebar.html">Blog List Right
-                                                            Sidebar</a>
-                                                    </li>
-                                                    <li><a href="blog-list-fullwidth.html">Blog List Fullwidth</a></li>
-                                                    <li><a href="blog-grid.html">Blog Grid Page</a></li>
-                                                    <li><a href="blog-grid-right-sidebar.html">Blog Grid Right
-                                                            Sidebar</a>
-                                                    </li>
-                                                    <li><a href="blog-grid-fullwidth.html">Blog Grid Fullwidth</a></li>
-                                                    <li><a href="blog-details-sidebar.html">Blog Details Sidebar</a>
-                                                    </li>
-                                                    <li><a href="{{ route('user.posts') }}">Blog Details
-                                                            Fullwidth</a>
-                                                    </li>
+                                                    @foreach ($posts as $post)
+                                                        <li><a href="">{{ $post->title }} </a>
+                                                        </li>
+                                                    @endforeach
                                                 </ul>
                                             </li>
 
