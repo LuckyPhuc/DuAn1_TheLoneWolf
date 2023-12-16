@@ -50,4 +50,15 @@ class Mail_demo extends Mailable
     {
         return [];
     }
+
+    function build()
+    {
+        return $this->view('mails.demo')
+            ->from('phutungoto93xoviet@gmail.com', 'Hoàng Phúc')
+            ->subject('Thư xác nhận')
+            ->with([
+                'title' => 'Chào bạn',
+                'content' => 'Nội dung thông điệp'
+            ]);
+    }
 }
