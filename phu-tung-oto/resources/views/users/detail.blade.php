@@ -1,15 +1,15 @@
 @extends('layouts.app')
-@section('title', 'chi tiec')
+@section('title', 'Chi tiết sản phẩm ')
 @section('content')
     <div class="breadcrumbs-area position-relative">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="breadcrumb-content position-relative section-content">
-                        <h3 class="title-3 text-white">products Detail</h3>
+                        <h3 class="title-3 text-white">Chi tiết sản phẩm</h3>
                         <ul>
-                            <li><a href="{{ route('users.index') }}" class="text-white">Home</a></li>
-                            <li class="text-white">products Detail</li>
+                            <li><a href="{{ route('user.index') }}" class="text-white">Trang chủ</a></li>
+                            <li class="text-white">Chi tiết sản phẩm</li>
                         </ul>
                     </div>
                 </div>
@@ -67,9 +67,14 @@
                         <div class="quantity-with_btn mb-4">
                             <div class="quantity">
                                 <div class="cart-plus-minus">
-                                    <input class="cart-plus-minus-box" value="0" type="text" id="quantityInput">
-                                    <div class="dec qtybutton" onclick="decrementQuantity()">-</div>
-                                    <div class="inc qtybutton" onclick="incrementQuantity()">+</div>
+                                    {{-- <form method="POST" action="{{ route('uesr.cart.add') }}">
+                                        @csrf
+                                        <input class="cart-plus-minus-box" value="0" type="text" id="quantityInput"
+                                            name="quantity">
+
+                                        <div class="dec qtybutton" onclick="decrementQuantity()">-</div>
+                                        <div class="inc qtybutton" onclick="incrementQuantity()">+</div>
+                                    </form> --}}
                                 </div>
                             </div>
 
@@ -326,44 +331,49 @@
                     </div>
                 </div>
             </div>
-            <div class="row product__card">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Tên</h5>
-                        <p class="card-text">Gía</p>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </div>
-                    <div class="card-body">
-                        <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('assets/img/product/product69.jpg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Tên</h5>
-                        <p class="card-text">Gía</p>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </div>
-                    <div class="card-body">
-                        <a href="#" class="card-link"><i class="bi bi-bag-plus"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
-                        <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
-                    </div>
-                </div>
+            <div class="row">
+                @foreach ($product->take(4) as $products)
+                    <div class="col-md-3 col-sm-8 col-lg-3 col-custom product-area p-3">
+                        <div class="single-product position-relative">
+                            <div class="product-image">
+                                <a class="d-block" href="{{ route('user.detail', ['id' => $products->id]) }}">
 
+
+                                    <img src="{{ asset($products->image_features->first()->url_img) }}" alt=""
+                                        class="product-image-1 w-100">
+                                </a>
+                            </div>
+                            <div class="product-content" style="height: 160px">
+                                <div class="product-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                                <div class="product-title">
+                                    <h4 class="title-2"> <a href="#">{{ $products->name }}</a> </h4>
+                                </div>
+                                <div class="price-box">
+                                    <span class="regular-price ">{{ number_format($products->price, 2, '.', ',') }}
+                                        VND</span>
+                                </div>
+                            </div>
+                            <div class="add-action d-flex position-absolute">
+                                <a href="cart.html" title="Add To cart"><i class="ion-bag"></i></a>
+                                <a href="compare.html" title="Compare"><i class="ion-ios-loop-strong"></i></a>
+                                <a href="wishlist.html" title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View"><i
+                                        class="ion-eye"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if ($loop->iteration % 3 == 0)
+                        {{-- Add an empty column after every 3rd product --}}
+                        <div class="w-100 d-none d-md-block d-lg-none"></div>
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>

@@ -7,13 +7,17 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\PostsController;
+use App\Http\Controllers\postsController;
 use App\Http\Controllers\users\HomeController;
 use App\Http\Controllers\users\ShopController;
 use App\Http\Controllers\users\CheckoutController;
 use App\Http\Controllers\users\CartController;
+use App\Http\Controllers\users\postController;
+use App\Http\Controllers\users\LoginController;
+use App\Http\Controllers\users\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -113,6 +117,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::put('update/{id}', [UserController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [UserController::class, 'destroy'])->name('destroy');
     });
+
+    Route::get('demo/sendmail', [MailController::class, 'sendmail']);
     //Routing website
     // Route::prefix('admin/website')->name('admin.website.')->group(function () {
     //     Route::get('list', [WebsiteController::class, 'index'])->name('list');
@@ -133,16 +139,27 @@ Route::prefix('admin')->name('admin.')->group(function () {
 |--------------------------------------------------------------------------
 */
 // nguoi dung (user)
-Route::prefix('users')->name('users.')->group(function () {
-    Route::get('index', [HomeController::class, 'index'])->name('index');
+Route::prefix('user')->name('user.')->group(function () {
+    Route::get('/index', [HomeController::class, 'index'])->name('index');
+    Route::get('shop/{category}', [HomeController::class, 'showProductsByCategory'])->name('shop');
+    Route::get('shop/{supplier}', [ShopController::class, 'showProductsBySupplier'])->name('shop.supplier');
     Route::get('shop', [ShopController::class, 'index'])->name('shop');
+    Route::get('shop/{category}', [ShopController::class, 'showProductsByCategory'])->name('showProducts');
     Route::get('show/{id}', [ShopController::class, 'show'])->name('detail');
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
-    Route::get('register', [HomeController::class, 'register'])->name('register');
-    Route::get('login', [HomeController::class, 'login'])->name('login');
-    Route::get('cart', [CartController::class, 'addToCart'])->name('cart');
-    Route::get('posts', [CartController::class, 'Posts'])->name('posts');
-    Route::get('show/posts/{id}', [CartController::class, 'ShowPosts'])->name('posts.show');
+    Route::get('register', [RegisterController::class, 'index'])->name('register');
+    Route::post('/', [RegisterController::class, 'register'])->name('store');
+    Route::get('login', [LoginController::class, 'index'])->name('login');
+    // Route::post('/', [LoginController::class, 'login'])->name('login.store');
+    Route::get('posts', [postController::class, 'Posts'])->name('posts');
+    Route::get('show/posts/{id}', [postController::class, 'ShowPosts'])->name('posts.show');
+    Route::get('cart', [CartController::class, 'cart'])->name('cart');
+    Route::delete('/delete-cart-item/{orderDetail}', [CartController::class, 'deleteCartItem'])->name('delete.cart.item');
+    Route::post('cart/add/{productId}/{quantity}', [CartController::class, 'addCart'])
+        ->name('cart.add');
+    // Add a route for updating the cart item
+    Route::post('update-cart-item', [CartController::class, 'updateCartItem'])->name('update');
+    // Route::post('cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 });
 // file manager
 // Route::group(['prefix' => 'laravel-filemanager'], function () {
