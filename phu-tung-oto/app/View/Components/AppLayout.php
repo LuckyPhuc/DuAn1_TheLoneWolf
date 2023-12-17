@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use App\Models\Suppliers;
 use App\Models\Categories;
 use App\Models\Posts;
+use App\Models\Products;
 
 class AppLayout extends Component
 {
@@ -18,6 +19,7 @@ class AppLayout extends Component
         $suppliers = Suppliers::all();
         $categories = Categories::all();
         $posts = Posts::all();
-        return view('profile', compact('suppliers', 'categories', 'posts'));
+        $products = Products::all();
+        return view('profile', compact('suppliers', 'categories', 'products', 'posts'));
     }
 }
