@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
-        @section('title', 'Trang cart')
+        @section('title', 'Trang giỏ hàng')
     </title>
 </head>
 
@@ -158,12 +158,6 @@
                                             <td class="total-amount">${{ number_format($total, 2) }} VND</td>
                                         </tr>
                                     </table>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <a href="checkout.html" class="btn obrien-button primary-btn d-block">Proceed To Checkout</a>
