@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\CartController as ControllersCartController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 require __DIR__ . '/auth.php';
 
 /*
@@ -52,7 +54,7 @@ require __DIR__ . '/auth.php';
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     // Routing product
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('list', [ProductController::class, 'index'])->name('list');
@@ -139,7 +141,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 |--------------------------------------------------------------------------
 */
 // nguoi dung (user)
-Route::prefix('user')->name('user.')->group(function () {
+// Route::prefix('user')->name('user.')->group(function () {
     Route::get('/index', [HomeController::class, 'index'])->name('index');
     Route::get('shop/{category}', [HomeController::class, 'showProductsByCategory'])->name('shop');
     Route::get('shop/{supplier}', [ShopController::class, 'showProductsBySupplier'])->name('shop.supplier');
@@ -160,7 +162,7 @@ Route::prefix('user')->name('user.')->group(function () {
     // Add a route for updating the cart item
     Route::post('update-cart-item', [CartController::class, 'updateCartItem'])->name('update');
     // Route::post('cart/add', [CartController::class, 'addToCart'])->name('cart.add');
-});
+// });
 // file manager
 // Route::group(['prefix' => 'laravel-filemanager'], function () {
 //     \UniSharp\LaravelFilemanager\Lfm::routes();
