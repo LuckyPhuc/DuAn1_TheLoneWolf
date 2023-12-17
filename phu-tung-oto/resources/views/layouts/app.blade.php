@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
-
-
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -88,17 +86,17 @@
                                                         <ul>
                                                             <li><span class="mega-menu-text">Danh Mục Sản Phẩm</span>
                                                             </li>
-                                                            @foreach ($categories as $category)
+                                                            {{-- @foreach ($categories as $category)
                                                                 <li><a href="#">{{ $category->name }}</a></li>
-                                                            @endforeach
+                                                            @endforeach --}}
                                                         </ul>
                                                     </div>
                                                     <div class="menu-colum">
                                                         <ul>
                                                             <li><span class="mega-menu-text">Hãng</span></li>
-                                                            @foreach ($suppliers as $supplier)
+                                                            {{-- @foreach ($suppliers as $supplier)
                                                                 <li><a href="#">{{ $supplier->name }}</a></li>
-                                                            @endforeach
+                                                            @endforeach --}}
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -158,8 +156,8 @@
                                                                     src="assets/images/cart/1.jpg" alt=""></a>
                                                         </div>
                                                         <div class="cart-text">
-                                                            <h5 class="title"><a
-                                                                    href="{{ route('users.cart') }}">11. Product with
+                                                            <h5 class="title"><a href="{{ route('users.cart') }}">11.
+                                                                    Product with
                                                                     video
                                                                     - navy</a></h5>
                                                             <div class="cart-text-btn">
