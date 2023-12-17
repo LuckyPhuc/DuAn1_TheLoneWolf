@@ -34,51 +34,45 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $messenger = [];
+        $request->validate(
+            [
+                'fullname' => 'required',
+                'password' => 'required',
+                'Address' => 'required',
+                'phone' => 'required|numeric|digits:10',
+                'email' => 'required|email|',
+                'role' => 'required',
+            ],
+            [
+                'required' => "Trường :attribute không được bỏ trống.",
+                'numeric' => ":attribute phải là số.",
+                'digits' => ":attribute phải có :digit chữ số."
+            ],
+            [
+                'name' => 'Họ tên',
+                'password' => 'Mật khẩu',
+                'address' => 'Địa chỉ',
+                'phone' => 'Số điện thoại',
+                'email' => 'Email',
+                'role' => 'Quyền hạn',
+            ]
+        );
 
-        $rules = [
-            'fullname' => 'required',
-            'password' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
-            'Address' => 'required',
-            'phone' => 'required|numeric|digits:10',
-            'email' => 'required|email|unique:users,email',
-            'role' => 'required',
+        $input = $request->all();
+
+        // Map role names to numerical values
+        $roleMappings = [
+            'admin' => 0,
+            'users' => 1,
         ];
 
-        $messages = [
-            'fullname.required' => 'Vui lòng nhập tên đầy đủ của bạn',
-            'password.required' => 'Vui lòng nhập mật khẩu của bạn',
-            'password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự',
-            'password.regex' => 'Mật khẩu phải chứa ít nhất một chữ cái viết hoa, một chữ cái viết thường và một số',
-            'Address.required' => 'Vui lòng nhập địa chỉ của bạn',
-            'phone.required' => 'Xin vui lòng điền số điện thoại của bạn',
-            'phone.numeric' => 'Số điện thoại chỉ được chứa chữ số',
-            'phone.digits' => 'Số điện thoại phải chứa đúng 10 chữ số',
-            'email.required' => 'Vui lòng nhập địa chỉ email hợp lệ',
-            'email.email' => 'Vui lòng nhập địa chỉ email hợp lệ',
-            'email.unique' => 'Email này đã được đăng ký',
-            'role.required' => 'Vui lòng nhập vai trò của bạn',
-        ];
+        // Assign the numerical value to the 'role' field
+        $input['role'] = $roleMappings[$request->input('role')];
 
-        $validator = Validator::make($request->all(), $rules, $messages);
+        $user = User::create($input);
 
-        if ($validator->fails()) {
-            return view('admin.users.create')->with(['success' => 'Người dùng đã được tạo thành công!']);
-        }
-
-        // Create new user
-        $user = new User([
-            'name' => $request->fullname,
-            'address' => $request->Address,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'role' => ($request->role === 'admin') ? 0 : 1,
-            'password' => Hash::make($request->password),
-        ]);
-
-        $user->save();
-
-        return redirect()->route('admin.users.create')->with(['success' => 'Người dùng đã được tạo thành công!']);
+        return redirect()->route('admin.users.create')
+            ->with('success', 'Người dùng đã được tạo thành công!', compact('user'));
     }
 
 
@@ -107,14 +101,29 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'fullname' => 'required',
-            'password' => 'required',
-            'Address' => 'required',
-            'phone' => 'required',
-            'email' => 'required|email',
-            'role' => 'required',
-        ]);
+        $request->validate(
+            [
+                'fullname' => 'required',
+                'password' => 'required',
+                'Address' => 'required',
+                'phone' => 'required|numeric|digits:10',
+                'email' => 'required|email|',
+                'role' => 'required',
+            ],
+            [
+                'required' => "Trường :attribute không được bỏ trống.",
+                'numeric' => ":attribute phải là số.",
+                'digits' => ":attribute phải có :digit chữ số."
+            ],
+            [
+                'name' => 'Họ tên',
+                'password' => 'Mật khẩu',
+                'address' => 'Địa chỉ',
+                'phone' => 'Số điện thoại',
+                'email' => 'Email',
+                'role' => 'Quyền hạn',
+            ]
+        );
         $roleValue = ($request->role === 'admin') ? 1 : 0;
         $user = User::find($id);
         $user->name = $request->fullname;
