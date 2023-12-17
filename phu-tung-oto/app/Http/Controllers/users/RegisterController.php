@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Suppliers;
 use App\Models\User;
+use App\Models\Posts;
 
 class RegisterController extends Controller
 {
@@ -14,7 +15,8 @@ class RegisterController extends Controller
     {
         $categories = Categories::all();
         $suppliers = Suppliers::all();
-        return view('users.Register', compact('categories', 'suppliers'));
+        $posts = Posts::all();
+        return view('users.Register', compact('categories', 'suppliers', 'posts'));
     }
     function register(Request $request)
     {

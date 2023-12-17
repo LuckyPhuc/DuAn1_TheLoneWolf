@@ -8,16 +8,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Suppliers;
+use App\Models\Categories;
 
 class ProfileController extends Controller
 {
     /**
      * Display the user's profile form.
      */
+
     public function edit(Request $request): View
     {
+
+
         return view('profile.edit', [
-            'user' => $request->user(),
+            'user' => $request->user()
         ]);
     }
 
@@ -26,6 +31,8 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        $suppliers = Suppliers::all();
+        $categories = Categories::all();
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -34,7 +41,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit', compact('suppliers', 'categories'))->with('status', 'profile-updated');
     }
 
     /**
@@ -42,6 +49,8 @@ class ProfileController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        $suppliers = Suppliers::all();
+        $categories = Categories::all();
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);
