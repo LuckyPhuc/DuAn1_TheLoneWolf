@@ -19,45 +19,44 @@
                 </div>
             </div>
 
-            <div class="posts d-flex flex-nowrap">
-                <div class=" d-flex flex-nowrap">
-                    @foreach ($posts as $post)
-                        @php
-                            $doc = new DOMDocument();
-                            @$doc->loadHTML($post->body); // Sử dụng @ để tránh báo lỗi HTML parsing
+            <div class="posts row">
+                @foreach ($posts as $post)
+                    @php
+                        $doc = new DOMDocument();
+                        @$doc->loadHTML($post->body); // Sử dụng @ để tránh báo lỗi HTML parsing
 
-                            $imgTags = $doc->getElementsByTagName('img');
-                            $imgSrc = null;
-                            if ($imgTags->length > 0) {
-                                $imgSrc = $imgTags->item(0)->getAttribute('src');
-                            }
-                        @endphp
-                        <div class="single-blog col-4 mr-3 ">
-                            <div class="single-blog-thumb">
-                                <a href="#">
-                                    @if ($imgSrc)
-                                        <img class="w-100" src="{{ $imgSrc }}" alt="{{ $post->title }}">
-                                    @endif
-                                </a>
+                        $imgTags = $doc->getElementsByTagName('img');
+                        $imgSrc = null;
+                        if ($imgTags->length > 0) {
+                            $imgSrc = $imgTags->item(0)->getAttribute('src');
+                        }
+                    @endphp
+                    <div class="single-blog col-md-4 ">
+                        <div class="single-blog-thumb">
+                            <a href="#">
+                                @if ($imgSrc)
+                                    <img style="height: 200px" class="w-100" src="{{ $imgSrc }}"
+                                        alt="{{ $post->title }}">
+                                @endif
+                            </a>
+                        </div>
+                        <div class="single-blog-content position-relative border " style="height: 180px">
+                            <div class="post-date text-center border rounded d-flex flex-column position-absolute">
+                                <span>{{ $post->created_at->format('d') }}</span>
+                                <span>{{ $post->created_at->format('m') }}</span>
                             </div>
-                            <div class="single-blog-content position-relative">
-                                <div class="post-date text-center border rounded d-flex flex-column position-absolute">
-                                    <span>{{ $post->created_at->format('d') }}</span>
-                                    <span>{{ $post->created_at->format('m') }}</span>
-
-
-                                </div>
-                                <div class="post-meta">
-                                    <span class="author">{{ $post->users->name }}</span>
-                                </div>
-                                <h2 class="post-title">
-                                    <a href="#">{{ $post->title }}</a>
-                                </h2>
-                                <p class="desc-content">
-                                    {{ $post->description }}
-                                </p>
+                            <div class="post-meta">
+                                <span class="author">{{ $post->users->name }}</span>
                             </div>
-                            <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                            <h2 class="post-title">
+                                <a href="#">{{ $post->title }}</a>
+                            </h2>
+                            <p class="desc-content">
+                                {{ substr($post->description, 0, 60) }} ...
+                            </p>
+
+                            <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST"
+                                style="padding-bottom: 10px;">
                                 @csrf
                                 @method('DELETE')
                                 <a class="btn btn-success" style="background: green; padding:0.5rem"
@@ -71,10 +70,12 @@
                                     <i class="bi bi-trash3"></i>
                                 </button>
                             </form>
+
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
+
         </div>
     @endsection
 </div>
