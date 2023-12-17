@@ -4,6 +4,9 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use App\Models\Suppliers;
+use App\Models\Categories;
+use App\Models\Posts;
 
 class AppLayout extends Component
 {
@@ -12,6 +15,9 @@ class AppLayout extends Component
      */
     public function render(): View
     {
-        return view('layouts.app');
+        $suppliers = Suppliers::all();
+        $categories = Categories::all();
+        $posts = Posts::all();
+        return view('profile', compact('suppliers', 'categories', 'posts'));
     }
 }
