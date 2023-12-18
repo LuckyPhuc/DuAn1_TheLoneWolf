@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,7 +29,16 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        $email = $request->input('email');
 
+        // Tìm người dùng dựa trên email
+        $user = User::where('email', $email)->first();
+
+        // Kiểm tra vai trò của người dùng
+        if ($user->role == '0') {
+            // Chuyển hướng đến trang dành cho admin
+            return redirect('/admin/dashboard');
+        }
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

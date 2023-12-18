@@ -1982,7 +1982,7 @@ div#global-loader,
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #ff9f43;
+    background: #111111;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -3467,6 +3467,8 @@ div.dataTables_wrapper div.dataTables_info {
 }
 
 .header {
+    display: flex;
+    justify-content: space-between;
     background: #ff9f43;
     background: #fff;
     border-bottom: 1px solid transparent;
