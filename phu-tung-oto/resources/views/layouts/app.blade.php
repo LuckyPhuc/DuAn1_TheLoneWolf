@@ -11,10 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
-
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -24,7 +23,8 @@
     <script type="text/javascript" src="path/to/slick/slick.min.js"></script>
 
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/img-01.jpg') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/assets/img/favicon/favicon-32x32.png') }}">
+
     <!-- Link thư viện Slick Slider -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
@@ -64,7 +64,7 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-2 col-xl-2 col-sm-6 col-6 col-custom">
                                     <div class="header-logo d-flex align-items-center">
-                                        <a href="{{ route('users.index') }}">
+                                        <a href="{{ route('index') }}">
                                             <img class="img-full" src="{{ asset('assets/img/logo-users/1.png') }}"
                                                 alt="Header Logo">
                                         </a>
@@ -74,12 +74,12 @@
                                     <nav class="main-nav d-flex justify-content-center">
                                         <ul class="nav">
                                             <li>
-                                                <a class="active" href="{{ route('users.index') }}">
+                                                <a class="active" href="{{ route('index') }}">
                                                     <span class="menu-text">Trang Chủ</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('users.shop') }}">
+                                                <a href="{{ route('shop') }}">
                                                     <span class="menu-text">Cửa Hàng</span>
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
@@ -88,42 +88,39 @@
                                                         <ul>
                                                             <li><span class="mega-menu-text">Danh Mục Sản Phẩm</span>
                                                             </li>
+
                                                             @foreach ($categories as $category)
-                                                                <li><a href="#">{{ $category->name }}</a></li>
+                                                                <li><a
+                                                                        href="{{ route('shop', ['category' => $category->name]) }}">{{ $category->name }}</a>
+                                                                </li>
                                                             @endforeach
+
                                                         </ul>
                                                     </div>
                                                     <div class="menu-colum">
                                                         <ul>
                                                             <li><span class="mega-menu-text">Hãng</span></li>
+
                                                             @foreach ($suppliers as $supplier)
-                                                                <li><a href="#">{{ $supplier->name }}</a></li>
+                                                                <li><a
+                                                                        href="{{ route('shop.supplier', ['supplier' => $supplier->name]) }}">{{ $supplier->name }}</a>
+                                                                </li>
                                                             @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
-                                                <a href="{{ route('users.posts') }}">
-                                                    <span class="menu-text"> Blog</span>
+                                                <a href="{{ route('posts') }}">
+                                                    <span class="menu-text"> Bài viết</span>
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="dropdown-submenu dropdown-hover">
-                                                    <li><a href="blog.html">Blog Left Sidebar</a></li>
-                                                    <li><a href="blog-list-right-sidebar.html">Blog List Right
-                                                            Sidebar</a>
-                                                    </li>
-                                                    <li><a href="blog-list-fullwidth.html">Blog List Fullwidth</a></li>
-                                                    <li><a href="blog-grid.html">Blog Grid Page</a></li>
-                                                    <li><a href="blog-grid-right-sidebar.html">Blog Grid Right
-                                                            Sidebar</a>
-                                                    </li>
-                                                    <li><a href="blog-grid-fullwidth.html">Blog Grid Fullwidth</a></li>
-                                                    <li><a href="blog-details-sidebar.html">Blog Details Sidebar</a>
-                                                    </li>
-                                                    <li><a href="{{ route('users.posts') }}">Blog Details
-                                                            Fullwidth</a>
-                                                    </li>
+                                                    @foreach ($posts as $post)
+                                                        <li><a href="#">{{ $post->title }}
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
                                                 </ul>
                                             </li>
                                             <li>
@@ -143,8 +140,8 @@
                                     <div class="header-right-area main-nav">
                                         <ul class="nav">
                                             <li class="login-register-wrap d-none d-xl-flex">
-                                                <span><a href="{{ route('users.login') }}">Login</a></span>
-                                                <span><a href="{{ route('users.register') }}">Register</a></span>
+                                                <span><a href="{{ route('login') }}">Login</a></span>
+                                                <span><a href="{{ route('register') }}">Register</a></span>
                                             </li>
                                             <li class="minicart-wrap">
                                                 <a href="#" class="minicart-btn toolbar-btn">
@@ -154,12 +151,13 @@
                                                 <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2">
                                                     <div class="single-cart-item">
                                                         <div class="cart-img">
-                                                            <a href="{{ route('users.cart') }}"><img
+                                                            <a href="{{ route('cart') }}"><img
                                                                     src="assets/images/cart/1.jpg" alt=""></a>
                                                         </div>
                                                         <div class="cart-text">
-                                                            <h5 class="title"><a
-                                                                    href="{{ route('users.cart') }}">11. Product with
+
+                                                            <h5 class="title"><a href="{{ route('cart') }}">11.
+                                                                    Product with
                                                                     video
                                                                     - navy</a></h5>
                                                             <div class="cart-text-btn">
@@ -174,11 +172,11 @@
                                                     </div>
                                                     <div class="single-cart-item">
                                                         <div class="cart-img">
-                                                            <a href="{{ route('users.cart') }}"><img
+                                                            <a href="{{ route('cart') }}"><img
                                                                     src="assets/images/cart/2.jpg" alt=""></a>
                                                         </div>
                                                         <div class="cart-text">
-                                                            <h5 class="title"><a href="{{ route('users.cart') }}"
+                                                            <h5 class="title"><a href="{{ route('cart') }}"
                                                                     title="10. This is the large title for testing large title and there is an image for testing - white">10.
                                                                     This is the large title for testing...</a></h5>
                                                             <div class="cart-text-btn">
@@ -193,11 +191,11 @@
                                                     </div>
                                                     <div class="single-cart-item">
                                                         <div class="cart-img">
-                                                            <a href="{{ route('users.cart') }}"><img
+                                                            <a href="{{ route('cart') }}"><img
                                                                     src="assets/images/cart/3.jpg" alt=""></a>
                                                         </div>
                                                         <div class="cart-text">
-                                                            <h5 class="title"><a href="{{ route('users.cart') }}">1.
+                                                            <h5 class="title"><a href="{{ route('cart') }}">1.
                                                                     New and sale
                                                                     badge
                                                                     product - s / red</a></h5>
@@ -217,10 +215,10 @@
                                                     </div>
                                                     <div class="cart-links d-flex justify-content-center">
                                                         <a class="obrien-button white-btn"
-                                                            href="{{ route('users.cart') }}">View
+                                                            href="{{ route('cart') }}">View
                                                             cart</a>
                                                         <a class="obrien-button white-btn"
-                                                            href="{{ route('users.checkout') }}">Checkout</a>
+                                                            href="{{ route('checkout') }}">Checkout</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -256,89 +254,51 @@
                                     <nav class="main-nav d-flex justify-content-center">
                                         <ul class="nav">
                                             <li>
-                                                <a class="active" href="{{ route('users.index') }}">
+                                                <a class="active" href="{{ route('index') }}">
                                                     <span class="menu-text"> Trang Chủ</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('users.shop') }}">
+                                                <a href="{{ route('shop') }}">
                                                     <span class="menu-text">Cửa Hàng</span>
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <div class="mega-menu dropdown-hover">
                                                     <div class="menu-colum">
                                                         <ul>
-                                                            <li><span class="mega-menu-text">Shop</span></li>
-                                                            <li><a href="#">Shop Left Sidebar</a></li>
-                                                            <li><a href="#">Shop Righ Sidebar</a></li>
-                                                            <li><a href="#">Shop List Left Sidebar</a></li>
-                                                            <li><a href="#">Shop List Right Sidebar</a></li>
-                                                            <li><a href="#">Shop Full Width</a></li>
+                                                            <li><span class="mega-menu-text">Cửa hàng</span></li>
+                                                            @foreach ($categories as $category)
+                                                                <li><a
+                                                                        href="{{ route('shop', ['category' => $category->name]) }}">{{ $category->name }}</a>
+                                                                </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                     <div class="menu-colum">
                                                         <ul>
-                                                            <li><span class="mega-menu-text">Product</span></li>
-                                                            <li><a href="product-details.html">Single Product</a></li>
-                                                            <li><a href="variable-product-details.html">Variable
-                                                                    Product</a></li>
-                                                            <li><a href="external-product-details.html">External
-                                                                    Product</a></li>
-                                                            <li><a href="gallery-product-details.html">Gallery
-                                                                    Product</a>
-                                                            </li>
-                                                            <li><a href="countdown-product-details.html">Countdown
-                                                                    Product</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="menu-colum">
-                                                        <ul>
-                                                            <li><span class="mega-menu-text">Others</span></li>
-                                                            <li><a href="error-404.html">Error 404</a></li>
-                                                            <li><a href="compare.html">Compare Page</a></li>
-                                                            <li><a href="{{ route('users.cart') }}">Cart Page</a></li>
-                                                            <li><a href="{{ route('users.checkout') }}">Checkout
-                                                                    Page</a></li>
-                                                            <li><a href="wishlist.html">Wishlist Page</a></li>
+                                                            <li><span class="mega-menu-text">Hãng</span></li>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <li><a
+                                                                        href="{{ route('shop.supplier', ['supplier' => $supplier->name]) }}">{{ $supplier->name }}</a>
+                                                                </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('users.posts') }}">
+                                                <a href="{{ route('posts') }}">
                                                     <span class="menu-text"> Bài viết</span>
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="dropdown-submenu dropdown-hover">
-                                                    <li><a href="blog.html">Blog Left Sidebar</a></li>
-                                                    <li><a href="blog-list-right-sidebar.html">Blog List Right
-                                                            Sidebar</a>
-                                                    </li>
-                                                    <li><a href="blog-list-fullwidth.html">Blog List Fullwidth</a></li>
-                                                    <li><a href="blog-grid.html">Blog Grid Page</a></li>
-                                                    <li><a href="blog-grid-right-sidebar.html">Blog Grid Right
-                                                            Sidebar</a>
-                                                    </li>
-                                                    <li><a href="blog-grid-fullwidth.html">Blog Grid Fullwidth</a></li>
-                                                    <li><a href="blog-details-sidebar.html">Blog Details Sidebar</a>
-                                                    </li>
-                                                    <li><a href="{{ route('users.posts') }}">Blog Details
-                                                            Fullwidth</a>
-                                                    </li>
+                                                    @foreach ($posts as $post)
+                                                        <li><a href="">{{ $post->title }} </a>
+                                                        </li>
+                                                    @endforeach
                                                 </ul>
                                             </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="menu-text"> Pages</span>
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <ul class="dropdown-submenu dropdown-hover">
-                                                    <li><a href="frequently-questions.html">FAQ</a></li>
-                                                    <li><a href="my-account.html">My Account</a></li>
-                                                    <li><a href="{{ route('users.login') }}">Login</a></li>
-                                                    <li><a href="{{ route('users.register') }}">Register</a></li>
-                                                </ul>
-                                            </li>
+
                                             <li>
                                                 <a href="about-us.html">
                                                     <span class="menu-text"> Về chúng tôi</span>
@@ -356,8 +316,8 @@
                                     <div class="header-right-area main-nav">
                                         <ul class="nav">
                                             <li class="login-register-wrap d-none d-xl-flex">
-                                                <span><a href="{{ route('users.login') }}">Login</a></span>
-                                                <span><a href="{{ route('users.register') }}">Register</a></span>
+                                                <span><a href="{{ route('login') }}">Login</a></span>
+                                                <span><a href="{{ route('register') }}">Register</a></span>
                                             </li>
                                             <li class="minicart-wrap">
                                                 <a href="#" class="minicart-btn toolbar-btn">
@@ -367,12 +327,12 @@
                                                 <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2">
                                                     <div class="single-cart-item">
                                                         <div class="cart-img">
-                                                            <a href="{{ route('users.cart') }}"><img
+                                                            <a href="{{ route('cart') }}"><img
                                                                     src="assets/images/cart/1.jpg" alt=""></a>
                                                         </div>
                                                         <div class="cart-text">
-                                                            <h5 class="title"><a
-                                                                    href="{{ route('users.cart') }}">11. Product with
+                                                            <h5 class="title"><a href="{{ route('cart') }}">11.
+                                                                    Product with
                                                                     video
                                                                     - navy</a></h5>
                                                             <div class="cart-text-btn">
@@ -387,11 +347,11 @@
                                                     </div>
                                                     <div class="single-cart-item">
                                                         <div class="cart-img">
-                                                            <a href="{{ route('users.cart') }}"><img
+                                                            <a href="{{ route('cart') }}"><img
                                                                     src="assets/images/cart/2.jpg" alt=""></a>
                                                         </div>
                                                         <div class="cart-text">
-                                                            <h5 class="title"><a href="{{ route('users.cart') }}"
+                                                            <h5 class="title"><a href="{{ route('cart') }}"
                                                                     title="10. This is the large title for testing large title and there is an image for testing - white">10.
                                                                     This is the large title for testing...</a></h5>
                                                             <div class="cart-text-btn">
@@ -406,11 +366,11 @@
                                                     </div>
                                                     <div class="single-cart-item">
                                                         <div class="cart-img">
-                                                            <a href="{{ route('users.cart') }}"><img
+                                                            <a href="{{ route('cart') }}"><img
                                                                     src="assets/images/cart/3.jpg" alt=""></a>
                                                         </div>
                                                         <div class="cart-text">
-                                                            <h5 class="title"><a href="{{ route('users.cart') }}">1.
+                                                            <h5 class="title"><a href="{{ route('cart') }}">1.
                                                                     New and sale
                                                                     badge
                                                                     product - s / red</a></h5>
@@ -430,10 +390,10 @@
                                                     </div>
                                                     <div class="cart-links d-flex justify-content-center">
                                                         <a class="obrien-button white-btn"
-                                                            href="{{ route('users.cart') }}">View
+                                                            href="{{ route('cart') }}">View
                                                             cart</a>
                                                         <a class="obrien-button white-btn"
-                                                            href="{{ route('users.checkout') }}">Checkout</a>
+                                                            href="{{ route('checkout') }}">Checkout</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -472,7 +432,7 @@
                             <!-- mobile menu navigation start -->
                             <nav>
                                 <ul class="mobile-menu">
-                                    <li class="menu-item-has-children"><a href="{{ route('users.index') }}">Trang
+                                    <li class="menu-item-has-children"><a href="{{ route('index') }}">Trang
                                             Chủ</a>
                                     </li>
                                     <li class="menu-item-has-children"><a href="#">Cửa Hàng</a>
@@ -504,14 +464,14 @@
                                                 <ul class="dropdown">
                                                     <li><a href="error404.html">Error 404</a></li>
                                                     <li><a href="compare.html">Compare Page</a></li>
-                                                    <li><a href="{{ route('users.cart') }}">Cart Page</a></li>
-                                                    <li><a href="{{ route('users.checkout') }}">Checkout Page</a></li>
+                                                    <li><a href="{{ route('cart') }}">Cart Page</a></li>
+                                                    <li><a href="{{ route('checkout') }}">Checkout Page</a></li>
                                                     <li><a href="wishlist.html">Wish List Page</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children "><a href="{{ Route('users.posts') }}">Bài
+                                    <li class="menu-item-has-children "><a href="{{ route('posts') }}">Bài
                                             viết</a>
                                         {{-- <ul class="dropdown">
                                             <li><a href="blog.html">Blog Left Sidebar</a></li>
@@ -521,7 +481,7 @@
                                             <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
                                             <li><a href="blog-grid-fullwidth.html">Blog Grid Fullwidth</a></li>
                                             <li><a href="blog-details-sidebar.html">Blog Details Sidebar Page</a></li>
-                                            <li><a href="{{ route('users.posts') }}">Blog Details Fullwidth Page</a>
+                                            <li><a href="{{ route('posts') }}">Blog Details Fullwidth Page</a>
                                             </li>
                                         </ul> --}}
                                     </li>
@@ -529,7 +489,7 @@
                                         <ul class="dropdown">
                                             <li><a href="frequently-questions.html">FAQ</a></li>
                                             <li><a href="my-account.html">My Account</a></li>
-                                            <li><a href="login-{{ route('users.register') }}">login &amp; register</a>
+                                            <li><a href="login-{{ route('register') }}">login &amp; register</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -546,7 +506,7 @@
                                 <ul class="mobile-menu">
                                     <li class="menu-item-has-children"><a href="#">My Account</a>
                                         <ul class="dropdown">
-                                            <li><a href="{{ route('users.login') }}">Login</a></li>
+                                            <li><a href="{{ route('login') }}">Login</a></li>
                                             <li><a href="Register-2.html">Register</a></li>
                                         </ul>
                                     </li>
@@ -611,8 +571,8 @@
                         <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-custom">
                             <div class="single-footer-widget m-0">
                                 <div class="footer-logo">
-                                    <a href="{{ route('users.index') }}">
-                                        <img width="200px" src="{{ asset('assets/img/logo-users/2.png') }}"
+                                    <a href="{{ route('index') }}">
+                                        <img width="200px" src="{{ asset('assets/img/logo-users/1.png') }}"
                                             alt="Logo Image">
                                     </a>
                                 </div>
@@ -667,9 +627,9 @@
                                 <h2 class="widget-title">Liên kết nhanh</h2>
                                 <ul class="widget-list">
                                     <li><a href="about-us.html">Về chúng tôi</a></li>
-                                    <li><a href="{{ Route('users.posts') }}">bài viết</a></li>
-                                    <li><a href="{{ route('users.shop') }}">Cửa hàng</a></li>
-                                    <li><a href="{{ route('users.cart') }}">Giỏ hàng</a></li>
+                                    <li><a href="{{ route('posts') }}">bài viết</a></li>
+                                    <li><a href="{{ route('shop') }}">Cửa hàng</a></li>
+                                    <li><a href="{{ route('cart') }}">Giỏ hàng</a></li>
                                     <li><a href="#">Liên hệ</a></li>
                                 </ul>
                             </div>

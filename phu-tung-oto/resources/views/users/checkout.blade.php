@@ -1,15 +1,15 @@
 @extends('layouts.app')
-@section('title', 'trang cart')
+@section('title', 'Trang Check out')
 @section('content')
     <div class="breadcrumbs-area position-relative">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="breadcrumb-content position-relative section-content">
-                        <h3 class="title-3 text-white">Checkout</h3>
+                        <h3 class="title-3 text-white">Thanh Toán</h3>
                         <ul>
-                            <li><a class="text-white" href="{{ route('users.index') }}">Home</a></li>
-                            <li class="text-white">Checkout</li>
+                            <li><a class="text-white" href="{{ route('users.index') }}">Trang chủ</a></li>
+                            <li class="text-white">Thanh Toán</li>
                         </ul>
                     </div>
                 </div>
