@@ -21,7 +21,7 @@
                         <div class="breadcrumb-content position-relative section-content">
                             <h3 class="title-3 text-white">Giỏ hàng</h3>
                             <ul>
-                                <li><a class="text-white" href="{{ route('user.index') }}">Trang chủ</a></li>
+                                <li><a class="text-white" href="{{ route('index') }}">Trang chủ</a></li>
                                 <li class="text-white">Giỏ hàng</li>
                             </ul>
                         </div>
@@ -92,7 +92,7 @@
                                             </td>
                                             <td class="pro-remove">
                                                 <form
-                                                    action="{{ route('user.delete.cart.item', ['orderDetail' => $orderDetail->id]) }}"
+                                                    action="{{ route('delete.cart.item', ['orderDetail' => $orderDetail->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')

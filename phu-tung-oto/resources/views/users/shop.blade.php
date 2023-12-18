@@ -8,7 +8,7 @@
                     <div class="breadcrumb-content position-relative section-content">
                         <h3 class="title-3 text-white">Sản phẩm</h3>
                         <ul>
-                            <li><a href="{{ route('user.index') }}" class="text-white">Trang chủ</a></li>
+                            <li><a href="{{ route('index') }}" class="text-white">Trang chủ</a></li>
                             <li class="text-white">Sản phẩm</li>
                         </ul>
                     </div>
@@ -52,7 +52,7 @@
                             <div class="col-md-4 col-sm-6 col-lg-4 col-custom product-area p-3">
                                 <div class="single-product position-relative">
                                     <div class="product-image">
-                                        <a class="d-block" href="{{ route('user.detail', ['id' => $product->id]) }}">
+                                        <a class="d-block" href="{{ route('detail', ['id' => $product->id]) }}">
 
 
                                             <img src="{{ asset($product->image_features->first()->url_img) }}"
@@ -69,7 +69,7 @@
                                         </div>
                                         <div class="product-title">
                                             <h4 class="title-2"> <a class="name__products"
-                                                    href="{{ route('user.detail', ['id' => $product->id]) }}">{{ $product->name }}</a>
+                                                    href="{{ route('detail', ['id' => $product->id]) }}">{{ $product->name }}</a>
                                             </h4>
                                         </div>
                                         <div class="price-box">
@@ -157,7 +157,7 @@
                                         <li>
                                         <li>
                                             <a
-                                                href="{{ route('user.showProducts', ['category' => $category]) }}">{{ $category->name }}</a>
+                                                href="{{ route('showProducts', ['category' => $category]) }}">{{ $category->name }}</a>
                                         </li>
                                         </li>
                                     </ul>
