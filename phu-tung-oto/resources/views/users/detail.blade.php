@@ -65,7 +65,7 @@
                         </div> --}}
                         <p class="desc-content mb-5">{{ $products->description }}</p>
                         <form
-                            action="{{ route('user.cart.add', ['productId' => $products->id, 'quantity' => $products->quantity]) }}"
+                            action="{{ route('cart.add', ['productId' => $products->id, 'quantity' => $products->quantity]) }}"
                             method="POST" id="cartForm">
                             @csrf
                             <div class="quantity-with_btn mb-4">
@@ -77,9 +77,15 @@
                                         <div class="inc qtybutton" onclick="incrementQuantity()">+</div>
                                     </div>
                                 </div>
+                                <div class="quantity">
+                                    <div class="cart-plus-minus">
+                                        <h1>{{ $products->unit }}</h1>
+                                    </div>
+                                </div>
                                 <div class="add-to_cart">
                                     <input class="btn obrien-button primary-btn" type="button" value="Add to cart"
                                         onclick="submitForm()">
+
                                     <a class="btn obrien-button-2 treansparent-color pt-0 pb-0" href="wishlist.html">Add to
                                         wishlist</a>
                                 </div>
@@ -112,7 +118,7 @@
                                 // lay gia tri quantity day len url
                                 function submitForm() {
                                     var quantityValue = document.getElementById('quantityInput').value;
-                                    var formAction = "{{ route('user.cart.add', ['productId' => $products->id, 'quantity' => ':quantity']) }}";
+                                    var formAction = "{{ route('cart.add', ['productId' => $products->id, 'quantity' => ':quantity']) }}";
                                     formAction = formAction.replace(':quantity', quantityValue);
                                     document.getElementById('cartForm').action = formAction;
                                     document.getElementById('cartForm').submit();
