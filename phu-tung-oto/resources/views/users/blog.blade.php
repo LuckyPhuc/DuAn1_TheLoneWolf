@@ -8,7 +8,7 @@
                     <div class="breadcrumb-content position-relative section-content">
                         <h3 class="title-3 text-white">Bài viết</h3>
                         <ul>
-                            <li><a href="{{ route('user.index') }}" class="text-white">Trang chủ</a></li>
+                            <li><a href="{{ route('index') }}" class="text-white">Trang chủ</a></li>
                             <li class="text-white">Bài viết</li>
                         </ul>
                     </div>
@@ -37,7 +37,7 @@
                                 @endphp
                                 <div class="single-blog p-3">
                                     <div class="single-blog-thumb">
-                                        <a href="{{ route('user.posts.show', ['id' => $post->id]) }}">
+                                        <a href="{{ route('posts.show', ['id' => $post->id]) }}">
                                             @if ($imgSrc)
                                                 <img class="w-100" src="{{ $imgSrc }}" alt="{{ $post->title }}">
                                             @endif
@@ -54,8 +54,7 @@
                                                     {{ $post->users->name }}</span></span>
                                         </div>
                                         <h2 class="post-title">
-                                            <a
-                                                href="{{ route('user.posts.show', ['id' => $post->id]) }}">{{ $post->title }}</a>
+                                            <a href="{{ route('posts.show', ['id' => $post->id]) }}">{{ $post->title }}</a>
                                         </h2>
                                         <p class="desc-content"> {!! nl2br(e($post->description)) !!}
                                         </p>

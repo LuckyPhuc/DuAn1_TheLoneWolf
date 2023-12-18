@@ -8,7 +8,7 @@
                     <div class="breadcrumb-content position-relative section-content">
                         <h3 class="title-3 text-white">Chi tiết bài viết</h3>
                         <ul>
-                            <li><a href="{{ route('user.index') }}" class="text-white">Trang chủ</a></li>
+                            <li><a href="{{ route('index') }}" class="text-white">Trang chủ</a></li>
                             <li class="text-white">Chi tiết bài viết</li>
                         </ul>
                     </div>

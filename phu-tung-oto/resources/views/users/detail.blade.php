@@ -8,7 +8,7 @@
                     <div class="breadcrumb-content position-relative section-content">
                         <h3 class="title-3 text-white">Chi tiết sản phẩm</h3>
                         <ul>
-                            <li><a href="{{ route('user.index') }}" class="text-white">Trang chủ</a></li>
+                            <li><a href="{{ route('index') }}" class="text-white">Trang chủ</a></li>
                             <li class="text-white">Chi tiết sản phẩm</li>
                         </ul>
                     </div>
@@ -153,7 +153,7 @@
                     <div class="col-md-3 col-sm-8 col-lg-3 col-custom product-area p-3">
                         <div class="single-product position-relative">
                             <div class="product-image">
-                                <a class="d-block" href="{{ route('user.detail', ['id' => $products->id]) }}">
+                                <a class="d-block" href="{{ route('detail', ['id' => $products->id]) }}">
 
 
                                     <img src="{{ asset($products->image_features->first()->url_img) }}" alt=""

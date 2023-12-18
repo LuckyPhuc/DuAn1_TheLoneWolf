@@ -52,6 +52,9 @@ require __DIR__ . '/auth.php';
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     // Routing product
+    // Route::get('/', function () {
+    //     return view('admin/dashboard')->name('dashboard');
+    // });
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('list', [ProductController::class, 'index'])->name('list');
         Route::get('create', [ProductController::class, 'create'])->name('create');
