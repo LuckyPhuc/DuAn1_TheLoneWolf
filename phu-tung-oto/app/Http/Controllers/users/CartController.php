@@ -44,8 +44,8 @@ class CartController extends Controller
             abort(404, 'Product not found');
         }
         $order = Orders::firstOrCreate([
-            // 'users_id' => auth()->id(),
-            'users_id' => 1,
+            'users_id' => auth()->id(),
+            // 'users_id' => 1,
             'status' => 'open',
         ], [
             'order_date' => now(),
