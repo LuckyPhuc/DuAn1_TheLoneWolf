@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 13, 2023 lúc 01:17 PM
--- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
+-- Thời gian đã tạo: Th12 18, 2023 lúc 03:55 AM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -127,62 +127,74 @@ CREATE TABLE `image_features` (
 --
 
 INSERT INTO `image_features` (`id`, `product_id`, `post_id`, `url_img`, `alt_img`, `number`, `created_at`, `updated_at`) VALUES
-(3, 2, NULL, 'uploads/products/ac-quy-varta-1.png', 'ac-quy-varta-1.png', 0, '2023-12-12 21:18:25', '2023-12-12 21:18:25'),
-(4, 2, NULL, 'uploads/products/ac-quy-varta-4.png', 'ac-quy-varta-4.png', 1, '2023-12-12 21:18:25', '2023-12-12 21:18:25'),
-(5, 2, NULL, 'uploads/products/binh-ac-quy-varta-2.png', 'binh-ac-quy-varta-2.png', 2, '2023-12-12 21:18:25', '2023-12-12 21:18:25'),
-(6, 2, NULL, 'uploads/products/binh-ac-quy-varta-3.png', 'binh-ac-quy-varta-3.png', 3, '2023-12-12 21:18:25', '2023-12-12 21:18:25'),
-(7, 3, NULL, 'uploads/products/ac-quy-varta-agm-ln4-1.png', 'ac-quy-varta-agm-ln4-1.png', 0, '2023-12-13 00:29:59', '2023-12-13 00:29:59'),
-(8, 3, NULL, 'uploads/products/ac-quy-varta-agm-ln4-2.png', 'ac-quy-varta-agm-ln4-2.png', 1, '2023-12-13 00:29:59', '2023-12-13 00:29:59'),
-(9, 3, NULL, 'uploads/products/ac-quy-varta-agm-ln4-3.png', 'ac-quy-varta-agm-ln4-3.png', 2, '2023-12-13 00:29:59', '2023-12-13 00:29:59'),
-(10, 3, NULL, 'uploads/products/ac-quy-varta-agm-ln4-4.png', 'ac-quy-varta-agm-ln4-4.png', 3, '2023-12-13 00:29:59', '2023-12-13 00:29:59'),
-(11, 4, NULL, 'uploads/products/varta-65b24l-1.png', 'varta-65b24l-1.png', 0, '2023-12-13 00:34:25', '2023-12-13 00:34:25'),
-(12, 4, NULL, 'uploads/products/varta-65b24l-2.png', 'varta-65b24l-2.png', 1, '2023-12-13 00:34:25', '2023-12-13 00:34:25'),
-(13, 4, NULL, 'uploads/products/varta-65b24l-3.png', 'varta-65b24l-3.png', 2, '2023-12-13 00:34:25', '2023-12-13 00:34:25'),
-(14, 4, NULL, 'uploads/products/varta-65b24l-4.png', 'varta-65b24l-4.png', 3, '2023-12-13 00:34:25', '2023-12-13 00:34:25'),
-(15, 5, NULL, 'uploads/products/varta-60044-din100-1.png', 'varta-60044-din100-1.png', 0, '2023-12-13 00:39:08', '2023-12-13 00:39:08'),
-(16, 5, NULL, 'uploads/products/varta-60044-din100-2.png', 'varta-60044-din100-2.png', 1, '2023-12-13 00:39:08', '2023-12-13 00:39:08'),
-(17, 5, NULL, 'uploads/products/varta-60044-din100-4.png', 'varta-60044-din100-4.png', 2, '2023-12-13 00:39:08', '2023-12-13 00:39:08'),
-(18, 5, NULL, 'uploads/products/varta-60044-din100-33.png', 'varta-60044-din100-33.png', 3, '2023-12-13 00:39:08', '2023-12-13 00:39:08'),
-(19, 6, NULL, 'uploads/products/varta-61038-din110-1.png', 'varta-61038-din110-1.png', 0, '2023-12-13 00:46:28', '2023-12-13 00:46:28'),
-(20, 6, NULL, 'uploads/products/varta-61038-din110-2.png', 'varta-61038-din110-2.png', 1, '2023-12-13 00:46:28', '2023-12-13 00:46:28'),
-(21, 6, NULL, 'uploads/products/varta-61038-din110-3.png', 'varta-61038-din110-3.png', 2, '2023-12-13 00:46:28', '2023-12-13 00:46:28'),
-(22, 6, NULL, 'uploads/products/varta-61038-din110-4.png', 'varta-61038-din110-4.png', 3, '2023-12-13 00:46:28', '2023-12-13 00:46:28'),
-(23, 7, NULL, 'uploads/products/gs-q-85-1.png', 'gs-q-85-1.png', 0, '2023-12-13 01:49:58', '2023-12-13 01:49:58'),
-(24, 7, NULL, 'uploads/products/gs-q-85-2.png', 'gs-q-85-2.png', 1, '2023-12-13 01:49:58', '2023-12-13 01:49:58'),
-(25, 7, NULL, 'uploads/products/gs-q-85-3.png', 'gs-q-85-3.png', 2, '2023-12-13 01:49:58', '2023-12-13 01:49:58'),
-(26, 7, NULL, 'uploads/products/gs-q-85-4.png', 'gs-q-85-4.png', 3, '2023-12-13 01:49:58', '2023-12-13 01:49:58'),
-(27, 8, NULL, 'uploads/products/ac-quy-gs-ln4-1.png', 'ac-quy-gs-ln4-1.png', 0, '2023-12-13 02:58:32', '2023-12-13 02:58:32'),
-(28, 8, NULL, 'uploads/products/ac-quy-gs-ln4-2.png', 'ac-quy-gs-ln4-2.png', 1, '2023-12-13 02:58:32', '2023-12-13 02:58:32'),
-(29, 8, NULL, 'uploads/products/ac-quy-gs-ln4-3.png', 'ac-quy-gs-ln4-3.png', 2, '2023-12-13 02:58:32', '2023-12-13 02:58:32'),
-(30, 8, NULL, 'uploads/products/ac-quy-gs-ln4-4.png', 'ac-quy-gs-ln4-4.png', 3, '2023-12-13 02:58:32', '2023-12-13 02:58:32'),
-(31, 9, NULL, 'uploads/products/ac-quy-gs-mf-1.png', 'ac-quy-gs-mf-1.png', 0, '2023-12-13 03:01:02', '2023-12-13 03:01:02'),
-(32, 9, NULL, 'uploads/products/ac-quy-gs-mf-2.png', 'ac-quy-gs-mf-2.png', 1, '2023-12-13 03:01:02', '2023-12-13 03:01:02'),
-(33, 9, NULL, 'uploads/products/ac-quy-gs-mf-3.png', 'ac-quy-gs-mf-3.png', 2, '2023-12-13 03:01:02', '2023-12-13 03:01:02'),
-(34, 9, NULL, 'uploads/products/ac-quy-gs-mf-4.png', 'ac-quy-gs-mf-4.png', 3, '2023-12-13 03:01:02', '2023-12-13 03:01:02'),
-(35, 10, NULL, 'uploads/products/gs-mf-44b19l-12V-1.png', 'gs-mf-44b19l-12V-1.png', 0, '2023-12-13 03:14:05', '2023-12-13 03:14:05'),
-(36, 10, NULL, 'uploads/products/gs-mf-44b19l-12V-2.png', 'gs-mf-44b19l-12V-2.png', 1, '2023-12-13 03:14:05', '2023-12-13 03:14:05'),
-(37, 10, NULL, 'uploads/products/gs-mf-44b19l-12V-3.png', 'gs-mf-44b19l-12V-3.png', 2, '2023-12-13 03:14:06', '2023-12-13 03:14:06'),
-(38, 10, NULL, 'uploads/products/gs-mf-44b19l-12V-4.png', 'gs-mf-44b19l-12V-4.png', 3, '2023-12-13 03:14:06', '2023-12-13 03:14:06'),
-(39, 11, NULL, 'uploads/products/gs-mf-din45-lbn-1.png', 'gs-mf-din45-lbn-1.png', 0, '2023-12-13 03:18:12', '2023-12-13 03:18:12'),
-(40, 11, NULL, 'uploads/products/gs-mf-din45-lbn-2.png', 'gs-mf-din45-lbn-2.png', 1, '2023-12-13 03:18:12', '2023-12-13 03:18:12'),
-(41, 11, NULL, 'uploads/products/gs-mf-din45-lbn-3.png', 'gs-mf-din45-lbn-3.png', 2, '2023-12-13 03:18:12', '2023-12-13 03:18:12'),
-(42, 11, NULL, 'uploads/products/gs-mf-din45-lbn-4.png', 'gs-mf-din45-lbn-4.png', 3, '2023-12-13 03:18:12', '2023-12-13 03:18:12'),
-(43, 12, NULL, 'uploads/products/binh-ac-quy-xe-container-1.png', 'binh-ac-quy-xe-container-1.png', 0, '2023-12-13 03:22:01', '2023-12-13 03:22:01'),
-(44, 12, NULL, 'uploads/products/binh-ac-quy-xe-container-2.png', 'binh-ac-quy-xe-container-2.png', 1, '2023-12-13 03:22:01', '2023-12-13 03:22:01'),
-(45, 12, NULL, 'uploads/products/binh-ac-quy-xe-container-3.png', 'binh-ac-quy-xe-container-3.png', 2, '2023-12-13 03:22:01', '2023-12-13 03:22:01'),
-(46, 12, NULL, 'uploads/products/binh-ac-quy-xe-container-4.png', 'binh-ac-quy-xe-container-4.png', 3, '2023-12-13 03:22:01', '2023-12-13 03:22:01'),
-(47, 13, NULL, 'uploads/products/dong-nai-31s-800 -12v-100ah-1.png', 'dong-nai-31s-800 -12v-100ah-1.png', 0, '2023-12-13 03:29:21', '2023-12-13 03:29:21'),
-(48, 13, NULL, 'uploads/products/dong-nai-31s-800 -12v-100ah-2.png', 'dong-nai-31s-800 -12v-100ah-2.png', 1, '2023-12-13 03:29:21', '2023-12-13 03:29:21'),
-(49, 13, NULL, 'uploads/products/dong-nai-31s-800 -12v-100ah-3.png', 'dong-nai-31s-800 -12v-100ah-3.png', 2, '2023-12-13 03:29:21', '2023-12-13 03:29:21'),
-(50, 13, NULL, 'uploads/products/dong-nai-31s-800 -12v-100ah-4.png', 'dong-nai-31s-800 -12v-100ah-4.png', 3, '2023-12-13 03:29:21', '2023-12-13 03:29:21'),
-(51, 14, NULL, 'uploads/products/dong-nai-extra-cmf-1.png', 'dong-nai-extra-cmf-1.png', 0, '2023-12-13 03:33:18', '2023-12-13 03:33:18'),
-(52, 14, NULL, 'uploads/products/dong-nai-extra-cmf-2.png', 'dong-nai-extra-cmf-2.png', 1, '2023-12-13 03:33:18', '2023-12-13 03:33:18'),
-(53, 14, NULL, 'uploads/products/dong-nai-extra-cmf-3.png', 'dong-nai-extra-cmf-3.png', 2, '2023-12-13 03:33:18', '2023-12-13 03:33:18'),
-(54, 14, NULL, 'uploads/products/dong-nai-extra-cmf-4.png', 'dong-nai-extra-cmf-4.png', 3, '2023-12-13 03:33:18', '2023-12-13 03:33:18'),
-(55, 15, NULL, 'uploads/products/dong-nai-hybird-n100-1.png', 'dong-nai-hybird-n100-1.png', 0, '2023-12-13 03:37:41', '2023-12-13 03:37:41'),
-(56, 15, NULL, 'uploads/products/dong-nai-hybird-n100-2.png', 'dong-nai-hybird-n100-2.png', 1, '2023-12-13 03:37:41', '2023-12-13 03:37:41'),
-(57, 15, NULL, 'uploads/products/dong-nai-hybird-n100-3.png', 'dong-nai-hybird-n100-3.png', 2, '2023-12-13 03:37:41', '2023-12-13 03:37:41'),
-(58, 15, NULL, 'uploads/products/dong-nai-hybird-n100-4.png', 'dong-nai-hybird-n100-4.png', 3, '2023-12-13 03:37:41', '2023-12-13 03:37:41');
+(75, 20, NULL, 'uploads/products/ac-quy-gs-ln4-1.png', 'ac-quy-gs-ln4-1.png', 0, '2023-12-14 01:35:53', '2023-12-14 01:35:53'),
+(76, 20, NULL, 'uploads/products/ac-quy-gs-ln4-2.png', 'ac-quy-gs-ln4-2.png', 1, '2023-12-14 01:35:53', '2023-12-14 01:35:53'),
+(77, 20, NULL, 'uploads/products/ac-quy-gs-ln4-3.png', 'ac-quy-gs-ln4-3.png', 2, '2023-12-14 01:35:53', '2023-12-14 01:35:53'),
+(78, 20, NULL, 'uploads/products/ac-quy-gs-ln4-4.png', 'ac-quy-gs-ln4-4.png', 3, '2023-12-14 01:35:53', '2023-12-14 01:35:53'),
+(79, 21, NULL, 'uploads/products/ac-quy-gs-mf-1.png', 'ac-quy-gs-mf-1.png', 0, '2023-12-14 01:38:03', '2023-12-14 01:38:03'),
+(80, 21, NULL, 'uploads/products/ac-quy-gs-mf-2.png', 'ac-quy-gs-mf-2.png', 1, '2023-12-14 01:38:03', '2023-12-14 01:38:03'),
+(81, 21, NULL, 'uploads/products/ac-quy-gs-mf-3.png', 'ac-quy-gs-mf-3.png', 2, '2023-12-14 01:38:03', '2023-12-14 01:38:03'),
+(82, 21, NULL, 'uploads/products/ac-quy-gs-mf-4.png', 'ac-quy-gs-mf-4.png', 3, '2023-12-14 01:38:03', '2023-12-14 01:38:03'),
+(83, 22, NULL, 'uploads/products/gs-mf-44b19l-12V-1.png', 'gs-mf-44b19l-12V-1.png', 0, '2023-12-14 01:43:37', '2023-12-14 01:43:37'),
+(84, 22, NULL, 'uploads/products/gs-mf-44b19l-12V-2.png', 'gs-mf-44b19l-12V-2.png', 1, '2023-12-14 01:43:37', '2023-12-14 01:43:37'),
+(85, 22, NULL, 'uploads/products/gs-mf-44b19l-12V-3.png', 'gs-mf-44b19l-12V-3.png', 2, '2023-12-14 01:43:37', '2023-12-14 01:43:37'),
+(86, 22, NULL, 'uploads/products/gs-mf-44b19l-12V-4.png', 'gs-mf-44b19l-12V-4.png', 3, '2023-12-14 01:43:37', '2023-12-14 01:43:37'),
+(87, 23, NULL, 'uploads/products/gs-mf-din45-lbn-1.png', 'gs-mf-din45-lbn-1.png', 0, '2023-12-14 01:48:54', '2023-12-14 01:48:54'),
+(88, 23, NULL, 'uploads/products/gs-mf-din45-lbn-2.png', 'gs-mf-din45-lbn-2.png', 1, '2023-12-14 01:48:54', '2023-12-14 01:48:54'),
+(89, 23, NULL, 'uploads/products/gs-mf-din45-lbn-3.png', 'gs-mf-din45-lbn-3.png', 2, '2023-12-14 01:48:54', '2023-12-14 01:48:54'),
+(90, 23, NULL, 'uploads/products/gs-mf-din45-lbn-4.png', 'gs-mf-din45-lbn-4.png', 3, '2023-12-14 01:48:54', '2023-12-14 01:48:54'),
+(91, 24, NULL, 'uploads/products/dong-nai-31s-800 -12v-100ah-1.png', 'dong-nai-31s-800 -12v-100ah-1.png', 0, '2023-12-14 01:53:42', '2023-12-14 01:53:42'),
+(92, 24, NULL, 'uploads/products/dong-nai-31s-800 -12v-100ah-2.png', 'dong-nai-31s-800 -12v-100ah-2.png', 1, '2023-12-14 01:53:42', '2023-12-14 01:53:42'),
+(93, 24, NULL, 'uploads/products/dong-nai-31s-800 -12v-100ah-3.png', 'dong-nai-31s-800 -12v-100ah-3.png', 2, '2023-12-14 01:53:42', '2023-12-14 01:53:42'),
+(94, 24, NULL, 'uploads/products/dong-nai-31s-800 -12v-100ah-4.png', 'dong-nai-31s-800 -12v-100ah-4.png', 3, '2023-12-14 01:53:42', '2023-12-14 01:53:42'),
+(95, 25, NULL, 'uploads/products/CMF-80D26L-1.png', 'CMF-80D26L-1.png', 0, '2023-12-14 01:57:28', '2023-12-14 01:57:28'),
+(96, 25, NULL, 'uploads/products/CMF-80D26L-2.png', 'CMF-80D26L-2.png', 1, '2023-12-14 01:57:28', '2023-12-14 01:57:28'),
+(97, 25, NULL, 'uploads/products/CMF-80D26L-3.png', 'CMF-80D26L-3.png', 2, '2023-12-14 01:57:28', '2023-12-14 01:57:28'),
+(98, 25, NULL, 'uploads/products/CMF-80D26L-4.png', 'CMF-80D26L-4.png', 3, '2023-12-14 01:57:28', '2023-12-14 01:57:28'),
+(99, 26, NULL, 'uploads/products/dong-nai-extra-cmf-1.png', 'dong-nai-extra-cmf-1.png', 0, '2023-12-14 01:59:32', '2023-12-14 01:59:32'),
+(100, 26, NULL, 'uploads/products/dong-nai-extra-cmf-2.png', 'dong-nai-extra-cmf-2.png', 1, '2023-12-14 01:59:32', '2023-12-14 01:59:32'),
+(101, 26, NULL, 'uploads/products/dong-nai-extra-cmf-3.png', 'dong-nai-extra-cmf-3.png', 2, '2023-12-14 01:59:32', '2023-12-14 01:59:32'),
+(102, 26, NULL, 'uploads/products/dong-nai-extra-cmf-4.png', 'dong-nai-extra-cmf-4.png', 3, '2023-12-14 01:59:32', '2023-12-14 01:59:32'),
+(103, 27, NULL, 'uploads/products/varta-65b24l-1.png', 'varta-65b24l-1.png', 0, '2023-12-14 02:02:59', '2023-12-14 02:02:59'),
+(104, 27, NULL, 'uploads/products/varta-65b24l-2.png', 'varta-65b24l-2.png', 1, '2023-12-14 02:02:59', '2023-12-14 02:02:59'),
+(105, 27, NULL, 'uploads/products/varta-65b24l-3.png', 'varta-65b24l-3.png', 2, '2023-12-14 02:02:59', '2023-12-14 02:02:59'),
+(106, 27, NULL, 'uploads/products/varta-65b24l-4.png', 'varta-65b24l-4.png', 3, '2023-12-14 02:02:59', '2023-12-14 02:02:59'),
+(107, 28, NULL, 'uploads/products/varta-61038-din110-1.png', 'varta-61038-din110-1.png', 0, '2023-12-14 02:09:28', '2023-12-14 02:09:28'),
+(108, 28, NULL, 'uploads/products/varta-61038-din110-2.png', 'varta-61038-din110-2.png', 1, '2023-12-14 02:09:28', '2023-12-14 02:09:28'),
+(109, 28, NULL, 'uploads/products/varta-61038-din110-3.png', 'varta-61038-din110-3.png', 2, '2023-12-14 02:09:28', '2023-12-14 02:09:28'),
+(110, 28, NULL, 'uploads/products/varta-61038-din110-4.png', 'varta-61038-din110-4.png', 3, '2023-12-14 02:09:28', '2023-12-14 02:09:28'),
+(111, 29, NULL, 'uploads/products/varta-61038-din110-1.png', 'varta-61038-din110-1.png', 0, '2023-12-14 02:12:13', '2023-12-14 02:12:13'),
+(112, 29, NULL, 'uploads/products/varta-61038-din110-2.png', 'varta-61038-din110-2.png', 1, '2023-12-14 02:12:13', '2023-12-14 02:12:13'),
+(113, 29, NULL, 'uploads/products/varta-61038-din110-3.png', 'varta-61038-din110-3.png', 2, '2023-12-14 02:12:13', '2023-12-14 02:12:13'),
+(114, 29, NULL, 'uploads/products/varta-61038-din110-4.png', 'varta-61038-din110-4.png', 3, '2023-12-14 02:12:13', '2023-12-14 02:12:13'),
+(115, 30, NULL, 'uploads/products/ac-quy-rocket-efb-q85-12v-65ah-1.png', 'ac-quy-rocket-efb-q85-12v-65ah-1.png', 0, '2023-12-14 02:15:07', '2023-12-14 02:15:07'),
+(116, 30, NULL, 'uploads/products/ac-quy-rocket-efb-q85-12v-65ah-2.png', 'ac-quy-rocket-efb-q85-12v-65ah-2.png', 1, '2023-12-14 02:15:07', '2023-12-14 02:15:07'),
+(117, 30, NULL, 'uploads/products/ac-quy-rocket-efb-q85-12v-65ah-3.png', 'ac-quy-rocket-efb-q85-12v-65ah-3.png', 2, '2023-12-14 02:15:07', '2023-12-14 02:15:07'),
+(118, 30, NULL, 'uploads/products/ac-quy-rocket-efb-q85-12v-65ah-4.png', 'ac-quy-rocket-efb-q85-12v-65ah-4.png', 3, '2023-12-14 02:15:07', '2023-12-14 02:15:07'),
+(119, 31, NULL, 'uploads/products/rocket-smf-50d23l-12v-50ah-1.png', 'rocket-smf-50d23l-12v-50ah-1.png', 0, '2023-12-14 02:17:55', '2023-12-14 02:17:55'),
+(120, 31, NULL, 'uploads/products/rocket-smf-50d23l-12v-50ah-2.png', 'rocket-smf-50d23l-12v-50ah-2.png', 1, '2023-12-14 02:17:55', '2023-12-14 02:17:55'),
+(121, 31, NULL, 'uploads/products/rocket-smf-50d23l-12v-50ah-3.png', 'rocket-smf-50d23l-12v-50ah-3.png', 2, '2023-12-14 02:17:55', '2023-12-14 02:17:55'),
+(122, 31, NULL, 'uploads/products/rocket-smf-50d23l-12v-50ah-4.png', 'rocket-smf-50d23l-12v-50ah-4.png', 3, '2023-12-14 02:17:55', '2023-12-14 02:17:55'),
+(123, 32, NULL, 'uploads/products/rocket-agm-l6-din110-12v-105ah-1.png', 'rocket-agm-l6-din110-12v-105ah-1.png', 0, '2023-12-14 02:25:30', '2023-12-14 02:25:30'),
+(124, 32, NULL, 'uploads/products/rocket-agm-l6-din110-12v-105ah-2.png', 'rocket-agm-l6-din110-12v-105ah-2.png', 1, '2023-12-14 02:25:30', '2023-12-14 02:25:30'),
+(125, 32, NULL, 'uploads/products/rocket-agm-l6-din110-12v-105ah-3.png', 'rocket-agm-l6-din110-12v-105ah-3.png', 2, '2023-12-14 02:25:30', '2023-12-14 02:25:30'),
+(126, 32, NULL, 'uploads/products/rocket-agm-l6-din110-12v-105ah-4.png', 'rocket-agm-l6-din110-12v-105ah-4.png', 3, '2023-12-14 02:25:30', '2023-12-14 02:25:30'),
+(127, 33, NULL, 'uploads/products/42B20L-1.png', '42B20L-1.png', 0, '2023-12-14 02:31:57', '2023-12-14 02:31:57'),
+(128, 33, NULL, 'uploads/products/42B20L-2.png', '42B20L-2.png', 1, '2023-12-14 02:31:57', '2023-12-14 02:31:57'),
+(129, 34, NULL, 'uploads/products/ac-quy-atlas-90d23lf-1.png', 'ac-quy-atlas-90d23lf-1.png', 0, '2023-12-14 02:39:16', '2023-12-14 02:39:16'),
+(130, 34, NULL, 'uploads/products/ac-quy-atlas-90d23lf-2.png', 'ac-quy-atlas-90d23lf-2.png', 1, '2023-12-14 02:39:16', '2023-12-14 02:39:16'),
+(131, 34, NULL, 'uploads/products/ac-quy-atlas-90d23lf-3.png', 'ac-quy-atlas-90d23lf-3.png', 2, '2023-12-14 02:39:16', '2023-12-14 02:39:16'),
+(132, 34, NULL, 'uploads/products/ac-quy-atlas-90d23lf-4.png', 'ac-quy-atlas-90d23lf-4.png', 3, '2023-12-14 02:39:16', '2023-12-14 02:39:16'),
+(133, 35, NULL, 'uploads/products/acquy-atlas-45ah-66f4830f-1715-1.png', 'acquy-atlas-45ah-66f4830f-1715-1.png', 0, '2023-12-14 02:42:24', '2023-12-14 02:42:24'),
+(134, 35, NULL, 'uploads/products/acquy-atlas-45ah-66f4830f-1715-2.png', 'acquy-atlas-45ah-66f4830f-1715-2.png', 1, '2023-12-14 02:42:24', '2023-12-14 02:42:24'),
+(135, 35, NULL, 'uploads/products/acquy-atlas-45ah-66f4830f-1715-3.png', 'acquy-atlas-45ah-66f4830f-1715-3.png', 2, '2023-12-14 02:42:24', '2023-12-14 02:42:24'),
+(136, 35, NULL, 'uploads/products/acquy-atlas-45ah-66f4830f-1715-4.png', 'acquy-atlas-45ah-66f4830f-1715-4.png', 3, '2023-12-14 02:42:24', '2023-12-14 02:42:24'),
+(137, 36, NULL, 'uploads/products/acquy-atlas-45ah-66f4830f-1715-1.png', 'acquy-atlas-45ah-66f4830f-1715-1.png', 0, '2023-12-14 02:42:25', '2023-12-14 02:42:25'),
+(138, 36, NULL, 'uploads/products/acquy-atlas-45ah-66f4830f-1715-2.png', 'acquy-atlas-45ah-66f4830f-1715-2.png', 1, '2023-12-14 02:42:25', '2023-12-14 02:42:25'),
+(139, 36, NULL, 'uploads/products/acquy-atlas-45ah-66f4830f-1715-3.png', 'acquy-atlas-45ah-66f4830f-1715-3.png', 2, '2023-12-14 02:42:25', '2023-12-14 02:42:25'),
+(140, 36, NULL, 'uploads/products/acquy-atlas-45ah-66f4830f-1715-4.png', 'acquy-atlas-45ah-66f4830f-1715-4.png', 3, '2023-12-14 02:42:25', '2023-12-14 02:42:25'),
+(141, 37, NULL, 'uploads/products/acquy-globe-wp4-5-6-klb-1.png', 'acquy-globe-wp4-5-6-klb-1.png', 0, '2023-12-14 02:46:28', '2023-12-14 02:46:28'),
+(142, 37, NULL, 'uploads/products/acquy-globe-wp4-5-6-klb-2.png', 'acquy-globe-wp4-5-6-klb-2.png', 1, '2023-12-14 02:46:28', '2023-12-14 02:46:28');
 
 -- --------------------------------------------------------
 
@@ -215,7 +227,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2023_12_11_144159_coupon', 1),
 (13, '2023_12_11_144612_coupon_orders', 1),
 (14, '2023_12_12_041752_add_supplier_id_to', 1),
-(15, '2023_12_12_083426_add_unit_to_products_table', 1);
+(15, '2023_12_12_083426_add_unit_to_products_table', 1),
+(16, '2023_12_13_073232_add_description_to_posts_table', 2),
+(17, '2023_12_13_073912_update_price_in_products_table', 2);
 
 -- --------------------------------------------------------
 
@@ -287,6 +301,7 @@ CREATE TABLE `personal_access_tokens` (
 CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
+  `description` varchar(200) DEFAULT NULL,
   `body` text NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -317,20 +332,24 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `quantity`, `category_id`, `supplier_id`, `created_at`, `updated_at`, `unit`) VALUES
-(2, 'ẮC QUY VARTA Q85 115D23L 12V 70AH', 'Chủng loại: EFB, ắc quy khô (miễn bảo dưỡng)\nĐiện áp: 12V\nDung lượng: 70AH\nCCA (SAE): 660A\nCông năng: Khởi động piston ô tô, nguồn hỗ trợ thiết bị mở rộng & tiện ích trên xe\nCông nghệ: I-Stop, Start-Stop, Auto Hold\nKích thước (dài x rộng x cao): 230 x 173 x 225 mm\nThương hiệu: VARTA®\nPhân khúc: VARTA® Silver Dynamic\nNhà sản xuất: Clarios Delkor Corporation\nNơi sản xuất: Hàn Quốc\nBảo hành: 9 tháng (Bảo hành điện tử cùng tem chống hàng giả)', 2380000.00, 20, 1, 15, '2023-12-12 21:18:25', '2023-12-12 21:18:25', 'Cái'),
-(3, 'ẮC QUY VARTA AGM LN4 580901080 12V - 80AH (ECO/START-STOP PLUS)', 'OEM: Thương hiệu Varta là sản phẩm lắp ráp theo xe và khuyên dùng cho các dòng xe sang: Mercedes-Benz, BMW, Maserati, Bentley, Volswagen...\r\nChủng loại: Ắc quy công nghệ AGM 100%\r\nMã bình: LN4 580901080\r\nDung lượng: 80Ah\r\nDòng khởi động: 800A\r\nPhân khúc: VARTA® Silver Dynamic AGM\r\nKích thước (dài * rộng * cao):314 x 174 x 188 mm\r\nThương hiệu: VARTA®\r\nCông nghệ: ECO, START-STOP PLUS\r\nNơi sản xuất: Hàn Quốc\r\nNhà sản xuất: Clarios - Johnson Controls\r\nTrọng lượng: 23,5 kg', 4810000.00, 20, 1, 15, '2023-12-13 00:29:59', '2023-12-13 00:29:59', 'Cái'),
-(4, 'ẮC QUY VARTA 65B24LS NX100-S6LS 12V - 50AH', 'Mã sản phẩm: Varta 65B24LS\r\nSố hiệu: NX100-S6LS\r\nĐiện áp: 12V\r\nDung lượng: 50Ah\r\nChỉ số Dòng khởi động (CCA): 390A\r\nKích thước (Dài x Rộng x Cao): 237X126X225 mm\r\nLoại cọc: cọc nổi\r\nLoại bình: Ắc quy khô kín khí, miễn bảo dưỡng (MF)\r\nMàu sắc: Trắng xanh\r\nXuất xứ: Nhập khẩu từ Hàn Quốc\r\nBảo hành chính hãng 9 tháng, 6 tháng với xe Taxi, GrabMã sản phẩm: Varta 65B24LS\r\nSố hiệu: NX100-S6LS\r\nĐiện áp: 12V\r\nDung lượng: 50Ah\r\nChỉ số Dòng khởi động (CCA): 390A\r\nKích thước (Dài x Rộng x Cao): 237X126X225 mm\r\nLoại cọc: cọc nổi\r\nLoại bình: Ắc quy khô kín khí, miễn bảo dưỡng (MF)\r\nMàu sắc: Trắng xanh\r\nXuất xứ: Nhập khẩu từ Hàn Quốc\r\nBảo hành chính hãng 9 tháng, 6 tháng với xe Taxi, Grab', 1199000.00, 20, 1, 15, '2023-12-13 00:34:25', '2023-12-13 00:34:25', 'Cái'),
-(5, 'ẮC QUY VARTA 60044 DIN100(L) 12V - 100AH', 'Mã sản phẩm: 60044 DIN100\r\nĐiện áp: 12V\r\nDung lượng: 100AH\r\nChỉ số CCA: 760\r\nKích thước (Dài x Rộng x Cao): 354 x 174 x 188 (mm)\r\nLoại bình: Ắc quy khô kín khí\r\nLoại cọc: Cọc L, DIN\r\nMàu sắc: Thân màu trắng, mặt bình màu xanh\r\nXuất xứ: Hàn Quốc', 2580000.00, 20, 1, 15, '2023-12-13 00:39:08', '2023-12-13 00:39:08', 'Cái'),
-(6, 'ẮC QUY VARTA 61038 DIN110 12V - 110AH', 'Mã sản phẩm: Varta 61038\r\nSố hiệu: DIN110\r\nĐiện áp: 12V\r\nDung lượng: 110 Ah\r\nChỉ số Dòng khởi động (CCA): 900A\r\nKích thước (Dài x Rộng x Cao): 393X174X188 mm\r\nLoại cọc: cọc chìm\r\nLoại bình: Ắc quy khô kín khí, miễn bảo dưỡng (MF)\r\nMàu sắc: Xanh lam, bạc\r\nXuất xứ: Nhập khẩu từ Hàn Quốc', 3150000.00, 20, 1, 15, '2023-12-13 00:46:28', '2023-12-13 00:46:28', 'Cái'),
-(7, 'ẮC QUY GS Q85 MF 12V - 65AH', 'Mã sản phẩm: Q85 MF 12V - 65AH\r\nCông nghệ: Start-Stop Technology, I-Stop\r\nChỉ số CCA: 520A\r\nDung lượng: 65AH (20Hr)\r\nĐiện áp: 12Volt\r\nKích thước (Dài x Rộng x Cao): 230 x 172 x 200 (mm)\r\nLoại bình: Ắc quy khí khô, miễn bảo dưỡng\r\nLoại cọc: Cọc trái, chuẩn cọc to\r\nXuất xứ: Thái Lan, bình ắc quy được lắp mặc định trên xe Mazda 3, Mazda 6, Mazda CX-5, Mazda CX-8\r\nThương hiệu: GS ắc quy số 1 tại Nhật Bản', 1999000.00, 20, 1, 16, '2023-12-13 01:49:58', '2023-12-13 01:49:58', 'Cái'),
-(8, 'ẮC QUY GS LN4 DIN80L 12V - 80AH (THÁI LAN)', 'Mã sản phẩm: GS LN4 DIN80L\r\nĐiện áp: 12V\r\nDung lượng: 80AH\r\nChỉ số CCA: 760\r\nKích thước (Dài x Rộng x Cao): 314 x 175 x 190 (mm)\r\nLoại bình: Bình ắc quy khô, miễn bảo dưỡng\r\nLoại cọc: Cọc nghịch L\r\nXuất xứ: Nhập khẩu Thái Lan', 2100000.00, 20, 1, 16, '2023-12-13 02:58:32', '2023-12-13 02:58:32', 'Cái'),
-(9, 'ẮC QUY GS MF 40B19L 12V - 35AH', 'Mã sản phẩm: GS MF 40B19L\r\nĐiện áp: 12V\r\nDung lượng: 35Ah\r\nTrọng lượng: 9kg\r\nKích thước ( Dài x rộng x cao): 185 x 127 x 227 mm\r\nXuất xứ:  Sản xuất tại Việt Nam theo công nghệ Nhật Bản\r\nHãng sản xuất: GS\r\nLoại cọc: Cọc trái (L), chuẩn cọc nhỏ\r\nLoại ắc quy: Ắc quy kín khí, miễn bảo dưỡng\r\nMàu sắc: Đen\r\nBảo hành: 6 tháng', 990000.00, 20, 1, 16, '2023-12-13 03:01:02', '2023-12-13 03:01:02', 'Cái'),
-(10, 'ẮC QUY GS MF 44B19L 12V - 40AH', 'Mã sản phẩm: GS MF 44B19L\r\nĐiện áp: 12V\r\nDung lượng: 40Ah\r\nTrọng lượng: 9,88kg\r\nKích thước ( Dài x rộng x cao): 187 x 127 x 203 mm\r\nXuất xứ:  Sản xuất tại Việt Nam theo công nghệ Nhật Bản\r\nHãng sản xuất: GS\r\nLoại cọc: Cọc trái (L), chuẩn cọc nhỏ\r\nLoại ắc quy: Ắc quy kín khí, miễn bảo dưỡng\r\nMàu sắc: Đen\r\nBảo hành: 9 tháng', 1080000.00, 20, 1, 16, '2023-12-13 03:14:05', '2023-12-13 03:14:05', 'Cái'),
-(11, 'ẮC QUY GS MF DIN45 LBN 12V - 45AH', 'Mã sản phẩm: MF DIN45 LBN\r\nĐiện áp: 12V\r\nDung lượng: 45AH\r\nChỉ số CCA: 600\r\nKích thước: 207 x 175 x 175 (mm)\r\nLoại bình: Ắc quy khí khô, miễn bảo dưỡng\r\nLoại cọc: Cọc nghịch - cọc chìm\r\nKhối lượng: 12kg\r\nXuất xứ: Việt Nam', 1150000.00, 20, 1, 16, '2023-12-13 03:18:12', '2023-12-13 03:18:12', 'Cái'),
-(12, 'ẮC QUY GS 115D33V 12V - 100AH (XE ĐẦU KÉO/CONTAINER)', 'Mã sản phẩm: MF 115D33V\r\nĐiện áp: 12V\r\nDung lượng: 100AH\r\nChỉ số CCA: 850\r\nKích thước (Dài x Rộng x Cao): 330 x 172 x 240\r\nLoại bình: Ắc quy khô, miễn bảo dưỡng\r\nLoại cọc: Cọc bu lông, cọc vít\r\nThương hiệu: GS - Việt Nam', 1899000.00, 20, 1, 16, '2023-12-13 03:22:01', '2023-12-13 03:22:01', 'Cái'),
-(13, 'Ắc quy khô miễn bảo dưỡng Đồng Nai CMF 31S-800 - 12V - 100Ah', 'Ắc quy khô miễn bảo dưỡng Đồng Nai là dòng ắc quy không phải bảo dưỡng trong suốt quá trình sử dụng. \r\nẮc quy khô miễn bảo dưỡng Đồng Nai sử dụng công nghệ đúc liên tục cho chất lượng bản cực chì cao và đồng đều. Thành phần cấu tạo hợp kim chì và phụ gia đặc biệt phù hợp cho mục đích khởi động. \r\n \r\n\r\nƯu điểm vượt trội của Ắc quy khô miễn bảo dưỡng Đồng Nai CMF 31S-800 (12V - 100Ah) \r\n\r\nHợp kim chì canxi – không hao nước, hạn chế sự tự phóng. \r\nNắp ắc quy được thiết kế 2 lớp với ống dẫn bên trong, hạn chế tối đa sực bốc hơi nước. \r\nMắt thần (indicator) – dễ dàng kiểm tra tình trạng ắc quy. \r\nThiết kế chống rung lắc phù hợp với điều kiện đường xá tại Việt Nam.', 2440000.00, 20, 1, 17, '2023-12-13 03:29:21', '2023-12-13 03:29:21', 'Cái'),
-(14, 'Ắc quy khô miễn bảo dưỡng Đồng Nai EXTRA CMF 31800 - 12V - 100Ah', 'Ắc quy khô miễn bảo dưỡng Đồng Nai Extra CMF - bền bỉ gấp 2 lần, bảo hành 18 tháng \r\n\r\nẮc quy khô miễn bảo dưỡng Đồng Nai là dòng ắc quy khô miễn bảo dưỡng đột phá của PINACO, vượt qua mọi chuẩn mực về sự bền bỉ, mạnh mẽ với thời gian bảo hành lên đến 18 tháng. \r\nẮc quy khô miễn bảo dưỡng Đồng Nai Extra CMF bền bỉ gấp 2 lần, bảo hành lên đến 18 tháng đã tạo ra một khoảng cách đáng kể với các bình ắc quy khác tại thị trường Việt Nam. Đem đến nguồn năng lượng gấp đôi cho mọi hành trình: Luôn bền bỉ dù phải khởi động liên tục, thêm mạnh mẽ để chinh phục mọi nẻo đường. \r\nƯu điểm vượt trội của Ắc quy khô miễn bảo dưỡng Đồng Nai EXTRA CMF 31800 (12V - 100Ah): \r\n\r\nMột bước đột phá mới của Ắc quy khô miễn bảo dưỡng, với thời gian bảo hành lên đến 18 tháng. \r\nBổ sung hợp kim chống ăn mòn, làm tăng gấp đôi tuổi thọ. \r\nĐược cấu tạo bằng chất liệu đặc biệt, phù hợp với điều kiện khắc nghiệt. \r\nThiết kế chống rung lắc, phù hợp với mọi điều kiện địa hình khác nhau.', 2800000.00, 20, 1, 17, '2023-12-13 03:33:18', '2023-12-13 03:33:18', 'Cái'),
-(15, 'Ắc quy Hybrid Đồng Nai N100 - 12V - 100Ah', 'Ắc quy Hybrid Đồng Nai  - Sự kết hợp độc đáo \r\n\r\nVới điều kiện khí hậu và thói quen tiêu dùng tại Việt Nam, PINACO đã cho ra đời dòng ắc quy Hybrid Đồng Nai N100 (12V - 100Ah) là sự thừa hưởng ưu điểm nổi bật của ắc quy nước truyền thống và ắc quy khô miễn bảo dưỡng. \r\nẮc quy Hybrid Đồng Nai là sự kết giữa bản cực dương làm từ chì antimon (ắc quy nước truyền thống) giúp phóng điện mạnh mẽ và bản cực âm làm từ chì canxi (ắc quy khô miễn bảo dưỡng) giúp hạn chế mức độ hao hụt nước. \r\nSự kết hợp độc đáo làm nên ắc quy Hybrid Đồng Nai với nhiều lợi ích cộng thêm cho người tiêu dùng. Giờ đây ắc quy Hybrid Đồng Nai vừa mạnh mẽ, bền bỉ như ắc quy nước truyền thống và ít hao nước, tiện dụng như ắc quy khô miễn bảo dưỡng, đồng thời độ bền và tuổi thọ tăng lên.', 2133000.00, 20, 1, 17, '2023-12-13 03:37:41', '2023-12-13 03:37:41', 'Cái');
+(20, 'ẮC QUY GS LN4 DIN80L 12V - 80AH (THÁI LAN)', '<ul dir=\"ltr\">\r\n<li role=\"presentation\"><strong>M&atilde; sản phẩm:&nbsp;</strong>GS LN4 DIN80L</li>\r\n<li role=\"presentation\"><strong>Điện &aacute;p:</strong>&nbsp;12V</li>\r\n<li role=\"presentation\"><strong>Dung lượng:</strong>&nbsp;80AH</li>\r\n<li role=\"presentation\"><strong>Chỉ số CCA:</strong>&nbsp;760</li>\r\n<li role=\"presentation\"><strong>K&iacute;ch thước (D&agrave;i x Rộng x Cao):</strong>&nbsp;314 x 175 x 190 (mm)</li>\r\n<li role=\"presentation\"><strong>Loại b&igrave;nh:</strong>&nbsp;B&igrave;nh ắc quy kh&ocirc;, miễn bảo dưỡng</li>\r\n<li role=\"presentation\"><strong>Loại cọc:</strong>&nbsp;Cọc nghịch L</li>\r\n<li role=\"presentation\"><strong>Xuất xứ: </strong>Nhập khẩu Th&aacute;i Lan</li>\r\n</ul>', 2100000.00, 100, 1, 16, '2023-12-14 01:35:53', '2023-12-14 01:35:53', 'Cái'),
+(21, 'ẮC QUY GS MF 40B19L 12V - 35AH', '<ul>\r\n<li>M&atilde; sản phẩm: GS MF 40B19L</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>Dung lượng: 35Ah</li>\r\n<li>Trọng lượng: 9kg</li>\r\n<li>K&iacute;ch thước ( D&agrave;i x rộng x cao): 185 x 127 x 227 mm</li>\r\n<li>Xuất xứ:&nbsp; Sản xuất tại Việt Nam theo c&ocirc;ng nghệ Nhật Bản</li>\r\n<li>H&atilde;ng sản xuất: GS</li>\r\n<li>Loại cọc: Cọc tr&aacute;i (L), chuẩn cọc nhỏ</li>\r\n<li>Loại ắc quy: Ắc quy k&iacute;n kh&iacute;, miễn bảo dưỡng</li>\r\n<li>M&agrave;u sắc: Đen</li>\r\n<li>Bảo h&agrave;nh: 6 th&aacute;ng</li>\r\n</ul>', 950000.00, 100, 1, 16, '2023-12-14 01:38:03', '2023-12-14 01:38:03', 'Cái'),
+(22, 'ẮC QUY GS MF 44B19L 12V - 40AH', '<ul>\r\n<li>M&atilde; sản phẩm: GS MF 44B19L</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>Dung lượng: 40Ah</li>\r\n<li>Trọng lượng: 9,88kg</li>\r\n<li>K&iacute;ch thước ( D&agrave;i x rộng x cao): 187 x 127 x 203 mm</li>\r\n<li>Xuất xứ:&nbsp; Sản xuất tại Việt Nam theo c&ocirc;ng nghệ Nhật Bản</li>\r\n<li>H&atilde;ng sản xuất: GS</li>\r\n</ul>', 1080000.00, 100, 1, 16, '2023-12-14 01:43:37', '2023-12-14 01:43:37', 'Cái'),
+(23, 'ẮC QUY GS MF DIN45 LBN 12V - 45AH', '<ul dir=\"ltr\">\r\n<li role=\"presentation\">M&atilde; sản phẩm:&nbsp;MF DIN45 LBN</li>\r\n<li role=\"presentation\">Điện &aacute;p:&nbsp;12V</li>\r\n<li role=\"presentation\">Dung lượng<strong>:</strong>&nbsp;45AH</li>\r\n<li role=\"presentation\">Chỉ số CCA:&nbsp;600</li>\r\n<li role=\"presentation\">K&iacute;ch thước:<strong>&nbsp;</strong>207 x 175 x 175 (mm)</li>\r\n<li role=\"presentation\">Loại b&igrave;nh:<strong>&nbsp;</strong>Ắc quy kh&iacute; kh&ocirc;, miễn bảo dưỡng</li>\r\n<li role=\"presentation\">Loại cọc:&nbsp;Cọc nghịch - cọc ch&igrave;m</li>\r\n<li role=\"presentation\">Khối lượng<strong>:&nbsp;</strong>12kg</li>\r\n<li role=\"presentation\">Xuất xứ: Việt Nam</li>\r\n</ul>', 1150000.00, 100, 1, 16, '2023-12-14 01:48:54', '2023-12-14 01:48:54', 'Cái'),
+(24, 'ẮC QUY ĐỒNG NAI CMF 31800 12V - 100AH', '<ul dir=\"ltr\">\r\n<li role=\"presentation\"><strong>M&atilde; sản phẩm:</strong>&nbsp;CMF 31800</li>\r\n<li role=\"presentation\"><strong>Điện &aacute;p:&nbsp;</strong>12V</li>\r\n<li role=\"presentation\"><strong>Dung lượng:&nbsp;</strong>100AH</li>\r\n<li role=\"presentation\"><strong>Khối lượng:&nbsp;</strong>25.13kg</li>\r\n<li role=\"presentation\"><strong>K&iacute;ch thước:</strong>&nbsp;230 x 171 x 215 (mm)</li>\r\n<li role=\"presentation\"><strong>Vị tr&iacute; cọc b&igrave;nh:&nbsp;</strong>R</li>\r\n<li role=\"presentation\"><strong>H&atilde;ng sản xuất:</strong>&nbsp;Pinaco&nbsp;- Việt Nam</li>\r\n<li role=\"presentation\"><strong>Bảo h&agrave;nh:&nbsp;</strong>09 th&aacute;ng</li>\r\n</ul>', 2050000.00, 100, 1, 17, '2023-12-14 01:53:42', '2023-12-14 01:53:42', 'Cái'),
+(25, 'ẮC QUY ĐỒNG NAI CMF 80D26L 12V - 70AH', '<ul dir=\"ltr\">\r\n<li role=\"presentation\"><strong>M&atilde; sản phẩm:&nbsp;</strong>CMF 80D26L</li>\r\n<li role=\"presentation\"><strong>Điện &aacute;p:</strong>&nbsp;12V</li>\r\n<li role=\"presentation\"><strong>Dung lượng:</strong>&nbsp;70AH</li>\r\n<li role=\"presentation\"><strong>K&iacute;ch thước (L x W x H):</strong>&nbsp;258 x 174 x 203 (mm)</li>\r\n<li role=\"presentation\"><strong>Vị tr&iacute; cọc:&nbsp;</strong>LO</li>\r\n<li role=\"presentation\"><strong>Trọng lượng:</strong> 18,59 kg</li>\r\n</ul>', 1450000.00, 100, 1, 17, '2023-12-14 01:57:28', '2023-12-14 01:57:28', 'Cái'),
+(26, 'ẮC QUY ĐỒNG NAI EXTRA CMF 55D23R - 12V - 60AH', '<ul dir=\"ltr\">\r\n<li role=\"presentation\"><strong>M&atilde; sản phẩm:</strong>&nbsp;Extra CMF 55D23R</li>\r\n<li role=\"presentation\"><strong>Điện &aacute;p:&nbsp;</strong>12V</li>\r\n<li role=\"presentation\"><strong>Dung lượng:</strong>&nbsp;60AH</li>\r\n<li role=\"presentation\"><strong>Vị tr&iacute; cọc:</strong>&nbsp;R</li>\r\n<li role=\"presentation\"><strong>K&iacute;ch thước (D&agrave;i x Rộng x Cao):</strong>&nbsp;232 x 171 x 200 (mm)</li>\r\n<li role=\"presentation\"><strong>Trọng lượng:</strong>&nbsp;16.22kg</li>\r\n<li role=\"presentation\"><strong>Loại b&igrave;nh:</strong>&nbsp;B&igrave;nh ắc quy kh&ocirc;, miễn bảo dưỡng</li>\r\n<li role=\"presentation\"><strong>H&atilde;ng sản xuất:&nbsp;</strong>Pinaco</li>\r\n</ul>', 1199000.00, 100, 1, 17, '2023-12-14 01:59:32', '2023-12-14 01:59:32', 'Cái'),
+(27, 'ẮC QUY VARTA 65B24L NX100-S6L 12V - 50Ah', '<ul>\r\n<li>M&atilde; sản phẩm: Varta 65B24L</li>\r\n<li>S&ocirc;́ hi&ecirc;̣u: NX100-S6L</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>Dung lượng: 50Ah</li>\r\n<li>Chỉ số D&ograve;ng khởi động (CCA): 390A</li>\r\n<li>K&iacute;ch thước (D&agrave;i x Rộng x Cao): 236X134X201 mm</li>\r\n<li>Loại cọc: cọc nhỏ</li>\r\n<li>Loại b&igrave;nh: Ắc quy kh&ocirc; k&iacute;n kh&iacute;, miễn bảo dưỡng (MF)</li>\r\n<li>M&agrave;u sắc: Trắng xanh</li>\r\n<li>Xuất xứ: Nhập khẩu từ H&agrave;n Quốc</li>\r\n</ul>', 1189000.00, 100, 1, 15, '2023-12-14 02:02:59', '2023-12-14 02:02:59', 'Cái'),
+(28, 'ẮC QUY VARTA 60044 DIN100(L) 12V - 100AH', '<ul>\r\n<li>M&atilde; sản phẩm: 60044 DIN100</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>Dung lượng: 100AH</li>\r\n<li>Chỉ số CCA: 760</li>\r\n<li>K&iacute;ch thước (D&agrave;i x Rộng x Cao): 354 x 174 x 188 (mm)</li>\r\n<li>Loại b&igrave;nh: Ắc quy kh&ocirc; k&iacute;n kh&iacute;</li>\r\n<li>Loại cọc: Cọc L, DIN</li>\r\n<li>M&agrave;u sắc: Th&acirc;n m&agrave;u trắng, mặt b&igrave;nh m&agrave;u xanh</li>\r\n<li>Xuất xứ: H&agrave;n Quốc</li>\r\n</ul>', 2580000.00, 100, 1, 15, '2023-12-14 02:09:27', '2023-12-14 02:09:27', 'Cái'),
+(29, 'ẮC QUY VARTA 61038 DIN110 12V - 110AH', '<ul>\r\n<li>M&atilde; sản phẩm: Varta 61038</li>\r\n<li>S&ocirc;́ hi&ecirc;̣u: DIN110</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>Dung lượng: 110 Ah</li>\r\n<li>Chỉ số D&ograve;ng khởi động (CCA): 900A</li>\r\n<li>K&iacute;ch thước (D&agrave;i x Rộng x Cao): 393X174X188 mm</li>\r\n<li>Loại cọc: cọc ch&igrave;m</li>\r\n<li>Loại b&igrave;nh: Ắc quy kh&ocirc; k&iacute;n kh&iacute;, miễn bảo dưỡng (MF)</li>\r\n<li>M&agrave;u sắc: Xanh lam, bạc</li>\r\n<li>Xuất xứ: Nhập khẩu từ H&agrave;n Quốc</li>\r\n</ul>', 3150000.00, 100, 1, 15, '2023-12-14 02:12:13', '2023-12-14 02:12:13', 'Cái'),
+(30, 'ẮC QUY ROCKET EFB Q85 12V - 65AH', '<ul>\r\n<li>M&atilde; sản phẩm: EFB Q85 12 - 65AH</li>\r\n<li>Chủng loại: Ắc quy kh&ocirc; (miễn bảo dưỡng)</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>Dung lượng: 65AH</li>\r\n<li>C&ocirc;ng nghệ: Start-Stop, I-Stop, High CCA</li>\r\n<li>K&iacute;ch thước (d&agrave;i x rộng x cao): 233 x 173 x 225 mm</li>\r\n<li>Thương hiệu: ROCKET đến từ H&agrave;n Quốc</li>\r\n<li>Xuất xứ: Được nhập khẩu 100% từ H&agrave;n Quốc</li>\r\n</ul>', 1999000.00, 100, 1, 18, '2023-12-14 02:15:07', '2023-12-14 02:15:07', 'Cái'),
+(31, 'ẮC QUY ROCKET SMF 50D20R 12V - 50AH', '<ul>\r\n<li>M&atilde; sản phẩm: Rocket SMF</li>\r\n<li>S&ocirc;́ hi&ecirc;̣u: 50D20R</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>Dung lượng: 50Ah</li>\r\n<li>K&iacute;ch thước (D&agrave;i x Rộng x Cao): 202x173x225 mm</li>\r\n<li>Loại cọc: cọc xu&ocirc;i</li>\r\n<li>Loại b&igrave;nh: Ắc quy kh&ocirc; k&iacute;n kh&iacute;, miễn bảo dưỡng (MF)</li>\r\n<li>M&agrave;u sắc: m&agrave;u Đen</li>\r\n<li>Xuất xứ: Nhập khẩu từ H&agrave;n Quốc</li>\r\n</ul>', 1150000.00, 100, 1, 18, '2023-12-14 02:17:55', '2023-12-14 02:17:55', 'Cái'),
+(32, 'ẮC QUY ROCKET AGM L3 12V - 70AH', '<ul>\r\n<li>Mã sản phẩm: AGM L3</li>\r\n<li>Ki&ecirc;̉u dáng: Ắc quy acid chì, bình DIN kín khí, cọc ngược</li>\r\n<li>Đi&ecirc;̣n áp: 12V</li>\r\n<li>Dung lượng: 70Ah</li>\r\n<li>Dòng khởi đ&ocirc;̣ng lạnh: 700CCA</li>\r\n<li>Kích thước (d&agrave;i x rộng x cao): 278x175x190 mm&nbsp;</li>\r\n<li>Xu&acirc;́t xứ: Nh&acirc;̣p kh&acirc;̉u Hàn Qu&ocirc;́c</li>\r\n<li>Hãng sản xu&acirc;́t : Sebang Global Battery Co</li>\r\n</ul>', 5700000.00, 100, 1, 18, '2023-12-14 02:25:30', '2023-12-14 02:25:30', 'Cái'),
+(33, 'Ắc quy AMARON 42B20L 12V 35Ah', '<p><strong>AMARON - ẮC QUY MIỄN BẢO DƯỠNG -&nbsp;HỢP KIM BẠC</strong></p>\r\n<ul>\r\n<li><strong>H&atilde;ng sản xuất:</strong>&nbsp;Amara Raja Batteries - Johnson Controls</li>\r\n<li><strong>Thương hiệu: </strong><a target=\"_blank\">AMARON</a></li>\r\n</ul>\r\n<p><strong>* Xuất xứ:&nbsp;</strong>Ấn Độ</p>\r\n<p><strong>* Ưu điểm:</strong></p>\r\n<p>- C&ocirc;ng nghệ hợp kim bạc(Silven X)&nbsp;được cấp bằng s&aacute;ng chế, gi&uacute;p tăng tuổi thọ ắc quy.</p>\r\n<p>- Thiết kế vỏ nhựa c&oacute; khả năng chịu nhiệt cao, chống rung động.</p>\r\n<p>- Khả năng dự trữ điện năng cao, hiệu suất khởi động cao.</p>', 1160000.00, 100, 1, 19, '2023-12-14 02:31:57', '2023-12-14 02:31:57', 'Cái'),
+(34, 'ẮC QUY ATLAS SE-Q85 90D23FL 12V - 65AH', '<ul>\r\n<li>M&atilde; sản phẩm: SE-Q85</li>\r\n<li>Dung lượng: 65AH</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>K&iacute;ch thước (D&agrave;i x Rộng x Cao): 230 x 172 x 200 (mm)</li>\r\n<li>M&agrave;u sắc: X&aacute;m v&agrave; ghi đen</li>\r\n<li>Loại b&igrave;nh: Ắc quy kh&ocirc;, miễn bảo dưỡng</li>\r\n<li>Xuất xứ: H&agrave;n Quốc</li>\r\n</ul>', 2199000.00, 100, 1, 21, '2023-12-14 02:39:16', '2023-12-14 02:39:16', 'Cái'),
+(35, 'ẮC QUY ATLAS MF 50B24FL 12V - 45AH', '<ul>\r\n<li>M&atilde; sản phẩm: MF 50B24FL</li>\r\n<li>C&ocirc;ng suất: 45AH</li>\r\n<li>CCA: 400A</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>K&iacute;ch thước (D&agrave;i x Rộng x Cao): 234 x 127 x 200 (mm)</li>\r\n<li>Loại b&igrave;nh: Ắc quy kh&ocirc;, miễn bảo dưỡng</li>\r\n<li>M&agrave;u sắc: V&agrave;ng, đen</li>\r\n<li>Xuất xứ: H&agrave;n Quốc</li>\r\n<li>Sản xuất: Hankook &amp; Company Co. Ltd</li>\r\n</ul>', 1050000.00, 100, 1, 21, '2023-12-14 02:42:24', '2023-12-14 02:42:24', 'Cái'),
+(36, 'ẮC QUY ATLAS MF 50B24FL 12V - 45AH', '<ul>\r\n<li>M&atilde; sản phẩm: MF 50B24FL</li>\r\n<li>C&ocirc;ng suất: 45AH</li>\r\n<li>CCA: 400A</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>K&iacute;ch thước (D&agrave;i x Rộng x Cao): 234 x 127 x 200 (mm)</li>\r\n<li>Loại b&igrave;nh: Ắc quy kh&ocirc;, miễn bảo dưỡng</li>\r\n<li>M&agrave;u sắc: V&agrave;ng, đen</li>\r\n<li>Xuất xứ: H&agrave;n Quốc</li>\r\n<li>Sản xuất: Hankook &amp; Company Co. Ltd</li>\r\n</ul>', 1050000.00, 100, 1, 21, '2023-12-14 02:42:25', '2023-12-14 02:42:25', 'Cái'),
+(37, 'ẮC QUY GLOBE WP4,5-6 KLB 6V - 4,5AH', '<ul dir=\"ltr\">\r\n<li role=\"presentation\"><strong>M&atilde; sản phẩm:</strong>&nbsp;WP4,5-6 KLB</li>\r\n<li role=\"presentation\"><strong>Điện &aacute;p:&nbsp;</strong>6V</li>\r\n<li role=\"presentation\"><strong>Dung lượng:&nbsp;</strong>4,5AH</li>\r\n<li role=\"presentation\"><strong>Trọng lượng:</strong>&nbsp;0,85kg</li>\r\n<li role=\"presentation\"><strong>K&iacute;ch thước (D&agrave;i x rộng x cao):</strong>&nbsp;70 x 47 x 101mm</li>\r\n<li role=\"presentation\"><strong>Xuất xứ:</strong>&nbsp;Việt Nam</li>\r\n<li role=\"presentation\"><strong>Bảo h&agrave;nh:&nbsp;</strong>12 th&aacute;ng</li>\r\n</ul>', 120000.00, 100, 1, 22, '2023-12-14 02:46:28', '2023-12-14 02:46:28', 'Cái');
 
 -- --------------------------------------------------------
 
@@ -387,8 +406,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `address`, `phone`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Trương Công Đức', 'truongcongduc2004@gmail.com', NULL, NULL, 1, NULL, '$2y$12$PApCtLlZn0f9X6Tc9NW/ruutOxi/N31kO7ERshe8m1KPIszhcr4dS', NULL, '2023-12-11 08:00:55', '2023-12-11 08:00:55'),
-(2, 'Phạm Vinh Quang', 'phamvinhquang14042003@gmail.com', NULL, NULL, 1, NULL, '$2y$12$3DGHN8JJJoChTxE7x9xc9.tHsnvMHSWWvgToPZFcmyejGsPpzihtC', NULL, '2023-12-12 20:48:54', '2023-12-12 20:48:54'),
-(3, 'Phạm Vinh Quang', 'phamvinhquang140402003@gmail.com', NULL, NULL, 1, NULL, '$2y$12$eQBblDEDk2Vg/tJCW4aheuAbglW2XbfY/yQlo/bmc0bRt5fIUJmxe', NULL, '2023-12-13 02:54:34', '2023-12-13 02:54:34');
+(3, 'Phạm Vinh Quang', 'phamvinhquang140402003@gmail.com', NULL, NULL, 1, NULL, '$2y$12$eQBblDEDk2Vg/tJCW4aheuAbglW2XbfY/yQlo/bmc0bRt5fIUJmxe', NULL, '2023-12-13 02:54:34', '2023-12-13 02:54:34'),
+(4, 'Phạm Vinh Quang', 'phamvinhquang14042003@gmail.com', NULL, NULL, 1, NULL, '$2y$12$VFraJ2JsqzNdArdsYHxrEutgDhZEsGE7oIXkAIvqdthBAhUL8l/ju', NULL, '2023-12-13 20:45:09', '2023-12-13 20:45:09');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -525,13 +544,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `image_features`
 --
 ALTER TABLE `image_features`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
@@ -555,13 +574,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT cho bảng `suppliers`
@@ -573,7 +592,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
