@@ -68,7 +68,7 @@
                             action="{{ route('cart.add', ['productId' => $products->id, 'quantity' => $products->quantity]) }}"
                             method="POST" id="cartForm">
                             @csrf
-                            <div class="quantity-with_btn mb-4">
+                            <div class="quantity-with_btn mb-4 d-flex align-item-center">
                                 <div class="quantity">
                                     <div class="cart-plus-minus">
                                         <input name="quantity" class="cart-plus-minus-box" value="0" type="number"
@@ -77,11 +77,7 @@
                                         <div class="inc qtybutton" onclick="incrementQuantity()">+</div>
                                     </div>
                                 </div>
-                                <div class="quantity">
-                                    <div class="cart-plus-minus">
-                                        <h1>{{ $products->unit }}</h1>
-                                    </div>
-                                </div>
+                                <h1 class="px-3">{{ $products->unit }}</h1>
                                 <div class="add-to_cart">
                                     <input class="btn obrien-button primary-btn" type="button" value="Add to cart"
                                         onclick="submitForm()">
