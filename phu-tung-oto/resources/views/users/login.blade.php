@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'trang Login')
+@section('title', 'Phụ tùng ôtô - Đăng nhập')
 @section('content')
     @include('auth.login')
 @endsection
