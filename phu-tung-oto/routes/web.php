@@ -160,7 +160,7 @@ Route::get('posts', [postController::class, 'Posts'])->name('posts');
 Route::get('show/posts/{id}', [postController::class, 'ShowPosts'])->name('posts.show');
 Route::get('cart', [CartController::class, 'cart'])->name('cart');
 Route::delete('/delete-cart-item/{orderDetail}', [CartController::class, 'deleteCartItem'])->name('delete.cart.item');
-Route::post('cart/add/{productId}/{quantity}', [CartController::class, 'addCart'])
+Route::post('cart/add/{id}/{quantity}', [CartController::class, 'addCart'])
     ->name('cart.add');
 // Add a route for updating the cart item
 Route::post('update-cart-item', [CartController::class, 'updateCartItem'])->name('update');
