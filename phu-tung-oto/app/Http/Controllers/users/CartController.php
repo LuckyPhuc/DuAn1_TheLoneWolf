@@ -41,36 +41,49 @@ class CartController extends Controller
     {
         $product = Products::findOrFail($productId);
         if (!$product) {
-            abort(404, 'Product not found');
+            abort(404, 'Không tìm thấy sản phẩm');
         }
+        // // Kiểm tra xem có đủ số lượng không
+        // if ($product->quantity < $quantity) {
+        //     return redirect()->route('cart.list')->with('error', 'Số lượng không đủ.');
+        // }
         $order = Orders::firstOrCreate([
-            // 'users_id' => auth()->id(),
-            'users_id' => 1,
+            'users_id' => auth()->id(),
             'status' => 'open',
         ], [
             'order_date' => now(),
             'total' => 0,
         ]);
+
         $orderDetail = new Order_details([
             'product_id' => $product->id,
             'quantity' => $quantity,
             'price' => $product->price,
         ]);
+
         $order->order_details()->save($orderDetail);
+        // dd($product->quantity);
+        // Cập nhật số lượng sản phẩm san mua voi san pham ton kho
+        // $product->decrement('quantity', $quantity);
+        // dd($product);
+
+        // Cập nhật tổng giá trị đơn hàng
         $order->update([
             'total' => $order->order_details()->sum('price'),
         ]);
-        return redirect()->route('user.cart')->with('success', 'add sản phẩm thành công');
+
+        return redirect()->route('cart.list')->with('success', 'Thêm sản phẩm thành công');
     }
+
     public function deleteCartItem($orderDetailId)
     {
         $orderDetail = Order_details::find($orderDetailId);
         if (!$orderDetail) {
             return response()->json(['message' => 'Item not found'], 404);
         }
-        $orderDetail->delete();
+        $orderDetail->delete($orderDetailId);
         session()->flash('success', 'Xóa thành công');
-        return redirect()->route('user.cart');
+        return redirect()->route('cart.list');
     }
     public function updateCartItem(Request $request)
     {

@@ -158,12 +158,14 @@ Route::get('login', [LoginController::class, 'index'])->name('login');
 // Route::post('/', [LoginController::class, 'login'])->name('login.store');
 Route::get('posts', [postController::class, 'Posts'])->name('posts');
 Route::get('show/posts/{id}', [postController::class, 'ShowPosts'])->name('posts.show');
-Route::get('cart', [CartController::class, 'cart'])->name('cart');
-Route::delete('/delete-cart-item/{orderDetail}', [CartController::class, 'deleteCartItem'])->name('delete.cart.item');
-Route::post('cart/add/{id}/{quantity}', [CartController::class, 'addCart'])
-    ->name('cart.add');
-// Add a route for updating the cart item
-Route::post('update-cart-item', [CartController::class, 'updateCartItem'])->name('update');
+
+Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
+    Route::get('/', [CartController::class, 'cart'])->name('list');
+    Route::delete('/delete/{id}', [CartController::class, 'deleteCartItem'])->name('delete');
+    Route::post('add/{productId}/{quantity}', [CartController::class, 'addCart'])
+        ->name('add');
+    Route::post('update', [CartController::class, 'updateCartItem'])->name('update');
+});
     // Route::post('cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 // });
 // file manager

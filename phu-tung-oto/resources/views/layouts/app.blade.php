@@ -168,13 +168,14 @@
                                                     <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2">
                                                         <div class="single-cart-item">
                                                             <div class="cart-img">
-                                                                <a href="{{ route('cart') }}"><img
+                                                                <a href="{{ route('cart.list') }}"><img
                                                                         src="assets/images/cart/1.jpg"
                                                                         alt=""></a>
                                                             </div>
                                                             <div class="cart-text">
 
-                                                                <h5 class="title"><a href="{{ route('cart') }}">11.
+                                                                <h5 class="title"><a
+                                                                        href="{{ route('cart.list') }}">11.
                                                                         Product with
                                                                         video
                                                                         - navy</a></h5>
@@ -190,12 +191,12 @@
                                                         </div>
                                                         <div class="single-cart-item">
                                                             <div class="cart-img">
-                                                                <a href="{{ route('cart') }}"><img
+                                                                <a href="{{ route('cart.list') }}"><img
                                                                         src="assets/images/cart/2.jpg"
                                                                         alt=""></a>
                                                             </div>
                                                             <div class="cart-text">
-                                                                <h5 class="title"><a href="{{ route('cart') }}"
+                                                                <h5 class="title"><a href="{{ route('cart.list') }}"
                                                                         title="10. This is the large title for testing large title and there is an image for testing - white">10.
                                                                         This is the large title for testing...</a></h5>
                                                                 <div class="cart-text-btn">
@@ -210,12 +211,13 @@
                                                         </div>
                                                         <div class="single-cart-item">
                                                             <div class="cart-img">
-                                                                <a href="{{ route('cart') }}"><img
+                                                                <a href="{{ route('cart.list') }}"><img
                                                                         src="assets/images/cart/3.jpg"
                                                                         alt=""></a>
                                                             </div>
                                                             <div class="cart-text">
-                                                                <h5 class="title"><a href="{{ route('cart') }}">1.
+                                                                <h5 class="title"><a
+                                                                        href="{{ route('cart.list') }}">1.
                                                                         New and sale
                                                                         badge
                                                                         product - s / red</a></h5>
@@ -235,7 +237,7 @@
                                                         </div>
                                                         <div class="cart-links d-flex justify-content-center">
                                                             <a class="obrien-button white-btn"
-                                                                href="{{ route('cart') }}">View
+                                                                href="{{ route('cart.list') }}">View
                                                                 cart</a>
                                                             <a class="obrien-button white-btn"
                                                                 href="{{ route('checkout') }}">Checkout</a>
@@ -366,13 +368,14 @@
                                                     <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2">
                                                         <div class="single-cart-item">
                                                             <div class="cart-img">
-                                                                <a href="{{ route('cart') }}"><img
+                                                                <a href="{{ route('cart.list') }}"><img
                                                                         src="assets/images/cart/1.jpg"
                                                                         alt=""></a>
                                                             </div>
                                                             <div class="cart-text">
 
-                                                                <h5 class="title"><a href="{{ route('cart') }}">11.
+                                                                <h5 class="title"><a
+                                                                        href="{{ route('cart.list') }}">11.
                                                                         Product with
                                                                         video
                                                                         - navy</a></h5>
@@ -388,12 +391,12 @@
                                                         </div>
                                                         <div class="single-cart-item">
                                                             <div class="cart-img">
-                                                                <a href="{{ route('cart') }}"><img
+                                                                <a href="{{ route('cart.list') }}"><img
                                                                         src="assets/images/cart/2.jpg"
                                                                         alt=""></a>
                                                             </div>
                                                             <div class="cart-text">
-                                                                <h5 class="title"><a href="{{ route('cart') }}"
+                                                                <h5 class="title"><a href="{{ route('cart.list') }}"
                                                                         title="10. This is the large title for testing large title and there is an image for testing - white">10.
                                                                         This is the large title for testing...</a></h5>
                                                                 <div class="cart-text-btn">
@@ -408,12 +411,13 @@
                                                         </div>
                                                         <div class="single-cart-item">
                                                             <div class="cart-img">
-                                                                <a href="{{ route('cart') }}"><img
+                                                                <a href="{{ route('cart.list') }}"><img
                                                                         src="assets/images/cart/3.jpg"
                                                                         alt=""></a>
                                                             </div>
                                                             <div class="cart-text">
-                                                                <h5 class="title"><a href="{{ route('cart') }}">1.
+                                                                <h5 class="title"><a
+                                                                        href="{{ route('cart.list') }}">1.
                                                                         New and sale
                                                                         badge
                                                                         product - s / red</a></h5>
@@ -433,7 +437,7 @@
                                                         </div>
                                                         <div class="cart-links d-flex justify-content-center">
                                                             <a class="obrien-button white-btn"
-                                                                href="{{ route('cart') }}">View
+                                                                href="{{ route('cart.list') }}">View
                                                                 cart</a>
                                                             <a class="obrien-button white-btn"
                                                                 href="{{ route('checkout') }}">Checkout</a>
@@ -508,7 +512,7 @@
                                                 <ul class="dropdown">
                                                     <li><a href="error404.html">Error 404</a></li>
                                                     <li><a href="compare.html">Compare Page</a></li>
-                                                    <li><a href="{{ route('cart') }}">Cart Page</a></li>
+                                                    <li><a href="{{ route('cart.list') }}">Cart Page</a></li>
                                                     <li><a href="{{ route('checkout') }}">Checkout Page</a></li>
                                                     <li><a href="wishlist.html">Wish List Page</a></li>
                                                 </ul>
@@ -673,7 +677,7 @@
                                     <li><a href="about-us.html">Về chúng tôi</a></li>
                                     <li><a href="{{ route('posts') }}">bài viết</a></li>
                                     <li><a href="{{ route('shop') }}">Cửa hàng</a></li>
-                                    <li><a href="{{ route('cart') }}">Giỏ hàng</a></li>
+                                    <li><a href="{{ route('cart.list') }}">Giỏ hàng</a></li>
                                     <li><a href="#">Liên hệ</a></li>
                                 </ul>
                             </div>
