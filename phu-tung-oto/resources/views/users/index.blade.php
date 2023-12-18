@@ -1,86 +1,57 @@
 @extends('layouts.app')
 @section('title', 'Trang chủ ')
-@section('content')
-    {{-- {{ $user->name }} --}}
 
-    <!--  Slider  -->
-    <div id="carouselExampleIndicators" class="carousel slide">
-        <div class="carousel-indicators h-300">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{ asset('assets/img/slider/1.jpg') }}" class="d-block w-100 h-300" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('assets/img/slider/2.jpg') }}" class="d-block w-100 h-300" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('assets/img/slider/3.jpg') }}" class="d-block w-100 h-300" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    <div class="call-to-action-area">
+@section('content')
+    <!-- Slider banner -->
+    <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" autoplay="true"
+        autoplay-delay="3500">
+        <swiper-slide><img src="{{ asset('assets/img/slider/1.jpg') }}" alt="..."></swiper-slide>
+        <swiper-slide><img src="{{ asset('assets/img/slider/2.jpg') }}" alt="..."></swiper-slide>
+        <swiper-slide><img src="{{ asset('assets/img/slider/3.jpg') }}" alt="..."></swiper-slide>
+        <swiper-slide><img src="{{ asset('assets/img/slider/4.jpg') }}" alt="..."></swiper-slide>
+    </swiper-container>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+    <!-- Call to action -->
+    <div class="call-to-action-area py-4">
         <div class="container container-default custom-area">
-            <div class="row" style="margin-top: 5%">
+            <div class="row">
                 <div class="col-md-4 col-lg-4 col-custom">
                     <div class="call-to-action-item mt-0 d-lg-flex d-md-block align-items-center">
                         <div class="call-to-action-icon">
-                            <img src="{{ asset('assets/img/icons/icon-1.png') }}" alt="Icon" />
+                            <img src="{{ asset('assets/img/icons/icon-1.png') }}" alt="Icon">
                         </div>
                         <div class="call-to-action-info">
-                            <h3 class="action-title">Giao hàng tận nhà miễn phí</h3>
-                            <p class="desc-content">
-                                Cung cấp giao hàng tận nhà miễn phí cho tất cả các sản phẩm trên $100
-                            </p>
+                            <h3 class="action-title">Miễn Phí Giao Hàng</h3>
+                            <p class="desc-content">Miễn phí vận chuyển trong thành phố bán kính 10km </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-4 col-custom">
                     <div class="call-to-action-item d-lg-flex d-md-block align-items-center">
                         <div class="call-to-action-icon">
-                            <img src="{{ asset('assets/img/icons/icon-2.png') }}" alt="Icon" />
+                            <img src="{{ asset('assets/img/icons/icon-2.png') }}" alt="Icon">
                         </div>
                         <div class="call-to-action-info">
                             <h3 class="action-title">Chất lượng sản phẩm</h3>
-                            <p class="desc-content">
-                                Chúng tôi luôn đảm bảo chất lượng sản phẩm
-                            </p>
+                            <p class="desc-content">Thời gian bảo hành lên đến 12 tháng</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-4 col-custom">
                     <div class="call-to-action-item d-lg-flex d-md-block align-items-center">
                         <div class="call-to-action-icon">
-                            <img src="{{ asset('assets/img/icons/icon-3.png') }}" alt="Icon" />
+                            <img src="{{ asset('assets/img/icons/icon-3.png') }}" alt="Icon">
                         </div>
                         <div class="call-to-action-info">
-                            <h3 class="action-title">Hỗ trợ trực tuyến</h3>
-                            <p class="desc-content">
-                                Để làm hài lòng khách hàng, chúng tôi cố gắng hỗ trợ trực tuyến
-                            </p>
+                            <h3 class="action-title">Hỗ trợ trao đổi</h3>
+                            <p class="desc-content">Đội ngũ nhân viên hỗ trợ nhiệt tình về sản phẩm</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Call to Action Area End Here -->
     <!-- Banner Area Start Here -->
     <div class="banner-area">
         <div class="container container-default custom-area">
@@ -160,7 +131,8 @@
                         <h2 class="title-1 text-uppercase">BÁN CHẠY NHẤT</h2>
                         <div class="desc-content">
                             <p>
-                                Tất cả các sản phẩm bán chạy nhất hiện đều có sẵn cho bạn và bạn có thể mua sản phẩm này từ
+                                Tất cả các sản phẩm bán chạy nhất hiện đều có sẵn cho bạn và bạn có thể mua sản phẩm này
+                                từ
                                 đây bất cứ lúc nào, bất cứ nơi nào, vì vậy hãy mua ngay bây giờ
                             </p>
                         </div>
@@ -241,7 +213,8 @@
                             HÃY NHANH TAY ĐỂ ĐƯỢC GIẢM GIÁ 25%
                         </h3>
                         <a href="{{ route('shop') }}" class="obrien-button primary-btn">Mua Ngay</a>
-                        <div class="countdown-wrapper d-flex justify-content-center" data-countdown="2022/12/24"></div>
+                        <div class="countdown-wrapper d-flex justify-content-center" data-countdown="2022/12/24">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -256,7 +229,8 @@
                         <h2 class="title-1 text-uppercase"> MỚI NHẤT</h2>
                         <div class="desc-content">
                             <p>
-                                Tất cả các sản phẩm bán chạy nhất hiện đều có sẵn cho bạn và bạn có thể mua sản phẩm này từ
+                                Tất cả các sản phẩm bán chạy nhất hiện đều có sẵn cho bạn và bạn có thể mua sản phẩm này
+                                từ
                                 đây bất cứ lúc nào, bất cứ nơi nào, vì vậy hãy mua ngay bây giờ
                             </p>
                         </div>
