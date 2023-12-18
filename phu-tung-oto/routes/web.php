@@ -31,10 +31,6 @@ use App\Http\Controllers\users\RegisterController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('users.index');
-// });
-
 Route::get('admin/dashboard', function () {
     return view('admin/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
