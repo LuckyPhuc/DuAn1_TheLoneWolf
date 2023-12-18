@@ -172,11 +172,11 @@
                             </div>
                             <div class="add-action d-flex position-absolute">
                                 <form id="addToCartForm"
-                                    action="{{ route('cart.add', ['productId' => $product->id, 'quantity' => 1]) }}"
+                                    action="{{ route('cart.add', ['id' => $product->id, 'quantity' => 1]) }}"
                                     method="post">
                                     @csrf
                                     <a style="margin-right: 15px">
-                                        <button type="submit" value="app to cart"><i class="ion-bag"></i></button>
+                                        <button type="submit" value="add to cart"><i class="ion-bag"></i></button>
                                     </a>
                                 </form>
 
