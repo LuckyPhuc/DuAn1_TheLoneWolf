@@ -63,7 +63,7 @@
                         {{-- <div class="sku mb-3">
                             <span>SKU: 12345</span>
                         </div> --}}
-                        <p class="desc-content mb-5">{{ $products->description }}</p>
+                        <p class="desc-content mb-5">{!! $products->description !!}</p>
                         <form
                             action="{{ route('cart.add', ['productId' => $products->id, 'quantity' => $products->quantity]) }}"
                             method="POST" id="cartForm">
