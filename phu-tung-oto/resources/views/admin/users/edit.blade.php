@@ -31,61 +31,66 @@
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Họ và tên</label>
-                                <input type="text" value="{{ $users->name }}" name="fullname">
+                                <input type="text" placeholder="Nhập họ và tên" name="fullname">
                             </div>
+                            @error('fullname')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Mật khẩu</label>
                                 <div class="pass-group">
-                                    <input type="password" class="pass-input"value="{{ $users->password }}" name="password">
+                                    <input type="password" class="pass-input" placeholder="Nhập mật khẩu" name="password">
                                     <span class="fas toggle-password fa-eye-slash"></span>
                                 </div>
+                                @error('password')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Địa chỉ</label>
-                                <input type="text" value="{{ $users->address }}" name="Address">
+                                <input type="text" placeholder="Nhập địa chỉ" name="Address">
                             </div>
+                            @error('Address')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Số điện thoại</label>
-                                <input type="text" value="{{ $users->phone }}" name="phone">
+                                <input type="text" placeholder="Nhập số điện thoại" name="phone">
                             </div>
+                            @error('phone')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" value="{{ $users->email }}" name="email">
+                                <input type="text" placeholder="Nhập email" name="email">
                             </div>
+                            @error('email')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="form-group">
-                                <label>Vai trò</label>
+                                <label>Role</label>
+                                @error('role')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                                 <select class="form-select" name="role">
-                                    <option value="admin" {{ $users->role === 1 ? 'selected' : '' }}>Admin</option>
-                                    <option value="user" {{ $users->role === 1 ? '' : 'selected' }}>User</option>
+                                    <option>users</option>
+                                    <option>admin</option>
                                 </select>
                             </div>
-
                         </div>
-                        {{-- <div class="col-lg-12">
-                            <div class="form-group">
-                                <label> User Image</label>
-                                <div class="image-upload">
-                                    <input type="file" />
-                                    <div class="image-uploads">
-                                        <img src="{{ asset('assets/img/icons/upload.svg') }} " alt="img" />
-                                        <h4>Drag and drop a file to upload</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="col-lg-12">
-                            <input type="submit" class="btn btn-submit btn-primary" value="cập nhật">
-                            <a href="{{ Route('admin.users.list') }}" class="btn btn-cancel">Hủy</a>
+                            <button style="padding: 0.5rem" type="submit" class="btn btn-submit btn-primary">Cập
+                                nhật</button>
                         </div>
                     </div>
                 </form>
