@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Trang Check out')
+@section('title', 'Phụ tùng ôtô - Trang Check Out')
 @section('content')
     <div class="breadcrumbs-area position-relative">
         <div class="container">

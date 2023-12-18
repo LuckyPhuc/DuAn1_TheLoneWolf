@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Trang chủ ')
+@section('title', 'Phụ tùng ôtô - Trang chủ ')
 
 @section('content')
     <!-- Slider banner -->
