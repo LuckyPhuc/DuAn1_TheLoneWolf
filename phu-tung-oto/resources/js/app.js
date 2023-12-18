@@ -1,8 +1,9 @@
 import "./bootstrap";
-import "./banner";
+
 import Alpine from "alpinejs";
 window.Alpine = Alpine;
 Alpine.start();
+
 
 // Import Swiper
 import { register } from "swiper/element/bundle";
