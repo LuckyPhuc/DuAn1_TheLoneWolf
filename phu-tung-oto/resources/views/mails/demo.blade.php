@@ -1,1 +1,1 @@
-Mail Đầu tiên
+Nội dung mail

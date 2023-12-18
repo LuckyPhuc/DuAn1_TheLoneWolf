@@ -10,6 +10,6 @@ class MailController extends Controller
 {
     function sendmail()
     {
-        Mail::to('bmtck0000@gmail.com')->send(new Mail_demo);
+        Mail::to('bmtck0000@gmail.com')->send(new Mail_demo());
     }
 }
