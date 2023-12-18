@@ -31,12 +31,15 @@
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- Link thư viện swipper js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
-    <div class="Trang Chủ-wrapper Trang Chủ">
+    <div class="home-wrapper">
         @yield('header')
         <header class="main-header-area">
             <!-- Header Top Area Start Here -->
@@ -718,6 +721,8 @@
         </footer>
     </div>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 
 </html>
