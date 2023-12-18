@@ -158,7 +158,8 @@ Route::get('login', [LoginController::class, 'index'])->name('login');
 // Route::post('/', [LoginController::class, 'login'])->name('login.store');
 Route::get('posts', [postController::class, 'Posts'])->name('posts');
 Route::get('show/posts/{id}', [postController::class, 'ShowPosts'])->name('posts.show');
-route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
+
+Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
     Route::get('/', [CartController::class, 'cart'])->name('list');
     Route::delete('/delete/{id}', [CartController::class, 'deleteCartItem'])->name('delete');
     Route::post('add/{productId}/{quantity}', [CartController::class, 'addCart'])
