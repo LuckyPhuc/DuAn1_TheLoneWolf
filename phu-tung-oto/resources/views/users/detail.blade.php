@@ -60,11 +60,11 @@
                             <i class="fa fa-star-o"></i>
                             <i class="fa fa-star-o"></i>
                         </div>
-                        {{-- <div class="sku mb-3">
-                            <span>SKU: 12345</span>
-                        </div> --}}
-                        <p class="desc-content mb-5">{!! $products->description !!}</p>
-                        <form
+                        <h6 style="font-size: 24px">Hãng: {{ $products->supplier->name }}</h6>
+                        <h6 style="font-size: 24px">Danh mục: {{ $products->category->name }}</h6>
+                        <p class="mb-3">{!! $products->description !!}</p>
+                        <form class="mt-3"
+
                             action="{{ route('cart.add', ['productId' => $products->id, 'quantity' => $products->quantity]) }}"
                             method="POST" id="cartForm">
                             @csrf

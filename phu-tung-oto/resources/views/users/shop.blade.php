@@ -33,14 +33,38 @@
                         <div class="shop-select">
                             <form class="d-flex flex-column w-100" action="#">
                                 <div class="form-group">
-                                    <select class="form-control nice-select w-100">
-                                        <option selected value="1">Alphabetically, A-Z</option>
-                                        <option value="2">Sort by popularity</option>
-                                        <option value="3">Sort by newness</option>
-                                        <option value="4">Sort by price: low to high</option>
-                                        <option value="5">Sort by price: high to low</option>
-                                        <option value="6">Product Name: Z</option>
-                                    </select>
+                                    <form id="sortingForm" action="{{ route('locProducts') }}" method="POST">
+                                        @csrf
+                                        <div class="form-group">
+                                            <select class="form-control nice-select w-100" name="sorting_option"
+                                                id="sortingOption">
+                                                <option selected value="1">Theo bảng chữ cái, A-Z</option>
+                                                <option value="2">Sắp xếp theo mức độ phổ biến</option>
+                                                <option value="3">Sắp xếp theo độ mới</option>
+                                                <option value="4">Sắp xếp theo giá: thấp đến cao</option>
+                                                <option value="5">Sắp xếp theo giá: cao xuống thấp</option>
+                                            </select>
+                                        </div>
+                                    </form>
+
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#sortingOption').change(function() {
+                                                console.log('Option changed. Submitting form.');
+                                                $('#sortingForm').submit();
+                                            });
+                                        });
+                                    </script>
+
+
+                                    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#sortingOption').change(function() {
+                                                $('#sortingForm').submit();
+                                            });
+                                        });
+                                    </script>
                                 </div>
                             </form>
                         </div>
@@ -78,7 +102,14 @@
                                         </div>
                                     </div>
                                     <div class="add-action d-flex position-absolute">
-                                        <a href="cart.html" title="Add To cart"><i class="ion-bag"></i></a>
+                                        <form id="addToCartForm"
+                                            action="{{ route('cart.add', ['productId' => $product->id, 'quantity' => 1]) }}"
+                                            method="post">
+                                            @csrf
+                                            <a style="margin-right: 15px">
+                                                <button type="submit" value="add to cart"><i class="ion-bag"></i></button>
+                                            </a>
+                                        </form>
                                         <a href="compare.html" title="Compare"><i class="ion-ios-loop-strong"></i></a>
                                         <a href="wishlist.html" title="Add To Wishlist"><i
                                                 class="ion-ios-heart-outline"></i></a>
@@ -97,17 +128,19 @@
                             <div class="toolbar-bottom mt-30">
                                 <nav class="pagination pagination-wrap mb-10 mb-sm-0">
                                     <ul class="pagination">
-                                        @if ($products->onFirstPage())
+                                        @if ($products->currentPage() == 1)
                                             <li class="page-item disabled"><span class="page-link">Previous</span></li>
                                         @else
                                             <li class="page-item"><a class="page-link"
                                                     href="{{ $products->previousPageUrl() }}">Previous</a></li>
                                         @endif
+
                                         @foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
                                             <li class="page-item {{ $page == $products->currentPage() ? 'active' : '' }}">
                                                 <a class="page-link" href="{{ $url }}">{{ $page }}</a>
                                             </li>
                                         @endforeach
+
                                         @if ($products->hasMorePages())
                                             <li class="page-item"><a class="page-link"
                                                     href="{{ $products->nextPageUrl() }}">Next</a></li>
@@ -126,6 +159,7 @@
                                     <span>{{ __('results') }}</span>
                                 </div>
                             </div>
+
 
                         </div>
                     </div>
@@ -155,83 +189,23 @@
                                 @foreach ($categories as $category)
                                     <ul class="sidebar-list">
                                         <li>
-                                        <li>
                                             <a
                                                 href="{{ route('showProducts', ['category' => $category]) }}">{{ $category->name }}</a>
-                                        </li>
                                         </li>
                                     </ul>
                                 @endforeach
                             </div>
                             <div class="widget-list widget-mb-4">
-                                <h3 class="widget-title">Recent Products</h3>
-                                <div class="sidebar-body">
-                                    <div class="sidebar-product align-items-center">
-                                        <a href="product-details.html" class="image">
-                                            <img src="{{ asset('assets/img/product/product69.jpg') }}" alt="product">
-                                        </a>
-                                        <div class="product-content">
-                                            <div class="product-title">
-                                                <h4 class="title-2"> <a href="product-details.html">Product dummy name</a>
-                                                </h4>
-                                            </div>
-                                            <div class="price-box">
-                                                <span class="regular-price ">$80.00</span>
-                                                <span class="old-price"><del>$90.00</del></span>
-                                            </div>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sidebar-product align-items-center">
-                                        <a href="product-details.html" class="image">
-                                            <img src="{{ asset('assets/img/product/product69.jpg') }}" alt="product">
-                                        </a>
-                                        <div class="product-content">
-                                            <div class="product-title">
-                                                <h4 class="title-2"> <a href="product-details.html">Product dummy</a></h4>
-                                            </div>
-                                            <div class="price-box">
-                                                <span class="regular-price ">$50.00</span>
-                                                <span class="old-price"><del>$60.00</del></span>
-                                            </div>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sidebar-product align-items-center">
-                                        <a href="product-details.html" class="image">
-                                            <img src="{{ asset('assets/img/product/product69.jpg') }}" alt="product">
-                                        </a>
-                                        <div class="product-content">
-                                            <div class="product-title">
-                                                <h4 class="title-2"> <a href="product-details.html">Product title here</a>
-                                                </h4>
-                                            </div>
-                                            <div class="price-box">
-                                                <span class="regular-price ">$40.00</span>
-                                                <span class="old-price"><del>$50.00</del></span>
-                                            </div>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h3 class="widget-title">hãng</h3>
+                                @foreach ($suppliers as $supplier)
+                                    <ul class="sidebar-list">
+                                        <li>
+                                            <a
+                                                href="{{ route('showsuppliers', ['supplier' => $supplier]) }}">{{ $supplier->name }}</a>
+
+                                        </li>
+                                    </ul>
+                                @endforeach
                             </div>
                         </div>
                     </aside>

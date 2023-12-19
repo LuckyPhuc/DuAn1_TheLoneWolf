@@ -20,14 +20,19 @@ class CartController extends Controller
         $categories = Categories::all();
         $suppliers = Suppliers::all();
 
-        return view('users/cart', compact('categories', 'suppliers'));
+        return view('users.cart', compact('categories', 'suppliers'));
     }
     function cart()
     {
         $categories = Categories::all();
         $suppliers = Suppliers::all();
-        $cart = Order_details::with(['order.order_details', 'product.image_features'])->get();
-        // dd($cart);
+        $user_id = auth()->id();
+        $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
+            $query->where('users_id', $user_id);
+        })
+            ->with(['order.order_details', 'product.image_features'])
+            ->get();
+
         $groupedCart = $cart->groupBy('product.id');
         $products = Products::all();
         $order_detail = Order_details::all();
@@ -58,7 +63,6 @@ class CartController extends Controller
         $order->order_details()->save($orderDetail);
         $order->update([
             'total' => $product->price * $quantity,
-
         ]);
 
         return redirect()->route('cart.list')->with('success', 'Thêm sản phẩm thành công');
