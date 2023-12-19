@@ -60,7 +60,6 @@
                                             $totalQuantity = $items->sum('quantity');
                                             $inputId = 'cartInput_' . $productId;
                                         @endphp
-
                                         <tr>
                                             <td class="pro-thumbnail">
                                                 <a href="#"><img class="img-fluid"
@@ -135,11 +134,10 @@
                                         @php
                                             $subTotal = 0;
                                             // Calculate subtotal
-                                            foreach ($order_detail as $item) {
-                                                $product = $products->where('id', $item->product_id)->first();
-                                                $subTotal += $item->quantity * $product->price;
+                                            foreach ($order_detail as $items) {
+                                                $product = $products->where('id', $items->product_id)->first();
+                                                $subTotal += $items->quantity * $product->price;
                                             }
-
                                             $shipping = $subTotal * 0.0001;
                                             $total = $subTotal + $shipping;
                                         @endphp
@@ -159,7 +157,13 @@
                                     </table>
                                 </div>
                             </div>
-                            <a href="checkout.html" class="btn obrien-button primary-btn d-block">Proceed To Checkout</a>
+                            <form method="POST"
+                                action="{{ route('checkout.orders', ['id' => $orderDetail->order->id]) }}">
+                                @csrf
+                                <button type="submit" class="btn obrien-button primary-btn d-block">Proceed To
+                                    Checkout</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>

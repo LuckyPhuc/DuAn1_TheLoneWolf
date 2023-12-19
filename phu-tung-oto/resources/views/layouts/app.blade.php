@@ -159,90 +159,71 @@
                                         @endauth
                                         <span class="header-right-area main-nav">
                                             <ul class="nav">
-
                                                 <li class="minicart-wrap">
                                                     <a href="#" class="minicart-btn toolbar-btn">
                                                         <i class="ion-bag"></i>
-                                                        <span class="cart-item_count">3</span>
+                                                        <span class="cart-item_count">
+                                                            @php
+                                                                $totalProductsInCart = count($groupedCart);
+                                                            @endphp
+                                                            {{ $totalProductsInCart }}
+                                                        </span>
                                                     </a>
-                                                    <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2">
-                                                        <div class="single-cart-item">
-                                                            <div class="cart-img">
-                                                                <a href="{{ route('cart.list') }}"><img
-                                                                        src="assets/images/cart/1.jpg"
-                                                                        alt=""></a>
-                                                            </div>
-                                                            <div class="cart-text">
 
-                                                                <h5 class="title"><a
-                                                                        href="{{ route('cart.list') }}">11.
-                                                                        Product with
-                                                                        video
-                                                                        - navy</a></h5>
-                                                                <div class="cart-text-btn">
-                                                                    <div class="cart-qty">
-                                                                        <span>1×</span>
-                                                                        <span class="cart-price">$98.00</span>
+                                                    <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2">
+                                                        @php
+                                                            $subTotal = 0;
+                                                        @endphp
+
+                                                        @foreach ($groupedCart as $productId => $items)
+                                                            @php
+                                                                $orderDetail = $items->first();
+                                                                $totalQuantity = $items->sum('quantity');
+                                                                $subTotal += $totalQuantity * $orderDetail->product->price;
+                                                                $inputId = 'cartInput_' . $productId;
+                                                            @endphp
+
+                                                            <div class="single-cart-item">
+                                                                <div class="cart-img">
+                                                                    <a href="{{ route('cart.list') }}">
+                                                                        <img src="{{ asset($orderDetail->product->image_features->first()->url_img) }}"
+                                                                            alt="{{ $orderDetail->product->name }}">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="cart-text">
+                                                                    <h5 class="title">
+                                                                        <a
+                                                                            href="{{ route('cart.list') }}">{{ $orderDetail->product->name }}</a>
+                                                                    </h5>
+                                                                    <div class="cart-text-btn">
+                                                                        <div class="cart-qty">
+                                                                            <span> {{ $totalQuantity }} X</span>
+                                                                            <span class="cart-price">
+                                                                                {{ number_format($orderDetail->product->price, 2, '.', ',') }}
+                                                                                VND
+                                                                            </span>
+                                                                        </div>
+                                                                        <button type="button"><i
+                                                                                class="ion-trash-b"></i></button>
                                                                     </div>
-                                                                    <button type="button"><i
-                                                                            class="ion-trash-b"></i></button>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="single-cart-item">
-                                                            <div class="cart-img">
-                                                                <a href="{{ route('cart.list') }}"><img
-                                                                        src="assets/images/cart/2.jpg"
-                                                                        alt=""></a>
-                                                            </div>
-                                                            <div class="cart-text">
-                                                                <h5 class="title"><a href="{{ route('cart.list') }}"
-                                                                        title="10. This is the large title for testing large title and there is an image for testing - white">10.
-                                                                        This is the large title for testing...</a></h5>
-                                                                <div class="cart-text-btn">
-                                                                    <div class="cart-qty">
-                                                                        <span>1×</span>
-                                                                        <span class="cart-price">$98.00</span>
-                                                                    </div>
-                                                                    <button type="button"><i
-                                                                            class="ion-trash-b"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-cart-item">
-                                                            <div class="cart-img">
-                                                                <a href="{{ route('cart.list') }}"><img
-                                                                        src="assets/images/cart/3.jpg"
-                                                                        alt=""></a>
-                                                            </div>
-                                                            <div class="cart-text">
-                                                                <h5 class="title"><a
-                                                                        href="{{ route('cart.list') }}">1.
-                                                                        New and sale
-                                                                        badge
-                                                                        product - s / red</a></h5>
-                                                                <div class="cart-text-btn">
-                                                                    <div class="cart-qty">
-                                                                        <span>1×</span>
-                                                                        <span class="cart-price">$98.00</span>
-                                                                    </div>
-                                                                    <button type="button"><i
-                                                                            class="ion-trash-b"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        @endforeach
+
                                                         <div class="cart-price-total d-flex justify-content-between">
-                                                            <h5>Total :</h5>
-                                                            <h5>$166.00</h5>
+                                                            <h5>Total : </h5>
+                                                            <h5>{{ number_format($subTotal, 2) }} VND</h5>
                                                         </div>
+
                                                         <div class="cart-links d-flex justify-content-center">
                                                             <a class="obrien-button white-btn"
-                                                                href="{{ route('cart.list') }}">View
-                                                                cart</a>
+                                                                href="{{ route('cart.list') }}">View cart</a>
                                                             <a class="obrien-button white-btn"
-                                                                href="{{ route('checkout') }}">Checkout</a>
+                                                                href="{{ route('checkout.list') }}">Checkout</a>
                                                         </div>
                                                     </div>
+
+
                                                 </li>
                                                 <li class="mobile-menu-btn d-lg-none">
                                                     <a class="off-canvas-btn" href="#">
@@ -363,86 +344,68 @@
                                                 <li class="minicart-wrap">
                                                     <a href="#" class="minicart-btn toolbar-btn">
                                                         <i class="ion-bag"></i>
-                                                        <span class="cart-item_count">3</span>
+                                                        <span class="cart-item_count">
+                                                            @php
+                                                                $totalProductsInCart = count($groupedCart);
+                                                            @endphp
+                                                            {{ $totalProductsInCart }}
+                                                        </span>
                                                     </a>
-                                                    <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2">
-                                                        <div class="single-cart-item">
-                                                            <div class="cart-img">
-                                                                <a href="{{ route('cart.list') }}"><img
-                                                                        src="assets/images/cart/1.jpg"
-                                                                        alt=""></a>
-                                                            </div>
-                                                            <div class="cart-text">
 
-                                                                <h5 class="title"><a
-                                                                        href="{{ route('cart.list') }}">11.
-                                                                        Product with
-                                                                        video
-                                                                        - navy</a></h5>
-                                                                <div class="cart-text-btn">
-                                                                    <div class="cart-qty">
-                                                                        <span>1×</span>
-                                                                        <span class="cart-price">$98.00</span>
+                                                    <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2">
+                                                        @php
+                                                            $subTotal = 0;
+                                                        @endphp
+
+                                                        @foreach ($groupedCart as $productId => $items)
+                                                            @php
+                                                                $orderDetail = $items->first();
+                                                                $totalQuantity = $items->sum('quantity');
+                                                                $subTotal += $totalQuantity * $orderDetail->product->price;
+                                                                $inputId = 'cartInput_' . $productId;
+                                                            @endphp
+
+                                                            <div class="single-cart-item">
+                                                                <div class="cart-img">
+                                                                    <a href="{{ route('cart.list') }}">
+                                                                        <img src="{{ asset($orderDetail->product->image_features->first()->url_img) }}"
+                                                                            alt="{{ $orderDetail->product->name }}">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="cart-text">
+                                                                    <h5 class="title">
+                                                                        <a
+                                                                            href="{{ route('cart.list') }}">{{ $orderDetail->product->name }}</a>
+                                                                    </h5>
+                                                                    <div class="cart-text-btn">
+                                                                        <div class="cart-qty">
+                                                                            <span> {{ $totalQuantity }} X</span>
+                                                                            <span class="cart-price">
+                                                                                {{ number_format($orderDetail->product->price, 2, '.', ',') }}
+                                                                                VND
+                                                                            </span>
+                                                                        </div>
+                                                                        <button type="button"><i
+                                                                                class="ion-trash-b"></i></button>
                                                                     </div>
-                                                                    <button type="button"><i
-                                                                            class="ion-trash-b"></i></button>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="single-cart-item">
-                                                            <div class="cart-img">
-                                                                <a href="{{ route('cart.list') }}"><img
-                                                                        src="assets/images/cart/2.jpg"
-                                                                        alt=""></a>
-                                                            </div>
-                                                            <div class="cart-text">
-                                                                <h5 class="title"><a href="{{ route('cart.list') }}"
-                                                                        title="10. This is the large title for testing large title and there is an image for testing - white">10.
-                                                                        This is the large title for testing...</a></h5>
-                                                                <div class="cart-text-btn">
-                                                                    <div class="cart-qty">
-                                                                        <span>1×</span>
-                                                                        <span class="cart-price">$98.00</span>
-                                                                    </div>
-                                                                    <button type="button"><i
-                                                                            class="ion-trash-b"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-cart-item">
-                                                            <div class="cart-img">
-                                                                <a href="{{ route('cart.list') }}"><img
-                                                                        src="assets/images/cart/3.jpg"
-                                                                        alt=""></a>
-                                                            </div>
-                                                            <div class="cart-text">
-                                                                <h5 class="title"><a
-                                                                        href="{{ route('cart.list') }}">1.
-                                                                        New and sale
-                                                                        badge
-                                                                        product - s / red</a></h5>
-                                                                <div class="cart-text-btn">
-                                                                    <div class="cart-qty">
-                                                                        <span>1×</span>
-                                                                        <span class="cart-price">$98.00</span>
-                                                                    </div>
-                                                                    <button type="button"><i
-                                                                            class="ion-trash-b"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        @endforeach
+
                                                         <div class="cart-price-total d-flex justify-content-between">
-                                                            <h5>Total :</h5>
-                                                            <h5>$166.00</h5>
+                                                            <h5>Total : </h5>
+                                                            <h5>{{ number_format($subTotal, 2) }} VND</h5>
                                                         </div>
+
                                                         <div class="cart-links d-flex justify-content-center">
                                                             <a class="obrien-button white-btn"
-                                                                href="{{ route('cart.list') }}">View
-                                                                cart</a>
+                                                                href="{{ route('cart.list') }}">View cart</a>
                                                             <a class="obrien-button white-btn"
-                                                                href="{{ route('checkout') }}">Checkout</a>
+                                                                href="{{ route('checkout.list') }}">Checkout</a>
                                                         </div>
                                                     </div>
+
+
                                                 </li>
                                                 <li class="mobile-menu-btn d-lg-none">
                                                     <a class="off-canvas-btn" href="#">
@@ -513,7 +476,7 @@
                                                     <li><a href="error404.html">Error 404</a></li>
                                                     <li><a href="compare.html">Compare Page</a></li>
                                                     <li><a href="{{ route('cart.list') }}">Cart Page</a></li>
-                                                    <li><a href="{{ route('checkout') }}">Checkout Page</a></li>
+                                                    <li><a href="{{ route('checkout.list') }}">Checkout Page</a></li>
                                                     <li><a href="wishlist.html">Wish List Page</a></li>
                                                 </ul>
                                             </li>

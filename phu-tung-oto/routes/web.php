@@ -144,21 +144,25 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
 |--------------------------------------------------------------------------
 */
 // nguoi dung (user)
-// Route::prefix('user')->name('user.')->group(function () {
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('shop/{category}', [HomeController::class, 'showProductsByCategory'])->name('shop');
-Route::get('shop/{supplier}', [ShopController::class, 'showProductsBySupplier'])->name('shop.supplier');
+Route::get('shop?{supplier}', [ShopController::class, 'showProductsBySupplier'])->name('shop.supplier');
 Route::get('shop', [ShopController::class, 'index'])->name('shop');
-Route::get('shop/{category}', [ShopController::class, 'showProductsByCategory'])->name('showProducts');
+Route::get('shop/category/{category}', [ShopController::class, 'showProductsByCategory'])->name('showProducts');
+Route::get('shop/suppliers/{supplier}', [ShopController::class, 'showsuppliers'])->name('showsuppliers');
 Route::get('show/{id}', [ShopController::class, 'show'])->name('detail');
-Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
+route::post('shop/show', [ShopController::class, 'locProducts'])->name('locProducts');
+Route::prefix('checkout')->name('checkout.')->group(function () {
+    Route::get('/', [CheckoutController::class, 'index'])->name('list');
+    Route::post('/{id}', [CheckoutController::class, 'order_id'])->name('orders');
+    Route::post('/', [CheckoutController::class, 'checkout'])->name('checkouts');
+});
+
 Route::get('register', [RegisterController::class, 'index'])->name('register');
-Route::post('/', [RegisterController::class, 'register'])->name('store');
 Route::get('login', [LoginController::class, 'index'])->name('login');
-// Route::post('/', [LoginController::class, 'login'])->name('login.store');
 Route::get('posts', [postController::class, 'Posts'])->name('posts');
 Route::get('show/posts/{id}', [postController::class, 'ShowPosts'])->name('posts.show');
-
+// cart
 Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
     Route::get('/', [CartController::class, 'cart'])->name('list');
     Route::delete('/delete/{id}', [CartController::class, 'deleteCartItem'])->name('delete');
@@ -166,9 +170,3 @@ Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
         ->name('add');
     Route::post('update', [CartController::class, 'updateCartItem'])->name('update');
 });
-    // Route::post('cart/add', [CartController::class, 'addToCart'])->name('cart.add');
-// });
-// file manager
-// Route::group(['prefix' => 'laravel-filemanager'], function () {
-//     \UniSharp\LaravelFilemanager\Lfm::routes();
-// });
