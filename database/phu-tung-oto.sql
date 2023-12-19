@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 18, 2023 lúc 04:56 PM
+-- Thời gian đã tạo: Th12 19, 2023 lúc 03:30 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -242,7 +242,47 @@ INSERT INTO `image_features` (`id`, `product_id`, `post_id`, `url_img`, `alt_img
 (235, 54, NULL, 'uploads/products/rocket-smf-57113-din71-12v-71ah-1.png', 'rocket-smf-57113-din71-12v-71ah-1.png', 0, '2023-12-18 08:52:46', '2023-12-18 08:52:46'),
 (236, 54, NULL, 'uploads/products/rocket-smf-57113-din71-12v-71ah-2.png', 'rocket-smf-57113-din71-12v-71ah-2.png', 1, '2023-12-18 08:52:46', '2023-12-18 08:52:46'),
 (237, 54, NULL, 'uploads/products/rocket-smf-57113-din71-12v-71ah-3.png', 'rocket-smf-57113-din71-12v-71ah-3.png', 2, '2023-12-18 08:52:46', '2023-12-18 08:52:46'),
-(238, 54, NULL, 'uploads/products/rocket-smf-57113-din71-12v-71ah-4.png', 'rocket-smf-57113-din71-12v-71ah-4.png', 3, '2023-12-18 08:52:47', '2023-12-18 08:52:47');
+(238, 54, NULL, 'uploads/products/rocket-smf-57113-din71-12v-71ah-4.png', 'rocket-smf-57113-din71-12v-71ah-4.png', 3, '2023-12-18 08:52:47', '2023-12-18 08:52:47'),
+(239, 55, NULL, 'uploads/products/ac-quy-delkor-55b24ls-12v-45ah-1.png', 'ac-quy-delkor-55b24ls-12v-45ah-1.png', 0, '2023-12-18 18:22:01', '2023-12-18 18:22:01'),
+(240, 55, NULL, 'uploads/products/ac-quy-delkor-55b24ls-12v-45ah-2.png', 'ac-quy-delkor-55b24ls-12v-45ah-2.png', 1, '2023-12-18 18:22:01', '2023-12-18 18:22:01'),
+(241, 55, NULL, 'uploads/products/ac-quy-delkor-55b24ls-12v-45ah-3.png', 'ac-quy-delkor-55b24ls-12v-45ah-3.png', 2, '2023-12-18 18:22:01', '2023-12-18 18:22:01'),
+(242, 55, NULL, 'uploads/products/ac-quy-delkor-55b24ls-12v-45ah-4.png', 'ac-quy-delkor-55b24ls-12v-45ah-4.png', 3, '2023-12-18 18:22:01', '2023-12-18 18:22:01'),
+(243, 56, NULL, 'uploads/products/ac-quy-35-60-75d23-r-l-12v-65ah-1.png', 'ac-quy-35-60-75d23-r-l-12v-65ah-1.png', 0, '2023-12-18 18:28:04', '2023-12-18 18:28:04'),
+(244, 56, NULL, 'uploads/products/ac-quy-35-60-75d23-r-l-12v-65ah-2.png', 'ac-quy-35-60-75d23-r-l-12v-65ah-2.png', 1, '2023-12-18 18:28:04', '2023-12-18 18:28:04'),
+(245, 56, NULL, 'uploads/products/ac-quy-35-60-75d23-r-l-12v-65ah-3.png', 'ac-quy-35-60-75d23-r-l-12v-65ah-3.png', 2, '2023-12-18 18:28:04', '2023-12-18 18:28:04'),
+(246, 56, NULL, 'uploads/products/ac-quy-35-60-75d23-r-l-12v-65ah-4.png', 'ac-quy-35-60-75d23-r-l-12v-65ah-4.png', 3, '2023-12-18 18:28:04', '2023-12-18 18:28:04'),
+(247, 57, NULL, 'uploads/products/delkor-85br60k-12v-60ah-df60r-1.png', 'delkor-85br60k-12v-60ah-df60r-1.png', 0, '2023-12-18 18:32:50', '2023-12-18 18:32:50'),
+(248, 57, NULL, 'uploads/products/delkor-85br60k-12v-60ah-df60r-2.png', 'delkor-85br60k-12v-60ah-df60r-2.png', 1, '2023-12-18 18:32:50', '2023-12-18 18:32:50'),
+(249, 57, NULL, 'uploads/products/delkor-85br60k-12v-60ah-df60r-3.png', 'delkor-85br60k-12v-60ah-df60r-3.png', 2, '2023-12-18 18:32:50', '2023-12-18 18:32:50'),
+(250, 57, NULL, 'uploads/products/delkor-85br60k-12v-60ah-df60r-4.png', 'delkor-85br60k-12v-60ah-df60r-4.png', 3, '2023-12-18 18:32:50', '2023-12-18 18:32:50'),
+(251, 58, NULL, 'uploads/products/ac-quy-delkor-46b20ls-12v-35ah-1.png', 'ac-quy-delkor-46b20ls-12v-35ah-1.png', 0, '2023-12-18 18:36:53', '2023-12-18 18:36:53'),
+(252, 58, NULL, 'uploads/products/ac-quy-delkor-46b20ls-12v-35ah-2.png', 'ac-quy-delkor-46b20ls-12v-35ah-2.png', 1, '2023-12-18 18:36:53', '2023-12-18 18:36:53'),
+(253, 58, NULL, 'uploads/products/ac-quy-delkor-46b20ls-12v-35ah-3.png', 'ac-quy-delkor-46b20ls-12v-35ah-3.png', 2, '2023-12-18 18:36:53', '2023-12-18 18:36:53'),
+(254, 58, NULL, 'uploads/products/ac-quy-delkor-46b20ls-12v-35ah-4.png', 'ac-quy-delkor-46b20ls-12v-35ah-4.png', 3, '2023-12-18 18:36:53', '2023-12-18 18:36:53'),
+(255, 59, NULL, 'uploads/products/delkor-df40al-1.png', 'delkor-df40al-1.png', 0, '2023-12-18 18:41:07', '2023-12-18 18:41:07'),
+(256, 59, NULL, 'uploads/products/delkor-df40al-2.png', 'delkor-df40al-2.png', 1, '2023-12-18 18:41:07', '2023-12-18 18:41:07'),
+(257, 59, NULL, 'uploads/products/delkor-df40al-3.png', 'delkor-df40al-3.png', 2, '2023-12-18 18:41:07', '2023-12-18 18:41:07'),
+(258, 59, NULL, 'uploads/products/delkor-df40al-4.png', 'delkor-df40al-4.png', 3, '2023-12-18 18:41:07', '2023-12-18 18:41:07'),
+(259, 60, NULL, 'uploads/products/ac-quy-globe-12v-7-5ah-1.png', 'ac-quy-globe-12v-7-5ah-1.png', 0, '2023-12-18 18:44:49', '2023-12-18 18:44:49'),
+(260, 60, NULL, 'uploads/products/ac-quy-globe-12v-7-5ah-2.png', 'ac-quy-globe-12v-7-5ah-2.png', 1, '2023-12-18 18:44:49', '2023-12-18 18:44:49'),
+(261, 60, NULL, 'uploads/products/ac-quy-globe-12v-7-5ah-3.png', 'ac-quy-globe-12v-7-5ah-3.png', 2, '2023-12-18 18:44:49', '2023-12-18 18:44:49'),
+(262, 60, NULL, 'uploads/products/ac-quy-globe-12v-7-5ah-4.png', 'ac-quy-globe-12v-7-5ah-4.png', 3, '2023-12-18 18:44:49', '2023-12-18 18:44:49'),
+(263, 61, NULL, 'uploads/products/globe-wp5-12-long-12v-5ah-1.png', 'globe-wp5-12-long-12v-5ah-1.png', 0, '2023-12-18 18:49:52', '2023-12-18 18:49:52'),
+(264, 61, NULL, 'uploads/products/globe-wp5-12-long-12v-5ah-2.png', 'globe-wp5-12-long-12v-5ah-2.png', 1, '2023-12-18 18:49:52', '2023-12-18 18:49:52'),
+(265, 61, NULL, 'uploads/products/globe-wp5-12-long-12v-5ah-3.png', 'globe-wp5-12-long-12v-5ah-3.png', 2, '2023-12-18 18:49:52', '2023-12-18 18:49:52'),
+(266, 61, NULL, 'uploads/products/globe-wp5-12-long-12v-5ah-4.png', 'globe-wp5-12-long-12v-5ah-4.png', 3, '2023-12-18 18:49:52', '2023-12-18 18:49:52'),
+(267, 62, NULL, 'uploads/products/globe-wp12-12-se-12v-12ah-1.png', 'globe-wp12-12-se-12v-12ah-1.png', 0, '2023-12-18 18:53:35', '2023-12-18 18:53:35'),
+(268, 62, NULL, 'uploads/products/globe-wp12-12-se-12v-12ah-2.png', 'globe-wp12-12-se-12v-12ah-2.png', 1, '2023-12-18 18:53:35', '2023-12-18 18:53:35'),
+(269, 62, NULL, 'uploads/products/globe-wp12-12-se-12v-12ah-3.png', 'globe-wp12-12-se-12v-12ah-3.png', 2, '2023-12-18 18:53:35', '2023-12-18 18:53:35'),
+(270, 62, NULL, 'uploads/products/globe-wp12-12-se-12v-12ah-4.png', 'globe-wp12-12-se-12v-12ah-4.png', 3, '2023-12-18 18:53:35', '2023-12-18 18:53:35'),
+(271, 63, NULL, 'uploads/products/ac-quy-globe-6v-5ah-wp5-1.png', 'ac-quy-globe-6v-5ah-wp5-1.png', 0, '2023-12-18 18:57:02', '2023-12-18 18:57:02'),
+(272, 63, NULL, 'uploads/products/ac-quy-globe-6v-5ah-wp5-2.png', 'ac-quy-globe-6v-5ah-wp5-2.png', 1, '2023-12-18 18:57:02', '2023-12-18 18:57:02'),
+(273, 63, NULL, 'uploads/products/ac-quy-globe-6v-5ah-wp5-3.png', 'ac-quy-globe-6v-5ah-wp5-3.png', 2, '2023-12-18 18:57:02', '2023-12-18 18:57:02'),
+(274, 63, NULL, 'uploads/products/ac-quy-globe-6v-5ah-wp5-4.png', 'ac-quy-globe-6v-5ah-wp5-4.png', 3, '2023-12-18 18:57:02', '2023-12-18 18:57:02'),
+(275, 64, NULL, 'uploads/products/globe-wtz7l-bp-12v-7ah-1.png', 'globe-wtz7l-bp-12v-7ah-1.png', 0, '2023-12-18 19:00:51', '2023-12-18 19:00:51'),
+(276, 64, NULL, 'uploads/products/globe-wtz7l-bp-12v-7ah-2.png', 'globe-wtz7l-bp-12v-7ah-2.png', 1, '2023-12-18 19:00:51', '2023-12-18 19:00:51'),
+(277, 64, NULL, 'uploads/products/globe-wtz7l-bp-12v-7ah-3.png', 'globe-wtz7l-bp-12v-7ah-3.png', 2, '2023-12-18 19:00:51', '2023-12-18 19:00:51'),
+(278, 64, NULL, 'uploads/products/globe-wtz7l-bp-12v-7ah-4.png', 'globe-wtz7l-bp-12v-7ah-4.png', 3, '2023-12-18 19:00:51', '2023-12-18 19:00:51');
 
 -- --------------------------------------------------------
 
@@ -278,7 +318,28 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2023_12_12_083426_add_unit_to_products_table', 1),
 (16, '2023_12_13_073232_add_description_to_posts_table', 1),
 (17, '2023_12_13_073912_update_price_in_products_table', 1),
-(18, '2023_12_18_051359_create_sessions_table', 1);
+(18, '2023_12_18_051359_create_sessions_table', 1),
+(19, '2023_12_18_095326_create_notifications_table', 1),
+(20, '2023_12_18_125542_rename_totol_to_total_in_orders', 1),
+(21, '2023_12_18_145143_update_total_in_orders', 1),
+(22, '2023_12_18_153329_update_order_details', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` char(36) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `notifiable_type` varchar(255) NOT NULL,
+  `notifiable_id` bigint(20) UNSIGNED NOT NULL,
+  `data` text NOT NULL,
+  `read_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -290,7 +351,7 @@ CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `users_id` bigint(20) UNSIGNED NOT NULL,
   `order_date` datetime NOT NULL,
-  `tolal` decimal(8,2) NOT NULL,
+  `total` decimal(11,2) NOT NULL,
   `status` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -307,7 +368,9 @@ CREATE TABLE `order_details` (
   `order_id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `quantity` int(11) NOT NULL,
-  `price` decimal(8,2) NOT NULL
+  `address` varchar(255) DEFAULT NULL,
+  `sdt` varchar(11) DEFAULT NULL,
+  `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -410,7 +473,17 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `quantity`, `categ
 (51, 'ẮC QUY ĐỒNG NAI EXTRA CMF 105D31R - 12V - 90AH', '<ul dir=\"ltr\">\r\n<li role=\"presentation\"><strong>M&atilde; sản phẩm:</strong>&nbsp;CMF 105D31R</li>\r\n<li role=\"presentation\"><strong>Điện &aacute;p:&nbsp;</strong>12V</li>\r\n<li role=\"presentation\"><strong>Dung lượng:</strong>&nbsp;90AH</li>\r\n<li role=\"presentation\"><strong>Khối lượng:</strong>&nbsp;22.24Kg</li>\r\n<li role=\"presentation\"><strong>K&iacute;ch thước:</strong>&nbsp;303 x 171 x 203 (mm)</li>\r\n<li role=\"presentation\"><strong>Vị tr&iacute; cọc b&igrave;nh:</strong>&nbsp;Phải</li>\r\n<li role=\"presentation\"><strong>H&atilde;ng sản xuất:&nbsp;</strong>Pinaco</li>\r\n<li role=\"presentation\"><strong>Xuất xứ:&nbsp;</strong>Việt Nam</li>\r\n<li role=\"presentation\"><strong>Bảo h&agrave;nh:&nbsp;</strong>9 th&aacute;ng</li>\r\n</ul>', 2050000.00, 1, 1, 17, '2023-12-18 08:21:32', '2023-12-18 08:21:32', 'Cái'),
 (52, 'ẮC QUY GS MF 85D26L 12V - 75AH', '<ul>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\"><strong>M&atilde; sản phẩm:&nbsp;</strong>GS MF 85D26L 12V - 70AH</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\"><strong>Điện &aacute;p:&nbsp;</strong>12V</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\"><strong>Dung lượng:</strong>&nbsp;70AH</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\"><strong>K&iacute;ch thước (D&agrave;i x Rộng x Cao):</strong>&nbsp;258 x 171 x 200 (mm)</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\"><strong>Loại b&igrave;nh:</strong>&nbsp;Ắc quy kh&ocirc;, miễn bảo dưỡng</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\"><strong>Loại cọc:&nbsp;</strong>Cọc tr&aacute;i, chuẩn cọc to</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\"><strong>Xuất xứ:&nbsp;</strong>Việt Nam</p>\r\n</li>\r\n</ul>', 1560000.00, 1, 1, 16, '2023-12-18 08:29:37', '2023-12-18 08:29:37', 'Cái'),
 (53, 'ẮC QUY ROCKET EFB N55 12V - 55AH', '<ul>\r\n<li>M&atilde; sản phẩm: Rocket EFB</li>\r\n<li>S&ocirc;́ hi&ecirc;̣u: EFB N55</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>Dung lượng: 55Ah</li>\r\n<li>Chỉ số D&ograve;ng khởi động (CCA): 450A</li>\r\n<li>K&iacute;ch thước (D&agrave;i x Rộng x Cao): 238X129X227 mm</li>\r\n<li>Loại cọc: CỌC NGƯỢC</li>\r\n<li>Loại b&igrave;nh: Ắc quy kh&ocirc; k&iacute;n kh&iacute;, miễn bảo dưỡng (MF)</li>\r\n<li>M&agrave;u sắc: m&agrave;u Đen</li>\r\n<li>Xuất xứ: Nhập khẩu từ H&agrave;n Quốc</li>\r\n</ul>', 1595000.00, 1, 1, 18, '2023-12-18 08:47:41', '2023-12-18 08:47:41', 'Cái'),
-(54, 'ẮC QUY ROCKET SMF 57113 12V - 71AH (DIN)', '<ul>\r\n<li>M&atilde; sản phẩm: SMF 57113</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>Dung lượng: 71Ah</li>\r\n<li>Chỉ số CCA: 620</li>\r\n<li>K&iacute;ch thước (D&agrave;i x Rộng x Cao): 277x175x175 (mm)</li>\r\n<li>Loại cọc: Cọc thấp, cọc ngược DIN</li>\r\n<li>Loại b&igrave;nh: Ắc quy kh&ocirc;, b&igrave;nh Din k&iacute;n kh&iacute;, miễn bảo dưỡng</li>\r\n<li>M&agrave;u sắc: M&agrave;u đen</li>\r\n<li>Xuất xứ: Sản xuất tại H&agrave;n Quốc</li>\r\n</ul>', 1510000.00, 100, 1, 18, '2023-12-18 08:52:46', '2023-12-18 08:52:46', 'Cái');
+(54, 'ẮC QUY ROCKET SMF 57113 12V - 71AH (DIN)', '<ul>\r\n<li>M&atilde; sản phẩm: SMF 57113</li>\r\n<li>Điện &aacute;p: 12V</li>\r\n<li>Dung lượng: 71Ah</li>\r\n<li>Chỉ số CCA: 620</li>\r\n<li>K&iacute;ch thước (D&agrave;i x Rộng x Cao): 277x175x175 (mm)</li>\r\n<li>Loại cọc: Cọc thấp, cọc ngược DIN</li>\r\n<li>Loại b&igrave;nh: Ắc quy kh&ocirc;, b&igrave;nh Din k&iacute;n kh&iacute;, miễn bảo dưỡng</li>\r\n<li>M&agrave;u sắc: M&agrave;u đen</li>\r\n<li>Xuất xứ: Sản xuất tại H&agrave;n Quốc</li>\r\n</ul>', 1510000.00, 100, 1, 18, '2023-12-18 08:52:46', '2023-12-18 08:52:46', 'Cái'),
+(55, 'ẮC QUY DELKOR 55B24LS 12V 45AH', '<ul dir=\"ltr\">\r\n<li>M&atilde; sản phẩm: 55B24LS&nbsp;</li>\r\n<li role=\"presentation\">Loại ắc quy: Ắc quy kh&ocirc; k&iacute;n kh&iacute;, kh&ocirc;ng bảo dưỡng</li>\r\n<li role=\"presentation\">Điện &aacute;p: 12V</li>\r\n<li role=\"presentation\">Dung lượng: 45Ah</li>\r\n<li role=\"presentation\">CCA: 325CCA</li>\r\n<li role=\"presentation\">K&iacute;ch thước (d&agrave;i x rộng x cao): 237mm x 128mm x 202mm</li>\r\n<li role=\"presentation\">Loại cọc: Cọc tr&aacute;i (L)</li>\r\n<li role=\"presentation\">Thương hiệu: Delkor</li>\r\n<li role=\"presentation\">Sản xuất: H&agrave;n Quốc</li>\r\n</ul>', 1150000.00, 100, 1, 20, '2023-12-18 18:22:01', '2023-12-18 18:22:01', 'Cái'),
+(56, 'ẮC QUY 35-60 (75D23 R/L) 12V - 65AH', '<ul>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">M&atilde; sản phẩm: 35-60 (75D23 R/L)</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Loại ắc quy: B&igrave;nh ắc quy kh&ocirc;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Điện &aacute;p: 12V</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Dung lượng: 65Ah</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">CCA: 520CCA</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">K&iacute;ch thước (d&agrave;i x rộng x cao): 229mm x 172mm x 203mm</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Thương hiệu: Delkor</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Xuất xứ: H&agrave;n Quốc</p>\r\n</li>\r\n</ul>', 1400000.00, 100, 1, 20, '2023-12-18 18:28:04', '2023-12-18 18:28:04', 'Cái'),
+(57, 'ẮC QUY DELKOR 85BR60K 12V 60AH DF60R', '<ul>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">M&atilde; sản phẩm: 85BR60K (DF60R)</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Loại ắc quy: Ắc quy kh&ocirc;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Điện &aacute;p: 12V</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Dung lượng: 60Ah</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">CCA: 560CCA</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">K&iacute;ch thước (d&agrave;i x rộng x cao): 229mm x 179mm x 184mm</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Loại cọc: Cọc to, R</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Thương hiệu: Delkor</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Sản xuất: H&agrave;n Quốc</p>\r\n</li>\r\n</ul>', 1500000.00, 100, 1, 20, '2023-12-18 18:32:50', '2023-12-18 18:32:50', 'Cái'),
+(58, 'ẮC QUY DELKOR 46B20LS 12V 35AH', '<ul dir=\"ltr\">\r\n<li role=\"presentation\">Loại ắc quy: Ắc quy kh&ocirc;, kh&ocirc;ng cần bảo dưỡng</li>\r\n<li role=\"presentation\">Điện &aacute;p: 12V</li>\r\n<li role=\"presentation\">Dung lượng: 35Ah</li>\r\n<li role=\"presentation\">CCA: 310CCA</li>\r\n<li role=\"presentation\">K&iacute;ch thước (d&agrave;i x rộng x cao): 196mm x 128mm x 202mm</li>\r\n<li role=\"presentation\">Loại cọc: Cọc chuẩn nhỏ, L</li>\r\n<li role=\"presentation\">Thương hiệu: Delkor</li>\r\n<li role=\"presentation\">Sản xuất: H&agrave;n Quốc</li>\r\n</ul>', 1100000.00, 1, 1, 20, '2023-12-18 18:36:53', '2023-12-18 18:36:53', 'Cái'),
+(59, 'ẮC QUY DELKOR DF40AL 12V 40AH', '<ul dir=\"ltr\">\r\n<li>M&atilde; sản phẩm: DF40AL</li>\r\n<li role=\"presentation\">Loại ắc quy: Ắc quy kh&ocirc;, kh&ocirc;ng cần bảo dưỡng</li>\r\n<li role=\"presentation\">Điện &aacute;p: 12V</li>\r\n<li role=\"presentation\">Dung lượng: 40Ah</li>\r\n<li role=\"presentation\">CCA: 350CCA</li>\r\n<li role=\"presentation\">K&iacute;ch thước (d&agrave;i x rộng x cao): 196mm x 128mm x 202mm</li>\r\n<li role=\"presentation\">Loại cọc: Cọc nhỏ, L</li>\r\n<li role=\"presentation\">Thương hiệu: Delkor</li>\r\n<li role=\"presentation\">Sản xuất: H&agrave;n Quốc</li>\r\n</ul>', 1080000.00, 100, 1, 20, '2023-12-18 18:41:07', '2023-12-18 18:41:07', 'Cái'),
+(60, 'ẮC QUY GLOBE WP7,5-12 12V - 7,5AH', '<ul dir=\"ltr\">\r\n<li role=\"presentation\"><strong>M&atilde; sản phẩm:</strong>&nbsp;WP7,5-12&nbsp;</li>\r\n<li role=\"presentation\"><strong>Điện &aacute;p:</strong>&nbsp;12V</li>\r\n<li role=\"presentation\"><strong>Dung lượng:</strong>&nbsp;7,5AH</li>\r\n<li role=\"presentation\"><strong>Trọng lượng:</strong>&nbsp;2.45kg</li>\r\n<li role=\"presentation\"><strong>K&iacute;ch thước (D&agrave;i x rộng x cao):</strong>&nbsp;151 x 65 x 94mm</li>\r\n<li role=\"presentation\"><strong>Xuất xứ:&nbsp;</strong>Việt Nam</li>\r\n<li role=\"presentation\"><strong>Bảo h&agrave;nh:</strong> 6 th&aacute;ng</li>\r\n</ul>', 310000.00, 100, 1, 22, '2023-12-18 18:44:49', '2023-12-18 18:44:49', 'Cái'),
+(61, 'ẮC QUY GLOBE WP5-12 LONG 12V - 5AH', '<ul dir=\"ltr\">\r\n<li role=\"presentation\"><strong>M&atilde; sản phẩm:&nbsp;</strong>WP5-12 LONG</li>\r\n<li role=\"presentation\"><strong>Điện &aacute;p:&nbsp;</strong>12V</li>\r\n<li role=\"presentation\"><strong>Dung lượng:</strong>&nbsp;5AH</li>\r\n<li role=\"presentation\"><strong>Trọng lượng:</strong>&nbsp;1,9kg</li>\r\n<li role=\"presentation\"><strong>K&iacute;ch thước (D&agrave;i x rộng x cao):</strong>&nbsp;90 x 70 x 101mm</li>\r\n<li role=\"presentation\"><strong>M&agrave;u sắc:&nbsp;</strong>M&agrave;u đen</li>\r\n<li role=\"presentation\"><strong>Tuổi thọ thiết kế:</strong>&nbsp;12 năm</li>\r\n<li role=\"presentation\"><strong>Bảo h&agrave;nh:</strong> 12 th&aacute;ng</li>\r\n</ul>', 269000.00, 100, 1, 22, '2023-12-18 18:49:52', '2023-12-18 18:49:52', 'Cái'),
+(62, 'ẮC QUY GLOBE WP12-12 SE 12V - 12AH', '<ul dir=\"ltr\">\r\n<li role=\"presentation\"><strong>M&atilde; sản phẩm:</strong>&nbsp;WP12-12 SE</li>\r\n<li role=\"presentation\"><strong>Điện &aacute;p:</strong>&nbsp;12V</li>\r\n<li role=\"presentation\"><strong>Dung lượng:</strong>&nbsp;12AH</li>\r\n<li role=\"presentation\"><strong>Trọng lượng:&nbsp;</strong>4,02kg</li>\r\n<li role=\"presentation\"><strong>K&iacute;ch thước (D&agrave;i x rộng x cao):</strong>&nbsp;151 x 98 x 93 (mm)</li>\r\n<li role=\"presentation\"><strong>Tuổi thọ:</strong>&nbsp;5-7 năm</li>\r\n<li role=\"presentation\"><strong>Xuất xứ:&nbsp;</strong>Việt Nam</li>\r\n<li role=\"presentation\"><strong>Bảo h&agrave;nh:</strong> 6 th&aacute;ng</li>\r\n</ul>', 440000.00, 100, 1, 22, '2023-12-18 18:53:35', '2023-12-18 18:53:35', 'Cái'),
+(63, 'ẮC QUY GLOBE 6V 5AH (WP5-6)', '<ul>\r\n<li><strong>M&atilde; sản phẩm</strong>: GLOBE WP5 - 6</li>\r\n<li><strong>Điện &aacute;p</strong>: 6V</li>\r\n<li><strong>Dung lượng</strong>: 5AH</li>\r\n<li><strong>K&iacute;ch thước (D&agrave;i x Rộng x Cao)</strong>: 70 x 47 x 102 mm</li>\r\n<li><strong>Xuất xứ</strong>: Việt Nam</li>\r\n</ul>', 140000.00, 100, 1, 22, '2023-12-18 18:57:02', '2023-12-18 18:57:02', 'Cái'),
+(64, 'ẮC QUY GLOBE WTZ7L-BP 12V - 7AH', '<ul>\r\n<li>T&ecirc;n sản phẩm: GLOBE WTZ7L-BP 12V - 7Ah</li>\r\n<li>Hiệu điện thế: 12V</li>\r\n<li>Dung lượng: 7Ah</li>\r\n<li>K&iacute;ch thước (d&agrave;i x rộng x cao): 113 x 70 x 129 (mm)</li>\r\n<li>Trọng lượng: 2.53 kg</li>\r\n<li>Loại ắc quy: Kh&ocirc;, k&iacute;n kh&iacute;, miễn bảo dưỡng</li>\r\n<li>Thương hiệu: GLOBE</li>\r\n<li>Xuất xứ: Việt Nam</li>\r\n<li>Tuổi thọ thiết kế: 5 năm</li>\r\n</ul>', 435000.00, 100, 1, 22, '2023-12-18 19:00:51', '2023-12-18 19:00:51', 'Cái');
 
 -- --------------------------------------------------------
 
@@ -481,9 +554,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `address`, `phone`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Trương Công Đức', 'truongcongduc2004@gmail.com', NULL, NULL, 1, NULL, '$2y$12$PApCtLlZn0f9X6Tc9NW/ruutOxi/N31kO7ERshe8m1KPIszhcr4dS', NULL, '2023-12-11 08:00:55', '2023-12-11 08:00:55'),
-(3, 'Phạm Vinh Quang', 'phamvinhquang140402003@gmail.com', NULL, NULL, 1, NULL, '$2y$12$eQBblDEDk2Vg/tJCW4aheuAbglW2XbfY/yQlo/bmc0bRt5fIUJmxe', NULL, '2023-12-13 02:54:34', '2023-12-13 02:54:34'),
-(4, 'Phạm Vinh Quang', 'phamvinhquang14042003@gmail.com', NULL, NULL, 1, NULL, '$2y$12$VFraJ2JsqzNdArdsYHxrEutgDhZEsGE7oIXkAIvqdthBAhUL8l/ju', NULL, '2023-12-13 20:45:09', '2023-12-13 20:45:09');
+(5, 'Phạm Vinh Quang', 'phamvinhquang14042003@gmail.com', NULL, NULL, 0, NULL, '$2y$12$TT3uf0fFvIbq.4nZ3OGGi.9D.VpZdLL7R6bNutMbkaqc7PIFmbgiS', NULL, '2023-12-18 17:55:34', '2023-12-18 17:55:34');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -530,6 +601,13 @@ ALTER TABLE `image_features`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`);
 
 --
 -- Chỉ mục cho bảng `orders`
@@ -628,13 +706,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `image_features`
 --
 ALTER TABLE `image_features`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=279;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
@@ -658,13 +736,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT cho bảng `suppliers`
@@ -676,7 +754,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
