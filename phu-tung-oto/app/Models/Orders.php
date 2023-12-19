@@ -13,7 +13,7 @@ class Orders extends Model
         'id',
         'users_id',
         'order_date',
-        'tolal',
+        'total',
         'status',
         'created_at',
         'updated_at'

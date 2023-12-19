@@ -91,8 +91,7 @@
                                                     VND</span>
                                             </td>
                                             <td class="pro-remove">
-                                                <form
-                                                    action="{{ route('delete.cart.item', ['orderDetail' => $orderDetail->id]) }}"
+                                                <form action="{{ route('cart.delete', ['id' => $orderDetail->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -141,21 +140,21 @@
                                                 $subTotal += $item->quantity * $product->price;
                                             }
 
-                                            $shipping = $subTotal * 0.001;
+                                            $shipping = $subTotal * 0.0001;
                                             $total = $subTotal + $shipping;
                                         @endphp
 
                                         <tr>
                                             <td>Sub Total</td>
-                                            <td>${{ number_format($subTotal, 2) }} VND</td>
+                                            <td>{{ number_format($subTotal, 2) }} VND</td>
                                         </tr>
                                         <tr>
                                             <td>Shipping</td>
-                                            <td>${{ number_format($shipping, 2) }} VND</td>
+                                            <td>{{ number_format($shipping, 2) }} VND</td>
                                         </tr>
                                         <tr class="total">
                                             <td>Total</td>
-                                            <td class="total-amount">${{ number_format($total, 2) }} VND</td>
+                                            <td class="total-amount">{{ number_format($total, 2) }} VND</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -194,7 +193,7 @@
                     quantity: quantity
                 });
             });
-            fetch('update-cart-item', {
+            fetch('cart/update', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

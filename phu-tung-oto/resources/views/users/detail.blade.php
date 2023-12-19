@@ -63,7 +63,7 @@
                         {{-- <div class="sku mb-3">
                             <span>SKU: 12345</span>
                         </div> --}}
-                        <p class="desc-content mb-5">{{ $products->description }}</p>
+                        <p class="desc-content mb-5">{!! $products->description !!}</p>
                         <form
                             action="{{ route('cart.add', ['productId' => $products->id, 'quantity' => $products->quantity]) }}"
                             method="POST" id="cartForm">
@@ -71,8 +71,8 @@
                             <div class="quantity-with_btn mb-4 d-flex align-item-center">
                                 <div class="quantity">
                                     <div class="cart-plus-minus">
-                                        <input name="quantity" class="cart-plus-minus-box" value="0" type="number"
-                                            id="quantityInput" min="0" pattern="\d+" oninput="validateInput()">
+                                        <input name="quantity" class="cart-plus-minus-box" value="1" type="number"
+                                            id="quantityInput" min="1" pattern="\d+" oninput="validateInput()">
                                         <div class="dec qtybutton" onclick="decrementQuantity()">-</div>
                                         <div class="inc qtybutton" onclick="incrementQuantity()">+</div>
                                     </div>
@@ -107,8 +107,10 @@
                                     var input = document.getElementById('quantityInput');
                                     var currentValue = parseInt(input.value);
 
-                                    if (currentValue > 0) {
+                                    if (currentValue > 1) {
                                         input.value = currentValue - 1;
+                                    } else {
+                                        input.value = 1
                                     }
                                 }
                                 // lay gia tri quantity day len url
