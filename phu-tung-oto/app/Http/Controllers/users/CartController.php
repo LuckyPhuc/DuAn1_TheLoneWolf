@@ -43,10 +43,6 @@ class CartController extends Controller
         if (!$product) {
             abort(404, 'Không tìm thấy sản phẩm');
         }
-        // // Kiểm tra xem có đủ số lượng không
-        // if ($product->quantity < $quantity) {
-        //     return redirect()->route('cart.list')->with('error', 'Số lượng không đủ.');
-        // }
         $order = Orders::firstOrCreate([
             'users_id' => auth()->id(),
             'status' => 'open',
@@ -58,18 +54,11 @@ class CartController extends Controller
         $orderDetail = new Order_details([
             'product_id' => $product->id,
             'quantity' => $quantity,
-            'price' => $product->price,
         ]);
-
         $order->order_details()->save($orderDetail);
-        // dd($product->quantity);
-        // Cập nhật số lượng sản phẩm san mua voi san pham ton kho
-        // $product->decrement('quantity', $quantity);
-        // dd($product);
-
-        // Cập nhật tổng giá trị đơn hàng
         $order->update([
-            'total' => $order->order_details()->sum('price'),
+            'total' => $product->price * $quantity,
+
         ]);
 
         return redirect()->route('cart.list')->with('success', 'Thêm sản phẩm thành công');
@@ -96,6 +85,7 @@ class CartController extends Controller
             $productId = $updatedQuantity['productId'];
             $quantity = $updatedQuantity['quantity'];
             $orderDetail = Order_details::where('product_id', $productId)->first();
+            $product = Products::where('id', $productId)->first();
             if ($orderDetail) {
                 $orderDetail->update(['quantity' => $quantity]);
             }
@@ -103,7 +93,7 @@ class CartController extends Controller
         $orderId = $orderDetail->order_id;
         $order = Orders::find($orderId);
         if ($order) {
-            $order->update(['total' => $order->order_details()->sum('price')]);
+            $order->update(['total' => $product->price]);
         }
         return response()->json(['success' => 'Cập nhật giỏ hàng thành công']);
     }
