@@ -27,23 +27,11 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
-                                        <label>Nhập Họ Tên</label>
-                                        <input type="text" placeholder="nhập họ tên của bạn">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="checkout-form-list">
                                         <label>Nhập địa chỉ <span class="required">*</span></label>
                                         <input placeholder="Nhập địa chỉ của bạn" type="text">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label>Nhập Email <span class="required">*</span></label>
-                                        <input placeholder="Nhập Enail của bạn" type="email">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Nhập Số Điện Thoại <span class="required">*</span></label>
                                         <input type="text" placeholder="Nhập số điện thoại">
