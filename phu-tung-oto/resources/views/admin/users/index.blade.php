@@ -82,7 +82,7 @@
                                      <td>{{ $user->phone }} </td>
                                      <td>{{ $user->email }} </td>
                                      <td>{{ $user->address }} </td>
-                                     <td>{{ $user->role === 1 ? 'admin' : 'users' }}</td>
+                                     <td>{{ $user->role === 0 ? 'admin' : 'users' }}</td>
                                      <td>
                                          <a class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top"
                                              title="Sửa mục này" style="background: green; padding:0.5rem"

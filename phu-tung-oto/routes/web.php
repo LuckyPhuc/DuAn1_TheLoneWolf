@@ -31,13 +31,10 @@ use App\Http\Controllers\users\RegisterController;
 |
 */
 
-Route::get('test', function () {
-    return view('welcome');
-});
 
 Route::get('admin/dashboard', function () {
     return view('admin/dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'CheckAdminRole'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -54,11 +51,8 @@ require __DIR__ . '/auth.php';
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
+Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->group(function () {
     // Routing product
-    // Route::get('/', function () {
-    //     return view('admin/dashboard')->name('dashboard');
-    // });
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('list', [ProductController::class, 'index'])->name('list');
         Route::get('create', [ProductController::class, 'create'])->name('create');
@@ -170,3 +164,8 @@ Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
         ->name('add');
     Route::post('update', [CartController::class, 'updateCartItem'])->name('update');
 });
+
+Route::get('invoice', function () {
+    return view('mails.invoice');
+});
+
