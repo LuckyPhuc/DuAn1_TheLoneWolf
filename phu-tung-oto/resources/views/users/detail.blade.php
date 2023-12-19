@@ -64,6 +64,7 @@
                         <h6 style="font-size: 24px">Danh mục: {{ $products->category->name }}</h6>
                         <p class="mb-3">{!! $products->description !!}</p>
                         <form class="mt-3"
+
                             action="{{ route('cart.add', ['productId' => $products->id, 'quantity' => $products->quantity]) }}"
                             method="POST" id="cartForm">
                             @csrf
