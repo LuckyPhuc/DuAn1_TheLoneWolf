@@ -26,7 +26,7 @@ return new class extends Migration
     {
         Schema::table('order_details', function (Blueprint $table) {
             $table->decimal('price', 11, 2);
-            $table->dropColumn(['address', 'sdt']);
+            $table->dropColumn(['address', 'sdt', 'description']);
         });
     }
 };

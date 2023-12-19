@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Cấu trúc bảng cho bảng `categories`
 --
 
+
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL
