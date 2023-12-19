@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Suppliers;
 use App\Models\image_features;
+use App\Models\Orders;
+use App\Models\Order_details;
 use App\Models\Posts;
 use App\Models\Products;
 use App\Models\User;
@@ -18,7 +20,23 @@ class HomeController extends Controller
     {
         $categories = Categories::all();
         $suppliers = Suppliers::all();
-        return view('layouts.app', compact('categories', 'suppliers'));
+        $user_id = auth()->id();
+        $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
+            $query->where('users_id', $user_id);
+        })
+            ->with(['order.order_details', 'product.image_features'])
+            ->get();
+
+        $groupedCart = $cart->groupBy('product.id');
+        $products = Products::all();
+        $order_detail = Order_details::all();
+        $order = Orders::all();
+        $posts = Posts::all();
+
+        return view(
+            'layouts.app',
+            compact('categories', 'suppliers', 'groupedCart', 'products', 'order_detail', 'order', 'posts')
+        );
     }
     function index()
     {
@@ -28,7 +46,17 @@ class HomeController extends Controller
             $query->where('number', 0);
         }])->get();
         $posts = Posts::with(['users'])->get();
-        return view('users.index', compact('categories', 'suppliers', 'products', 'posts'));
+        $user_id = auth()->id();
+        $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
+            $query->where('users_id', $user_id);
+        })
+            ->with(['order.order_details', 'product.image_features'])
+            ->get();
+
+        $groupedCart = $cart->groupBy('product.id');
+        $order_detail = Order_details::all();
+        $order = Orders::all();
+        return view('users.index', compact('categories', 'suppliers', 'products', 'posts', 'groupedCart', 'order_detail', 'order'));
     }
     // ShopController.php
     public function showProductsByCategory($category)
@@ -48,15 +76,23 @@ class HomeController extends Controller
             ->paginate(6);
 
         $suppliers = Suppliers::all();
+        $user_id = auth()->id();
+        $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
+            $query->where('users_id', $user_id);
+        })
+            ->with(['order.order_details', 'product.image_features'])
+            ->get();
 
-        return view('users.shop', compact('categories', 'suppliers', 'products', 'selectedCategory'));
+        $groupedCart = $cart->groupBy('product.id');
+        $order_detail = Order_details::all();
+        $order = Orders::all();
+        return view('users.shop', compact('categories', 'suppliers', 'products', 'selectedCategory', 'groupedCart', 'order_detail', 'order'));
     }
 
     public function showProductsBySupplier($supplier)
     {
         $suppliers = Suppliers::all();
         $selectedSupplier = Suppliers::where('name', $supplier)->first();
-
         // Kiểm tra nếu nhà cung cấp không tồn tại
         if (!$selectedSupplier) {
             abort(404);
@@ -65,11 +101,21 @@ class HomeController extends Controller
             $query->where('id', $selectedSupplier->id);
         })
 
-            ->with(['category', 'image_features' => function ($query) {
+            ->with(['supplier', 'image_features' => function ($query) {
                 $query->where('number', 0);
             }])
             ->paginate(6);
         $categories = Categories::all();
-        return view('users.shop', compact('categories', 'suppliers', 'products', 'selectedSupplier'));
+        $user_id = auth()->id();
+        $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
+            $query->where('users_id', $user_id);
+        })
+            ->with(['order.order_details', 'product.image_features'])
+            ->get();
+
+        $groupedCart = $cart->groupBy('product.id');
+        $order_detail = Order_details::all();
+        $order = Orders::all();
+        return view('users.shop', compact('categories', 'suppliers', 'products', 'selectedSupplier', 'groupedCart', 'order_detail', 'order'));
     }
 }
