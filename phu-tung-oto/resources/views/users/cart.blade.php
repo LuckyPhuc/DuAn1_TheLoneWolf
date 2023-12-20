@@ -45,12 +45,12 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th class="pro-thumbnail">Image</th>
-                                        <th class="pro-title">Product</th>
-                                        <th class="pro-price">Price</th>
-                                        <th class="pro-quantity">Quantity</th>
-                                        <th class="pro-subtotal">Total</th>
-                                        <th class="pro-remove">Remove</th>
+                                        <th class="pro-thumbnail">Hình ảnh sản phẩm</th>
+                                        <th class="pro-title">Tên sản phẩm</th>
+                                        <th class="pro-price">Giá</th>
+                                        <th class="pro-quantity">Số Lượng</th>
+                                        <th class="pro-subtotal">Tổng tiền</th>
+                                        <th class="pro-remove">Hành động</th>
                                     </tr>
                                 </thead>
                                 <tbody>
