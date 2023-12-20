@@ -146,6 +146,9 @@ Route::get('shop/category/{category}', [ShopController::class, 'showProductsByCa
 Route::get('shop/suppliers/{supplier}', [ShopController::class, 'showsuppliers'])->name('showsuppliers');
 Route::get('show/{id}', [ShopController::class, 'show'])->name('detail');
 route::post('shop/show', [ShopController::class, 'locProducts'])->name('locProducts');
+Route::post('shop/search', [ShopController::class, 'search'])->name('search');
+
+
 Route::prefix('checkout')->name('checkout.')->group(function () {
     Route::get('/', [CheckoutController::class, 'index'])->name('list');
     Route::post('/{id}', [CheckoutController::class, 'order_id'])->name('orders');
@@ -156,6 +159,7 @@ Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::get('posts', [postController::class, 'Posts'])->name('posts');
 Route::get('show/posts/{id}', [postController::class, 'ShowPosts'])->name('posts.show');
+
 // cart
 Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
     Route::get('/', [CartController::class, 'cart'])->name('list');
@@ -168,4 +172,3 @@ Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
 Route::get('invoice', function () {
     return view('mails.invoice');
 });
-
