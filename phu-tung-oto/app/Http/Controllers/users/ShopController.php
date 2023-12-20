@@ -102,9 +102,9 @@ class ShopController extends Controller
 
         return view('users.shop', compact('categories', 'suppliers', 'products', 'posts', 'order', 'order_detail', 'groupedCart'));
     }
-    public function locSanPham(Request $request)
+    public function locProducts(Request $request)
     {
-        $luaChonSapXep = $request->input('lua_chon_sap_xep');
+        $luaChonSapXep = $request->input('sorting_option');
 
         // Sắp xếp mặc định nếu không có lựa chọn
         $theoCot = 'ten';
@@ -112,17 +112,17 @@ class ShopController extends Controller
 
         switch ($luaChonSapXep) {
             case 2:
-                $theoCot = 'cot_pho_bien'; // Thay thế bằng cột phổ biến thực tế của bạn
+                $theoCot = 'price'; // Thay thế bằng cột phổ biến thực tế của bạn
                 break;
             case 3:
                 $theoCot = 'created_at';
                 break;
             case 4:
-                $theoCot = 'gia';
+                $theoCot = 'price';
                 $huongSapXep = 'asc';
                 break;
             case 5:
-                $theoCot = 'gia';
+                $theoCot = 'price';
                 $huongSapXep = 'desc';
                 break;
             case 6:
@@ -137,10 +137,20 @@ class ShopController extends Controller
                 $huongSapXep = 'asc';
                 break;
         }
+        $categories = Categories::all();
+        $suppliers = Suppliers::all();
+        $products = Products::orderBy($theoCot, $huongSapXep)->get();
+        $user_id = auth()->id();
+        $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
+            $query->where('users_id', $user_id);
+        })
+            ->with(['order.order_details', 'product.image_features'])
+            ->get();
 
-        $sanPham = Products::orderBy($theoCot, $huongSapXep)->get();
-
-        return view('ten_view_cua_ban', compact('sanPham'));
+        $groupedCart = $cart->groupBy('product.id');
+        $order_detail = Order_details::all();
+        $order = Orders::all();
+        $posts = Posts::all();
+        return view('users.shop', compact('products', 'categories', 'suppliers', 'posts', 'order', 'order_detail', 'groupedCart'));
     }
-
 }

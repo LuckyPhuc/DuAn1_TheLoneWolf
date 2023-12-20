@@ -106,8 +106,15 @@
                                             <td class="cart-product-name">{{ $orderDetail->product->name }}<strong
                                                     class="product-quantity">
                                                     × {{ $totalQuantity }}</strong></td>
-                                            <td class="cart-product-total text-center"><span
-                                                    class="amount">{{ number_format($orderDetail->product->price, 2, '.', ',') }}</span>
+                                            <td class="cart-product-total text-center">
+                                                @if ($totalQuantity > 0)
+                                                    <span class="amount">
+                                                        {{ number_format($orderDetail->product->price, 2) }}
+                                                        VND
+                                                    </span>
+                                                @else
+                                                    0
+                                                @endif
                                             </td>
                                         </tr>
                                     </tbody>
@@ -115,7 +122,8 @@
                                 <tfoot>
                                     <tr class="cart-subtotal">
                                         <th>Cart Subtotal</th>
-                                        <td class="text-center"><span class="amount">{{ number_format($subTotal, 2) }}</span>
+                                        <td class="text-center"><span
+                                                class="amount">{{ number_format($subTotal, 2) }}</span>
                                         </td>
                                     </tr>
                                     <tr class="order-total">
