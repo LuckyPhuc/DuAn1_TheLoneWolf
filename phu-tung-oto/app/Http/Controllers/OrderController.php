@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Products;
+use App\Models\image_features;
+use App\Models\Orders;
+use App\Models\Order_details;
+use App\Models\User;
 
 class OrderController extends Controller
 {
@@ -11,7 +16,18 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view("admin.orders.index");
+
+
+        $cart = Order_details::whereHas('order')
+            ->with(['order.order_details', 'product.image_features', 'order.users'])
+            ->get();
+
+        $groupedCart = $cart->groupBy('product.id');
+        $users = User::all();
+        $order_detail = Order_details::all();
+        $orders = Orders::all();
+
+        return view("admin.orders.index", compact("cart", "groupedCart", "orders", "order_detail", "users"));
     }
 
     /**
@@ -59,6 +75,12 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $orderDetail = Order_details::find($id);
+        if (!$orderDetail) {
+            return response()->json(['message' => 'Item not found'], 404);
+        }
+        $orderDetail->delete($id);
+        session()->flash('success', 'Xóa thành công');
+        return redirect()->route('admin.orders.list');
     }
 }

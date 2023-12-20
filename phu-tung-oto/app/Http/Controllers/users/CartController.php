@@ -50,7 +50,7 @@ class CartController extends Controller
         }
         $order = Orders::firstOrCreate([
             'users_id' => auth()->id(),
-            'status' => 'open',
+            'status' => 'chưa chọn phương thức thanh toán',
         ], [
             'order_date' => now(),
             'total' => 0,
