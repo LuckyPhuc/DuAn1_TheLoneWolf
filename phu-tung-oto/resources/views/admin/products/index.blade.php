@@ -34,18 +34,15 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-top">
-                        <div class="search-set">
+                        <form action="{{ route('admin.products.search') }}" method="POST">
+                            @csrf
                             <div class="search-path">
-                                <a class="btn btn-filter" id="filter_search">
-                                    <img src="{{ asset('assets/img/icons/filter.svg') }} " alt="img">
-                                    <span><img src="{{ asset('assets/img/icons/closes.svg') }} " alt="img"></span>
-                                </a>
+                                <input type="text" placeholder="Bạn muốn tìm kiếm gì?" name="search">
+                                <button class="btn btn-primary" type="submit"
+                                    style="background: #ff9f43;color:#fff; padding:0.5rem"><i
+                                        class="bi bi-search"></i></button>
                             </div>
-                            <div class="search-input">
-                                <a class="btn btn-searchset"><img src="{{ asset('assets/img/icons/search-white.svg') }} "
-                                        alt="img"></a>
-                            </div>
-                        </div>
+                        </form>
                         <div class="wordset">
                             <ul>
                                 <li>
@@ -84,7 +81,7 @@
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
-                            @foreach ($products as $product)
+                            @forelse ($products as $product)
                                 <tbody>
                                     <tr>
                                         <td>
@@ -135,7 +132,9 @@
                                         </form>
                                     </tr>
                                 </tbody>
-                            @endforeach
+                            @empty
+                                sản phẩm không tồn tại
+                            @endforelse
                         </table>
                     </div>
 

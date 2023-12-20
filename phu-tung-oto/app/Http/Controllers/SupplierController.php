@@ -153,4 +153,10 @@ class SupplierController extends Controller
             return redirect()->route('admin.supplier.list',)->with('error', 'Lỗi');
         }
     }
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $suppliers = Suppliers::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
+        return view("admin.supplier.index", compact("suppliers"));
+    }
 }

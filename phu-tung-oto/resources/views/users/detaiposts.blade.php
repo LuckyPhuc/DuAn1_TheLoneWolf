@@ -16,7 +16,20 @@
             </div>
         </div>
     </div>
+    <style>
+        h2 {
+            font-size: 24px;
+            padding-bottom: 2%;
+            padding-top: 1%
+        }
+
+        img {
+            width: 100%;
+            padding: 1% 3%;
+        }
+    </style>
     <div class="container p-5">
+        <h1 class="display-6 text-center pb-3">{{ $posts->title }}</h1>
         {!! $posts->body !!}
     </div>
 @endsection
