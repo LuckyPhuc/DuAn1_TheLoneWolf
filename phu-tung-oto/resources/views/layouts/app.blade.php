@@ -203,8 +203,9 @@
                                                                                 VND
                                                                             </span>
                                                                         </div>
-                                                                        <button type="button"><i
-                                                                                class="ion-trash-b"></i></button>
+                                                                        <button type="button">
+                                                                            <i class="ion-trash-b"></i>
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>

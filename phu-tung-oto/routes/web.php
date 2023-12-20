@@ -117,7 +117,7 @@ Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->gr
         Route::delete('delete/{id}', [UserController::class, 'destroy'])->name('destroy');
     });
 
-    Route::get('demo/sendmail', [MailController::class, 'sendmail']);
+    // Route::get('demo/sendmail', [MailController::class, 'sendmail']);
     //Routing website
     // Route::prefix('admin/website')->name('admin.website.')->group(function () {
     //     Route::get('list', [WebsiteController::class, 'index'])->name('list');
@@ -168,4 +168,3 @@ Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
 Route::get('invoice', function () {
     return view('mails.invoice');
 });
-

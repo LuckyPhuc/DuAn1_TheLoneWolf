@@ -77,7 +77,8 @@
                                                 <div class="quantity">
                                                     <div class="cart-plus-minus">
                                                         <input id="{{ $inputId }}" class="cart-plus-minus-box"
-                                                            value="{{ $totalQuantity }}" type="text" readonly>
+                                                            value="{{ $totalQuantity }}" type="text" readonly
+                                                            min="1">
                                                         <div class="dec qtybutton"
                                                             onclick="decrementQuantity('{{ $inputId }}')">-</div>
                                                         <div class="inc qtybutton"
