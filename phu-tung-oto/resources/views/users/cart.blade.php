@@ -54,57 +54,66 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($groupedCart as $productId => $items)
-                                        @php
-                                            $orderDetail = $items->first();
-                                            $totalQuantity = $items->sum('quantity');
-                                            $inputId = 'cartInput_' . $productId;
-                                        @endphp
-
+                                    @if (!empty($orderDetail))
                                         <tr>
-                                            <td class="pro-thumbnail">
-                                                <a href="#"><img class="img-fluid"
-                                                        src="{{ asset($orderDetail->product->image_features->first()->url_img) }}"
-                                                        alt="Product" /></a>
-                                            </td>
-                                            <td class="pro-title">
-                                                <a class="name__product w-60"
-                                                    href="#">{{ $orderDetail->product->name }}</a>
-                                            </td>
-                                            <td class="pro-price">
-                                                <span>{{ number_format($orderDetail->product->price, 2, '.', ',') }}</span>
-                                            </td>
-                                            <td class="pro-quantity">
-                                                <div class="quantity">
-                                                    <div class="cart-plus-minus">
-                                                        <input id="{{ $inputId }}" class="cart-plus-minus-box"
-                                                            value="{{ $totalQuantity }}" type="text" readonly>
-                                                        <div class="dec qtybutton"
-                                                            onclick="decrementQuantity('{{ $inputId }}')">-</div>
-                                                        <div class="inc qtybutton"
-                                                            onclick="incrementQuantity('{{ $inputId }}')">+</div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="pro-subtotal">
-                                                <span>{{ number_format($totalQuantity * $orderDetail->product->price, 2, '.', ',') }}
-                                                    VND</span>
-                                            </td>
-                                            <td class="pro-remove">
-                                                <form action="{{ route('cart.delete', ['id' => $orderDetail->id]) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit"
-                                                        onclick="return confirm('Bạn có muốn xóa sản phẩm này không?')"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa mục này"
-                                                        style="border: none; background-color: transparent; cursor: pointer;">
-                                                        <i class="ion-trash-b"></i>
-                                                    </button>
-                                                </form>
-                                            </td>
+                                            <td colspan="6" align="center">Giỏ hàng của bạn đang trống</td>
                                         </tr>
-                                    @endforeach
+                                    @else
+                                        @foreach ($groupedCart as $productId => $items)
+                                            @php
+                                                $orderDetail = $items->first();
+                                                $totalQuantity = $items->sum('quantity');
+                                                $inputId = 'cartInput_' . $productId;
+
+                                            @endphp
+
+                                            <tr>
+                                                <td class="pro-thumbnail">
+                                                    <a href="#"><img class="img-fluid"
+                                                            src="{{ asset($orderDetail->product->image_features->first()->url_img) }}"
+                                                            alt="Product" /></a>
+                                                </td>
+                                                <td class="pro-title">
+                                                    <a class="name__product w-60"
+                                                        href="#">{{ $orderDetail->product->name }}</a>
+                                                </td>
+                                                <td class="pro-price">
+                                                    <span>{{ number_format($orderDetail->product->price, 2, '.', ',') }}</span>
+                                                </td>
+                                                <td class="pro-quantity">
+                                                    <div class="quantity">
+                                                        <div class="cart-plus-minus">
+                                                            <input id="{{ $inputId }}" class="cart-plus-minus-box"
+                                                                value="{{ $totalQuantity }}" type="text" readonly>
+                                                            <div class="dec qtybutton"
+                                                                onclick="decrementQuantity('{{ $inputId }}')">-</div>
+                                                            <div class="inc qtybutton"
+                                                                onclick="incrementQuantity('{{ $inputId }}')">+</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="pro-subtotal">
+                                                    <span>{{ number_format($totalQuantity * $orderDetail->product->price, 2, '.', ',') }}
+                                                        VND</span>
+                                                </td>
+                                                <td class="pro-remove">
+                                                    <form action="{{ route('cart.delete', ['id' => $orderDetail->id]) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            onclick="return confirm('Bạn có muốn xóa sản phẩm này không?')"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Xóa mục này"
+                                                            style="border: none; background-color: transparent; cursor: pointer;">
+                                                            <i class="ion-trash-b"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
+
                                 </tbody>
 
                             </table>
@@ -132,25 +141,22 @@
                                 <h3>Cart Totals</h3>
                                 <div class="table-responsive">
                                     <table class="table">
+
                                         @php
                                             $subTotal = 0;
-                                            // Calculate subtotal
-                                            foreach ($order_detail as $item) {
-                                                $product = $products->where('id', $item->product_id)->first();
-                                                $subTotal += $item->quantity * $product->price;
+                                            foreach ($groupedCart as $productId => $items) {
+                                                $orderDetail = $items->first();
+                                                $totalQuantity = $items->sum('quantity');
+                                                $subTotal += $totalQuantity * $orderDetail->product->price;
                                             }
-
-                                            $shipping = $subTotal * 0.0001;
-                                            $total = $subTotal + $shipping;
+                                            $total = $subTotal;
                                         @endphp
+
+
 
                                         <tr>
                                             <td>Sub Total</td>
                                             <td>{{ number_format($subTotal, 2) }} VND</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shipping</td>
-                                            <td>{{ number_format($shipping, 2) }} VND</td>
                                         </tr>
                                         <tr class="total">
                                             <td>Total</td>
@@ -159,7 +165,15 @@
                                     </table>
                                 </div>
                             </div>
-                            <a href="checkout.html" class="btn obrien-button primary-btn d-block">Proceed To Checkout</a>
+                            @isset($orderDetail)
+                                <form method="POST"
+                                    action="{{ route('checkout.orders', ['id' => $orderDetail->order->id]) }}">
+                                    @csrf
+                                    <button type="submit" class="btn obrien-button primary-btn d-block">Proceed To
+                                        Checkout</button>
+                                </form>
+                            @endisset
+
                         </div>
                     </div>
                 </div>
