@@ -59,7 +59,7 @@ class ShopController extends Controller
     {
         $categories = Categories::all();
         $suppliers = Suppliers::all();
-        $products = Products::where('category_id', $category->id)->with(['category', 'image_features'])->paginate(6);
+        $products = Products::where('category_id', $category->id)->with(['category', 'image_features'])->get();
 
         $posts = Posts::all();
         $user_id = auth()->id();
