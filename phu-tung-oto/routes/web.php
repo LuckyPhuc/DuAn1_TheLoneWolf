@@ -61,6 +61,7 @@ Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->gr
         Route::get('{id}/edit', [ProductController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [ProductController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [ProductController::class, 'destroy'])->name('destroy');
+        Route::post('list', [ProductController::class, 'search'])->name('search');
     });
     //Routing Categories
     Route::prefix('categories')->name('categories.')->group(function () {
@@ -71,7 +72,7 @@ Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->gr
         Route::get('{id}/edit', [CategoriesController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [CategoriesController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [CategoriesController::class, 'destroy'])->name('destroy');
-        // Route::get('list', [CategoriesController::class, 'search'])->name('search');
+        Route::post('list', [CategoriesController::class, 'search'])->name('search');
     });
     Route::prefix('supplier')->name('supplier.')->group(function () {
         Route::get('list', [SupplierController::class, 'index'])->name('list');
@@ -81,7 +82,7 @@ Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->gr
         Route::get('{id}/edit', [SupplierController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [SupplierController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [SupplierController::class, 'destroy'])->name('destroy');
-        // Route::get('list', [CategoriesController::class, 'search'])->name('search');
+        Route::post('list', [SupplierController::class, 'search'])->name('search');
     });
 
     //Routing orders
@@ -115,6 +116,7 @@ Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->gr
         Route::get('{id}/edit', [UserController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [UserController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [UserController::class, 'destroy'])->name('destroy');
+        Route::post('list', [UserController::class, 'search'])->name('search');
     });
 
     // Route::get('demo/sendmail', [MailController::class, 'sendmail']);

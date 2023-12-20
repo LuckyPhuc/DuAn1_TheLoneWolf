@@ -116,15 +116,15 @@
                                             <li>
                                                 <a href="{{ route('posts') }}">
                                                     <span class="menu-text"> Bài viết</span>
-                                                    <i class="fa fa-angle-down"></i>
+                                                    {{-- <i class="fa fa-angle-down"></i> --}}
                                                 </a>
-                                                <ul class="dropdown-submenu dropdown-hover">
-                                                    @foreach ($posts as $post)
+                                                {{-- <ul class="dropdown-submenu dropdown-hover"> --}}
+                                                {{-- @foreach ($posts as $post)
                                                         <li><a href="#">{{ $post->title }}
                                                             </a>
                                                         </li>
-                                                    @endforeach
-                                                </ul>
+                                                    @endforeach --}}
+                                                {{-- </ul> --}}
                                             </li>
                                             <li>
                                                 <a href="about-us.html">
@@ -324,15 +324,15 @@
                                             <li>
                                                 <a href="{{ route('posts') }}">
                                                     <span class="menu-text"> Bài viết</span>
-                                                    <i class="fa fa-angle-down"></i>
+                                                    {{-- <i class="fa fa-angle-down"></i> --}}
                                                 </a>
-                                                <ul class="dropdown-submenu dropdown-hover">
+                                                {{-- <ul class="dropdown-submenu dropdown-hover">
                                                     @foreach ($posts as $post)
                                                         <li><a href="#">{{ $post->title }}
                                                             </a>
                                                         </li>
                                                     @endforeach
-                                                </ul>
+                                                </ul> --}}
                                             </li>
                                             <li>
                                                 <a href="about-us.html">
