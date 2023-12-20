@@ -227,6 +227,11 @@
                                                                                 </button>
                                                                             </form>
                                                                         </div>
+
+                                                                        <button type="button">
+                                                                            <i class="ion-trash-b"></i>
+                                                                        </button>
+
                                                                     </div>
                                                                 </div>
                                                             @endforeach

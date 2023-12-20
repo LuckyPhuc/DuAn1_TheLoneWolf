@@ -56,7 +56,49 @@
                                 <tbody>
                                     @if (!empty($orderDetail))
                                         <tr>
-                                            <td colspan="6" align="center">Giỏ hàng của bạn đang trống</td>
+                                            <td class="pro-thumbnail">
+                                                <a href="#"><img class="img-fluid"
+                                                        src="{{ asset($orderDetail->product->image_features->first()->url_img) }}"
+                                                        alt="Product" /></a>
+                                            </td>
+                                            <td class="pro-title">
+                                                <a class="name__product w-60"
+                                                    href="#">{{ $orderDetail->product->name }}</a>
+                                            </td>
+                                            <td class="pro-price">
+                                                <span>{{ number_format($orderDetail->product->price, 2, '.', ',') }}</span>
+                                            </td>
+                                            <td class="pro-quantity">
+                                                <div class="quantity">
+                                                    <div class="cart-plus-minus">
+                                                        <input id="{{ $inputId }}" class="cart-plus-minus-box"
+                                                            value="{{ $totalQuantity }}" type="text" readonly
+                                                            min="1">
+                                                        <div class="dec qtybutton"
+                                                            onclick="decrementQuantity('{{ $inputId }}')">-</div>
+                                                        <div class="inc qtybutton"
+                                                            onclick="incrementQuantity('{{ $inputId }}')">+</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="pro-subtotal">
+                                                <span>{{ number_format($totalQuantity * $orderDetail->product->price, 2, '.', ',') }}
+                                                    VND</span>
+                                            </td>
+                                            <td class="pro-remove">
+                                                <form action="{{ route('cart.delete', ['id' => $orderDetail->id]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        onclick="return confirm('Bạn có muốn xóa sản phẩm này không?')"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa mục này"
+                                                        style="border: none; background-color: transparent; cursor: pointer;">
+                                                        <i class="ion-trash-b"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+
                                         </tr>
                                     @else
                                         @foreach ($groupedCart as $productId => $items)
