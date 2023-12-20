@@ -153,47 +153,49 @@
                             <div class="widget-list widget-mb-1">
                                 <h3 class="widget-title">Search</h3>
                                 <div class="search-box">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search Our Store"
-                                            aria-label="Search Our Store">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <form action="{{ Route('search') }}" method="POST">
+                                        @csrf
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search Our Store"
+                                                name="search">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="submit">
+                                                    <i class="fa fa-search"></i>
+                                            </div>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="widget-list widget-mb-1">
-                                <h3 class="widget-title">Menu Categories</h3>
-
-                                @foreach ($categories as $category)
-                                    <ul class="sidebar-list">
-                                        <li>
-                                            <a
-                                                href="{{ route('showProducts', ['category' => $category]) }}">{{ $category->name }}</a>
-                                        </li>
-                                    </ul>
-                                @endforeach
-                            </div>
-                            <div class="widget-list widget-mb-4">
-                                <h3 class="widget-title">hãng</h3>
-                                @foreach ($suppliers as $supplier)
-                                    <ul class="sidebar-list">
-                                        <li>
-                                            <a
-                                                href="{{ route('showsuppliers', ['supplier' => $supplier]) }}">{{ $supplier->name }}</a>
-
-                                        </li>
-                                    </ul>
-                                @endforeach
-                            </div>
                         </div>
-                    </aside>
-                    <!-- Sidebar Widget End -->
+                        <div class="widget-list widget-mb-1">
+                            <h3 class="widget-title">Menu Categories</h3>
+
+                            @foreach ($categories as $category)
+                                <ul class="sidebar-list">
+                                    <li>
+                                        <a
+                                            href="{{ route('showProducts', ['category' => $category]) }}">{{ $category->name }}</a>
+                                    </li>
+                                </ul>
+                            @endforeach
+                        </div>
+                        <div class="widget-list widget-mb-4">
+                            <h3 class="widget-title">hãng</h3>
+                            @foreach ($suppliers as $supplier)
+                                <ul class="sidebar-list">
+                                    <li>
+                                        <a
+                                            href="{{ route('showsuppliers', ['supplier' => $supplier]) }}">{{ $supplier->name }}</a>
+
+                                    </li>
+                                </ul>
+                            @endforeach
+                        </div>
                 </div>
+                </aside>
+                <!-- Sidebar Widget End -->
             </div>
         </div>
+    </div>
 
     </div>
     <!-- Shop Main Area End Here -->

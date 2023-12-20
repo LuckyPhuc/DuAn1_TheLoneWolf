@@ -133,7 +133,7 @@ class ShopController extends Controller
 
             default:
                 // Theo bảng chữ cái, A-Z (mặc định)
-                $theoCot = 'ten';
+                $theoCot = 'name';
                 $huongSapXep = 'asc';
                 break;
         }
@@ -152,5 +152,26 @@ class ShopController extends Controller
         $order = Orders::all();
         $posts = Posts::all();
         return view('users.shop', compact('products', 'categories', 'suppliers', 'posts', 'order', 'order_detail', 'groupedCart'));
+    }
+    public function search(Request $request)
+    {
+        // Xử lý tìm kiếm ở đây, ví dụ sử dụng Eloquent
+        $searchTerm = $request->input('search');
+        $products = Products::where('name', 'like', "%$searchTerm%")->get();
+
+        $user_id = auth()->id();
+        $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
+            $query->where('users_id', $user_id);
+        })
+            ->with(['order.order_details', 'product.image_features'])
+            ->get();
+
+        $groupedCart = $cart->groupBy('product.id');
+        $order_detail = Order_details::all();
+        $order = Orders::all();
+        $categories = Categories::all();
+        $suppliers = Suppliers::all();
+        $posts = Posts::all();
+        return view('users.shop', compact('products', 'order', 'order_detail', 'groupedCart', 'categories', 'suppliers', 'posts'));
     }
 }
