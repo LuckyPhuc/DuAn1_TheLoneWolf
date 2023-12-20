@@ -174,42 +174,68 @@
                                                         @php
                                                             $subTotal = 0;
                                                         @endphp
+                                                        @if (empty($orderDetail))
+                                                            <tr>
+                                                                <td colspan="6" align="center">Giỏ hàng của bạn đang
+                                                                    trống</td>
+                                                            </tr>
+                                                        @else
+                                                            @foreach ($groupedCart as $productId => $items)
+                                                                @php
+                                                                    $orderDetail = $items->first();
+                                                                    $totalQuantity = $items->sum('quantity');
+                                                                    $subTotal += $totalQuantity * $orderDetail->product->price;
+                                                                    $inputId = 'cartInput_' . $productId;
+                                                                @endphp
 
-                                                        @foreach ($groupedCart as $productId => $items)
-                                                            @php
-                                                                $orderDetail = $items->first();
-                                                                $totalQuantity = $items->sum('quantity');
-                                                                $subTotal += $totalQuantity * $orderDetail->product->price;
-                                                                $inputId = 'cartInput_' . $productId;
-                                                            @endphp
-
-                                                            <div class="single-cart-item">
-                                                                <div class="cart-img">
-                                                                    <a href="{{ route('cart.list') }}">
-                                                                        <img src="{{ asset($orderDetail->product->image_features->first()->url_img) }}"
-                                                                            alt="{{ $orderDetail->product->name }}">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="cart-text">
-                                                                    <h5 class="title">
-                                                                        <a
-                                                                            href="{{ route('cart.list') }}">{{ $orderDetail->product->name }}</a>
-                                                                    </h5>
-                                                                    <div class="cart-text-btn">
-                                                                        <div class="cart-qty">
-                                                                            <span> {{ $totalQuantity }} X</span>
-                                                                            <span class="cart-price">
-                                                                                {{ number_format($orderDetail->product->price, 2, '.', ',') }}
-                                                                                VND
-                                                                            </span>
+                                                                <div class="single-cart-item">
+                                                                    <div class="cart-img">
+                                                                        <a href="{{ route('cart.list') }}">
+                                                                            <img src="{{ asset($orderDetail->product->image_features->first()->url_img) }}"
+                                                                                alt="{{ $orderDetail->product->name }}">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="cart-text">
+                                                                        <h5 class="title">
+                                                                            <a
+                                                                                href="{{ route('cart.list') }}">{{ $orderDetail->product->name }}</a>
+                                                                        </h5>
+                                                                        <div class="cart-text-btn">
+                                                                            <div class="cart-qty">
+                                                                                <span> {{ $totalQuantity }} X</span>
+                                                                                @if ($totalQuantity > 0)
+                                                                                    <span class="cart-price">
+                                                                                        {{ number_format($orderDetail->product->price, 2) }}
+                                                                                        VND
+                                                                                    </span>
+                                                                                @else
+                                                                                    0
+                                                                                @endif
+                                                                            </div>
+                                                                            <form
+                                                                                action="{{ route('cart.delete', ['id' => $orderDetail->id]) }}"
+                                                                                method="POST">
+                                                                                @csrf
+                                                                                @method('DELETE')
+                                                                                <button type="submit"
+                                                                                    onclick="return confirm('Bạn có muốn xóa sản phẩm này không?')"
+                                                                                    data-bs-toggle="tooltip"
+                                                                                    data-bs-placement="top"
+                                                                                    title="Xóa mục này"
+                                                                                    style="border: none; background-color: transparent; cursor: pointer;">
+                                                                                    <i class="ion-trash-b"></i>
+                                                                                </button>
+                                                                            </form>
                                                                         </div>
+
                                                                         <button type="button">
                                                                             <i class="ion-trash-b"></i>
                                                                         </button>
+
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        @endforeach
+                                                            @endforeach
+                                                        @endif
 
                                                         <div class="cart-price-total d-flex justify-content-between">
                                                             <h5>Total : </h5>

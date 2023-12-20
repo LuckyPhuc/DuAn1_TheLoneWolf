@@ -27,46 +27,27 @@
                             <button data-role="grid_3" type="button" class="active btn-grid-3" data-bs-toggle="tooltip"
                                 title="3"><i class="fa fa-th"></i></button>
                             <!-- <button data-role="grid_4" type="button"  class=" btn-grid-4" data-bs-toggle="tooltip" title="4"></button> -->
-                            <button data-role="grid_list" type="button" class="btn-list" data-bs-toggle="tooltip"
-                                title="List"><i class="fa fa-th-list"></i></button>
+                            {{-- <button data-role="grid_list" type="button" class="btn-list" data-bs-toggle="tooltip"
+                                title="List"><i class="fa fa-th-list"></i></button> --}}
                         </div>
                         <div class="shop-select">
-                            <form class="d-flex flex-column w-100" action="#">
-                                <div class="form-group">
-                                    <form id="sortingForm" action="{{ route('locProducts') }}" method="POST">
-                                        @csrf
-                                        <div class="form-group">
-                                            <select class="form-control nice-select w-100" name="sorting_option"
-                                                id="sortingOption">
-                                                <option selected value="1">Theo bảng chữ cái, A-Z</option>
-                                                <option value="2">Sắp xếp theo mức độ phổ biến</option>
-                                                <option value="3">Sắp xếp theo độ mới</option>
-                                                <option value="4">Sắp xếp theo giá: thấp đến cao</option>
-                                                <option value="5">Sắp xếp theo giá: cao xuống thấp</option>
-                                            </select>
-                                        </div>
-                                    </form>
-
-                                    <script>
-                                        $(document).ready(function() {
-                                            $('#sortingOption').change(function() {
-                                                console.log('Option changed. Submitting form.');
-                                                $('#sortingForm').submit();
-                                            });
-                                        });
-                                    </script>
-
-
-                                    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-                                    <script>
-                                        $(document).ready(function() {
-                                            $('#sortingOption').change(function() {
-                                                $('#sortingForm').submit();
-                                            });
-                                        });
-                                    </script>
-                                </div>
-                            </form>
+                            <div class="form-group d-flex">
+                                <form action="{{ route('locProducts') }}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <select class="form-control nice-select w-100" name="sorting_option">
+                                            <option selected value="1">Theo bảng chữ cái, A-Z</option>
+                                            <option value="2">Sắp xếp theo mức độ phổ biến</option>
+                                            <option value="3">Sắp xếp theo độ mới</option>
+                                            <option value="4">Sắp xếp theo giá: thấp đến cao</option>
+                                            <option value="5">Sắp xếp theo giá: cao xuống thấp</option>
+                                        </select>
+                                    </div>
+                                    <div class="buttun">
+                                        <input type="submit" value="Lọc">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <!--shop toolbar end-->
@@ -126,7 +107,7 @@
                     <div class="row">
                         <div class="col-sm-12 col-custom">
                             <div class="toolbar-bottom mt-30">
-                                <nav class="pagination pagination-wrap mb-10 mb-sm-0">
+                                {{-- <nav class="pagination pagination-wrap mb-10 mb-sm-0">
                                     <ul class="pagination">
                                         @if ($products->currentPage() == 1)
                                             <li class="page-item disabled"><span class="page-link">Previous</span></li>
@@ -157,7 +138,7 @@
                                     <span>{{ __('of') }}</span>
                                     <span class="font-medium">{{ $products->total() }}</span>
                                     <span>{{ __('results') }}</span>
-                                </div>
+                                </div> --}}
                             </div>
 
 
@@ -172,47 +153,49 @@
                             <div class="widget-list widget-mb-1">
                                 <h3 class="widget-title">Search</h3>
                                 <div class="search-box">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search Our Store"
-                                            aria-label="Search Our Store">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <form action="{{ Route('search') }}" method="POST">
+                                        @csrf
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search Our Store"
+                                                name="search">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="submit">
+                                                    <i class="fa fa-search"></i>
+                                            </div>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="widget-list widget-mb-1">
-                                <h3 class="widget-title">Menu Categories</h3>
-
-                                @foreach ($categories as $category)
-                                    <ul class="sidebar-list">
-                                        <li>
-                                            <a
-                                                href="{{ route('showProducts', ['category' => $category]) }}">{{ $category->name }}</a>
-                                        </li>
-                                    </ul>
-                                @endforeach
-                            </div>
-                            <div class="widget-list widget-mb-4">
-                                <h3 class="widget-title">hãng</h3>
-                                @foreach ($suppliers as $supplier)
-                                    <ul class="sidebar-list">
-                                        <li>
-                                            <a
-                                                href="{{ route('showsuppliers', ['supplier' => $supplier]) }}">{{ $supplier->name }}</a>
-
-                                        </li>
-                                    </ul>
-                                @endforeach
-                            </div>
                         </div>
-                    </aside>
-                    <!-- Sidebar Widget End -->
+                        <div class="widget-list widget-mb-1">
+                            <h3 class="widget-title">Menu Categories</h3>
+
+                            @foreach ($categories as $category)
+                                <ul class="sidebar-list">
+                                    <li>
+                                        <a
+                                            href="{{ route('showProducts', ['category' => $category]) }}">{{ $category->name }}</a>
+                                    </li>
+                                </ul>
+                            @endforeach
+                        </div>
+                        <div class="widget-list widget-mb-4">
+                            <h3 class="widget-title">hãng</h3>
+                            @foreach ($suppliers as $supplier)
+                                <ul class="sidebar-list">
+                                    <li>
+                                        <a
+                                            href="{{ route('showsuppliers', ['supplier' => $supplier]) }}">{{ $supplier->name }}</a>
+
+                                    </li>
+                                </ul>
+                            @endforeach
+                        </div>
                 </div>
+                </aside>
+                <!-- Sidebar Widget End -->
             </div>
         </div>
+    </div>
 
     </div>
     <!-- Shop Main Area End Here -->
