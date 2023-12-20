@@ -199,4 +199,10 @@ class ProductController extends Controller
         }
         return redirect()->route('admin.products.list')->with('success', 'Xóa thành công!');
     }
+    function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $products = Products::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
+        return view("admin.products.index", compact("products"));
+    }
 }

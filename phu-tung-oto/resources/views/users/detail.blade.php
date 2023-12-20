@@ -60,19 +60,18 @@
                             <i class="fa fa-star-o"></i>
                             <i class="fa fa-star-o"></i>
                         </div>
-                        {{-- <div class="sku mb-3">
-                            <span>SKU: 12345</span>
-                        </div> --}}
-                        <p class="desc-content mb-5">{{ $products->description }}</p>
-                        <form
+                        <h6 style="font-size: 24px">Hãng: {{ $products->supplier->name }}</h6>
+                        <h6 style="font-size: 24px">Danh mục: {{ $products->category->name }}</h6>
+                        <p class="mb-3">{!! $products->description !!}</p>
+                        <form class="mt-3"
                             action="{{ route('cart.add', ['productId' => $products->id, 'quantity' => $products->quantity]) }}"
                             method="POST" id="cartForm">
                             @csrf
                             <div class="quantity-with_btn mb-4 d-flex align-item-center">
                                 <div class="quantity">
                                     <div class="cart-plus-minus">
-                                        <input name="quantity" class="cart-plus-minus-box" value="0" type="number"
-                                            id="quantityInput" min="0" pattern="\d+" oninput="validateInput()">
+                                        <input name="quantity" class="cart-plus-minus-box" value="1" type="number"
+                                            id="quantityInput" min="1" pattern="\d+" oninput="validateInput()">
                                         <div class="dec qtybutton" onclick="decrementQuantity()">-</div>
                                         <div class="inc qtybutton" onclick="incrementQuantity()">+</div>
                                     </div>
@@ -107,8 +106,10 @@
                                     var input = document.getElementById('quantityInput');
                                     var currentValue = parseInt(input.value);
 
-                                    if (currentValue > 0) {
+                                    if (currentValue > 1) {
                                         input.value = currentValue - 1;
+                                    } else {
+                                        input.value = 1
                                     }
                                 }
                                 // lay gia tri quantity day len url
@@ -121,16 +122,13 @@
                                 }
                             </script>
                         </form>
-                        <div class="buy-button mb-5">
-                            <a href="#" class="btn obrien-button-3 black-button">Buy it now</a>
-                        </div>
-                        <div class="social-share mb-4">
-                            <span>Share :</span>
+                        {{-- <div class="social-share mb-4">
+                            <span>Chia sẻ :</span>
                             <a href="#"><i class="fa fa-facebook-square facebook-color"></i></a>
                             <a href="#"><i class="fa fa-twitter-square twitter-color"></i></a>
                             <a href="#"><i class="fa fa-linkedin-square linkedin-color"></i></a>
                             <a href="#"><i class="fa fa-pinterest-square pinterest-color"></i></a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -138,26 +136,25 @@
         </div>
     </div>
 
-    <div class="product-area mb-text mt-6">
-        <div class="container container-default custom-area">
+    <div class="product-area my-5"
+        style="box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;">
+        <div class="container container-default custom-area y-3">
             <div class="row">
-                <div class="col-lg-5 m-auto text-center col-custom">
+                <div class="col-lg-5 m-auto text-center col-custom my-5">
                     <div class="section-content">
-                        <h2 class="title-1 text-uppercase">Related Product</h2>
+                        <h2 class="title-1 text-uppercase">Sản phẩm liên quan</h2>
                         <div class="desc-content">
-                            <p>You can check the related product for your shopping collection.</p>
+                            <p>Bạn có thể xem các sản phẩm liên quan</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                @foreach ($product->take(4) as $products)
-                    <div class="col-md-3 col-sm-8 col-lg-3 col-custom product-area p-3">
+            <swiper-container class="mySwiper" init="false" navigation="true" autoplay-delay="2500">
+                @foreach ($product as $products)
+                    <swiper-slide class="py-3">
                         <div class="single-product position-relative">
                             <div class="product-image">
                                 <a class="d-block" href="{{ route('detail', ['id' => $products->id]) }}">
-
-
                                     <img src="{{ asset($products->image_features->first()->url_img) }}" alt=""
                                         class="product-image-1 w-100">
                                 </a>
@@ -167,8 +164,8 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
                                 </div>
                                 <div class="product-title">
                                     <h4 class="title-2"> <a href="#">{{ $products->name }}</a> </h4>
@@ -179,21 +176,53 @@
                                 </div>
                             </div>
                             <div class="add-action d-flex position-absolute">
-                                <a href="cart.html" title="Add To cart"><i class="ion-bag"></i></a>
-                                <a href="compare.html" title="Compare"><i class="ion-ios-loop-strong"></i></a>
-                                <a href="wishlist.html" title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                <a href="#exampleModalCenter" data-bs-toggle="modal" title="Quick View"><i
-                                        class="ion-eye"></i></a>
+                                <form id="addToCartForm"
+                                    action="{{ route('cart.add', ['productId' => $products->id, 'quantity' => 1]) }}"
+                                    method="post">
+                                    @csrf
+                                    <a style="margin-right: 15px">
+                                        <button type="submit" value="app to cart"><i class="ion-bag"></i></button>
+                                    </a>
+                                </form>
+                                <a href="#" title="Compare"><i class="ion-ios-loop-strong"></i></a>
+                                <a href="#" title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                <a href="#" data-bs-toggle="modal" title="Quick View"><i class="ion-eye"></i></a>
                             </div>
                         </div>
-                    </div>
-
-                    @if ($loop->iteration % 3 == 0)
-                        {{-- Add an empty column after every 3rd product --}}
-                        <div class="w-100 d-none d-md-block d-lg-none"></div>
-                    @endif
+                    </swiper-slide>
                 @endforeach
-            </div>
+            </swiper-container>
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+        <script>
+            const swiperEl = document.querySelector('swiper-container')
+            Object.assign(swiperEl, {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                breakpoints: {
+                    "@0.00": {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    "@0.75": {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    "@1.00": {
+                        slidesPerView: 3,
+                        spaceBetween: 40,
+                    },
+                    "@1.50": {
+                        slidesPerView: 4,
+                        spaceBetween: 50,
+                    },
+                },
+            });
+
+            swiperEl.initialize();
+        </script>
+    </div>
     </div>
 @endsection

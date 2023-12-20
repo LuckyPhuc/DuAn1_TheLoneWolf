@@ -107,10 +107,10 @@ class CategoriesController extends Controller
             return redirect()->route('admin.categories.list',)->with('error', 'Lỗi');
         }
     }
-    // public function search($request)
-    // {
-    //     $searchTerm = $request->input('search');
-    //     $categories = Categories::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
-    //     return view("admin.categories.index", compact("categories"));
-    // }
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $categories = Categories::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
+        return view("admin.categories.index", compact("categories"));
+    }
 }

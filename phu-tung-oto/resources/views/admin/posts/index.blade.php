@@ -49,7 +49,7 @@
                                 <span class="author">{{ $post->users->name }}</span>
                             </div>
                             <h2 class="post-title">
-                                <a href="#">{{ $post->title }}</a>
+                                <a href="#">{{ substr($post->title, 0, 31) }}...</a>
                             </h2>
                             <p class="desc-content">
                                 {{ substr($post->description, 0, 60) }} ...

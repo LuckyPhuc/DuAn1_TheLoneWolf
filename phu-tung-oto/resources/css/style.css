@@ -252,6 +252,7 @@ button,
 .container.custom-area .col-custom {
     padding-right: 15px;
     padding-left: 15px;
+
 }
 
 /*-- Boxed Home Layout --*/
@@ -5099,7 +5100,7 @@ button,
 }
 
 .product-area .section-content .desc-content {
-    padding-bottom: 60px;
+    padding-bottom: 0px;
 }
 
 @media (max-width: 479px) {

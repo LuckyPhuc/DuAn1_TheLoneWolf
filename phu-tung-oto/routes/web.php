@@ -31,13 +31,10 @@ use App\Http\Controllers\users\RegisterController;
 |
 */
 
-Route::get('test', function () {
-    return view('welcome');
-});
 
 Route::get('admin/dashboard', function () {
     return view('admin/dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'CheckAdminRole'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -54,11 +51,8 @@ require __DIR__ . '/auth.php';
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
+Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->group(function () {
     // Routing product
-    // Route::get('/', function () {
-    //     return view('admin/dashboard')->name('dashboard');
-    // });
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('list', [ProductController::class, 'index'])->name('list');
         Route::get('create', [ProductController::class, 'create'])->name('create');
@@ -67,6 +61,7 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
         Route::get('{id}/edit', [ProductController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [ProductController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [ProductController::class, 'destroy'])->name('destroy');
+        Route::post('list', [ProductController::class, 'search'])->name('search');
     });
     //Routing Categories
     Route::prefix('categories')->name('categories.')->group(function () {
@@ -77,7 +72,7 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
         Route::get('{id}/edit', [CategoriesController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [CategoriesController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [CategoriesController::class, 'destroy'])->name('destroy');
-        // Route::get('list', [CategoriesController::class, 'search'])->name('search');
+        Route::post('list', [CategoriesController::class, 'search'])->name('search');
     });
     Route::prefix('supplier')->name('supplier.')->group(function () {
         Route::get('list', [SupplierController::class, 'index'])->name('list');
@@ -87,7 +82,7 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
         Route::get('{id}/edit', [SupplierController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [SupplierController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [SupplierController::class, 'destroy'])->name('destroy');
-        // Route::get('list', [CategoriesController::class, 'search'])->name('search');
+        Route::post('list', [SupplierController::class, 'search'])->name('search');
     });
 
     //Routing orders
@@ -121,9 +116,10 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
         Route::get('{id}/edit', [UserController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [UserController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [UserController::class, 'destroy'])->name('destroy');
+        Route::post('list', [UserController::class, 'search'])->name('search');
     });
 
-    Route::get('demo/sendmail', [MailController::class, 'sendmail']);
+    // Route::get('demo/sendmail', [MailController::class, 'sendmail']);
     //Routing website
     // Route::prefix('admin/website')->name('admin.website.')->group(function () {
     //     Route::get('list', [WebsiteController::class, 'index'])->name('list');
@@ -144,29 +140,37 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
 |--------------------------------------------------------------------------
 */
 // nguoi dung (user)
-// Route::prefix('user')->name('user.')->group(function () {
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('shop/{category}', [HomeController::class, 'showProductsByCategory'])->name('shop');
-Route::get('shop/{supplier}', [ShopController::class, 'showProductsBySupplier'])->name('shop.supplier');
+Route::get('shop?{supplier}', [ShopController::class, 'showProductsBySupplier'])->name('shop.supplier');
 Route::get('shop', [ShopController::class, 'index'])->name('shop');
-Route::get('shop/{category}', [ShopController::class, 'showProductsByCategory'])->name('showProducts');
+Route::get('shop/category/{category}', [ShopController::class, 'showProductsByCategory'])->name('showProducts');
+Route::get('shop/suppliers/{supplier}', [ShopController::class, 'showsuppliers'])->name('showsuppliers');
 Route::get('show/{id}', [ShopController::class, 'show'])->name('detail');
-Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
+route::post('shop/show', [ShopController::class, 'locProducts'])->name('locProducts');
+Route::post('shop/search', [ShopController::class, 'search'])->name('search');
+
+
+Route::prefix('checkout')->name('checkout.')->group(function () {
+    Route::get('/', [CheckoutController::class, 'index'])->name('list');
+    Route::post('/{id}', [CheckoutController::class, 'order_id'])->name('orders');
+    Route::post('/', [CheckoutController::class, 'checkout'])->name('checkouts');
+});
+
 Route::get('register', [RegisterController::class, 'index'])->name('register');
-Route::post('/', [RegisterController::class, 'register'])->name('store');
 Route::get('login', [LoginController::class, 'index'])->name('login');
-// Route::post('/', [LoginController::class, 'login'])->name('login.store');
 Route::get('posts', [postController::class, 'Posts'])->name('posts');
 Route::get('show/posts/{id}', [postController::class, 'ShowPosts'])->name('posts.show');
-Route::get('cart', [CartController::class, 'cart'])->name('cart');
-Route::delete('/delete-cart-item/{orderDetail}', [CartController::class, 'deleteCartItem'])->name('delete.cart.item');
-Route::post('cart/add/{productId}/{quantity}', [CartController::class, 'addCart'])
-    ->name('cart.add');
-// Add a route for updating the cart item
-Route::post('update-cart-item', [CartController::class, 'updateCartItem'])->name('update');
-    // Route::post('cart/add', [CartController::class, 'addToCart'])->name('cart.add');
-// });
-// file manager
-// Route::group(['prefix' => 'laravel-filemanager'], function () {
-//     \UniSharp\LaravelFilemanager\Lfm::routes();
-// });
+
+// cart
+Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
+    Route::get('/', [CartController::class, 'cart'])->name('list');
+    Route::delete('/delete/{id}', [CartController::class, 'deleteCartItem'])->name('delete');
+    Route::post('add/{productId}/{quantity}', [CartController::class, 'addCart'])
+        ->name('add');
+    Route::post('update', [CartController::class, 'updateCartItem'])->name('update');
+});
+
+Route::get('invoice', function () {
+    return view('mails.invoice');
+});

@@ -54,7 +54,7 @@
                                     <li>
                                         <h4>Mô tả sản phẩm</h4>
                                         <h6>
-                                            {{ $products->description }}
+                                            {!! $products->description !!}
                                         </h6>
                                     </li>
                                 </ul>

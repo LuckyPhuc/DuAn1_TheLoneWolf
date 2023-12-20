@@ -31,13 +31,15 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-top">
-
-                        <div class="search-path">
-                            <input type="text" placeholder="Bạn muốn tìm kiếm gì?" name="search">
-                            <button class="btn btn-primary" style="background: #ff9f43;color:#fff; padding:0.5rem"><i
-                                    class="bi bi-search"></i></button>
-                        </div>
-
+                        <form action="{{ route('admin.categories.search') }}" method="POST">
+                            @csrf
+                            <div class="search-path">
+                                <input type="text" placeholder="Bạn muốn tìm kiếm gì?" name="search">
+                                <button class="btn btn-primary" type="submit"
+                                    style="background: #ff9f43;color:#fff; padding:0.5rem"><i
+                                        class="bi bi-search"></i></button>
+                            </div>
+                        </form>
                         <div class="wordset">
                             <ul>
                                 <li>
@@ -71,7 +73,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $category)
+
+                            @forelse ($categories as $category)
                                 <tr>
                                     <td>
                                         <label class="checkboxs">
@@ -106,7 +109,10 @@
 
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                Danh mục không tồn tại
+                            @endforelse
+
                         </tbody>
                     </table>
 

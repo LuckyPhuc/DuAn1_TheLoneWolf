@@ -1,14 +1,14 @@
 @extends('layouts.app')
-@section('title', 'Trang chủ ')
+@section('title', 'Phụ tùng ôtô - Trang chủ ')
 
 @section('content')
     <!-- Slider banner -->
     <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" autoplay="true"
         autoplay-delay="3500">
-        <swiper-slide><img src="{{ asset('assets/img/slider/1.jpg') }}" alt="..."></swiper-slide>
-        <swiper-slide><img src="{{ asset('assets/img/slider/2.jpg') }}" alt="..."></swiper-slide>
-        <swiper-slide><img src="{{ asset('assets/img/slider/3.jpg') }}" alt="..."></swiper-slide>
-        <swiper-slide><img src="{{ asset('assets/img/slider/4.jpg') }}" alt="..."></swiper-slide>
+        <swiper-slide style="heigh:100vh"><img src="{{ asset('assets/img/slider/1.jpg') }}" alt="..."></swiper-slide>
+        <swiper-slide style="heigh:100vh"><img src="{{ asset('assets/img/slider/2.jpg') }}" alt="..."></swiper-slide>
+        <swiper-slide style="heigh:100vh"><img src="{{ asset('assets/img/slider/3.jpg') }}" alt="..."></swiper-slide>
+        <swiper-slide style="heigh:100vh"><img src="{{ asset('assets/img/slider/4.jpg') }}" alt="..."></swiper-slide>
     </swiper-container>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
@@ -176,7 +176,7 @@
                                     method="post">
                                     @csrf
                                     <a style="margin-right: 15px">
-                                        <button type="submit" value="app to cart"><i class="ion-bag"></i></button>
+                                        <button type="submit" value="add to cart"><i class="ion-bag"></i></button>
                                     </a>
                                 </form>
 

@@ -20,14 +20,19 @@ class CartController extends Controller
         $categories = Categories::all();
         $suppliers = Suppliers::all();
 
-        return view('users/cart', compact('categories', 'suppliers'));
+        return view('users.cart', compact('categories', 'suppliers'));
     }
     function cart()
     {
         $categories = Categories::all();
         $suppliers = Suppliers::all();
-        $cart = Order_details::with(['order.order_details', 'product.image_features'])->get();
-        // dd($cart);
+        $user_id = auth()->id();
+        $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
+            $query->where('users_id', $user_id);
+        })
+            ->with(['order.order_details', 'product.image_features'])
+            ->get();
+
         $groupedCart = $cart->groupBy('product.id');
         $products = Products::all();
         $order_detail = Order_details::all();
@@ -41,36 +46,37 @@ class CartController extends Controller
     {
         $product = Products::findOrFail($productId);
         if (!$product) {
-            abort(404, 'Product not found');
+            abort(404, 'Không tìm thấy sản phẩm');
         }
         $order = Orders::firstOrCreate([
-            // 'users_id' => auth()->id(),
-            'users_id' => 1,
+            'users_id' => auth()->id(),
             'status' => 'open',
         ], [
             'order_date' => now(),
             'total' => 0,
         ]);
+
         $orderDetail = new Order_details([
             'product_id' => $product->id,
             'quantity' => $quantity,
-            'price' => $product->price,
         ]);
         $order->order_details()->save($orderDetail);
         $order->update([
-            'total' => $order->order_details()->sum('price'),
+            'total' => $product->price * $quantity,
         ]);
-        return redirect()->route('user.cart')->with('success', 'add sản phẩm thành công');
+
+        return redirect()->route('cart.list')->with('success', 'Thêm sản phẩm thành công');
     }
+
     public function deleteCartItem($orderDetailId)
     {
         $orderDetail = Order_details::find($orderDetailId);
         if (!$orderDetail) {
             return response()->json(['message' => 'Item not found'], 404);
         }
-        $orderDetail->delete();
+        $orderDetail->delete($orderDetailId);
         session()->flash('success', 'Xóa thành công');
-        return redirect()->route('user.cart');
+        return redirect()->route('cart.list');
     }
     public function updateCartItem(Request $request)
     {
@@ -83,6 +89,7 @@ class CartController extends Controller
             $productId = $updatedQuantity['productId'];
             $quantity = $updatedQuantity['quantity'];
             $orderDetail = Order_details::where('product_id', $productId)->first();
+            $product = Products::where('id', $productId)->first();
             if ($orderDetail) {
                 $orderDetail->update(['quantity' => $quantity]);
             }
@@ -90,7 +97,7 @@ class CartController extends Controller
         $orderId = $orderDetail->order_id;
         $order = Orders::find($orderId);
         if ($order) {
-            $order->update(['total' => $order->order_details()->sum('price')]);
+            $order->update(['total' => $product->price]);
         }
         return response()->json(['success' => 'Cập nhật giỏ hàng thành công']);
     }

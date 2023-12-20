@@ -6,9 +6,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class UserController extends Controller
 {
+    use Notifiable;
     /**
      * Display a listing of the resource.
      */
@@ -149,5 +152,11 @@ class UserController extends Controller
         } else {
             return redirect()->route('admin.users.list', compact('user'))->with('error', 'Không tìm thấy người dùng');
         }
+    }
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $users = User::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
+        return view("admin.users.index", compact("users"));
     }
 }
