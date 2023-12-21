@@ -101,7 +101,7 @@
                                     @php
                                         $orderDetail = $items->first();
                                         $totalQuantity = $items->sum('quantity');
-                                        $subTotal = $totalQuantity * $orderDetail->product->price;
+                                        $subTotal += $totalQuantity * $orderDetail->product->price;
                                         $inputId = 'cartInput_' . $productId;
                                     @endphp
                                     <tbody>
@@ -110,14 +110,12 @@
                                                     class="product-quantity">
                                                     × {{ $totalQuantity }}</strong></td>
                                             <td class="cart-product-total text-center">
-                                                @if ($totalQuantity > 0)
-                                                    <span class="amount">
-                                                        {{ number_format($orderDetail->product->price, 2) }}
-                                                        VND
-                                                    </span>
-                                                @else
-                                                    0
-                                                @endif
+
+                                                <span class="amount">
+                                                    {{ number_format($orderDetail->product->price, 2) }}
+                                                    VND
+                                                </span>
+
                                             </td>
                                         </tr>
                                     </tbody>

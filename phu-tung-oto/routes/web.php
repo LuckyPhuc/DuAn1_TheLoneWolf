@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\DashbardController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\SupplierController;
@@ -32,9 +33,9 @@ use App\Http\Controllers\users\RegisterController;
 */
 
 
-Route::get('admin/dashboard', function () {
-    return view('admin/dashboard');
-})->middleware(['auth', 'CheckAdminRole'])->name('dashboard');
+// Route::get('admin/dashboard', function () {
+//     return view('admin/dashboard');
+// })->middleware(['auth', 'CheckAdminRole'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -52,6 +53,12 @@ require __DIR__ . '/auth.php';
 */
 
 Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->group(function () {
+
+    // Routing dashboard
+    Route::prefix('dashboard')->name('dashboard.')->group(function () {
+        Route::get('/', [DashbardController::class, 'index'])->name('index');
+    });
+
     // Routing product
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('list', [ProductController::class, 'index'])->name('list');
@@ -153,7 +160,7 @@ Route::post('shop/search', [ShopController::class, 'search'])->name('search');
 
 Route::prefix('checkout')->name('checkout.')->group(function () {
     Route::get('/', [CheckoutController::class, 'index'])->name('list');
-    Route::post('/{id}', [CheckoutController::class, 'order_id'])->name('orders');
+    Route::get('/a}', [CheckoutController::class, 'order_id'])->name('orders');
     Route::post('/', [CheckoutController::class, 'checkout'])->name('checkouts');
 });
 
@@ -171,6 +178,4 @@ Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
     Route::post('update', [CartController::class, 'updateCartItem'])->name('update');
 });
 
-Route::get('invoice', function () {
-    return view('mails.invoice');
-});
+Route::get('invoice', [MailController::class, 'show'])->name('show');

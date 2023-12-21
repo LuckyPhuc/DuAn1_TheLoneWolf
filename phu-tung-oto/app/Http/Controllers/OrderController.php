@@ -76,10 +76,25 @@ class OrderController extends Controller
     public function destroy(string $id)
     {
         $orderDetail = Order_details::find($id);
+
         if (!$orderDetail) {
             return response()->json(['message' => 'Item not found'], 404);
         }
-        $orderDetail->delete($id);
+
+        $orderId = $orderDetail->order_id; // Giả sử cột lưu order_id là order_id, hãy thay đổi nếu tên cột khác
+
+        $orderDetail->delete();
+
+        // Kiểm tra xem có orderDetail nào khác thuộc cùng một order không trước khi xóa order
+        $otherOrderDetails = Order_details::where('order_id', $orderId)->exists();
+
+        if (!$otherOrderDetails) {
+            $order = Orders::find($orderId);
+            if ($order) {
+                $order->delete();
+            }
+        }
+
         session()->flash('success', 'Xóa thành công');
         return redirect()->route('admin.orders.list');
     }
