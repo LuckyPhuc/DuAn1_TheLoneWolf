@@ -1,16 +1,16 @@
 (function ($) {
     "use strict";
     /*----------------------------------------
-		 Hide Header
-	----------------------------------------*/
+           Hide Header
+      ----------------------------------------*/
     $(".top-close-button").click(function (event) {
         event.preventDefault();
         $(".header-top-area").toggle();
     });
 
     /*----------------------------------------
-	   Sticky Menu Activation
-	---------------------------------*/
+         Sticky Menu Activation
+      ---------------------------------*/
     $(window).on("scroll", function () {
         if ($(this).scrollTop() > 300) {
             $(".header-sticky").addClass("sticky");
@@ -20,8 +20,8 @@
     });
 
     /*----------------------------------------
-		Off Canvas
-	-------------------------------------------*/
+          Off Canvas
+      -------------------------------------------*/
     $(".off-canvas-btn").on("click", function () {
         $("body").addClass("fix");
         $(".off-canvas-wrapper").addClass("open");
@@ -33,8 +33,8 @@
     });
 
     /*----------------------------------------
-		Responsive Mobile Menu
-	------------------------------------------*/
+          Responsive Mobile Menu
+      ------------------------------------------*/
     //Variables
     var $offCanvasNav = $(".mobile-menu"),
         $offCanvasNavSubMenu = $offCanvasNav.find(".dropdown");
@@ -90,7 +90,7 @@
     });
     /*----------------------------------------*/
     /*------ Popup Image
-	-------------------------------------------------*/
+      -------------------------------------------------*/
     $(".popup-gallery").magnificPopup({
         delegate: "a",
         type: "image",
@@ -106,8 +106,8 @@
         },
     });
     /*--------------------------------
-    Scroll To Top
-	-------------------------------- */
+      Scroll To Top
+      -------------------------------- */
     function scrollToTop() {
         var $scrollUp = $(".scroll-to-top"),
             $lastScrollTop = 0,
@@ -128,10 +128,9 @@
         });
 
         $scrollUp.on("click", function (evt) {
-            $("html, body").animate(
-                {
-                    scrollTop: 0,
-                },
+            $("html, body").animate({
+                scrollTop: 0,
+            },
                 600
             );
             evt.preventDefault();
@@ -140,13 +139,13 @@
     scrollToTop();
     /*----------------------------------------*/
     /*  Nice Select
-	/*----------------------------------------*/
+      /*----------------------------------------*/
     $(document).ready(function () {
         $(".nice-select").niceSelect();
     });
     /*----------------------------------------*/
     /* Toggle Function Active
-	/*----------------------------------------*/
+      /*----------------------------------------*/
     // showlogin toggle
     $("#showlogin").on("click", function () {
         $("#checkout-login").slideToggle(900);
@@ -166,7 +165,7 @@
     });
     /*----------------------------------------*/
     /*  Shop Grid Activation
-	/*----------------------------------------*/
+      /*----------------------------------------*/
     $(".shop_toolbar_btn > button").on("click", function (e) {
         e.preventDefault();
 
@@ -203,7 +202,7 @@
     });
     /*----------------------------------------*/
     /*  Cart Plus Minus Button
-	/*----------------------------------------*/
+      /*----------------------------------------*/
     $(".cart-plus-minus").append(
         '<div class="dec qtybutton"><i class="fa fa-minus"></i></div><div class="inc qtybutton"><i class="fa fa-plus"></i></div>'
     );
@@ -224,7 +223,7 @@
     });
     /*----------------------------------------*/
     /*  Countdown
-	/*----------------------------------------*/
+      /*----------------------------------------*/
     $("[data-countdown]").each(function () {
         var $this = $(this),
             finalDate = $(this).data("countdown");
@@ -237,14 +236,15 @@
         });
     });
     /*---------------------------------
-	 	MailChimp
-    -----------------------------------*/
+            MailChimp
+      -----------------------------------*/
     $("#mc-form").ajaxChimp({
         language: "en",
         callback: mailChimpResponse,
         // ADD YOUR MAILCHIMP URL BELOW HERE!
         url: "http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef",
     });
+
     function mailChimpResponse(resp) {
         if (resp.result === "success") {
             $(".mailchimp-success")
@@ -259,8 +259,8 @@
     }
 
     /*--------------------------
-	06. Ajax Contact Form JS
-	---------------------------*/
+      06. Ajax Contact Form JS
+      ---------------------------*/
     const form = $("#contact-form"),
         formMessages = $(".form-message");
 
@@ -306,7 +306,7 @@
     });
     /*----------------------------------------*/
     /*  Slick Carousel
-	----------------------------------------*/
+      ----------------------------------------*/
     var $html = $("html");
     var $body = $("body");
     var $elementCarousel = $(".obrien-slider, .product-slider");
@@ -333,101 +333,101 @@
             // Carousel Options
 
             var $options =
-                typeof $this.data("slick-options") !== "undefined"
-                    ? $this.data("slick-options")
-                    : "";
+                typeof $this.data("slick-options") !== "undefined" ?
+                    $this.data("slick-options") :
+                    "";
 
-            var $spaceBetween = $options.spaceBetween
-                    ? parseInt($options.spaceBetween, 10)
-                    : 0,
-                $spaceBetween_xl = $options.spaceBetween_xl
-                    ? parseInt($options.spaceBetween_xl, 10)
-                    : 0,
-                $rowSpace = $options.rowSpace
-                    ? parseInt($options.rowSpace, 10)
-                    : 0,
+            var $spaceBetween = $options.spaceBetween ?
+                parseInt($options.spaceBetween, 10) :
+                0,
+                $spaceBetween_xl = $options.spaceBetween_xl ?
+                    parseInt($options.spaceBetween_xl, 10) :
+                    0,
+                $rowSpace = $options.rowSpace ?
+                    parseInt($options.rowSpace, 10) :
+                    0,
                 $rows = $options.rows ? $options.rows : false,
                 $vertical = $options.vertical ? $options.vertical : false,
-                $focusOnSelect = $options.focusOnSelect
-                    ? $options.focusOnSelect
-                    : false,
-                $pauseOnHover = $options.pauseOnHover
-                    ? $options.pauseOnHover
-                    : false,
-                $pauseOnFocus = $options.pauseOnFocus
-                    ? $options.pauseOnFocus
-                    : false,
+                $focusOnSelect = $options.focusOnSelect ?
+                    $options.focusOnSelect :
+                    false,
+                $pauseOnHover = $options.pauseOnHover ?
+                    $options.pauseOnHover :
+                    false,
+                $pauseOnFocus = $options.pauseOnFocus ?
+                    $options.pauseOnFocus :
+                    false,
                 $asNavFor = $options.asNavFor ? $options.asNavFor : "",
                 $fade = $options.fade ? $options.fade : false,
                 $autoplay = $options.autoplay ? $options.autoplay : false,
-                $autoplaySpeed = $options.autoplaySpeed
-                    ? parseInt($options.autoplaySpeed, 10)
-                    : 5000,
+                $autoplaySpeed = $options.autoplaySpeed ?
+                    parseInt($options.autoplaySpeed, 10) :
+                    5000,
                 $swipe = $options.swipe ? $options.swipe : true,
-                $swipeToSlide = $options.swipeToSlide
-                    ? $options.swipeToSlide
-                    : true,
+                $swipeToSlide = $options.swipeToSlide ?
+                    $options.swipeToSlide :
+                    true,
                 $touchMove = $options.touchMove ? $options.touchMove : false,
-                $verticalSwiping = $options.verticalSwiping
-                    ? $options.verticalSwiping
-                    : true,
+                $verticalSwiping = $options.verticalSwiping ?
+                    $options.verticalSwiping :
+                    true,
                 $draggable = $options.draggable ? $options.draggable : true,
                 $arrows = $options.arrows ? $options.arrows : false,
                 $dots = $options.dots ? $options.dots : false,
-                $adaptiveHeight = $options.adaptiveHeight
-                    ? $options.adaptiveHeight
-                    : true,
+                $adaptiveHeight = $options.adaptiveHeight ?
+                    $options.adaptiveHeight :
+                    true,
                 $infinite = $options.infinite ? $options.infinite : false,
                 $centerMode = $options.centerMode ? $options.centerMode : false,
-                $centerPadding = $options.centerPadding
-                    ? $options.centerPadding
-                    : "",
-                $variableWidth = $options.variableWidth
-                    ? $options.variableWidth
-                    : false,
+                $centerPadding = $options.centerPadding ?
+                    $options.centerPadding :
+                    "",
+                $variableWidth = $options.variableWidth ?
+                    $options.variableWidth :
+                    false,
                 $speed = $options.speed ? parseInt($options.speed, 10) : 500,
-                $appendArrows = $options.appendArrows
-                    ? $options.appendArrows
-                    : $this,
+                $appendArrows = $options.appendArrows ?
+                    $options.appendArrows :
+                    $this,
                 $prevArrow =
-                    $arrows === true
-                        ? $options.prevArrow
-                            ? '<span class="' +
-                              $options.prevArrow.buttonClass +
-                              '"><i class="' +
-                              $options.prevArrow.iconClass +
-                              '"></i></span>'
-                            : '<button class="tty-slick-text-btn tty-slick-text-prev"><i class="ion-chevron-left"></i></span>'
-                        : "",
+                    $arrows === true ?
+                        $options.prevArrow ?
+                            '<span class="' +
+                            $options.prevArrow.buttonClass +
+                            '"><i class="' +
+                            $options.prevArrow.iconClass +
+                            '"></i></span>' :
+                            '<button class="tty-slick-text-btn tty-slick-text-prev"><i class="ion-chevron-left"></i></span>' :
+                        "",
                 $nextArrow =
-                    $arrows === true
-                        ? $options.nextArrow
-                            ? '<span class="' +
-                              $options.nextArrow.buttonClass +
-                              '"><i class="' +
-                              $options.nextArrow.iconClass +
-                              '"></i></span>'
-                            : '<button class="tty-slick-text-btn tty-slick-text-next"><i class="ion-chevron-right"></i></span>'
-                        : "",
+                    $arrows === true ?
+                        $options.nextArrow ?
+                            '<span class="' +
+                            $options.nextArrow.buttonClass +
+                            '"><i class="' +
+                            $options.nextArrow.iconClass +
+                            '"></i></span>' :
+                            '<button class="tty-slick-text-btn tty-slick-text-next"><i class="ion-chevron-right"></i></span>' :
+                        "",
                 $rows = $options.rows ? parseInt($options.rows, 10) : 1,
                 $rtl =
                     $options.rtl ||
-                    $html.attr('dir="rtl"') ||
-                    $body.attr('dir="rtl"')
-                        ? true
-                        : false,
-                $slidesToShow = $options.slidesToShow
-                    ? parseInt($options.slidesToShow, 10)
-                    : 1,
-                $slidesToScroll = $options.slidesToScroll
-                    ? parseInt($options.slidesToScroll, 10)
-                    : 1;
+                        $html.attr('dir="rtl"') ||
+                        $body.attr('dir="rtl"') ?
+                        true :
+                        false,
+                $slidesToShow = $options.slidesToShow ?
+                    parseInt($options.slidesToShow, 10) :
+                    1,
+                $slidesToScroll = $options.slidesToScroll ?
+                    parseInt($options.slidesToScroll, 10) :
+                    1;
 
             /*Responsive Variable, Array & Loops*/
             var $responsiveSetting =
-                    typeof $this.data("slick-responsive") !== "undefined"
-                        ? $this.data("slick-responsive")
-                        : "",
+                typeof $this.data("slick-responsive") !== "undefined" ?
+                    $this.data("slick-responsive") :
+                    "",
                 $responsiveSettingLength = $responsiveSetting.length,
                 $responsiveArray = [];
             for (var i = 0; i < $responsiveSettingLength; i++) {
