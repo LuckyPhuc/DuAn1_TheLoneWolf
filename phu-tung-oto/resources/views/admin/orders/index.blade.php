@@ -72,7 +72,7 @@
                                     <th>Tên khách hàng</th>
                                     <th>số lượng</th>
                                     <th>Tổng tiền</th>
-                                    <th>Status</th>
+                                    <th>Trạng thái</th>
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
@@ -103,7 +103,7 @@
                                         </td>
                                         <td>{{ $orderDetail->order->users->name }}</td>
                                         <td>{{ $orderDetail->quantity }} Cái</td>
-                                        <td>{{ number_format($orderDetail->order->total, 2) }} VND</td>
+                                        <td>{{ number_format($orderDetail->product->price, 2) }} VND</td>
                                         <td><span class="badges bg-lightgreen">{{ $orderDetail->order->status }}</span>
                                         </td>
                                         <td>

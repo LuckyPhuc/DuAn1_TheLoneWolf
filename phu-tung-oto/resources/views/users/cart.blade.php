@@ -193,9 +193,6 @@
                                             }
                                             $total = $subTotal;
                                         @endphp
-
-
-
                                         <tr>
                                             <td>Sub Total</td>
                                             <td>{{ number_format($subTotal, 2) }} VND</td>
@@ -207,14 +204,29 @@
                                     </table>
                                 </div>
                             </div>
-                            @isset($orderDetail)
+                            {{-- @isset($orderDetail)
                                 <form method="POST"
                                     action="{{ route('checkout.orders', ['id' => $orderDetail->order->id]) }}">
                                     @csrf
                                     <button type="submit" class="btn obrien-button primary-btn d-block">Proceed To
                                         Checkout</button>
                                 </form>
+                            @endisset --}}
+                            @isset($orderDetail)
+                                <?php
+                                // Bắt đầu session (nếu chưa bắt đầu)
+                                session_start();
+                                
+                                // Lưu giá trị 'order_id' vào session
+                                $_SESSION['order_id'] = $orderDetail->order->id;
+                                
+                                // Để đảm bảo rằng session được lưu lại, bạn có thể sử dụng session_write_close()
+                                session_write_close();
+                                ?>
+                                <a href="{{ route('checkout.orders') }}"
+                                    class="btn obrien-button primary-btn d-block">Proceed To Checkout</a>
                             @endisset
+
 
                         </div>
                     </div>

@@ -31,20 +31,24 @@ class CheckoutController extends Controller
         $order = Orders::all();
         return view('users.checkout', compact('categories', 'suppliers', 'posts', 'order', 'order_detail', 'groupedCart'));
     }
-    public function order_id(Request $request, $id)
+    public function order_id(Request $request)
     {
+        session_start();
+        // Lấy giá trị 'order_id' từ session
+        $orderId = $_SESSION['order_id'] ?? null;
+        // Đóng session để tránh xung đột
+        session_write_close();
         $posts = Posts::all();
         $categories = Categories::all();
         $suppliers = Suppliers::all();
-        $order = Orders::find($id);
-        $request->session()->put('checkout_order_id', $id);
+        $order = Orders::find($orderId);
+        $request->session()->put('checkout_order_id', $orderId);
         $user_id = auth()->id();
         $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
             $query->where('users_id', $user_id);
         })
             ->with(['order.order_details', 'product.image_features'])
             ->get();
-
         $groupedCart = $cart->groupBy('product.id');
         $order_detail = Order_details::all();
         $order = Orders::all();
