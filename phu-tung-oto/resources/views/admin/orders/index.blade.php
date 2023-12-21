@@ -102,7 +102,7 @@
                                         <td>{{ \Carbon\Carbon::parse($orderDetail->order->order_date)->timezone('Asia/Ho_Chi_Minh')->format('d-m-Y H:i:s') }}
                                         </td>
                                         <td>{{ $orderDetail->order->users->name }}</td>
-                                        <td>{{ $orderDetail->quantity }}{{ $orderDetail->product->unti }}</td>
+                                        <td>{{ $orderDetail->quantity }} Cái</td>
                                         <td>{{ number_format($orderDetail->order->total, 2) }} VND</td>
                                         <td><span class="badges bg-lightgreen">{{ $orderDetail->order->status }}</span>
                                         </td>
