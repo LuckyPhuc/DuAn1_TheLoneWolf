@@ -33,12 +33,15 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-top">
-
-                        <div class="search-path">
-                            <input type="text" placeholder="Bạn muốn tìm kiếm gì?" name="search">
-                            <button class="btn btn-primary" style="background: #ff9f43;color:#fff; padding:0.5rem"><i
-                                    class="bi bi-search"></i></button>
-                        </div>
+                        <form action="{{ route('admin.supplier.search') }}" method="POST">
+                            @csrf
+                            <div class="search-path">
+                                <input type="text" placeholder="Bạn muốn tìm kiếm gì?" name="search">
+                                <button class="btn btn-primary" type="submit"
+                                    style="background: #ff9f43;color:#fff; padding:0.5rem"><i
+                                        class="bi bi-search"></i></button>
+                            </div>
+                        </form>
 
                         <div class="wordset">
                             <ul>
@@ -76,7 +79,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($suppliers as $supplier)
+                            @forelse ($suppliers as $supplier)
                                 <tr>
                                     <td>
                                         <label class="checkboxs">
@@ -111,13 +114,15 @@
                                                 onclick="return confirm('Bạn có muốn xóa nhà cung cấp này không?')"
                                                 data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa mục này">
                                                 <i class="bi
-                                                bi-trash3"></i>
+                                        bi-trash3"></i>
                                             </button>
                                         </form>
 
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                Hãng không tồn tại
+                            @endforelse
                         </tbody>
                     </table>
 

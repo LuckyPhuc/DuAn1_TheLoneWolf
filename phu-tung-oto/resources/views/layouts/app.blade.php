@@ -116,15 +116,15 @@
                                             <li>
                                                 <a href="{{ route('posts') }}">
                                                     <span class="menu-text"> Bài viết</span>
-                                                    <i class="fa fa-angle-down"></i>
+                                                    {{-- <i class="fa fa-angle-down"></i> --}}
                                                 </a>
-                                                <ul class="dropdown-submenu dropdown-hover">
-                                                    @foreach ($posts as $post)
+                                                {{-- <ul class="dropdown-submenu dropdown-hover"> --}}
+                                                {{-- @foreach ($posts as $post)
                                                         <li><a href="#">{{ $post->title }}
                                                             </a>
                                                         </li>
-                                                    @endforeach
-                                                </ul>
+                                                    @endforeach --}}
+                                                {{-- </ul> --}}
                                             </li>
                                             <li>
                                                 <a href="about-us.html">
@@ -174,63 +174,59 @@
                                                         @php
                                                             $subTotal = 0;
                                                         @endphp
-                                                        @if (empty($orderDetail))
-                                                            <tr>
-                                                                <td colspan="6" align="center">Giỏ hàng của bạn đang
-                                                                    trống</td>
-                                                            </tr>
-                                                        @else
-                                                            @foreach ($groupedCart as $productId => $items)
-                                                                @php
-                                                                    $orderDetail = $items->first();
-                                                                    $totalQuantity = $items->sum('quantity');
-                                                                    $subTotal += $totalQuantity * $orderDetail->product->price;
-                                                                    $inputId = 'cartInput_' . $productId;
-                                                                @endphp
 
-                                                                <div class="single-cart-item">
-                                                                    <div class="cart-img">
-                                                                        <a href="{{ route('cart.list') }}">
-                                                                            <img src="{{ asset($orderDetail->product->image_features->first()->url_img) }}"
-                                                                                alt="{{ $orderDetail->product->name }}">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="cart-text">
-                                                                        <h5 class="title">
-                                                                            <a
-                                                                                href="{{ route('cart.list') }}">{{ $orderDetail->product->name }}</a>
-                                                                        </h5>
-                                                                        <div class="cart-text-btn">
-                                                                            <div class="cart-qty">
-                                                                                <span> {{ $totalQuantity }} X</span>
-                                                                                @if ($totalQuantity > 0)
-                                                                                    <span class="cart-price">
-                                                                                        {{ number_format($orderDetail->product->price, 2) }}
-                                                                                        VND
-                                                                                    </span>
-                                                                                @else
-                                                                                    0
-                                                                                @endif
-                                                                            </div>
-                                                                            <form
-                                                                                action="{{ route('cart.delete', ['id' => $orderDetail->id]) }}"
-                                                                                method="POST">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button type="submit"
-                                                                                    onclick="return confirm('Bạn có muốn xóa sản phẩm này không?')"
-                                                                                    data-bs-toggle="tooltip"
-                                                                                    data-bs-placement="top"
-                                                                                    title="Xóa mục này"
-                                                                                    style="border: none; background-color: transparent; cursor: pointer;">
-                                                                                    <i class="ion-trash-b"></i>
-                                                                                </button>
-                                                                            </form>
+                                                        @forelse ($groupedCart as $productId => $items)
+                                                            @php
+                                                                $orderDetail = $items->first();
+                                                                $totalQuantity = $items->sum('quantity');
+                                                                $subTotal += $totalQuantity * $orderDetail->product->price;
+                                                                $inputId = 'cartInput_' . $productId;
+                                                            @endphp
+
+                                                            <div class="single-cart-item">
+                                                                <div class="cart-img">
+                                                                    <a href="{{ route('cart.list') }}">
+                                                                        <img src="{{ asset($orderDetail->product->image_features->first()->url_img) }}"
+                                                                            alt="{{ $orderDetail->product->name }}">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="cart-text">
+                                                                    <h5 class="title">
+                                                                        <a
+                                                                            href="{{ route('cart.list') }}">{{ $orderDetail->product->name }}</a>
+                                                                    </h5>
+                                                                    <div class="cart-text-btn">
+                                                                        <div class="cart-qty">
+                                                                            <span> {{ $totalQuantity }} X</span>
+                                                                            @if ($totalQuantity > 0)
+                                                                                <span class="cart-price">
+                                                                                    {{ number_format($orderDetail->product->price, 2) }}
+                                                                                    VND
+                                                                                </span>
+                                                                            @else
+                                                                                0
+                                                                            @endif
                                                                         </div>
+                                                                        <form
+                                                                            action="{{ route('cart.delete', ['id' => $orderDetail->id]) }}"
+                                                                            method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="submit"
+                                                                                onclick="return confirm('Bạn có muốn xóa sản phẩm này không?')"
+                                                                                data-bs-toggle="tooltip"
+                                                                                data-bs-placement="top"
+                                                                                title="Xóa mục này"
+                                                                                style="border: none; background-color: transparent; cursor: pointer;">
+                                                                                <i class="ion-trash-b"></i>
+                                                                            </button>
+                                                                        </form>
                                                                     </div>
                                                                 </div>
-                                                            @endforeach
-                                                        @endif
+                                                            </div>
+                                                        @empty
+                                                            Giỏ hàng của bạn đang trống
+                                                        @endforelse
 
                                                         <div class="cart-price-total d-flex justify-content-between">
                                                             <h5>Total : </h5>
@@ -319,15 +315,15 @@
                                             <li>
                                                 <a href="{{ route('posts') }}">
                                                     <span class="menu-text"> Bài viết</span>
-                                                    <i class="fa fa-angle-down"></i>
+                                                    {{-- <i class="fa fa-angle-down"></i> --}}
                                                 </a>
-                                                <ul class="dropdown-submenu dropdown-hover">
+                                                {{-- <ul class="dropdown-submenu dropdown-hover">
                                                     @foreach ($posts as $post)
                                                         <li><a href="#">{{ $post->title }}
                                                             </a>
                                                         </li>
                                                     @endforeach
-                                                </ul>
+                                                </ul> --}}
                                             </li>
                                             <li>
                                                 <a href="about-us.html">

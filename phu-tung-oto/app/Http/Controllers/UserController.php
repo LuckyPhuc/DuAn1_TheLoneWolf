@@ -153,4 +153,10 @@ class UserController extends Controller
             return redirect()->route('admin.users.list', compact('user'))->with('error', 'Không tìm thấy người dùng');
         }
     }
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $users = User::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
+        return view("admin.users.index", compact("users"));
+    }
 }

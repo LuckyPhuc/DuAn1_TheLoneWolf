@@ -324,83 +324,8 @@
                         </table>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <p style="font:italic 13px tahoma;color:#ff0000">* <b>Thông báo:</b></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding:0 20px 20px 20px;background-color:#edf7f9">
-                        <p
-                            style="margin:20px 0 10px 0;font:italic 13px tahoma;color:#404040;font-weight:bold;line-height:24px">
-                            <a href="http://TENTEN.VN" target="_blank"
-                                data-saferedirecturl="https://www.google.com/url?q=http://TENTEN.VN&amp;source=gmail&amp;ust=1703040186904000&amp;usg=AOvVaw0hxkEokUFKRgyn42kypyGB">TENTEN.VN</a>
-                            ra mắt tính năng
-                            đăng ký và gia hạn dịch vụ nhanh chóng qua kênh Zalo OA. Để không bỏ
-                            lỡ các thông
-                            tin về hết hạn dịch vụ, tiền thưởng tặng vào tài khoản, chương trình khuyến mại giá shock.
-                            Quý
-                            khách vui
-                            lòng quan tâm kênh tại: <a href="https://zalo.me/925364523540055953" target="_blank"
-                                data-saferedirecturl="https://www.google.com/url?q=https://zalo.me/925364523540055953&amp;source=gmail&amp;ust=1703040186904000&amp;usg=AOvVaw2lTQ6YVTUJRI8mC2fMUBMJ">Tại
-                                đây</a>
-                        </p>
-                        <p
-                            style="margin:20px 0 10px 0;font:italic 13px tahoma;color:#404040;font-weight:bold;text-align:center">
-                            <img src="https://ci3.googleusercontent.com/meips/ADKq_NavFqSq9BQiiPGf5QpA8ql6lugyWol4EnNw2Xu9a9Mztn6xPJS0kSeh_sEH4ZL_R2YLfZx9UzqvLifyiVdE7xMcthVK9pBvE6yJHkq7ffc=s0-d-e1-ft#https://img.tenten.vn/k/email/quan-tam-tenten-zalo-oa.jpg"
-                                width="30%" class="CToWUd a6T" data-bit="iit" tabindex="0">
-                        <div class="a6S" dir="ltr" style="opacity: 0.01; left: 289.406px; top: 2575.33px;">
-                            <div id=":162" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" title="Tải xuống"
-                                role="button" tabindex="0" aria-label="Tải xuống tệp đính kèm "
-                                jslog="91252; u014N:cOuCgd,Kr2w4b,xr6bB; 4:WyIjbXNnLWY6MTc4MjAwMjI2Mzc3MjA4OTIzOSJd"
-                                data-tooltip-class="a1V" jsaction="JIbuQc:.CLIENT">
-                                <div class="akn">
-                                    <div class="aSK J-J5-Ji aYr"></div>
-                                </div>
-                            </div>
-                        </div>
-                        </p>
-                        <p style="margin:20px 0 10px 0;font:italic 13px tahoma;color:#404040;line-height:24px">Quý
-                            khách vui lòng
-                            thanh toán để kích hoạt đơn hàng. Trường hợp Quý khách đã thanh toán qua các cổng thanh toán
-                            trực tuyến trên website, hệ thống sẽ tự động kích hoạt nhanh chóng. Quý khách vui lòng kiểm
-                            tra email tiếp theo để nhận thông tin quản trị dịch vụ <a href="https://id.tenten.vn"
-                                target="_blank"
-                                data-saferedirecturl="https://www.google.com/url?q=https://id.tenten.vn&amp;source=gmail&amp;ust=1703040186905000&amp;usg=AOvVaw1K45MS9sis5jwSap6Drd1M">https://id.tenten.vn</a>
-                        </p>
-                        <fieldset style="border:1px dashed #ff0000;background-color:#ffffff;border-radius:10px">
-                            <p style="font:italic 13px tahoma;color:#404040">* <b
-                                    style="color:#ff0000;line-height:20px">Lưu ý:</b></p>
-                            <p style="margin:0 0 10px 0;font:italic 13px tahoma;color:#404040">- Các đơn hàng tên miền
-                                sẽ
-                                có giá trị hiệu lực đến 23h59p trong ngày đăng ký đơn hàng.</p>
-                            <p style="margin:0 0 10px 0;font:italic 13px tahoma;color:#404040;line-height:20px">-
-                                TENTEN sẽ không chịu
-                                trách nhiệm nếu như tên miền của Quý khách bị đăng ký trong thời gian chưa thanh toán.
-                            </p>
-                            <p style="margin:0 0 10px 0;font:italic 13px tahoma;color:#404040;line-height:20px">- Nếu
-                                tên miền của Quý
-                                khách thuộc tên miền có giá trị cao. Đơn hàng sẽ không được kích hoạt, vui lòng liên hệ
-                                TENTEN để được báo giá cụ thể.</p>
-                            <p style="margin:0 0 10px 0;font:italic 13px tahoma;color:#404040;line-height:20px">- Nếu
-                                Quý khách đăng ký
-                                một số tên miền: .<a href="http://gov.vn/org.vn/int.vn/.name.vn" target="_blank"
-                                    data-saferedirecturl="https://www.google.com/url?q=http://gov.vn/org.vn/int.vn/.name.vn&amp;source=gmail&amp;ust=1703040186905000&amp;usg=AOvVaw1ghS_ah5Cz5AmgwNTpVRBb">gov.vn/org.vn/int.vn/.name.vn</a>
-                                hoặc một số tên miền chứa từ khóa nhạy cảm
-                                theo quy định sẽ cần kiểm duyệt hồ sơ trước khi kích hoạt. Nhân viên phụ trách của chúng
-                                tôi
-                                sẽ liên hệ với Quý khách để hướng dẫn thủ tục.</p>
-                            <p style="margin:0 0 10px 0;font:italic 13px tahoma;color:#404040;line-height:20px">- Trong
-                                trường hợp, Quý
-                                khách cần hỗ trợ bất cứ vấn đề gì, vui lòng gửi email tới <a
-                                    href="mailto:hotrokhachhang@tenten.vn"
-                                    target="_blank">hotrokhachhang@tenten.vn</a> để TENTEN
-                                có thể hỗ trợ Quý khách một cách nhanh chóng nhất.</p>
-                            <p style="margin:0 0 10px 0;font:italic 13px tahoma;color:#404040;line-height:20px">Trân
-                                trọng cảm ơn!</p>
-                        </fieldset>
-                    </td>
-                </tr>
+
+
             </tbody>
         </table>
 

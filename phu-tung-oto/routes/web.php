@@ -61,6 +61,7 @@ Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->gr
         Route::get('{id}/edit', [ProductController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [ProductController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [ProductController::class, 'destroy'])->name('destroy');
+        Route::post('list', [ProductController::class, 'search'])->name('search');
     });
     //Routing Categories
     Route::prefix('categories')->name('categories.')->group(function () {
@@ -71,7 +72,7 @@ Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->gr
         Route::get('{id}/edit', [CategoriesController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [CategoriesController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [CategoriesController::class, 'destroy'])->name('destroy');
-        // Route::get('list', [CategoriesController::class, 'search'])->name('search');
+        Route::post('list', [CategoriesController::class, 'search'])->name('search');
     });
     Route::prefix('supplier')->name('supplier.')->group(function () {
         Route::get('list', [SupplierController::class, 'index'])->name('list');
@@ -81,7 +82,7 @@ Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->gr
         Route::get('{id}/edit', [SupplierController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [SupplierController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [SupplierController::class, 'destroy'])->name('destroy');
-        // Route::get('list', [CategoriesController::class, 'search'])->name('search');
+        Route::post('list', [SupplierController::class, 'search'])->name('search');
     });
 
     //Routing orders
@@ -115,9 +116,10 @@ Route::prefix('admin')->middleware('auth', 'CheckAdminRole')->name('admin.')->gr
         Route::get('{id}/edit', [UserController::class, 'edit'])->name('edit');
         Route::put('update/{id}', [UserController::class, 'update'])->name('update');
         Route::delete('delete/{id}', [UserController::class, 'destroy'])->name('destroy');
+        Route::post('list', [UserController::class, 'search'])->name('search');
     });
 
-    Route::get('demo/sendmail', [MailController::class, 'sendmail']);
+    // Route::get('demo/sendmail', [MailController::class, 'sendmail']);
     //Routing website
     // Route::prefix('admin/website')->name('admin.website.')->group(function () {
     //     Route::get('list', [WebsiteController::class, 'index'])->name('list');
@@ -146,6 +148,9 @@ Route::get('shop/category/{category}', [ShopController::class, 'showProductsByCa
 Route::get('shop/suppliers/{supplier}', [ShopController::class, 'showsuppliers'])->name('showsuppliers');
 Route::get('show/{id}', [ShopController::class, 'show'])->name('detail');
 route::post('shop/show', [ShopController::class, 'locProducts'])->name('locProducts');
+Route::post('shop/search', [ShopController::class, 'search'])->name('search');
+
+
 Route::prefix('checkout')->name('checkout.')->group(function () {
     Route::get('/', [CheckoutController::class, 'index'])->name('list');
     Route::post('/{id}', [CheckoutController::class, 'order_id'])->name('orders');
@@ -156,6 +161,7 @@ Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::get('posts', [postController::class, 'Posts'])->name('posts');
 Route::get('show/posts/{id}', [postController::class, 'ShowPosts'])->name('posts.show');
+
 // cart
 Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
     Route::get('/', [CartController::class, 'cart'])->name('list');
@@ -168,4 +174,3 @@ Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
 Route::get('invoice', function () {
     return view('mails.invoice');
 });
-

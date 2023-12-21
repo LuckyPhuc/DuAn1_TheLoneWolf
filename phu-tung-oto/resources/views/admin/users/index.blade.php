@@ -19,18 +19,14 @@
          <div class="card">
              <div class="card-body">
                  <div class="table-top">
-                     <div class="search-set">
-                         <div class="search-path">
-                             <a class="btn btn-filter" id="filter_search">
-                                 <img src="{{ asset('assets/img/icons/filter.svg') }} " alt="img" />
-                                 <span><img src="{{ asset('assets/img/icons/closes.svg') }} " alt="img" /></span>
-                             </a>
-                         </div>
-                         <div class="search-input">
-                             <a class="btn btn-searchset">
-                                 <img src="{{ asset('assets/img/icons/search-white.svg') }} " alt="img" />
-                             </a>
-                         </div>
+                     <div class="search-path">
+                         <form action="{{ route('admin.users.search') }}" method="POST">
+                             @csrf
+                             <input type="text" placeholder="Bạn muốn tìm kiếm gì?" name="search">
+                             <button class="btn btn-primary" type="submit"
+                                 style="background: #ff9f43;color:#fff; padding:0.5rem"><i
+                                     class="bi bi-search"></i></button>
+                         </form>
                      </div>
                      <div class="wordset">
                          <ul>
@@ -69,7 +65,7 @@
                              </tr>
                          </thead>
                          <tbody>
-                             @foreach ($users as $user)
+                             @forelse ($users as $user)
                                  <tr>
                                      <td>
                                          <label class="checkboxs">
@@ -104,7 +100,9 @@
                                          </a>
                                      </td>
                                  </tr>
-                             @endforeach
+                             @empty
+                                 Không tồn tại
+                             @endforelse
                          </tbody>
                      </table>
                  </div>
