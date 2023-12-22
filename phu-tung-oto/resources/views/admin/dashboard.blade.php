@@ -54,7 +54,7 @@
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count">
                         <div class="dash-counts">
-                            <h4 class="text-white">100</h4>
+                            <h4 class="text-white">{{ $users }}</h4>
                             <h5 class="text-white">Khách hàng</h5>
                         </div>
                         <div class="dash-imgs">
@@ -65,7 +65,7 @@
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count das1">
                         <div class="dash-counts">
-                            <h4 class="text-white">100</h4>
+                            <h4 class="text-white">{{ $suppliersCount }}</h4>
                             <h5 class="text-white">Nhà cung cấp</h5>
                         </div>
                         <div class="dash-imgs">
@@ -77,7 +77,7 @@
                     <div class="dash-count das2">
                         <div class="dash-counts">
                             <h4 class="text-white">100</h4>
-                            <h5 class="text-white">Hóa đơn mua hàng</h5>
+                            <h5 class="text-white">Hóa đơn hàng nhập</h5>
                         </div>
                         <div class="dash-imgs">
                             <i data-feather="file-text"></i>
@@ -87,7 +87,7 @@
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count das3">
                         <div class="dash-counts">
-                            <h4 class="text-white">105</h4>
+                            <h4 class="text-white">{{ $order }}</h4>
                             <h5 class="text-white">Hóa đơn bán hàng</h5>
                         </div>
                         <div class="dash-imgs">
@@ -167,17 +167,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td class="productimgname">
-                                                <a href="productlist.html" class="product-img">
-                                                    <img src="{{ asset('assets/img/product/product22.jpg') }}"
-                                                        alt="product">
-                                                </a>
-                                                <a href="#" class="text-dark">Apple Earpods</a>
-                                            </td>
-                                            <td class="text-dark">$891.2</td>
-                                        </tr>
+                                        @foreach ($products->take(10) as $product)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td class="productimgname">
+                                                    <a href="#" class="product-img">
+                                                        @if ($product->image_features && count($product->image_features) > 0)
+                                                            <img src="{{ asset($product->image_features[0]->url_img) }}"
+                                                                alt="{{ $product->image_features[0]->alt_img }}">
+                                                        @endif
+                                                    </a>
+                                                    <a href="#"
+                                                        class="text-dark">{{ \Illuminate\Support\Str::limit($product->name, $limit = 20, $end = '...') }}</a>
+                                                </td>
+                                                <td class="text-dark">{{ number_format($product->price, 2) }} VND
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -193,66 +199,37 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Mã sản phẩm</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Nhà cung cấp</th>
                                     <th>Danh mục</th>
-                                    <th>Ngày hết hạn</th>
+                                    <th>Ngày tạo</th> <!-- Đổi tên tiêu đề nếu cần -->
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td><a href="javascript:void(0);" class="text-dark">IT0001</a></td>
-                                    <td class="productimgname">
-                                        <a class="product-img" href="productlist.html">
-                                            <img src="{{ asset('assets/img/product/product2.jpg') }}" alt="product">
-                                        </a>
-                                        <a href="productlist.html" class="text-dark">Orange</a>
-                                    </td>
-                                    <td>N/D</td>
-                                    <td>Fruits</td>
-                                    <td>12-12-2022</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><a href="javascript:void(0);" class="text-dark">IT0002</a></td>
-                                    <td class="productimgname">
-                                        <a class="product-img" href="productlist.html">
-                                            <img src="{{ asset('assets/img/product/product3.jpg') }}" alt="product">
-                                        </a>
-                                        <a href="productlist.html" class="text-dark">Pineapple</a>
-                                    </td>
-                                    <td>N/D</td>
-                                    <td>Fruits</td>
-                                    <td>25-11-2022</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td><a href="javascript:void(0);" class="text-dark">IT0003</a></td>
-                                    <td class="productimgname">
-                                        <a class="product-img" href="productlist.html">
-                                            <img src="{{ asset('assets/img/product/product4.jpg') }}" alt="product">
-                                        </a>
-                                        <a href="productlist.html" class="text-dark">Stawberry</a>
-                                    </td>
-                                    <td class="text-dark">N/D</td>
-                                    <td class="text-dark">Fruits</td>
-                                    <td class="text-dark">19-11-2022</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td><a href="javascript:void(0);" class="text-dark">IT0004</a></td>
-                                    <td class="productimgname">
-                                        <a class="product-img" href="productlist.html">
-                                            <img src="{{ asset('assets/img/product/product5.jpg') }}" alt="product">
-                                        </a>
-                                        <a href="productlist.html" class="text-dark">Avocat</a>
-                                    </td>
-                                    <td class="text-dark">N/D</td>
-                                    <td class="text-dark">Fruits</td>
-                                    <td class="text-dark">20-11-2022</td>
-                                </tr>
+                                @forelse ($products->where('quantity', 0) as $product)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td class="productimgname">
+                                            <a class="product-img" href="productlist.html">
+                                                @if ($product->image_features && count($product->image_features) > 0)
+                                                    <img src="{{ asset($product->image_features[0]->url_img) }}"
+                                                        alt="{{ $product->image_features[0]->alt_img }}">
+                                                @endif
+                                            </a>
+                                            <a href="productlist.html" class="text-dark">
+                                                {{ \Illuminate\Support\Str::limit($product->name, $limit = 20, $end = '...') }}
+                                            </a>
+                                        </td>
+                                        <td><a href="javascript:void(0);"
+                                                class="text-dark">{{ $product->supplier->name }}</a></td>
+                                        <td>{{ $product->category->name }}</td>
+                                        <td>{{ $product->created_at->format('d-m-Y h:i A') }}</td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="5" class="text-center">Chưa có sản phẩm hết hàng.</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

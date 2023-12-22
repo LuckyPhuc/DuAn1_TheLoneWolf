@@ -50,7 +50,11 @@
                             </ul>
                         </div>
                     </div>
-
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
 
                     <div class="table-responsive">
                         <table class="table datanew">
@@ -62,134 +66,63 @@
                                             <span class="checkmarks"></span>
                                         </label>
                                     </th>
-                                    <th>Product Name</th>
-                                    <th>Date</th>
-                                    <th>Customer</th>
-                                    <th>Status</th>
-                                    <th>Grand Total ($)</th>
-                                    <th>Paid ($)</th>
-                                    <th>Due ($)</th>
-                                    <th>Payment Status</th>
-                                    <th>Action</th>
+                                    <th>Số thứ tự</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Thời gian đặt</th>
+                                    <th>Tên khách hàng</th>
+                                    <th>số lượng</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Trạng thái</th>
+                                    <th>Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="productimgname">
-                                        <a href="javascript:void(0);" class="product-img">
-                                            <img src="{{ asset('assets/img/product/product1.jpg') }}" alt="product">
-                                        </a>
-                                        <a href="javascript:void(0);">Macbook pro</a>
-                                    </td>
-                                    <td>19 Nov 2022</td>
-                                    <td>Thomas</td>
-                                    <td><span class="badges bg-lightgreen">Received</span></td>
-                                    <td>550</td>
-                                    <td>120</td>
-                                    <td>550</td>
-                                    <td><span class="badges bg-lightgreen">Paid</span></td>
-                                    <td>
-                                        <a class="me-3" href="editsalesreturns.html">
-                                            <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img">
-                                        </a>
-                                        <a class="me-3 confirm-text" href="javascript:void(0);">
-                                            <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img">
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="productimgname">
-                                        <a href="javascript:void(0);" class="product-img">
-                                            <img src="{{ asset('assets/img/product/product2.jpg') }}" alt="product">
-                                        </a>
-                                        <a href="javascript:void(0);">Orange</a>
-                                    </td>
-                                    <td>19 Nov 2022</td>
-                                    <td>Benjamin</td>
-                                    <td><span class="badges bg-lightred">Pending</span></td>
-                                    <td>550</td>
-                                    <td>120</td>
-                                    <td>550</td>
-                                    <td><span class="badges bg-lightred">Unpaid</span></td>
-                                    <td>
-                                        <a class="me-3" href="editsalesreturns.html">
-                                            <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img">
-                                        </a>
-                                        <a class="me-3 confirm-text" href="javascript:void(0);">
-                                            <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img">
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="productimgname">
-                                        <a href="javascript:void(0);" class="product-img">
-                                            <img src="{{ asset('assets/img/product/product3.jpg') }}" alt="product">
-                                        </a>
-                                        <a href="javascript:void(0);">Macbook pro</a>
-                                    </td>
-                                    <td>19 Nov 2022</td>
-                                    <td>Thomas</td>
-                                    <td><span class="badges bg-lightgreen">Received</span></td>
-                                    <td>550</td>
-                                    <td>120</td>
-                                    <td>550</td>
-                                    <td><span class="badges bg-lightgreen">Paid</span></td>
-                                    <td>
-                                        <a class="me-3" href="editsalesreturns.html">
-                                            <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img">
-                                        </a>
-                                        <a class="me-3 confirm-text" href="javascript:void(0);">
-                                            <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img">
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="productimgname">
-                                        <a href="javascript:void(0);" class="product-img">
-                                            <img src="{{ asset('assets/img/product/product7.jpg') }}" alt="product">
-                                        </a>
-                                        <a href="javascript:void(0);">Apple Earpods</a>
-                                    </td>
-                                    <td>19 Nov 2022</td>
-                                    <td>Apex Computers</td>
-                                    <td><span class="badges bg-lightyellow">Ordered</span></td>
-                                    <td>1000</td>
-                                    <td>500</td>
-                                    <td>1000</td>
-                                    <td><span class="badges bg-lightyellow">Partial</span></td>
-                                    <td>
-                                        <a class="me-3" href="editsalesreturns.html">
-                                            <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img">
-                                        </a>
-                                        <a class="me-3 confirm-text" href="javascript:void(0);">
-                                            <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img">
-                                        </a>
-                                    </td>
-                                </tr>
+                                @forelse ($groupedCart as $productId => $items)
+                                    @php
+                                        $orderDetail = $items->first();
+                                        $totalQuantity = $items->sum('quantity');
+                                        $inputId = 'cartInput_' . $productId;
+
+                                    @endphp
+                                    <tr>
+                                        <td>
+                                            <label class="checkboxs">
+                                                <input type="checkbox">
+                                                <span class="checkmarks"></span>
+                                            </label>
+                                        </td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td class="productimgname">
+                                            <a href="javascript:void(0);" class="product-img">
+                                                <img src="{{ asset($orderDetail->product->image_features->first()->url_img) }}"
+                                                    alt="product">
+                                            </a>
+                                            <a style="color: black">{{ substr($orderDetail->product->name, 0, 20) }}...</a>
+                                        </td>
+                                        <td>{{ \Carbon\Carbon::parse($orderDetail->order->order_date)->timezone('Asia/Ho_Chi_Minh')->format('d-m-Y H:i:s') }}
+                                        </td>
+                                        <td>{{ $orderDetail->order->users->name }}</td>
+                                        <td>{{ $orderDetail->quantity }} Cái</td>
+                                        <td>{{ number_format($orderDetail->product->price, 2) }} VND</td>
+                                        <td><span class="badges bg-lightgreen">{{ $orderDetail->order->status }}</span>
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('admin.orders.destroy', ['id' => $orderDetail->id]) }}"
+                                                method="POST" style="padding-bottom: 10px;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger"
+                                                    style="background: red; padding:0.5rem"
+                                                    onclick="return confirm('Bạn có muốn xóa bài viết này không?')"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa mục này">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    Không có đơn hàng nào
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

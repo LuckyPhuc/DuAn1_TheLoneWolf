@@ -50,7 +50,7 @@ class CartController extends Controller
         }
         $order = Orders::firstOrCreate([
             'users_id' => auth()->id(),
-            'status' => 'open',
+            'status' => 'chưa chọn phương thức thanh toán',
         ], [
             'order_date' => now(),
             'total' => 0,
@@ -85,20 +85,33 @@ class CartController extends Controller
             'updatedQuantities.*.productId' => 'required|exists:products,id',
             'updatedQuantities.*.quantity' => 'required|integer|min:0',
         ]);
+
+        $totalOrderAmount = 0;
+
         foreach ($request->input('updatedQuantities') as $updatedQuantity) {
             $productId = $updatedQuantity['productId'];
             $quantity = $updatedQuantity['quantity'];
+
             $orderDetail = Order_details::where('product_id', $productId)->first();
-            $product = Products::where('id', $productId)->first();
-            if ($orderDetail) {
+            $product = Products::find($productId);
+
+            if ($orderDetail && $product) {
                 $orderDetail->update(['quantity' => $quantity]);
+                $totalOrderAmount += $quantity * $product->price;
             }
         }
-        $orderId = $orderDetail->order_id;
-        $order = Orders::find($orderId);
-        if ($order) {
-            $order->update(['total' => $product->price]);
+
+        // Lấy ra order_id từ bất kỳ orderDetail nào trong danh sách
+        $orderId = optional($orderDetail)->order_id;
+
+        if ($orderId) {
+            $order = Orders::find($orderId);
+
+            if ($order) {
+                $order->update(['total' => $totalOrderAmount]);
+            }
         }
+
         return response()->json(['success' => 'Cập nhật giỏ hàng thành công']);
     }
 }

@@ -65,11 +65,11 @@
                             </div>
                             <div>
                                 <p class="form-row">
-                                    <input type="radio" id="remember_me" name="radio">
+                                    <input type="radio" id="remember_me" name="radio" value="cod">
                                     <label for="remember_me">Thanh toán khi nhận hàng</label>
                                 </p>
                                 <p class="form-row">
-                                    <input type="radio" id="remember_online" name="radio">
+                                    <input type="radio" id="remember_online" name="radio" value="online">
                                     <label for="remember_online">Thanh toán online</label>
                                 </p>
                             </div>
@@ -96,11 +96,14 @@
                                         <th class="cart-product-total text-align-left">TỔNG CỘNG</th>
                                     </tr>
                                 </thead>
+                                @php
+                                    $subTotal = 0;
+                                @endphp
                                 @foreach ($groupedCart as $productId => $items)
                                     @php
                                         $orderDetail = $items->first();
                                         $totalQuantity = $items->sum('quantity');
-                                        $subTotal = $totalQuantity * $orderDetail->product->price;
+                                        $subTotal += $totalQuantity * $orderDetail->product->price;
                                         $inputId = 'cartInput_' . $productId;
                                     @endphp
                                     <tbody>
@@ -110,14 +113,12 @@
                                             <td class="cart-product-name" class="product-quantity">
                                                 × {{ $totalQuantity }}</td>
                                             <td class="cart-product-total text-center">
-                                                @if ($totalQuantity > 0)
-                                                    <span class="amount">
-                                                        {{ number_format($orderDetail->product->price, 2) }}
-                                                        VND
-                                                    </span>
-                                                @else
-                                                    0
-                                                @endif
+
+                                                <span class="amount">
+                                                    {{ number_format($orderDetail->product->price, 2) }}
+                                                    VND
+                                                </span>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -125,14 +126,14 @@
                                 <tfoot>
                                     <tr class="cart-subtotal">
                                         <th>Cart Subtotal</th>
-                                        <td class="text-center"><span
-                                                class="amount">{{ number_format($subTotal, 2) }}</span>
+                                        <td class="text-center"><span class="amount">{{ number_format($subTotal, 2) }}
+                                                VND</span>
                                         </td>
                                     </tr>
                                     <tr class="order-total">
                                         <th>Order Total</th>
                                         <td class="text-center"><strong><span
-                                                    class="amount">{{ number_format($subTotal, 2) }}</span></strong>
+                                                    class="amount">{{ number_format($subTotal, 2) }} VND</span></strong>
                                         </td>
                                     </tr>
                                 </tfoot>

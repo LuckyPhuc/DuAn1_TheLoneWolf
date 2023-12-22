@@ -31,20 +31,24 @@ class CheckoutController extends Controller
         $order = Orders::all();
         return view('users.checkout', compact('categories', 'suppliers', 'posts', 'order', 'order_detail', 'groupedCart'));
     }
-    public function order_id(Request $request, $id)
+    public function order_id(Request $request)
     {
+        session_start();
+        // Lấy giá trị 'order_id' từ session
+        $orderId = $_SESSION['order_id'] ?? null;
+        // Đóng session để tránh xung đột
+        session_write_close();
         $posts = Posts::all();
         $categories = Categories::all();
         $suppliers = Suppliers::all();
-        $order = Orders::find($id);
-        $request->session()->put('checkout_order_id', $id);
+        $order = Orders::find($orderId);
+        $request->session()->put('checkout_order_id', $orderId);
         $user_id = auth()->id();
         $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
             $query->where('users_id', $user_id);
         })
             ->with(['order.order_details', 'product.image_features'])
             ->get();
-
         $groupedCart = $cart->groupBy('product.id');
         $order_detail = Order_details::all();
         $order = Orders::all();
@@ -56,45 +60,57 @@ class CheckoutController extends Controller
     {
         $id = $request->session()->get('checkout_order_id');
         $order = Orders::find($id);
-        // dd($id);
-        // Kiểm tra xem đơn hàng có tồn tại không
+
         if (!$order) {
             return redirect()->route('checkout.list')->with('error', 'Đơn hàng không tồn tại');
         }
-        $request->validate(
-            [
-                'address' => 'required',
-                'sdt' => 'required|min:10|max:12',
-                'description' => 'required'
-            ],
-            [
-                'required' => ':attribute không được để trống',
-                'min' => 'SĐT phải có ít nhất :min ký tự',
-                'max' => 'SĐT phải có nhiều nhất :max ký tự',
-            ],
-            [
-                'address' => "Địa chỉ",
-                'sdt' => 'SĐT',
-                'description' => 'Mô tả'
-            ]
-        );
+
+        $request->validate([
+            'address' => 'required',
+            'sdt' => 'required|min:10|max:12',
+            'description' => 'required',
+        ], [
+            'required' => ':attribute không được để trống',
+            'min' => 'SĐT phải có ít nhất :min ký tự',
+            'max' => 'SĐT phải có nhiều nhất :max ký tự',
+        ], [
+            'address' => 'Địa chỉ',
+            'sdt' => 'SĐT',
+            'description' => 'Mô tả',
+        ]);
+
         $orderDetail = $order->order_details;
 
-        // Kiểm tra xem orderDetail có tồn tại không
         if ($orderDetail->isNotEmpty()) {
-            // Nếu có nhiều order_details, bạn có thể cần lặp qua chúng và cập nhật từng cái
             foreach ($orderDetail as $detail) {
                 $detail->update([
                     'address' => $request->address,
                     'sdt' => $request->sdt,
-                    'description' => $request->description
+                    'description' => $request->description,
                 ]);
+                // Giảm đi số lượng trong bảng products
+                $product = $detail->product;
+                $newQuantity = $product->quantity - $detail->quantity;
+
+                // Đảm bảo số lượng không âm
+                $newQuantity = max($newQuantity, 0);
+                // kiểm tra sản phẩm còn hamgf hay ko
+                if ($newQuantity < 0) {
+                    return redirect()->route('checkout.list')->with('error', 'Sản phẩm ' . $product->name . ' đã hết hàng.');
+                }
+                $product->update(['quantity' => $newQuantity]);
+            }
+            $paymentMethod = $request->input('radio');
+            // Update the status column in the orders table
+            if ($paymentMethod == 'cod') {
+                $order->update(['status' => 'Thanh toán khi nhận hàng']);
+            } elseif ($paymentMethod == 'online') {
+                $order->update(['status' => 'Thanh toán online']);
             }
 
             return redirect()->route('checkout.list')->with('success', 'Cập nhật thành công');
         }
 
-        // Xử lý trường hợp orderDetail không tồn tại
         return redirect()->route('checkout.list')->with('error', 'Không có chi tiết đơn hàng');
     }
 

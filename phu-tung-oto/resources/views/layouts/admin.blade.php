@@ -36,7 +36,7 @@
     <div class="main-wrapper">
         <div class="header">
             <div class="header-left active">
-                <a href="{{ route('dashboard') }}" class="logo">
+                <a href="{{ route('admin.dashboard.index') }}" class="logo">
                     <img src="{{ asset('assets/img/logo/logo.png') }}" alt="">
                 </a>
                 <a href="index.html" class="logo-small">
@@ -56,8 +56,8 @@
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
                         <li class="active">
-                            <a href="{{ route('dashboard') }}"><img src="{{ asset('assets/img/icons/dashboard.svg') }}"
-                                    alt="img">
+                            <a href="{{ route('admin.dashboard.index') }}"><img
+                                    src="{{ asset('assets/img/icons/dashboard.svg') }}" alt="img">
                                 <span>Bảng điều khiển</span>
                                 <span class="menu-arrow"></span>
                             </a>
