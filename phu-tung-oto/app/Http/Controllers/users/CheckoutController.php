@@ -11,6 +11,8 @@ use App\Models\Products;
 use App\Models\image_features;
 use App\Models\Orders;
 use App\Models\Order_details;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Mail_demo;
 
 class CheckoutController extends Controller
 {
@@ -52,6 +54,12 @@ class CheckoutController extends Controller
         $groupedCart = $cart->groupBy('product.id');
         $order_detail = Order_details::all();
         $order = Orders::all();
+        // if ($groupedCart->isNotEmpty()) {
+
+        //     $firstProduct = $groupedCart->first();
+        //     $orderDetail = $firstProduct->first();
+        // }
+        // Mail::to($orderDetail->order->users->email)->send(new Mail_demo());
         return view('users.checkout', compact('order', 'categories', 'suppliers', 'posts', 'order', 'order_detail', 'groupedCart'));
         // return redirect()->route('checkout.list')->with('order', $order);
     }

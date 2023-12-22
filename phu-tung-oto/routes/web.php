@@ -162,6 +162,7 @@ Route::prefix('checkout')->name('checkout.')->group(function () {
     Route::get('/', [CheckoutController::class, 'index'])->name('list');
     Route::get('/a}', [CheckoutController::class, 'order_id'])->name('orders');
     Route::post('/', [CheckoutController::class, 'checkout'])->name('checkouts');
+    // Route::get('/mail', [MailController::class, 'sendmail']);
 });
 
 Route::get('register', [RegisterController::class, 'index'])->name('register');
@@ -179,3 +180,4 @@ Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
 });
 
 Route::get('invoice', [MailController::class, 'show'])->name('show');
+Route::get('demo/sendmail', [MailController::class, 'sendmail']);
