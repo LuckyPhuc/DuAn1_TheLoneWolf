@@ -257,6 +257,7 @@
                 </tr>
                 <tr>
                     <td>
+
                         @if ($orderDetail->order->status == 'Thanh toán khi nhận hàng')
                             <table width="100%" cellpadding="0" cellspacing="0" border="0"
                                 style="background:#3eb8cd;color:#fff;padding:18px 39px">

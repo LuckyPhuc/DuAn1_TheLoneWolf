@@ -27,3 +27,42 @@ swiper-slide img {
     height: 100%;
     object-fit: fill;
 }
+
+.post_slider {
+    align-items: flex-start;
+
+}
+
+.post__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: left;
+}
+
+/* .post__slider--mobile {
+    display: none;
+} */
+.banner_mobile,
+.mobile {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+
+    .banner_desktop,
+    .desktop {
+        display: none !important;
+    }
+
+    .banner_mobile,
+    .mobile {
+        display: block !important;
+    }
+
+
+    .post__slider--mobile {
+        width: 300px !important;
+    }
+}

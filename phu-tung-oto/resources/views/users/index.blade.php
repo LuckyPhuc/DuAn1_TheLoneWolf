@@ -3,15 +3,21 @@
 
 @section('content')
     <!-- Slider banner -->
-    <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" autoplay="true"
-        autoplay-delay="3500">
+    <swiper-container class="mySwiper banner_desktop" pagination="true" pagination-clickable="true" navigation="true"
+        autoplay="true" autoplay-delay="3500">
         <swiper-slide style="height:100vh"><img src="{{ asset('assets/img/slider/1.jpg') }}" alt="..."></swiper-slide>
         <swiper-slide style="height:100vh"><img src="{{ asset('assets/img/slider/2.jpg') }}" alt="..."></swiper-slide>
         <swiper-slide style="height:100vh"><img src="{{ asset('assets/img/slider/3.jpg') }}" alt="..."></swiper-slide>
         <swiper-slide style="height:100vh"><img src="{{ asset('assets/img/slider/4.jpg') }}" alt="..."></swiper-slide>
     </swiper-container>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-
+    <swiper-container class="mySwiper banner_mobile" pagination="true" pagination-clickable="true" navigation="true"
+        autoplay="true" autoplay-delay="3500">
+        <swiper-slide style="height:300px"><img src="{{ asset('assets/img/slider/1.jpg') }}" alt="..."></swiper-slide>
+        <swiper-slide style="height:300px"><img src="{{ asset('assets/img/slider/2.jpg') }}" alt="..."></swiper-slide>
+        <swiper-slide style="height:300px"><img src="{{ asset('assets/img/slider/3.jpg') }}" alt="..."></swiper-slide>
+        <swiper-slide style="height:300px"><img src="{{ asset('assets/img/slider/4.jpg') }}" alt="..."></swiper-slide>
+    </swiper-container>
     <!-- Call to action -->
     <div class="call-to-action-area py-4">
         <div class="container container-default custom-area">
@@ -307,9 +313,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12 col-custom d-flex">
-                    <div class="obrien-slider d-flex">
-                        @foreach ($posts->take(2) as $post)
+                <div class="col-lg-12 col-custom py-2 d-flex desktop">
+
+                    <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
+                        slides-per-view="2">
+                        @foreach ($posts as $post)
                             @php
                                 $doc = new DOMDocument();
                                 @$doc->loadHTML($post->body); // Sử dụng @ để tránh báo lỗi HTML parsing
@@ -320,34 +328,85 @@
                                     $imgSrc = $imgTags->item(0)->getAttribute('src');
                                 }
                             @endphp
-                            <div class="single-blog">
-                                <div class="single-blog-thumb">
-                                    <a href="{{ route('posts.show', ['id' => $post->id]) }}">
-                                        @if ($imgSrc)
-                                            <img class="w-100" src="{{ $imgSrc }}" alt="{{ $post->title }}">
-                                        @endif
-                                    </a>
-                                </div>
-                                <div class="single-blog-content position-relative">
-                                    <div class="post-date text-center border rounded d-flex flex-column position-absolute">
-                                        <span>{{ $post->created_at->format('d') }}</span>
-                                        <span>{{ $post->created_at->format('m') }}</span>
+                            <swiper-slide class="post_slider post__slider--mobile col-sm-12">
+                                <div class="single-blog border col-sm-12  ">
+                                    <div class="single-blog-thumb" style="height:fit-content">
+                                        <a href="{{ route('posts.show', ['id' => $post->id]) }}">
+                                            @if ($imgSrc)
+                                                <img class="object-fit-cover " src="{{ $imgSrc }}"
+                                                    style="height: 240px" alt="{{ $post->title }}">
+                                            @endif
+                                        </a>
                                     </div>
-                                    <div class="post-meta">
-                                        <span class="author">Người Viết: {{ $post->users->name }}</span>
+                                    <div class="single-blog-content position-relative">
+                                        <div
+                                            class="post-date text-center border rounded d-flex flex-column position-absolute">
+                                            <span>{{ $post->created_at->format('d') }}</span>
+                                            <span>{{ $post->created_at->format('m') }}</span>
+                                        </div>
+                                        <div class="post-meta float-left">
+                                            <span class="author">Người Viết: {{ $post->users->name }}</span>
+                                        </div>
+                                        <h2 class="post-title float-left">
+                                            <a class="float-left " style="text-align: left"
+                                                href="{{ route('posts.show', ['id' => $post->id]) }}">{{ $post->title }}</a>
+                                        </h2>
+                                        <p class="desc-content post__description px-2 float-left">
+                                            {!! nl2br(e($post->description)) !!}
+                                        </p>
                                     </div>
-                                    <h2 class="post-title">
-                                        <a href="{{ route('posts.show', ['id' => $post->id]) }}">{{ $post->title }}</a>
-                                    </h2>
-                                    <p class="desc-content name__products">
-                                        {!! nl2br(e($post->description)) !!}
-                                    </p>
                                 </div>
-                            </div>
-                    </div>
-                    @endforeach
+                            </swiper-slide>
+                        @endforeach
+                    </swiper-container>
+                </div>
+                <div class="col-lg-12 col-custom py-2 d-flex mobile">
+
+                    <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
+                        slides-per-view="1">
+                        @foreach ($posts as $post)
+                            @php
+                                $doc = new DOMDocument();
+                                @$doc->loadHTML($post->body); // Sử dụng @ để tránh báo lỗi HTML parsing
+
+                                $imgTags = $doc->getElementsByTagName('img');
+                                $imgSrc = null;
+                                if ($imgTags->length > 0) {
+                                    $imgSrc = $imgTags->item(0)->getAttribute('src');
+                                }
+                            @endphp
+                            <swiper-slide class="post_slider post__slider--mobile col-sm-12">
+                                <div class="single-blog border col-sm-12  ">
+                                    <div class="single-blog-thumb" style="height:fit-content">
+                                        <a href="{{ route('posts.show', ['id' => $post->id]) }}">
+                                            @if ($imgSrc)
+                                                <img class="object-fit-cover " src="{{ $imgSrc }}"
+                                                    style="height: 240px" alt="{{ $post->title }}">
+                                            @endif
+                                        </a>
+                                    </div>
+                                    <div class="single-blog-content position-relative">
+                                        <div
+                                            class="post-date text-center border rounded d-flex flex-column position-absolute">
+                                            <span>{{ $post->created_at->format('d') }}</span>
+                                            <span>{{ $post->created_at->format('m') }}</span>
+                                        </div>
+                                        <div class="post-meta float-left">
+                                            <span class="author">Người Viết: {{ $post->users->name }}</span>
+                                        </div>
+                                        <h2 class="post-title float-left">
+                                            <a class="float-left " style="text-align: left"
+                                                href="{{ route('posts.show', ['id' => $post->id]) }}">{{ $post->title }}</a>
+                                        </h2>
+                                        <p class="desc-content post__description px-2 float-left">
+                                            {!! nl2br(e($post->description)) !!}
+                                        </p>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                        @endforeach
+                    </swiper-container>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

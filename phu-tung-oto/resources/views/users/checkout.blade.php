@@ -85,13 +85,15 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     <div class="your-order">
-                        <h3>ĐƠN HÀNG CỦA BẠN</h3>
+                        <h3 class="text-align-left">ĐƠN HÀNG CỦA BẠN</h3>
                         <div class="your-order-table table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="cart-product-name">SẢN PHẨM</th>
-                                        <th class="cart-product-total">TỔNG CỘNG</th>
+                                        <th class="cart-product-name text-align-left">SẢN PHẨM</th>
+                                        <th class="cart-product-name text-align-left">SỐ LƯỢNG</th>
+                                        <th class="cart-product-name text-align-left">GIÁ</th>
+                                        <th class="cart-product-total text-align-left">TỔNG CỘNG</th>
                                     </tr>
                                 </thead>
                                 @php
@@ -106,9 +108,10 @@
                                     @endphp
                                     <tbody>
                                         <tr class="cart_item">
-                                            <td class="cart-product-name">{{ $orderDetail->product->name }}<strong
-                                                    class="product-quantity">
-                                                    × {{ $totalQuantity }}</strong></td>
+                                            <td class="cart-product-name">{{ $orderDetail->product->name }}
+                                            </td>
+                                            <td class="cart-product-name" class="product-quantity">
+                                                × {{ $totalQuantity }}</td>
                                             <td class="cart-product-total text-center">
 
                                                 <span class="amount">
