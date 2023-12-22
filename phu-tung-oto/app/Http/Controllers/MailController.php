@@ -15,7 +15,24 @@ class MailController extends Controller
 {
     function sendmail()
     {
-        Mail::to('bmtck0000@gmail.com')->send(new Mail_demo());
+        $user_id = auth()->id();
+        $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
+            $query->where('users_id', $user_id);
+        })
+            // $cart = Order_details::whereHas('order')
+            ->with(['order.order_details', 'product.image_features'])
+            ->get();
+
+        $groupedCart = $cart->groupBy('product.id');
+        $order_detail = Order_details::all();
+        $order = Orders::all();
+        $users = User::all();
+        if ($groupedCart->isNotEmpty()) {
+
+            $firstProduct = $groupedCart->first();
+            $orderDetail = $firstProduct->first();
+        }
+        Mail::to($orderDetail->order->users->email)->send(new Mail_demo());
     }
     function show()
     {
@@ -23,7 +40,7 @@ class MailController extends Controller
         $cart = Order_details::whereHas('order', function ($query) use ($user_id) {
             $query->where('users_id', $user_id);
         })
-        // $cart = Order_details::whereHas('order')
+            // $cart = Order_details::whereHas('order')
             ->with(['order.order_details', 'product.image_features'])
             ->get();
 
