@@ -11,4 +11,8 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    base: 'http://phutungoto.io.vn/',
+    server: {
+        host: 'phutungoto.io.vn'
+    },
 });

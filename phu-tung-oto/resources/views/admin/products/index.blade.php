@@ -71,10 +71,8 @@
                                             <span class="checkmarks"></span>
                                         </label>
                                     </th>
-                                    <th>Số thứ tự</th>
+                                    <th>STT</th>
                                     <th>Tên sản phẩm</th>
-                                    <th>Tên danh mục</th>
-                                    <th>Tên nhà cung cấp</th>
                                     <th>Giá</th>
                                     <th>Số lượng</th>
                                     <th>Đơn vị tính</th>
@@ -98,11 +96,12 @@
                                                         alt="{{ $product->image_features[0]->alt_img }}">
                                                 @endif
                                             </a>
-                                            <a href="javascript:void(0);" style="color: #111111">{{ $product->name }}</a>
+                                            <a href="javascript:void(0);"
+                                                style="display: block; width: 200px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: #111111;">
+                                                {{ $product->name }}
+                                            </a>
                                         </td>
-                                        <td>{{ $product->category->name }}</td>
-                                        <td>{{ $product->supplier->name }}</td>
-                                        <td>{{ $product->price }}</td>
+                                        <td>{{ number_format($product->price, 2, '.', ',') }}</td>
                                         <td>{{ $product->quantity }}</td>
                                         <td>{{ $product->unit }}</td>
 

@@ -43,7 +43,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 require __DIR__ . '/auth.php';
 
 /*
@@ -179,5 +178,7 @@ Route::prefix('cart')->middleware('auth')->name('cart.')->group(function () {
     Route::post('update', [CartController::class, 'updateCartItem'])->name('update');
 });
 
+
 Route::get('invoice', [MailController::class, 'show'])->name('show');
 Route::get('demo/sendmail', [MailController::class, 'sendmail']);
+
