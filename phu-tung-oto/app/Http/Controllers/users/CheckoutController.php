@@ -113,4 +113,9 @@ class CheckoutController extends Controller
 
         return redirect()->route('checkout.list')->with('error', 'Không có chi tiết đơn hàng');
     }
+
+    public function confirm_mail(Request $request)
+    {
+        $id = $request->session()->get('checkout_order_id');
+    }
 }

@@ -2144,7 +2144,7 @@ button,
 }
 
 .latest-blog-area .single-blog {
-    padding: 0 15px;
+    padding-bottom: 16px;
 }
 
 .latest-blog-area .section-content {
@@ -2186,6 +2186,7 @@ button,
     left: 0px;
     top: 25px;
     padding: 10px;
+    margin-left: 1rem;
 }
 
 @media (max-width: 479px) {
