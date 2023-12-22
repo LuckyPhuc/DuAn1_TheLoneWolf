@@ -315,9 +315,7 @@
                             <tbody>
                                 <tr>
                                     <td style="padding:15px 10px;text-align:center">
-                                        <p style="margin:0px 0;font:12px tahoma;color:#ed1b24;font-weight:700">Nội dung
-                                            chuyển khoản
-                                            ghi: mã đơn hàng ( ví dụ 09092929) + tên của quý khách</p>
+                                        <p style="margin:0px 0;font:12px tahoma;color:#ed1b24;font-weight:700"></p>
                                     </td>
                                 </tr>
                             </tbody>
