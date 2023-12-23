@@ -93,7 +93,6 @@
                                         <th class="cart-product-name text-align-left">SẢN PHẨM</th>
                                         <th class="cart-product-name text-align-left">SỐ LƯỢNG</th>
                                         <th class="cart-product-name text-align-left">GIÁ</th>
-                                        <th class="cart-product-total text-align-left">TỔNG CỘNG</th>
                                     </tr>
                                 </thead>
                                 @php
@@ -108,7 +107,8 @@
                                     @endphp
                                     <tbody>
                                         <tr class="cart_item">
-                                            <td class="cart-product-name">{{ $orderDetail->product->name }}
+                                            <td class="cart-product-name">
+                                                {{ \Illuminate\Support\Str::limit($orderDetail->product->name, $limit = 20, $end = '...') }}
                                             </td>
                                             <td class="cart-product-name" class="product-quantity">
                                                 × {{ $totalQuantity }}</td>
